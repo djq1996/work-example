@@ -361,7 +361,7 @@ a:active
 
 .mui-bar-nav ~ .mui-content
 {
-    padding-top: 65px;
+    padding-top: 44px;
 }
 .mui-bar-nav ~ .mui-content.mui-scroll-wrapper .mui-scrollbar-vertical
 {
@@ -1525,8 +1525,7 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
     z-index: 10;
     right: 0;
     left: 0;
-	padding-top:20px;
-    height: 65px;
+    height: 44px;
     padding-right: 10px;
     padding-left: 10px;
 
