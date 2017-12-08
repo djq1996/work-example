@@ -112,7 +112,7 @@ $('#person-house').on('click', function() {
 				zz - (zz * 0.12) - (parseFloat($taxPrice.val()) * .1) -
 				parseFloat($interest.val())) * .2)));
 		} else if($b.attr('data-type') == 3) {
-			$('.tax3').text('');
+			$('.tax3').text('0.0000');
 		};
 		/*契税*/
 		if($d.attr('data-type') == 1) {

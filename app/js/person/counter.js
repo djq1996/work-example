@@ -185,7 +185,7 @@ $('#person-house').on('tap',function() {
 											- zz-(zz * 0.12)-(parseFloat($taxPrice.val())*.1)
 											-parseFloat($interest.val()))*.2)));
 		}else if($b.attr('data-type') == 3){
-			$('input[name=tax3]').val('');
+			$('input[name=tax3]').val('0.0000');
 		};
 		/*契税*/
 		if($d.attr('data-type') == 1) {
