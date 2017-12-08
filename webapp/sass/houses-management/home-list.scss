@@ -1,0 +1,84 @@
+/*-------------------导入reset------------*/
+@import '../reset';
+
+.m-content{
+    padding: 10px;
+    background:$commonBgColor;
+    .form-inline{
+        padding-right: 20px;
+    }
+    .m-tab{
+        background: #fff;
+        overflow: hidden;
+        padding: 40px 0 30px 40px;
+        .m-tab-list{
+            margin:10px 0 12px;
+            border-bottom: 1px solid #eeeeee;
+            li{
+                background: url(../../img/hoses/bg-tab.png);
+                background-size:100% 100%;
+                float: left;
+                a{
+                    display: block;
+                    padding: 0 30px 0 20px;
+                    height: 30px;
+//                  text-indent: 15px;
+                    line-height: 30px;
+                    color: $commonTextColor;
+                }
+            }
+            li.active{
+                a{
+                    color: #fff;
+                }
+                    background: url(../../img/hoses/bg-tab-active.png);
+                    background-size:100% 100%;
+            }
+        }
+    }
+    .m-body{
+        .m-item{
+            background: #fff;
+            min-height: 400px;
+            padding: 0 0 100px 50px;
+            display: none;
+            .search-all{
+                width: 500px;
+                float: left;
+            }
+            .m-result{
+                margin-left: 500px;
+            }
+            h4.title{
+                color: #999;
+                margin-bottom: 10px;
+            }
+            button{
+                display: block;
+                margin: 30px auto;
+                height: 35px;
+                width: 160px;
+            }
+            
+        }
+    }
+}
+.m-echo{
+    height: 40px;
+    line-height: 40px;
+    label{
+        display: block;
+        width: 100px;
+        float: left;
+    }
+    div{
+        color: #2196f3;
+        margin-left: 100px;
+    }
+}
+.search-all{
+    padding-top: 0;
+}
+.form-inline .select-cont .select-option, .form-inline .serach-input .select-option{
+    width: 300px;
+}

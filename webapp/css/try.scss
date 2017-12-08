@@ -1,0 +1,93 @@
+/*---------------------scss 演示-------------------------*/
+
+/*-------------------变量*/
+$bg-color: #333;
+$highlight-color: #F90;
+.aaa {
+  $width: 100%;/*局部变量*/
+  $w10:10px;
+  margin:$w10 auto;
+  text-align: center;
+  width: $width;
+  color: $bg-color;
+}
+/*-------------------混合*/
+@mixin no-bullets {
+  list-style: none;
+  li {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0px;
+  }
+}
+ul.plain {
+  color: #444;
+  @include no-bullets;
+}
+
+/*-------------------传参*/
+@mixin link-colors($normal, $hover, $visited) {
+  color: $normal;
+  &:hover { color: $hover; }
+  &:visited { color: $visited; }
+}
+a {
+  @include link-colors(#6, red, green);
+}
+
+
+/*-------------------mixin定义一些代码片段，*/
+@mixin box-sizing ($sizing) {
+    -webkit-box-sizing:$sizing;     
+       -moz-box-sizing:$sizing;
+            box-sizing:$sizing;
+}
+
+/*多组传参*/
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow:$shadow;
+  box-shadow:$shadow;
+}
+
+@mixin center-block {
+    margin-left:auto;
+    margin-right:auto;
+}
+.box{
+  border:1px solid #ccc;
+  @include box-shadow(0 2px 2px rgba(0,0,0,.3));
+}
+.demo{
+    @include center-block;
+}
+
+
+/*-------------------扩展 继承*/
+.message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  @extend .message;
+  border-color: green;
+}
+
+.error {
+  @extend .message;
+  border-color: red;
+}
+
+/*-------------------运算*/
+.container { width: 100%; }
+
+article[role="main"] {
+  float: left;
+  width: 600px / 960px * 100%;
+}
+
+aside[role="complimentary"] {
+  float: right;
+  width: 300px / 960px * 100%;
+}

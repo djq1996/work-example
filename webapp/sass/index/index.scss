@@ -1,0 +1,596 @@
+/*-------------------导入reset------------*/
+@import '../reset';
+
+@font-face{
+    font-family: hanSanBold;
+    src: url('../..//fonts/SourceHanSansCN-Bold.ttf');
+}
+@font-face{
+    font-family: hanSanRegular;
+    src: url('../../fonts/SourceHanSansCN-Regular.ttf');
+}
+@font-face{
+    font-family: hanSanMediu;
+    src: url('../../fonts/SourceHanSansCN-Medium.ttf');
+}
+$hanSanBold:hanSanBold;
+$hanSanRegular:hanSanRegular;
+$hanSanMediu:hanSanMediu;
+
+/*nav*/
+.m-nav{
+    color: #fff;
+    height: 60px;
+    @include bg-size('../../img/index/banner.jpg');
+    font-family: $hanSanMediu;
+    .m-logo{
+        display: inline-block;
+        width: 140px;
+        float: left;
+        padding: 13px 0 0 9px;
+    }
+    .m-menu {
+        height: 60px;
+        margin:0 160px 0 190px;
+        overflow: hidden;
+        li{
+            float: left;
+            a{
+                font-size: 14px;
+                color: #fff;
+                display: block;
+                padding: 20px 13px;
+                &:hover{
+                    background: #077dd0;
+                }
+            }
+        }
+    }
+    .m-admin{
+        width: 140px;
+        float: right;
+        height: 60px;
+        font-size: 14px;
+        position: relative;
+        margin-right: 10px;
+        &:hover{
+            ol{
+                display: block;
+            }
+        }
+        div.m-name,div.m-img{
+            float: left;
+        }
+        div.m-img{
+            width: 36px;
+            height: 36px;
+            overflow: hidden;
+            margin-top: 13px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            @include border-radius(50%);
+        }
+        div.m-name{
+            margin-left: 16px;
+            a{
+                color: #fff;
+                display: block;
+                line-height: 60px;
+                padding-right: 15px;
+                @include bg-icon(right,28px,'../../img/c-icon.png')
+            }
+        }
+        ol{
+            width: 100%;
+            position: absolute;
+            z-index: 99;
+            background:#fff;
+            color:$commonTextColor;
+            top: 60px;
+            text-align: center;
+            line-height: 35px;
+            display: none;
+            @include box-shadow(0 0 15px rgba(0,0,0,.4))
+            a{
+                display: block;
+                color: #666666;
+            }
+            li a:hover{
+                color: #fff;
+                background: #6f69ed;
+            }
+        }
+        i{
+              position: absolute;
+              top:8px;
+              left: 28px;
+              display: block;
+              font-size: 12px;
+              text-align: center;
+              line-height: 14px;
+              width: 22px;
+                height: 14px;
+                background-color: #f03a57;
+                @include border-radius(7px);
+            }
+    }
+   
+}
+/*conetnt-我的业务，完成量，工具公用代码*/
+.m-section{
+    margin: 10px 0 0 10px;
+    width: 32.5%;
+    padding: 0 0 18px;
+    float: left;
+    background: #fff;
+    min-height: 270px;
+     p.m-border{
+        height: 2px;
+        margin-bottom: 18px;
+        @include bg-size('../../img/index/bottom_line.jpg');
+    }
+    h3.title{
+        font-family: $hanSanBold;
+        font-size: 16px;
+        font-weight: bold;
+        color: #0f81e5;
+        padding: 0 20px;
+         i{
+            display:inline-block;
+            width: 25px;
+            height: 18px;
+            margin-right: 5px;
+            vertical-align: -3px;
+        }
+    }
+    
+}
+/*签约---文件的公用代码*/
+.m-artical{
+    margin: 10px 0 0 10px;
+    width: 32.5%;
+    min-height: 410px;
+    padding: 0 0 18px;
+    float: left;
+    background: #fff;
+    h3.title{
+      font-family: $hanSanBold;
+      font-weight: bold;
+      color: #5a6873;
+      font-size: 16px;
+      padding: 15px 0 15px 18px;
+      position: relative;
+      border-bottom: 1px solid $commonBgColor;
+      i{
+          position: absolute;
+          display: block;
+          width: 2px;
+          height: 16px;
+          top: 50%;
+          margin-top: -8px;
+          left: 0;
+          background: #99a6b0;
+      }
+    }
+}
+
+.m-content{
+    background:$commonBgColor ;
+    overflow: hidden;
+    
+    .m-business{
+        @extend .m-section;
+        h3.title{
+            i{
+                @include bg-icon(-407px,-415px,'../../img/c-icon.png')
+            }
+        }
+        ul{
+            padding: 25px 20px;
+            overflow: hidden;
+            li{
+                width: 74px;
+                height: 74px;
+                float: left;
+                text-align: center;
+                padding-top: 15px;
+                p{
+                   color: #0f81e5;
+                   font-size: 22px;
+                   font-family: helvetica;
+                   font-weight: bold;
+                }
+                label{
+                    color: #717171;
+                    font-size: 12px;
+                }
+                &:hover,&.active{
+                    cursor: pointer;
+                    background: $commonBgColor;
+                }
+            }
+        }
+    }
+    /*conetnt-完成量统计*/
+    .m-statistics{
+        @extend .m-section;
+         h3.title{
+            i{
+               @include bg-icon(-447px,-415px,'../../img/c-icon.png')
+            }
+        }
+        ul{
+            padding: 35px 20px 20px;
+            li{
+                width: 98px;
+                height: 70px;
+                float: left;
+                span{
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    float: left;
+                    font-family: impact;
+                    font-size: 16px;
+                    line-height: 30px;
+                    text-align: center;
+                    color:#6faee6;
+                    @include border-radius(50%);
+                    border:#6faee6 1px solid;
+                    margin-top: 4px;
+                }
+                div{
+                    margin-left: 36px;
+                    label{
+                        font-size: 12px;
+                        color: #717171;
+                        cursor: pointer;
+                    }
+                    p{
+                        font-family: arial;
+                        font-size: 14px;
+                        padding-top: 3px;
+                    }
+                }
+                &:hover,&.active{
+                    cursor: pointer;
+                    div{
+                        label,p{
+                            color: #0f81e5;;
+                        } 
+                    }
+                    span{
+                        background: #6faee6;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    /*conetnt-工具*/
+    .m-operation{
+        @extend .m-section;
+        h3.title{
+            i{
+                @include bg-icon(-483px,-415px,'../../img/c-icon.png')
+            }
+        }
+        ul{
+            padding: 20px 16px;
+           li{
+               width: 200px;
+               height: 84px;
+               float: left;
+               padding: 21px 28px;
+               position: relative;
+               a{
+                   display: block;
+                   width: 44px;
+                   height: 44px;
+                   float: left;
+               }
+               .bg-qr-code{
+                   width: 125px;
+                   height: 120px;
+                   position: absolute;
+                   left: -170px;
+                   top: -40px;
+                   padding: 15px;
+                   display: none;
+                   @include bg-size('../../img/index/code-bg.png');
+                   img{
+                       width: 100%;
+                   }
+               }
+               a.m-address-book{
+                   @include bg-icon(-138px,-113px,'../../img/c-icon.png')
+               }
+               a.m-calculators{
+                   @include bg-icon(-212px,-113px,'../../img/c-icon.png')
+               }
+               a.m-qr-code{
+                   @include bg-icon(-284px,-113px,'../../img/c-icon.png')
+               }
+               a.m-house-calculators{
+                   @include bg-icon(-356px,-113px,'../../img/c-icon.png')
+               }
+                div{
+                   margin-left: 56px;
+                   h4{
+                   }
+                   p{
+                       font-size: 12px;
+                       padding-top: 10px;
+                       color: #717171;
+                   }
+               }
+           }
+           li:hover{
+               background: $commonBgColor;
+               .bg-qr-code{
+                   display: block;
+               }
+           }
+        }
+    }
+   
+   /*conetnt-签约战报*/
+    .m-sign-up{
+        @extend .m-artical;
+        .m-sign-detail{
+            padding: 20px;
+            .m-box{
+                overflow: hidden;
+                .m-sign-img{
+                    width: 100px;
+                    height: 98px;
+                    position: relative;
+                    float: left;
+                    i{
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        background: #da6f7d;
+                        color: #fff;
+                        padding: 2px;
+                    }
+                    img{
+                        width: 100%;
+                    }
+                }
+                .m-sign-info{
+                    margin-left: 120px;
+                    .m-home-title{
+                        font-family: $hanSanRegular;
+                        font-size: 16px;
+                    }
+                    .m-home-text{
+                        color: #999999;
+                        font-size: 12px;
+                        line-height: 20px;
+                    }
+                    .m-home-person{
+                        padding-top: 10px;
+                        i.h,i.c{
+                            display: inline-block;
+                            width: 20px;
+                            height: 20px;
+                            color: #fff;
+                            margin-right: 10px;
+                            @include border-radius(50%);
+                            text-align: center;
+                        }
+                        i.h{
+                            background: #ea5c5b;
+                        }
+                        i.c{
+                            background: #5b66e3;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+            .m-money-data{
+                .m-key-value{
+                    display: inline-block;
+                    font-family: $hanSanMediu;
+                    padding: 13px 0 23px;
+                    min-width: 150px;
+                    color: #666666;
+                    .m-key{
+                        float: left;
+                    }
+                    .m-value{
+                        margin-left: 78px;
+                       
+                    }
+                    .m-strong{
+                        color: #d02a40;
+                     }
+                }
+            }
+            .m-share{
+                h4{
+                    color: $commonTextColor;
+                    padding-bottom: 5px;
+                }
+                p{
+                    color: #666666;
+                    font-size: 12px;
+                    line-height: 21px;
+                    span{
+                        color: #108ce8;
+                        padding: 0 8px;
+                        i{
+                            display: inline-block;
+                            width:11px;
+                            height: 7px;
+                            margin-left: 3px;
+                            @include bg-icon(-20px,-484px,'../../img/c-icon.png')
+                        }
+                    }
+                }
+            }
+        }
+    }
+   /*conetnt-公司排名*/
+  .m-company-ranking{
+      @extend .m-artical;
+      .m-company-info{
+          padding: 18px 38px;
+          .m-ranking-list{
+              overflow: hidden;
+              li{
+                  float: left;
+                  width: 32.5%;
+                  text-align: center;
+                  .m-head-img{
+                      width: 76px;
+                      height: 76px;
+                      overflow: hidden;
+                      @include border-radius(50%);
+                      margin: 0 auto;
+                      position: relative;
+                      img{
+                          width: 100%;
+                          height: 100%;
+                      }
+                      i{
+                          position: absolute;
+                          bottom: 0;
+                          display: block;
+                          width: 100%;
+                          height: 17px;
+                          color: #fff;
+                      }
+                      i.m-red{
+                          background: #f22d66;
+                      }
+                      i.m-blue{
+                          background: #18c2b2;
+                      }
+                      i.m-green{
+                          background: #36bbde;
+                      }
+                  }
+                  .m-company-title{
+                      padding: 13px 0 7px;
+                  }
+                  .m-money{
+                      font-family: $hanSanMediu;
+                      color: #3a3a3a;
+                  }
+                  
+              }
+          }
+          .m-table{
+              width: 100%;
+              margin-top: 25px;
+              td{
+                  padding-top: 12px;
+              }
+              i.m-num{
+                  display: block;
+                  width: 16px;
+                  height: 16px;
+                  background: #9da4b3;
+                  @include border-radius(3px);
+                  color: #fff;
+                  text-align: center;
+                  font-size: 12px;
+              }
+          }
+      }
+  }
+   /*conetnt-团队排名*/
+    .m-team-ranking{
+        @extend .m-company-ranking;
+    }
+   /*conetnt-行业头条*/
+   .m-hangye{
+      @extend .m-artical;
+      h3{
+          
+          .m-more{
+              float: right;
+              padding-right: 30px;
+              color: #999;
+              @include link-colors($commonTextColor,$commonBgColorBlue,$commonTextColorLabel)
+              span{
+                  display: inline-block;
+                  width: 6px;
+                  height: 12px;
+                  margin-left: 10px;
+                  @include bg-icon(-48px,-480px,'../../img/c-icon.png')
+              }
+          }
+      }
+      ul{
+          padding: 20px 20px 20px 40px;
+          li{
+              color: #666666;
+              line-height: 30px;
+              list-style-type:disc;
+              a{
+                  @include link-colors($commonTextColor,$commonBgColorBlue,$commonTextColorLabel)
+              }
+          }
+      }
+   }
+   /*conetnt-OA公告*/
+  .m-notice{
+      @extend .m-hangye
+  }
+   /*conetnt-文件*/
+  .m-file{
+      @extend .m-hangye;
+      ul{
+        li{
+            a.m-download{
+                float: right;
+                color: $commonColor;
+            }
+        }  
+      }
+  }
+}
+ 
+/*footer*/
+.m-footer{
+    padding: 20px 10px 26px;
+    .m-qr-code{
+        float: left;
+        
+        a{
+            float: left;
+            display: block;
+            width: 38px;
+            height: 38px;
+            img{
+                width: 100%;
+            }
+        }
+        div{
+            margin-left: 50px;
+            color: #999;
+        }
+    }
+    .m-qusetion{
+        float: right;
+        width: 99px;
+        height: 35px;
+        @include bg-icon(right,-458px,'../../img/c-icon.png');
+        color: #fff;
+        line-height: 35px;
+        text-indent: 35px;
+    }
+    .m-version{
+        margin: 0 150px;
+        text-align: center;
+        color:#999;
+    }
+}
+
+

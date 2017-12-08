@@ -1,0 +1,656 @@
+@charset "UTF-8";
+/*-------------------导入reset------------*/
+/*------------------------------------------------common css*/
+/*背景*/
+/*文字*/
+@font-face {
+  font-family: hanSanRegular;
+  src: url("../../fonts/SourceHanSansCN-Regular.ttf"); }
+
+html {
+  font-family: "微软雅黑";
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+h1, h2, h3, h4, h5, h6, p {
+  font-weight: inherit;
+  margin: 0; }
+
+ul, ol {
+  margin: 0;
+  padding: 0; }
+
+ul li, ol li {
+  list-style: none; }
+
+[hidden],
+template {
+  display: none; }
+
+a {
+  background: 0 0; }
+
+a:active,
+a:hover {
+  outline: 0; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b,
+strong {
+  font-weight: 700; }
+
+dfn {
+  font-style: italic; }
+
+h1 {
+  margin: .67em 0; }
+
+mark {
+  color: #000;
+  background: #ff0; }
+
+small {
+  font-size: 80%; }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -.5em; }
+
+sub {
+  bottom: -.25em; }
+
+img {
+  border: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 1em 40px; }
+
+hr {
+  box-sizing: content-box;
+  height: 0; }
+
+pre {
+  overflow: auto; }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+  margin: 0;
+  color: inherit; }
+
+button {
+  overflow: visible; }
+
+button,
+select {
+  text-transform: none; }
+
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+  cursor: pointer;
+  -webkit-appearance: button; }
+
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+input {
+  line-height: normal; }
+
+input[type=checkbox],
+input[type=radio] {
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  height: auto; }
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+fieldset {
+  margin: 0 2px;
+  padding: .35em .625em .75em;
+  border: 1px solid silver; }
+
+legend {
+  padding: 0;
+  border: 0; }
+
+textarea {
+  overflow: auto; }
+
+optgroup {
+  font-weight: 700; }
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse; }
+
+td,
+th {
+  padding: 0; }
+
+i {
+  font-style: normal; }
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  background-repeat: no-repeat; }
+
+body {
+  font-family: '微软雅黑';
+  font-size: 14px;
+  color: #666666;
+  background-color: #efeff4;
+  -webkit-overflow-scrolling: touch; }
+
+a {
+  text-decoration: none; }
+
+.clearfix {
+  *zoom: 1; }
+
+.clearfix:after {
+  content: ".";
+  /*内容为“.”就是一个英文的句号而已。也可以不写。*/
+  display: block;
+  /*加入的这个元素转换为块级元素。*/
+  clear: both;
+  /*清除左右两边浮动。*/
+  visibility: hidden;
+  /*可见度设为隐藏。注意它和display:none;是有区别的。visibility:hidden;仍然占据空间，只是看不到而已；*/
+  line-height: 0;
+  /*行高为0；*/
+  height: 0;
+  /*高度为0；*/
+  font-size: 0;
+  /*字体大小为0；*/ }
+
+/* scroll style*/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px; }
+
+::-webkit-scrollbar-button:vertical {
+  display: none; }
+
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-track {
+  background-color: #e2e2e2; }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.3); }
+
+::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: rgba(0, 0, 0, 0.35); }
+
+::-webkit-scrollbar-thumb:vertical:active {
+  background-color: rgba(0, 0, 0, 0.38); }
+
+/*暂无数据*/
+.m-no-data {
+  padding-top: 93px; }
+  .m-no-data div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 94px;
+    height: 94px;
+    background: url(../../img/c-icon.png) no-repeat;
+    background-position: 0 -64px; }
+  .m-no-data p {
+    text-align: center;
+    padding-top: 35px;
+    height: 14px;
+    font-family: hanSanRegular;
+    font-size: 14px;
+    line-height: 30px;
+    color: #999999; }
+
+/*
+    Common style
+*/
+.w50 {
+  width: 50px !important; }
+
+.w100 {
+  width: 100px !important; }
+
+.w300 {
+  width: 300px !important; }
+
+.pd-t10 {
+  padding-top: 10px !important; }
+
+.pd-b10 {
+  padding-bottom: 10px !important; }
+
+.mg-t10 {
+  margin-top: 10px !important; }
+
+.mg-b10 {
+  margin-bottom: 10px !important; }
+
+.mg-r10 {
+  margin-right: 10px !important; }
+
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
+/*common color*/
+.dark-blue {
+  color: #0e82e5; }
+
+.cambridge-blue {
+  color: #36bddd; }
+
+.light-green {
+  color: #17c2b2; }
+
+.light-red {
+  color: #f22d65; }
+
+/*btn bg-color*/
+.bg-dark-blue {
+  background: #0e82e5; }
+
+.bg-cambridge-blue {
+  background: #36bddd; }
+
+.bg-light-green {
+  background: #17c2b2; }
+
+.bg-light-red {
+  background: #f22d65; }
+
+/*contact crumbs*/
+.m-crumbs {
+  /*width: 100%;*/
+  height: 36px;
+  background: #fff;
+  padding: 10px 20px;
+  font-size: 12px; }
+
+.m-crumbs > ol > li {
+  float: left; }
+
+.m-crumbs .arrow-down {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+  background: url(../../img/arrow-down.jpg) no-repeat;
+  background-position: 3px 1px; }
+
+.m-crumbs > ol > li.active {
+  color: #359ceb; }
+
+/*Form Common style*/
+input[type=text], input[type=search] {
+  width: 150px;
+  height: 30px;
+  padding: 5px 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px; }
+
+button {
+  height: 30px;
+  padding: 0 14px;
+  margin-left: 10px;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  background: fff;
+  border: none;
+  color: #fff;
+  cursor: pointer; }
+
+.form-inline {
+  display: inline-block;
+  padding-right: 60px; }
+
+.form-inline .input-title {
+  float: left;
+  line-height: 30px;
+  padding-right: 15px;
+  min-width: 70px; }
+
+.form-inline .input-cont {
+  float: left; }
+
+.form-inline .select-cont, .form-inline .serach-input {
+  float: left;
+  position: relative; }
+
+.form-inline .select-cont .select-option,
+.form-inline .serach-input .select-option {
+  width: 150px;
+  border-radius: 2px;
+  border: 1px solid #d3d3d3;
+  position: absolute;
+  z-index: 3;
+  top: 33px;
+  left: 0;
+  background: #fff;
+  display: none; }
+
+.form-inline .serach-input .select-option {
+  width: 300px; }
+
+.form-inline .select-cont .select-option > li,
+.form-inline .serach-input .select-option > li {
+  color: #666;
+  padding: 8px; }
+
+.form-inline .select-cont .select-option > li:hover,
+.form-inline .serach-input .select-option > li:hover {
+  background: #e6e7eb;
+  cursor: pointer; }
+
+.select-cont input {
+  cursor: pointer; }
+
+.form-inline .select-cont > i.option {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: 6px;
+  top: 10px;
+  background: url(../../img/arrow-down.jpg) no-repeat;
+  background-position: -12px 0; }
+
+.input-date {
+  position: relative; }
+
+.input-date i.date {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  position: absolute;
+  right: 6px;
+  top: 5px;
+  background: url(../../img/arrow-down.jpg) no-repeat;
+  background-position: -40px 0; }
+
+.btn-sm, .input-sm {
+  height: 24px !important;
+  font-size: 12px; }
+
+/* page 分页 style */
+/* footer*/
+.footer {
+  background: #fff;
+  padding: 20px 0; }
+
+.page {
+  width: 700px;
+  margin: 0 auto;
+  font-size: 14px; }
+
+.page a {
+  color: #666666;
+  display: inline-block;
+  text-decoration: none; }
+
+.page .page-up,
+.page .page-down {
+  margin: 0 10px 0 20px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  background: #fff;
+  color: #999;
+  text-align: center; }
+
+.page .page-up:hover,
+.page .page-down:hover {
+  color: #fff;
+  background: #0e82e5; }
+
+.page .start:hover,
+.page .end:hover {
+  color: #0e82e5; }
+
+.page .end {
+  margin-right: 30px; }
+
+.page .page-number a {
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 24px;
+  margin-left: 4px; }
+
+.page .page-number a.active,
+.page .page-number a:hover {
+  background: #0e82e5;
+  color: #fff; }
+
+.page button {
+  margin-left: 10px; }
+
+/*contact serach-all*/
+.search-all {
+  padding: 20px;
+  background: #fff;
+  font-size: 14px; }
+
+.search-all input,
+.search-all button,
+.search-all li {
+  font-size: 14px; }
+
+/*operation*/
+.operation {
+  padding: 20px;
+  background: #fff; }
+
+/*table content*/
+.table-cont {
+  background: #fff;
+  overflow: auto;
+  font-family: hanSanRegular; }
+
+.table-common {
+  width: 100%;
+  /*border: 1px solid #ddd;*/ }
+
+.table-common thead th {
+  padding: 7px 10px;
+  background: #cacfd7;
+  color: #333; }
+
+.table-common tbody td {
+  padding: 7px 10px;
+  color: #666; }
+
+.table-common tbody td {
+  border-bottom: 1px solid #e6e6e6;
+  text-align: center; }
+
+.table-common tbody td a {
+  color: #0e82e5; }
+
+.table-common tbody tr:hover {
+  background: #f2f3f5; }
+
+.m-body {
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  /*.m-crumbs*/
+  /*内容区*/ }
+  .m-body .m-crumbs {
+    height: 36px;
+    background: #fff;
+    font-size: 12px;
+    margin-bottom: 10px;
+    padding: 0; }
+    .m-body .m-crumbs ol {
+      list-style: none;
+      padding-left: 15px; }
+      .m-body .m-crumbs ol li {
+        display: inline-block;
+        line-height: 36px;
+        color: #8d8d8d; }
+        .m-body .m-crumbs ol li .m-arrow {
+          display: inline-block;
+          vertical-align: middle;
+          width: 15px;
+          height: 15px;
+          background: url(../../img/housesDictionaries/arrow-down.jpg);
+          background-position: 3px 1px; }
+  .m-body .m-message {
+    background: #fff;
+    padding: 10px;
+    /*内容标题*/ }
+    .m-body .m-message .messTit ul {
+      border-bottom: 1px solid #e9e9e9; }
+      .m-body .m-message .messTit ul li {
+        cursor: pointer;
+        width: 107px;
+        height: 30px;
+        padding: 5px;
+        font-size: 14px;
+        color: #969696;
+        margin-left: 5px;
+        display: inline-block;
+        text-align: center;
+        background: url(../../img/housesDictionaries/radius2.jpg) no-repeat; }
+        .m-body .m-message .messTit ul li.m-active {
+          background: url(../../img/housesDictionaries/radius.jpg) no-repeat; }
+          .m-body .m-message .messTit ul li.m-active a {
+            color: #fff; }
+        .m-body .m-message .messTit ul li a {
+          color: #969696; }
+  .m-body .messBox {
+    font-size: 14px;
+    background: #fff;
+    padding: 15px; }
+    .m-body .messBox .imgTab {
+      width: 110px;
+      display: inline-block; }
+      .m-body .messBox .imgTab ul {
+        text-align: center;
+        background: #f2f3f5; }
+        .m-body .messBox .imgTab ul li {
+          height: 70px;
+          line-height: 70px; }
+          .m-body .messBox .imgTab ul li.imgTabActive {
+            background: #f9fcff;
+            border-left: 3px solid #148ce6; }
+    .m-body .messBox .bg-box {
+      display: inline-block;
+      position: relative;
+      width: 800px;
+      height: 100%;
+      text-align: center;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif; }
+      .m-body .messBox .bg-box .swiper-container {
+        width: 100%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto; }
+        .m-body .messBox .bg-box .swiper-container .swiper-slide {
+          color: #fff;
+          position: relative; }
+          .m-body .messBox .bg-box .swiper-container .swiper-slide img {
+            width: 55%;
+            height: 100%; }
+          .m-body .messBox .bg-box .swiper-container .swiper-slide p {
+            position: absolute;
+            bottom: 0;
+            left: 45%;
+            font-size: 16px; }
+      .m-body .messBox .bg-box .gallery-top {
+        height: 80%;
+        width: 100%; }
+        .m-body .messBox .bg-box .gallery-top .swiper-button-next, .m-body .messBox .bg-box .gallery-top .swiper-button-prev {
+          left: 580px;
+          width: 30px;
+          height: 30px; }
+        .m-body .messBox .bg-box .gallery-top .swiper-button-prev {
+          left: 190px; }
+      .m-body .messBox .bg-box .gallery-thumbs {
+        height: 20%;
+        box-sizing: border-box;
+        padding: 10px 0; }
+        .m-body .messBox .bg-box .gallery-thumbs .swiper-slide {
+          width: 100px;
+          height: 100%; }
+    .m-body .messBox .handleBtn {
+      margin: 20px 350px; }
+      .m-body .messBox .handleBtn button {
+        background: #148ce6;
+        border: 0;
+        color: #fff;
+        border-radius: 3px;
+        padding: 5px 10px;
+        font-size: 12px;
+        margin-right: 10px; }

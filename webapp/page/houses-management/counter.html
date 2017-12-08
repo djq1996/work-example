@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+		<title>hello boss</title>
+		<link rel="stylesheet" type="text/css" href="../../lib/iCheck/blue.css" />
+		<!--css-->
+		<link rel="stylesheet" type="text/css" href="../../css/houses-management/home-list.css" />
+	</head>
+
+	<body>
+
+		<div class="m-content">
+			<!--content table-->
+			<div class="m-tab clearfix">
+				<ul class="m-tab-list clearfix">
+					<li class="active">
+						<a href="javascript:;">个人住宅税费计算</a>
+					</li>
+					<li>
+						<a href="javascript:;">个人商业税费计算</a>
+					</li>
+					<li>
+						<a href="javascript:;">公司出售税费计算</a>
+					</li>
+				</ul>
+			</div>
+			<!--input box-->
+			<div class="m-body">
+				<div class="m-item clearfix" style="display: block;">
+					<div class="search-all mg-b10">
+						<div class="pd-b10">
+							<div class="form-inline">
+								<label for="" class="input-title">计税价</label>
+								<div class="select-cont mg-r10">
+									<input type="text" class="w300" name="taxPrice" id="" value="320" placeholder="" />
+								</div>
+							</div>
+						</div>
+						<div class="pd-b10">
+							<div class="form-inline">
+								<label for="" class="input-title">原值</label>
+								<div class="select-cont mg-r10">
+									<input type="text" class="w300" name="originalValue" id="" value="80.4" placeholder="" />
+								</div>
+							</div>
+						</div>
+						<div class="pd-b10">
+							<div class="form-inline">
+								<label for="" class="input-title">原契税</label>
+								<div class="select-cont mg-r10">
+									<input type="text" class="w300" name="originalTax" id="" value="1.2" placeholder="" />
+								</div>
+							</div>
+						</div>
+						<div class="pd-b10">
+							<div class="form-inline">
+								<label for="" class="input-title">利息</label>
+								<div class="select-cont mg-r10">
+									<input type="text" class="w300" name="interest" id="" value="0" placeholder="" />
+								</div>
+							</div>
+						</div>
+						<div class="pd-b10">
+							<div class="form-inline">
+								<label class="input-title">增值税</label>
+								<div class="select-cont mg-r10">
+									<input type="text" class="w300" name="a" id="" value="" placeholder="" readonly="" />
+									<i class="option"></i>
+									<ol class="select-option">
+										<li data-type="1">普通住宅不满两年</li>
+										<li data-type="2">普通住宅满两年</li>
+										<li data-type="3">非普通住宅不满两年</li>
+										<li data-type="4">非普通住宅满两年</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+						<h4 class="title">个税</h4>
+						<div class="pd-b10">
+							<div class="form-inline">
+								<label class="input-title">网签价</label>
+								<div class="select-cont mg-r10">
+									<input type="text" class="w300" name="b" id="" value="" placeholder="" readonly="" />
+									<i class="option"></i>
+									<ol class="select-option">
+										<li data-type="1">不满五年</li>
+										<li data-type="2">满五年不唯一</li>
+										<li data-type="3">满五年唯一</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+						<h4 class="title">契税</h4>
+						<div class="pd-b10">
+							<div class="form-inline">
+								<label class="input-title">网签价</label>
+								<div class="select-cont mg-r10">
+									<input type="text" class="w300" name="d" id="" value="" placeholder="" readonly="" />
+									<i class="option"></i>
+									<ol class="select-option">
+										<li data-type="1">90平米以下</li>
+										<li data-type="2">90平米以上</li>
+										<li data-type="3">二套</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+						<button id="person-house" class="bg-dark-blue" type="button">计算</button>
+					</div>
+					<div class="m-result">
+						<h4 class="title">计算结果（*仅供参考*）</h4>
+						<div class="m-echo">
+							<label for="">增值税</label>
+							<div class="tax1">
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">增值附加税</label>
+							<div class="tax2">
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">个税网签价</label>
+							<div class="tax3">
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">契税网签价</label>
+							<div class="tax5">
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">总价</label>
+							<div class="taxAll">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="m-item clearfix">
+					<div class="search-all mg-b10">
+						<div class="pd-b10">
+							<div class="form-inline">
+								<label for="" class="input-title">申报价</label>
+								<div class="select-cont mg-r10">
+									<input type="text" class="w300" name="businessPrice" id="" value="22180000" placeholder="" />
+								</div>
+							</div>
+						</div>
+						<div class="pd-b10">
+							<div class="form-inline">
+								<label for="" class="input-title">原值</label>
+								<div class="select-cont mg-r10">
+									<input type="text" class="w300" name="businessOriginalValue" id="" value="6408200" placeholder="" />
+								</div>
+							</div>
+						</div>
+						<div class="pd-b10">
+							<div class="form-inline">
+								<label for="" class="input-title">增值年数</label>
+								<div class="select-cont mg-r10">
+									<input type="text" class="w300" name="businessYear" id="" value="4" placeholder="" />
+								</div>
+							</div>
+						</div>
+						<button id="personBusiness" class="bg-dark-blue" type="button">计算</button>
+					</div>
+					<div class="m-result">
+						<h4 class="title">计算结果（*仅供参考*）</h4>
+						<div class="m-echo">
+							<label for="">增值税</label>
+							<div class="busiss1">
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">增值附加税</label>
+							<div class="busiss2">
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">契税</label>
+							<div class="busiss3">
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">印花税</label>
+							<div class="busiss4">
+
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">税率</label>
+							<div class="busiss5">
+
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">土地增值税</label>
+							<div class="busiss6">
+
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">个税</label>
+							<div class="busiss7">
+
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">总计</label>
+							<div class="busissAll">
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="m-item clearfix">
+					<div class="search-all mg-b10">
+						<div class="pd-b10">
+							<div class="form-inline">
+								<label for="" class="input-title">申报价</label>
+								<div class="select-cont mg-r10">
+									<input type="text" class="w300" name="companyPrice" id="" value="" placeholder="" />
+								</div>
+							</div>
+						</div>
+						<div class="pd-b10">
+							<div class="form-inline">
+								<label for="" class="input-title">原值</label>
+								<div class="select-cont mg-r10">
+									<input type="text" class="w300" name="companyOriginalValue" id="" value="" placeholder="" />
+								</div>
+							</div>
+						</div>
+						<div class="pd-b10">
+							<div class="form-inline">
+								<label for="" class="input-title">增值年数</label>
+								<div class="select-cont mg-r10">
+									<input type="text" class="w300" name="companyYear" id="" value="" placeholder="" />
+								</div>
+							</div>
+						</div>
+						<button id="btncompany" class="bg-dark-blue" type="button">计算</button>
+					</div>
+					<div class="m-result">
+						<h4 class="title">计算结果（*仅供参考*）</h4>
+						<div class="m-echo">
+							<label for="">增值税</label>
+							<div class="company1">
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">增值附加税</label>
+							<div class="company2">
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">契税</label>
+							<div class="company3">
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">印花税</label>
+							<div class="company4">
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">税率</label>
+							<div class="company5">
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">土地增值税</label>
+							<div class="company6">
+							</div>
+						</div>
+						<div class="m-echo">
+							<label for="">总计</label>
+							<div class="companyAll">
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!--公用js-->
+		<script type="text/javascript" src="../../lib/jquery.min.js"></script>
+		<script type="text/javascript" src="../../lib/layer/layer.min.js"></script>
+		<script src="../../js/commo.js"></script>
+		<script src="../../js/couter.js"></script>
+	</body>
+
+</html>

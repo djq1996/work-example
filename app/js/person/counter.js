@@ -66,9 +66,9 @@ $('#segmentedControl a').on('tap', function() {
 		/*计算方式*/
 		selectOption('a', arr1)
 		selectOption('b', arr2)
-		selectOption('c', arr2)
+//		selectOption('c', arr2)
 		selectOption('d', arr3)
-		selectOption('e', arr3)
+//		selectOption('e', arr3)
 	})
 })(mui, document);
 
@@ -81,19 +81,19 @@ $('#person-house').on('tap',function() {
 		$interest = $("input[name=interest]"), //利息
 		$a = $("input[name=a]"), //增值税
 		$b = $("input[name=b]"), //个税网签价
-		$c = $("input[name=c]"), //个税指导价高
-		$d = $("input[name=d]"), //契税网签价
-		$e = $("input[name=e]"); //契税指导价高
+//		$c = $("input[name=c]"), //个税指导价高
+		$d = $("input[name=d]"); //契税网签价
+//		$e = $("input[name=e]"); //契税指导价高
 	var tishi = '';
-	if($e.attr('data-type') == undefined) {
-		tishi = '请选择契税指导价';
-	};
+//	if($e.attr('data-type') == undefined) {
+//		tishi = '请选择契税指导价';
+//	};
 	if($d.attr('data-type') == undefined) {
 		tishi = '请选择契税网签价';
 	};
-	if($c.attr('data-type') == undefined) {
-		tishi = '请选择个税指导价';
-	};
+//	if($c.attr('data-type') == undefined) {
+//		tishi = '请选择个税指导价';
+//	};
 	if($b.attr('data-type') == undefined) {
 		tishi = '请选择个税网签价';
 	};
