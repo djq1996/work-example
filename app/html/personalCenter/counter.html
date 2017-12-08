@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>计算器</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.picker.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.poppicker.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/personalCenter/counter.css" />
+		<!--App自定义的css-->
+		<style>
+
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue" id="header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">税费计算器 </h1>
+		</header>
+		<div class="mui-content">
+			<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary">
+				<a class="mui-control-item mui-active" href="#item1">个人住宅</a>
+				<a class="mui-control-item" href="#item2">个人商业</a>
+				<a class="mui-control-item" href="#item3">公司出售商业</a>
+			</div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="">
+						<!--商业贷款-->
+						<div id="item1" class="mui-control-content  mui-active">
+							<div class="mui-input-group">
+								<div class="mui-input-row nobefore">
+									<label>网签价</label>
+									<input type="number" name="taxPrice" value="320" placeholder="请输入" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>指导价</label>
+									<input type="number" name="" value="" placeholder="请输入" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>原值</label>
+									<input type="number" name="originalValue" value="80.4" placeholder="请输入" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>原契税</label>
+									<input type="number" name="originalTax" value="1.2" placeholder="请输入" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>利息</label>
+									<input type="number" name="interest" value="0" placeholder="请输入" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row" id="a">
+									<label>增值税</label>
+									<input type="text" name="a" value="" placeholder="请选择" readonly="">
+								</div>
+								<h4 class="title">个税</h4>
+								<div class="mui-input-row" id="b">
+									<label>网签价高</label>
+									<input type="text" name="b" value="" placeholder="请选择" readonly="">
+								</div>
+								<div class="mui-input-row" id="c" >
+									<label>指导价高</label>
+									<input type="text" name="c" value="" data-type="1" placeholder="请选择" readonly="">
+								</div>
+								<h4 class="title">契税</h4>
+								<div class="mui-input-row" id="d">
+									<label>网签价高</label>
+									<input type="text" name="d" value="" placeholder="请选择" readonly="">
+								</div>
+								<div class="mui-input-row" id="e" >
+									<label>指导价高</label>
+									<input type="text" name="e" value="" data-type="1" placeholder="请选择" readonly="">
+								</div>
+							</div>
+							<div class="mui-content-padded">
+								<button id='person-house' class="mui-btn mui-btn-block mui-badge-light-blue">开始计算</button>
+							</div>
+							<div class="mui-input-group">
+								<div class="mui-input-row nobefore">
+									<label>增值税</label>
+									<input type="number" name="tax1" placeholder="" readonly="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>增值附加税</label>
+									<input type="number" name="tax2" placeholder="" readonly="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>个税网签价</label>
+									<input type="number" name="tax3" placeholder="" readonly="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>个税指导价</label> </label>
+									<input type="number" name="tax4" placeholder="" readonly="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>契税网签价</label>
+									<input type="number" name="tax5" placeholder="" readonly="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>契税指导价</label>
+									<input type="number" name="tax6" placeholder="" readonly="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>总价</label>
+									<input type="number" name="taxAll" placeholder="" readonly="" style="">
+									<span style=""></span>
+								</div>
+							</div>
+						</div>
+						<!--个人商业税费-->
+						<div id="item2" class="mui-control-content">
+							<div class="mui-input-group">
+								<div class="mui-input-row nobefore">
+									<label>申报价</label>
+									<input type="number" name="businessPrice" placeholder="请输入" value="22180000" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>原值</label>
+									<input type="number" name="businessOriginalValue" placeholder="请输入" value="6408200" style="">
+									<span style=""></span>
+								</div>
+								<!--<div class="mui-input-row nobefore">
+									<label>原契税</label>
+									<input type="number" name="businessOriginalTax" placeholder="请输入" value="6408200" style="">
+									<span style=""></span>
+								</div>-->
+								<div class="mui-input-row nobefore">
+									<label>增值年数</label>
+									<input type="number" name="businessYear" placeholder="请输入" value="4" style="">
+									<span style=""></span>
+								</div>
+							</div>
+							<div class="mui-content-padded">
+								<button id='personBusiness' class="mui-btn mui-btn-block mui-badge-light-blue">开始计算</button>
+							</div>
+							<div class="mui-input-group">
+								<div class="mui-input-row nobefore">
+									<label>增值税</label>
+									<input type="number" value="0" name="busiss1" placeholder="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>增值税附加税</label>
+									<input type="number" value="0" name="busiss2" placeholder="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>契税</label>
+									<input type="number" value="0" name="busiss3" placeholder="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>印花税</label>
+									<input type="number" value="0" name="busiss4" placeholder="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>税率</label>
+									<input type="number" value="0" name="busiss5" placeholder="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>土地增值税</label>
+									<input type="number" value="0" name="busiss6" placeholder="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>个税</label>
+									<input type="number" value="0" name="busiss7" placeholder="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>总计</label>
+									<input type="number" name="busissAll" placeholder="" style="">
+									<span style=""></span>
+								</div>
+							</div>
+						</div>
+						<!--公司出售商业税费-->
+						<div id="item3" class="mui-control-content">
+							<div class="mui-input-group">
+								<div class="mui-input-row nobefore">
+									<label>申报价</label>
+									<input type="number" name="companyPrice" placeholder="请输入" value="21000" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>原值</label>
+									<input type="number" name="companyOriginalValue" placeholder="请输入" value="3100" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>增值年数</label>
+									<input type="number" name="companyYear" placeholder="请输入" value="3" style="">
+									<span style=""></span>
+								</div>
+							</div>
+							<div class="mui-content-padded">
+								<button id='btncompany' class="mui-btn mui-btn-block mui-badge-light-blue">开始计算</button>
+							</div>
+							<div class="mui-input-group">
+								<div class="mui-input-row nobefore">
+									<label>增值税</label>
+									<input type="number" value="0" name="company1" placeholder="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>增值税附加税</label>
+									<input type="number" value="0" name="company2" placeholder="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>契税</label>
+									<input type="number" value="0" name="company3" placeholder="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>印花税</label>
+									<input type="number" value="0" name="company4" placeholder="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>税率</label>
+									<input type="number" value="0" name="company5" placeholder="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>土地增值税</label>
+									<input type="number" value="0" name="company6" placeholder="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>总计</label>
+									<input type="number" name="companyAll" placeholder="" style="">
+									<span style=""></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<!--<script src="../../js/common.js"></script>-->
+		<script src="../../js/mui.picker.min.js"></script>
+		<script src="../../js/mui.poppicker.js"></script>
+		<script src="../../js/person/counter.js"></script>
+	</body>
+
+</html>
