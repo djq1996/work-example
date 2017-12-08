@@ -209,14 +209,10 @@ $("#personBusiness").on('tap',function(){
 	
 	var $businessPrice = $("input[name=businessPrice]"), //申报价
 		$businessOriginalValue = $("input[name=businessOriginalValue]"), //原值
-		$businessOriginalTax = $("input[name=businessOriginalTax]"), //原契税
 		$businessYear = $("input[name=businessYear]"); //年数
 	var tishi = '';
 	if($businessYear.val() == '') {
 		tishi = '增值年数';
-	};
-	if($businessOriginalTax.val() == '') {
-		tishi = '请填写原契税';
 	};
 	if($businessOriginalValue.val() == '') {
 		tishi = '请填写原值';
