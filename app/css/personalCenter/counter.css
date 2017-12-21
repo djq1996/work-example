@@ -2,7 +2,10 @@
 	font-size: .65rem;
 	color: #777;
 }
-
+.mui-title img{
+	width: 40px;
+	vertical-align: middle;
+}
 h4.title {
 	height: 30px;
 	background: #efeff4;
@@ -47,7 +50,7 @@ h4.title {
 }
 
 .mui-badge-light-blue {
-	color: #fff;
+	/*color: #fff;*/
 }
 
 .mui-content button {

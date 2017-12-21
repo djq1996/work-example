@@ -3,11 +3,14 @@
  * Mui v3.7.0 (http://dev.dcloud.net.cn/mui)
  * =====================================================
  */
-.mui-bar .mui-title,
+/*.mui-bar .mui-title,
 .mui-bar a,
 .mui-bar button {
 	color: #fff ;
-}
+}*/
+/*.mui-badge-light-blue{
+	background: #35b5e9;
+}*/
 .mui-content,.mui-content input{
 	font-size: 12px;
 }
@@ -5661,7 +5664,4 @@ body > .mui-progressbar
     height: 100%;
 
     border: 0;
-}
-.mui-badge-light-blue{
-	background: #35b5e9;
 }
