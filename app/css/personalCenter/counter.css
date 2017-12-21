@@ -4,7 +4,8 @@
 }
 .mui-title img{
 	width: 40px;
-	vertical-align: middle;
+	vertical-align: -6px;
+	margin-right: 6px;
 }
 h4.title {
 	height: 30px;
@@ -88,7 +89,7 @@ h4.title {
 }
 
 .mui-scroll-wrapper {
-	top: 85px;
+	top: 84px;
 	padding-bottom: 30px;
 }
 
