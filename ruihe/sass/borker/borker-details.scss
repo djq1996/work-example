@@ -1,0 +1,307 @@
+@import '../reset';
+//header{
+//  &.mui-badge-light-blue{
+//      background: $commoBg;
+//  }
+//}
+.mui-content{
+    .mui-scroll-wrapper{
+        margin-top: 44px;
+        background: #f1f1f1;
+        .mui-scroll{
+            .m-borker{
+                /*头部信息*/
+                .userHead{
+                    background: #fff;
+                    margin-bottom: 10px;
+                    /*头像及信息*/
+                    .userMeaages{
+                        padding: 15px;
+                        border-bottom: 1px solid $commoBorderTint;
+                        .mui-row{
+                            .mui-col-xs-9{
+                                .userImg{
+                                    display: inline-block;
+                                    width: 45px;
+                                    height: 45px;
+                                    margin-right: 10px;
+                                    img{
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                }
+                                .uaerName{
+                                    display: inline-block;
+                                    div{
+                                        &.names{
+                                            font-size: 15px;
+                                            color: #333;
+                                            span{
+                                                font-size: 12px;
+                                            }  
+                                        }
+                                        label{
+                                            color: $commoTextLabel;
+                                        }
+                                        span{
+                                            color:#333 ;
+                                        }
+                                    }
+                                }
+                            }
+                            .mui-col-xs-3{
+                                text-align: center;
+                                margin-top: 10px;
+                                border-left: 1px solid $commoBorderTint;
+                                div{
+                                    color: $commoBg;
+                                    font-size: 18px;
+                                    font-weight: bold;
+                                    margin-bottom:5px;
+                                }
+                                span{
+                                    color: #333;
+                                }
+                            }
+                        }
+                    }
+                    /*历史成交那三个数*/
+                    .number{
+                        padding: 10px 15px;
+                        border-bottom: 1px solid $commoBorderTint;
+                        .mui-row{
+                            text-align: center;
+                            .mui-col-xs-4{
+                                div{
+                                    color: #333;
+                                    font-size: 18px;
+                                    margin-bottom: 5px;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                    }
+                    /*标签*/
+                    .tag{
+                        padding: 10px 15px;
+                    }
+                }
+                /*用户评价*/
+                .evaluate{
+                    margin-bottom: 10px;
+                    background: #fff;
+                    h3{
+                        padding: 10px 15px;
+                        font-size: 14px;
+                        color: #333;
+                        font-weight: bold;
+                        border-bottom: 1px solid $commoBorderTint;
+                    }
+                    .evaluateList{
+                        padding: 10px 15px;
+                        .evluateLi{
+                            border-bottom: 1px solid #eee;
+                            padding: 10px 0;
+                            .mui-row{
+                                .mui-col-xs-4{
+                                    margin-top: 15px;
+                                    margin-right: 10px;
+                                    width: 40px;
+                                    height: 40px;
+                                    img{
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                }
+                                .mui-col-xs-8{
+                                    div{
+                                        &.tel{
+                                            font-size: 14px;
+                                            font-weight: bold;
+                                            color: #333;
+                                            span{
+                                                font-size: 12px;
+                                                color: $commoTextLabel;
+                                            }
+                                        }
+                                        &.stars{
+                                            label{
+                                                color: $commoTextLabel;
+                                            }
+                                            span{
+                                                color: $commoTextLabel;
+                                                &.mui_star_active{
+                                                    color: #F4B127;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .evaluateTime{
+                                margin-top: 10px;
+                                text-align: right;
+                            }
+                        }
+                    }
+                }
+                /*成交的房源*/
+                .dealHouse{
+                    margin-bottom: 10px;
+                    background: #fff;
+                    h3{
+                        padding: 10px 15px;
+                        font-size: 14px;
+                        color: #333;
+                        font-weight: bold;
+                        border-bottom: 1px solid $commoBorderTint;
+                    }
+                    .borkerDeal{
+                        padding:10px 15px;
+                        .dealLi{
+                            position: relative;
+                            padding: 10px 0;
+                            border-bottom: 1px solid #eee;
+                            .mui-row{
+                                width: 100%;
+                                .mui-col-xs-4{
+                                    width:100px;
+                                    height: 80px;
+                                    img{
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                }
+                                .mui-col-xs-7{
+                                    margin-left: 10px;
+                                    div{
+                                        margin-top: 0.05rem;
+                                        &.houseTitle{
+                                            font-size: 14px;
+                                            color:#333 ;
+                                            font-weight: bold;
+                                        }
+                                        label{
+                                            color: $commoTextLabel;
+                                        }
+                                    }
+                                }
+                                .dealPrice{
+                                    color: $commoBg;
+                                    font-size: 14px;
+                                    position: absolute;
+                                    top: 0.6rem;
+                                    right: 0;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                        .dealmoreBtn{
+                            text-align: center;
+                            width: 100%;
+                            line-height: 40px;
+                            border-radius: 2px;
+                            background: $commonTextNavColor;
+                            color: #fff;
+                        }
+                    }
+                }
+                /*在售房源*/
+                .sellHouse{
+                    .borkerDeal{
+                        .dealLi{
+                            .mui-row{
+                                .mui-col-xs-6{
+                                    div{
+                                        margin: 0;
+                                    }
+                                }
+                            }
+                        }
+                        .SellmoreBtn{
+                            text-align: center;
+                            width: 100%;
+                            line-height: 40px;
+                            border-radius: 2px;
+                            background: $commonTextNavColor;
+                            color: #fff;
+                        }
+                    }
+                }
+                /*服务动态*/
+                .serve{
+                    background: #fff;
+                    h3{
+                        padding: 10px 15px;
+                        font-size: 14px;
+                        color: #333;
+                        font-weight: bold;
+                        border-bottom: 1px solid $commoBorderTint;
+                    }
+                    .serveList{
+                        padding: 10px 15px;
+                        .serveLi{
+                            .remark{
+                                color: #333;
+                                span{
+                                    color: $commoBg;
+                                }
+                            }
+                            .mui-row{
+                                margin: 10px 0;
+                                .mui-col-xs-8{
+                                    img{
+                                        width:35px;
+                                        height:35px;
+                                    }
+                                    .serveName{
+                                        display: inline-block;
+                                        .names{
+                                            font-weight: bold;
+                                            font-size: 14px;
+                                            color: #333;
+                                        }
+                                    }
+                                }
+                                .mui-col-xs-1{
+                                    color: $commoBg;
+                                    margin-top: 10px;
+                                }
+                                .mui-col-xs-3{
+                                    text-align: center;
+                                    div{
+                                        display: block;
+                                    }
+                                    &.guanzhu_active{
+                                        div{
+                                            color: #F0AD4E;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

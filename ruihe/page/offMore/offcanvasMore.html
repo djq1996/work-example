@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>更多</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.css">
+		<style>
+			body,
+			.mui-content {
+				background-color: #fff;
+				color: #fff;
+			}
+			
+			header.mui-bar {
+				display: none;
+			}
+			
+			.mui-bar {
+				background: transparent;
+				box-shadow: none;
+				-webkit-box-shadow: none;
+			}
+			
+			.mui-bar button {
+				width: 50%;
+				display: inline-block;
+				color: #000;
+				vertical-align: middle;
+				line-height: 50px;
+				border: 0;
+				font-size: .75rem;
+			}
+			
+			.mui-bar button.yes {
+				background: #007aff;
+				color: #fff;
+			}
+			
+			.mui-bar-nav~.mui-content {
+				padding: 0;
+			}
+			
+			.box {
+				padding-left: 5px;
+			}
+			
+			.box button {
+				width: 25%;
+				margin-left: 10px;
+				margin-top: 10px;
+				color: #000;
+			}
+			
+			.title {
+				font-size: .7rem;
+				padding: 10px;
+				padding-bottom: 0;
+			}
+			
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+			
+			.mui-table-view {
+				margin-bottom: 35px;
+			}
+			
+			#pullrefresh .mui-btn {
+				padding-top: .1rem;
+				padding-bottom: .1rem;
+				margin: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="mui-bar mui-bar-tab">
+			<button type="button" class="mui-btn">重置</button>
+			<button type="button" class="mui-btn yes">确认</button>
+		</nav>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper" style="background: #fff;color: #000;top:40px;padding-bottom: 60px;">
+				<div class="mui-scroll">
+					<form id="moreData">
+						<div class="title">面积</div>
+						<div class="mjBox box">
+							<button type="button" class="mui-btn  mui-btn-outlined">50㎡以下</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">50-70</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">70-90</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">90-110</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">110-130</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">130-150</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">150㎡以上</button>
+						</div>
+						<div class="title">朝向</div>
+						<div class="cxBox box">
+							<button type="button" class="mui-btn  mui-btn-outlined">东</button>
+							<button type="button" class="mui-btn mui-btn-outlined">南</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">西</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">北</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">东西</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">南北</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">东南</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">西南</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">东北</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">西北</button>
+						</div>
+						<div class="title">标签</div>
+						<div class="zxBox box">
+							<button type="button" class="mui-btn  mui-btn-outlined">随时看房</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">独家</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">满五</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">满二</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">实勘</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">精装</button>
+							<button type="button" class="mui-btn  mui-btn-outlined">新上</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script src="../../lib/jquery-2.1.0.min.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/common.js"></script>
+		<script src="../../js/webviewoffcanvas.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true
+			});
+			mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			});
+			/*选中与否*/
+			$(".mui-content button").on("tap", function() {
+				if($(this).hasClass('mui-btn-blue')) {
+					$(this).removeClass('mui-btn-blue');
+				} else {
+					$(this).addClass('mui-btn-blue').siblings().removeClass('mui-btn-blue');
+				}
+			});
+			mui.init({
+				keyEventBind: {
+					backbutton: false,
+					menubutton: false
+				}
+			});
+			var main = null;
+			mui.plusReady(function() {
+				main = plus.webview.currentWebview().opener();
+			});
+
+			function closeMenu() {
+				mui.fire(main, "menu:swiperight");
+			};
+			mui('nav').on('tap', '.yes', function() {
+				closeMenu();
+				mui.fire(main, "shuaxin", {
+					moreData: $("#moreData").serialize()
+				});
+			});
+		</script>
+	</body>
+
+</html>

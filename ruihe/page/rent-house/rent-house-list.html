@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>租房列表</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link href="../../css/mui.picker.css" rel="stylesheet" />
+		<link href="../../css/mui.poppicker.css" rel="stylesheet" />
+		
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/rent-house/rent-house-list.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue mui-input-row">
+			<input type="search" class="mui-input-clear" placeholder="请输入小区或商圈名">
+			<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+			<span class="mui-icon mui-icon-search"></span>
+		</header>
+		<div class="mui-content">
+			<!--排序-->
+			<div id="sortBtn">
+				<span class="sortIcon"></span>
+				<div>排序</div>
+			</div>
+			<div class="m-houseList">
+				<!--筛选-->
+				<div class="serch-box">
+					<div class="search-top">
+						<ul class="nav_ul mui-clearfix">
+							<li class="nav_ul_li">
+								<input type="hidden" name="dataType" value=""/>
+								<p>区域<i class="mui-icon mui-icon-arrowdown"></i></p>
+								<ul class="nav_child mui-table-view">
+									<li class="mui-table-view-cell">江南新区</li>
+								    <li class="mui-table-view-cell">爱民区</li>
+								    <li class="mui-table-view-cell">阳明区</li>
+								    <li class="mui-table-view-cell">东安区</li>
+								    <li class="mui-table-view-cell">西安区</li>
+								    <li class="mui-table-view-cell">商业地产</li>
+								</ul>
+							</li>
+							<li class="nav_ul_li">
+								<input type="hidden" name="Prices" />
+								<p>租金<i class="mui-icon mui-icon-arrowdown"></i></p>
+								<ul class="nav_child mui-table-view">
+								    <li class="mui-table-view-cell">500元以下</li>
+								    <li class="mui-table-view-cell">500-1000元</li>
+								    <li class="mui-table-view-cell">1000-1500元</li>
+								    <li class="mui-table-view-cell">1500-2000元</li>
+								    <li class="mui-table-view-cell">2000-2500元</li>
+								    <li class="mui-table-view-cell">2500元以上</li>
+								    <li class="mui-table-view-cell">
+								    	<span>自定义价格</span>
+								    	<input type="text" placeholder="最低"/>
+								    	<i>-</i>
+								    	<input type="text" placeholder="最高"/>
+								    	<a href="javascript:;">确定</a>
+								    </li>
+								</ul>
+								
+							</li>
+							<li class="nav_ul_li">
+								<input type="hidden" name="bedrooms" />
+								<p>房型<i class="mui-icon mui-icon-arrowdown"></i></p>
+								<ul class="nav_child mui-table-view">
+								    <li class="mui-table-view-cell">一室</li>
+								    <li class="mui-table-view-cell">二室</li>
+								    <li class="mui-table-view-cell">三室</li>
+								    <li class="mui-table-view-cell">四室</li>
+								    <li class="mui-table-view-cell">五室以上</li>
+								</ul>
+							</li>
+							<li class="nav_ul_li">
+								<p id="show-btn">更多<i class="mui-icon mui-icon-arrowdown"></i></p>
+							</li>
+						</ul>
+					</div>
+					<div class="bg"></div>
+				</div>
+				<!--列表-->
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="listCon">
+							<ul>
+								<li class="torentHouse">
+									<a class="img" href="javascript:;">
+										<img src="../../img/house5.jpg" alt="" />
+									</a>
+									<div class="conRight">
+										<div class="title">合租 · 天居园3居室 01室</div>
+										<div>自如友居/3室1厅1卫/15㎡/东南</div>
+										<div class="tag">
+											<span class="spanTagAile duJia">独家</span>
+											<span class="spanTagAile hasKey">随时可看</span>
+										</div>
+										<div class="price">
+											3590元/月
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<!--暂无数据-->
+						<div class="noinfo">
+							<img src="../../img/noinfo.png" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="../../lib/jquery-2.1.0.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/mui.js"></script>
+<script src="../../js/mui.picker.min.js"></script>
+<script src="../../js/mui.poppicker.js"></script>
+<script type="text/javascript">
+	mui.init();
+	$('.nav_ul_li').on('tap', 'p', function() {
+		if($(this).parent().find(".nav_child").is(":hidden")) {
+			$(".nav_ul_li p").css("color", "#333");
+			$(this).css("color", "#333");
+			$(".nav_ul_li p .mui-icon").removeClass("mui-icon-arrowup");
+			$(".nav_ul_li p .mui-icon").addClass("mui-icon-arrowdown");
+			$(this).find(".mui-icon").removeClass("mui-icon-arrowdown");
+			$(this).find(".mui-icon").addClass("mui-icon-arrowup");
+			$(".nav_child").hide();
+			$(this).parent().find(".nav_child").slideDown(500);
+			$(".bg").show();
+		} else {
+			$(this).css("color", "#333");
+			$(this).find(".mui-icon").removeClass("mui-icon-arrowup");
+			$(this).find(".mui-icon").addClass("mui-icon-arrowdown");
+			$(".nav_ul_li p .mui-icon").removeClass("mui-icon-arrowup");
+			$(".nav_ul_li p .mui-icon").addClass("mui-icon-arrowdown");
+			$(".nav_child").slideUp(500);
+			$(".bg").hide();
+		}
+	});
+	/*二级菜单选择*/
+	$('.nav_child').on('tap', 'li', function() {
+		var secondtext = $(this).text().trim();
+		if(secondtext.length > 4) {
+			secondtext = secondtext.substr(0, 3) + '...';
+		}
+		$(this).parents(".nav_child").prev().text(secondtext).append('<i class="mui-icon mui-icon-arrowdown"></i>');
+		$(".nav_child").slideUp(300);
+		$(".bg").hide();
+	});
+	(function($, doc) {
+		//普通示例
+		var userPicker = new $.PopPicker();
+		userPicker.setData([{
+			value: '1',
+			text: '默认排序'
+		}, {
+			value: '2',
+			text: '面积从高到低'
+		}, {
+			value: '3',
+			text: '面积从低到高'
+		}, {
+			value: '4',
+			text: '单价从高到低'
+		}, {
+			value: '5',
+			text: '单价从低到高'
+		}, {
+			value: '6',
+			text: '总价从高到低'
+		},{
+			value: '7',
+			text: '总价从低到高'
+		},{
+			value: '8',
+			text: '看房客户多'
+		}]);
+		var showUserPickerButton = doc.getElementById('sortBtn');
+		//var userResult = doc.getElementById('userResult');
+		showUserPickerButton.addEventListener('tap', function(event) {
+			userPicker.show(function(items) {
+				//userResult.innerText = JSON.stringify(items[0]);
+				//返回 false 可以阻止选择框的关闭
+				//return false;
+			});
+		}, false);
+	})(mui, document);
+	/*去租房详情*/
+	openNewPage({
+		btn:'.torentHouse',
+		url:'rent-houseDetails.html',
+		data:{}
+	});
+	//列表上拉加载，下拉刷新
+	mui('.mui-scroll-wrapper').pullRefresh({
+		down: {
+			callback: function() {
+				setTimeout(function() {
+					mui('.mui-scroll-wrapper').pullRefresh().endPulldownToRefresh();
+					mui.toast("刷新成功");
+				}, 1500);
+			} 
+		},
+		up: {
+			contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+			contentnomore: '没有更多数据了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+			callback: function() {
+				setTimeout(function() {
+					mui('.mui-scroll-wrapper').pullRefresh().endPullupToRefresh();
+					for(var i=0; i<2; i++){
+						var str = '<li class="torentHouse">'+
+									'<a class="img" href="javascript:;">'+
+										'<img src="../../img/house5.jpg" alt="" />'+
+									'</a>'+
+									'<div class="conRight">'+
+										'<div class="title">合租 · 天居园3居室 01室</div>'+
+										'<div>自如友居/3室1厅1卫/15㎡/东南</div>'+
+										'<div class="tag">'+
+											'<span class="spanTagAile duJia">独家</span>'+
+											'<span class="spanTagAile hasKey">随时可看</span>'+
+										'</div>'+
+										'<div class="price">3590元/月</div>'+
+									'</div>'+
+								'</li>'
+						$('.listCon ul').append(str);
+					}
+				}, 1500);
+			}
+		}
+	});
+</script>

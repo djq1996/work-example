@@ -1,0 +1,173 @@
+@import '../reset';
+
+//header{
+//  &.mui-badge-light-blue{
+//      background: $commoBg;
+//  }
+//}
+.mui-bar-tab .mui-tab-item.mui-active {
+    color: #32c78e;
+}
+nav{
+    &.mui-bar{
+        background: #fff;
+        .mui-pull-left{
+            color: #333;
+            text-align: center;
+            margin-left: 40px;
+            .home{
+                color: #333;
+                padding-bottom: 5px;
+            }
+        }
+        .mui-pull-right{
+            text-align: center;
+            margin-right: 40px;
+            color: $commoBg;
+            .my{
+                color: $commoBg;
+                padding-bottom: 5px;
+            }
+        }
+    }
+}
+
+.mui-content{
+    .mui-scroll-wrapper{
+        background: #fff;
+        margin-top: 44px;
+        .mui-scroll{
+            .m-myPage{
+                /*间隔*/
+                .jiange{
+                    width: 100%;
+                    height: 10px;
+                    background: #f1f1f1;
+                }
+                /*我的上面一部分*/
+                .my-head{
+                    background: #fff;
+                    margin-bottom: 10px;
+                    .my-message{
+                        border-bottom:1px solid $commoBorder;
+                        padding: 20px 15px;
+                        .mui-row{
+                            .mui-col-xs-4{
+                                width: 50px;
+                                height: 50px;
+                                margin-right: 20px;
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                            .mui-col-xs-8{
+                                color: $commoTextLabel;
+                                .userName{
+                                    font-weight: bold;
+                                    font-size: 16px;
+                                    color: #333;
+                                    margin-bottom:5px;
+                                }
+                            }
+                        }
+                    }
+                    .lookHouse{
+                        padding: 10px 15px;
+                        .lookHouseNum{
+                            display: inline-block;
+                            text-align: center;
+                            margin-right: 15px;
+                            span{
+                                color: #333;
+                                font-weight: bold;
+                                font-size: 16px;
+                            }
+                            div{
+                                color: #333;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+                /*我关注的*/
+                .my-attention{
+                    background: #fff;
+                    margin-bottom: 10px;
+                    h3{
+                        font-size: 16px;
+                        color: #333;
+                        padding: 10px 15px;
+                        border-bottom: 1px solid $commoBorder;
+                        font-weight: lighter;
+                    }
+                    .attentionType{
+                        padding: 10px 15px;
+                        &>div{
+                            text-align: center;
+                            width: 24%;
+                            display: inline-block;
+                            span{
+                                display: inline-block;
+                                width:32px;
+                                height: 32px;
+                                background: url(../../img/ershoufang.png) no-repeat;
+                                background-size: 100%;
+                            }
+                            div{
+                                color: #333;
+                            }
+                            &#goSecondHouse{
+                                span{
+                                    background: url(../../img/ershoufang.png);
+                                }
+                            }
+                            &#goBroker{
+                                span{
+                                    background: url(../../img/jingjiren.png);
+                                }
+                            }
+                            &#goRentHouse{
+                                span{
+                                    background: url(../../img/zufang.png);
+                                }
+                            }
+                            &#goEstate{
+                                span{
+                                    background: url(../../img/xiaoqu.png);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

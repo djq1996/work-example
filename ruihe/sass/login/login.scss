@@ -1,0 +1,120 @@
+@import '../reset';
+header{
+    &.mui-badge-light-blue{
+    }
+    a{
+        &.register{
+            font-size: 16px !important;
+            margin-top: 5px;
+        }
+    }
+}
+.mui-content{
+    .mui-scroll-wrapper{
+        margin-top:44px;
+        .mui-scroll{
+            /*手机登陆&&经纪人登陆*/
+            .m-login{
+                background: #fff;
+                h3{
+                    padding: 15px ;
+                    color: #333;
+                }
+                .loginInput{
+                    padding: 0 10px;
+                    input[type='text']{
+                        border: 0;
+                        border-radius: 0;
+                        border-bottom: 1px solid $commoBorderTint;
+                    }
+                }
+                .loginBtn{
+                    width: 80%;
+                    background: $commoBg;
+                    color: #fff;
+                    text-align: center;
+                    line-height: 40px;
+                    font-size: 14px;
+                    margin: 15px auto;
+                    border-radius: 2px;
+                }
+                .loginFoot{
+                    text-align: center;
+                    i{
+                        margin: 0 5px;
+                    }
+                    span:first-child{
+                        color:#333;
+                    }
+                    span:last-child{
+                        color:$commoTextLabel;
+                    }
+                }
+            }
+            /*注册&&找回密码*/
+            .m-register{
+                background: #fff;
+                padding-top: 30px;
+                .loginInput{
+                    padding: 0 10px;
+                    div{
+                        position: relative;
+                        input[type='text']{
+                            border: 0;
+                            border-radius: 0;
+                            border-bottom: 1px solid $commoBorderTint;
+                        }
+                        span{
+                            position: absolute;
+                            top: 5px;
+                            right: 20px;
+                        }
+                    }
+                }
+                .loginBtn{
+                    width: 80%;
+                    background: $commoBg;
+                    color: #fff;
+                    text-align: center;
+                    line-height: 40px;
+                    font-size: 14px;
+                    margin: 30px auto;
+                    border-radius:2px;
+                }
+            }
+            /*协议*/
+            .m-protocol{
+                padding: 15px;
+                background: #fff;
+                color: #333;
+                ul,ol{
+                    .strong{
+                        display: inline-block;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        font-size: 16px;
+                    }
+                    span{
+                        &.strong{
+                            font-weight: bold;
+                            font-size: 14px;
+                        }
+                        &.pcd{
+                            padding: 0 0 15px;
+                        }
+                    }
+                }
+            }
+        }
+        .login-footer{
+            color: $commoTextLabel;
+            text-align: center;
+            position: fixed;
+            bottom: 30px;
+            width: 100%;
+            span{
+                text-decoration: underline;
+            }
+        }
+    }
+}

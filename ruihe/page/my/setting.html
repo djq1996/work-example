@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>设置</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/my/setting.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+        	<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+        	<h1 class="mui-title mui-ellipsis">设置</h1>
+     	</header>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="m-setting">
+						<ul class="mui-table-view">
+						    <li class="mui-table-view-cell" id="clearCache">
+						        <a class="mui-navigate-right">清理缓存</a>
+						        <span>100M</span>
+						    </li>
+						    <li class="mui-table-view-cell" id="goAbout"> 
+						        <a class="mui-navigate-right">关于我们</a>
+						    </li>
+						    <li class="mui-table-view-cell">
+						        <a class="mui-navigate-right">版权信息</a>
+						    </li>
+						    <li class="mui-table-view-cell">
+						        <a class="mui-navigate-right">退出登录</a>
+						    </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="../../lib/jquery-2.1.0.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/mui.js"></script>
+<script type="text/javascript">
+	mui.init();
+	mui('.mui-scroll-wrapper').scroll({
+		deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+	});
+	/*点击弹蒙版*/
+	$('#clearCache').click(function(){
+		mui.toast('缓存清除成功');
+		$(this).find('span').text('0M');
+	});
+	/*去关于我们*/
+	openNewPage({
+		btn:'#goAbout',
+		url:'about.html',
+		data:{}
+	});
+</script>

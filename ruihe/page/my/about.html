@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>关于我们</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/my/about.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+        	<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+        	<h1 class="mui-title mui-ellipsis">关于我们</h1>
+     	</header>
+     	<nav class="mui-bar mui-bar-tab">
+			版本号：1.0.1
+		</nav>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="m-about">
+						<div class="logo">
+							<img src="../../img/logo.png" alt="" />
+							<div>
+								<b>瑞禾</b>
+								<p>家，幸福的起点</p>
+							</div>
+						</div>
+						<div class="con">
+							<div>集二手、租房、地图找房功能与一体，随时随地任性找房。匿名咨询让您放心消息动态推送让您省心，承诺让您安心，数据百科锦囊让您感受贴心，漫漫找房路，我们努力为您想更多。</div>
+							<div>官方网址：www.ruihefc.com</div>
+							<div>客服电话：10109666</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="../../lib/jquery-2.1.0.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/mui.min.js"></script>
+<script type="text/javascript">
+	mui.init()
+	mui('.mui-scroll-wrapper').scroll({
+		deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+	});	
+</script>

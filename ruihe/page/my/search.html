@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>搜索</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/my/search.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+        	<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left" ></a>
+        	<div class="searchCon"><a>二手房</a><i class="mui-icon mui-icon-arrowdown"></i></div>
+        	<div class="searchInp"><input type="search" placeholder="请输入小区名称"><i class="mui-icon mui-icon-search"></i> </div>
+        	<div class="selectBox">
+        		<div class="selectCon">
+        			<div class="arrowTop"></div>
+				  	<ul class="mui-table-view">
+				    	<li class="mui-table-view-cell"><a href="#">二手房</a></li>
+				    	<li class="mui-table-view-cell"><a href="#">出租房</a></li>
+				    	<li class="mui-table-view-cell"><a href="#">经纪人</a></li>
+				    	<li class="mui-table-view-cell"><a href="#">小区</a></li>
+				  	</ul>
+        		</div>
+			</div>
+     	</header>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<!--搜索出的列表-->
+					<ul class="mui-table-view">
+				    	<!--<li class="mui-table-view-cell">
+				    		<div class="mui-row">
+				    			<div class="mui-col-xs-10">
+				    				新世纪嘉园<span>朝阳</span>
+				    			</div>
+				    			<div class="mui-col-xs-2">
+				    				20套
+				    			</div>
+				    		</div>
+				    	</li>-->
+				  	</ul>
+				  	<!--历史记录-->
+				  	<div class="historyBox">
+				  		<div class="history_title">
+				  			<span class="mui-pull-left">历史记录</span>
+				  			<span class="mui-icon mui-icon-trash mui-pull-right historyEmpty"></span>
+				  		</div>
+				  		<div class="historyList">
+				  			<ul class="mui-table-view">
+						    	<li class="mui-table-view-cell">新世纪嘉园</li>
+						    	<li class="mui-table-view-cell">新世纪嘉园</li>
+						    	<li class="mui-table-view-cell">新世纪嘉园</li>
+			  				</ul>	
+				  		</div>
+				  	</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="../../lib/jquery-2.1.0.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/mui.js"></script>
+<script type="text/javascript">
+	mui.init();
+	$('.searchCon').click(function(){
+		if($('.selectBox').css('display') == 'none'){
+			$('.selectBox').fadeIn();
+		}else{
+			$('.selectBox').fadeOut()
+		}
+	});
+	
+	$('.selectBox li').click(function(){
+		$('.searchCon a').text($(this).text());
+		$('.selectBox').fadeOut()
+	});
+	$('.historyEmpty').click(function(){
+		$('.historyBox').hide();
+		$('.historyList').empty();
+	})
+</script>

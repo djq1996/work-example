@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>看房记录</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/my/look-house.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+        	<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+        	<h1 class="mui-title mui-ellipsis">看房记录</h1>
+     	</header>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="lookHouse">
+						<div class="houseNum">累计看房 : 50套</div>
+						<div class="houseCon">
+							<table cellpadding="0" cellspacing="0" border="0">
+								<thead>
+									<tr>
+										<th>看房日期</th>
+										<th>带看人</th>
+										<th>房源</th>
+										<th>评分</th>
+										<th>拨打电话</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>2017-06-05</td>
+										<td>陈鑫</td>
+										<td>宣海家园</td>
+										<td>2星</td>
+										<td>
+											<span class="mui-icon mui-icon-phone" id="toPhone"></span>
+										</td>
+									</tr>
+									<tr>
+										<td>2017-06-05</td>
+										<td>陈鑫</td>
+										<td>宣海家园</td>
+										<td class="stars">评分</td>
+										<td>
+											<span class="mui-icon mui-icon-phone" id="toPhone"></span>
+										</td>
+									</tr>
+									<tr>
+										<td>2017-06-05</td>
+										<td>陈鑫</td>
+										<td>宣海家园</td>
+										<td>5星</td>
+										<td>
+											<span class="mui-icon mui-icon-phone" id="toPhone"></span>
+										</td>
+									</tr>
+									<tr>
+										<td>2017-06-05</td>
+										<td>陈鑫</td>
+										<td>宣海家园</td>
+										<td class="stars">评分</td>
+										<td>
+											<span class="mui-icon mui-icon-phone" id="toPhone"></span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!--评分弹窗-->
+				<div class="bg"></div>
+				<div class="starsPop">
+					<div class="title">
+						<h3>给陈星经纪人评分</h3>
+						<i class="mui-icon mui-icon-closeempty"></i>
+					</div>
+					<div class="starList">
+						<label for="">评分:</label>
+						<div class="starBox">
+							<span class="mui-icon mui-icon-star"></span>
+							<span class="mui-icon mui-icon-star"></span>
+							<span class="mui-icon mui-icon-star"></span>
+							<span class="mui-icon mui-icon-star"></span>
+							<span class="mui-icon mui-icon-star"></span>
+						</div>					
+					</div>
+					<div class="remark">
+						<label for="">评论:</label>
+						<textarea name="" rows="" cols=""></textarea>
+					</div>
+					<div class="saveBtn">提交评价</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="../../lib/jquery-2.1.0.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/mui.min.js"></script>
+<script type="text/javascript">
+	mui.init();
+	mui('.mui-scroll-wrapper').scroll({
+		deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+	});
+	/*点击打电话*/
+	$('td').on('click','#toPhone',function(){
+		mui.confirm('13536309485','拨打电话',['呼叫','取消']);
+	});
+	/*点击出弹框*/
+	$('table').on('click','.stars',function(){
+		$('.bg').show();
+		$('.starsPop').show();
+	});
+	$('.starsPop').on('click','.mui-icon-closeempty',function(){
+		$('.bg').hide();
+		$('.starsPop').hide();
+	})
+	/*弹框星星效果*/
+	$(function () {
+        //为星星设置hover效果
+        var isClicked = false;
+        var beforeClickedIndex = -1;
+        var clickNum = 0; //点击同一颗星次数
+        //星星点击事件
+        $('.starBox span').click(function () {
+            $('.starBox span').css('color', '#333');
+            isClicked = true;
+            var index = $(this).index();
+            for (var i = 1; i <= index + 1; i++) {
+                $('.starBox span:nth-child(' + i + ')').css('color', '#F0AD4E');
+            }
+            if (index == beforeClickedIndex) { //两次点击同一颗星星 该星星颜色变化
+                clickNum++;
+                if (clickNum % 2 == 1) {
+                    $('.starBox span:nth-child(' + (index + 1) + ')').css('color', '#ADADAD');
+                } else {
+                    $('.starBox span:nth-child(' + (index + 1) + ')').css('color', '#F0AD4E');
+                }
+            } else {
+                clickNum = 0;
+                beforeClickedIndex = index;
+            }
+            var pingfenVal = $(this).index() + 1;
+            //$('#id-pingfen').val(pingfenVal);
+        });
+    });
+</script>

@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>小区详情</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/estate/estate-details.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+        	<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+        	<h1 class="mui-title mui-ellipsis">芍药居北里</h1>
+     	</header>
+     	<nav class="mui-bar mui-bar-tab">
+			<button type="button" class="mui-btn mui-badge-light-blue " id="xiaoqu"> 
+				关注小区
+		    </button>
+		</nav>
+     	<div class="mui-content">
+     		<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<!--轮播-->
+					<div class="mui-slider">
+					  <div class="mui-slider-group">
+					    <!--第一个内容区容器-->
+					    <div class="mui-slider-item">
+					      <!-- 具体内容 -->
+					      <img src="../../img/house2.jpg" alt="" />
+					    </div>
+					    <!--第二个内容区-->
+					    <div class="mui-slider-item">
+					      <!-- 具体内容 -->
+					      <img src="../../img/house3.jpg" alt="" />
+					    </div>
+					  </div>
+					</div>
+					<!--基本内容-->
+					<div class="m-detailsCon">
+						<div class="detailsTitle">
+							<h3>芍药居北里</h3>
+							<div class="mui-row">
+								<div class="mui-col-xs-9">芍药居-三至四环</div>
+								<div class="mui-col-xs-3">共4400关注</div>
+							</div>
+						</div>
+						<div class="sprice mui-row" >
+							<div class="sprice_mess mui-col-xs-4">
+								<span>在售房源</span>
+								<span class="mui-icon mui-icon-arrowright"></span>
+								<div>84套</div>
+							</div>
+							<div class="sprice_mess mui-col-xs-4">
+								<span>历史成交</span>
+								<div>1471套</div>
+							</div>
+							<div class="sprice_mess mui-col-xs-4">
+								<span>在租房源</span>
+								<span class="mui-icon mui-icon-arrowright"></span>
+								<div>29套</div>
+							</div>
+						</div>
+						<div class="messageBox">
+							<div class="mui-row">
+								<div class="mui-col-xs-12">
+								 	<div class="eataetPrice">
+								 		11月参考均价: <span>72886元/平</span>
+								 	</div>
+								 	<div>
+								 		<label for="">建筑年代:</label>
+								 		<span>1994-2008年</span>
+								 	</div>
+								 	<div>
+								 		<label for="">房屋用途:</label>
+								 		<span>多样</span>
+								 	</div>
+								 	<div>
+								 		<label for="">开发企业:</label>
+								 		<span>北京市枫行梦科技有限公司</span>
+								 	</div>
+								 	<div>
+								 		<label for="">物业费:</label>
+								 		<span>1元/㎡</span>
+								 	</div>
+								</div>
+								<div id="tel">
+									<img src="../../img/honorUser.png" alt="" />
+									<div>咨询专家</div>
+								</div>
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6">
+									<label for="">楼栋总数</label>
+									<span>93</span>
+								</div>
+								<div class="mui-col-xs-6">
+									<label for="">容积率</label>
+									<span>2.00</span>
+								</div>
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6">
+									<label for="">房屋总数:</label>
+									<span>4800</span>
+								</div>
+								<div class="mui-col-xs-6">
+									<label for="">绿化率:</label>
+									<span>45%</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--位置及周边-->
+					<div class="location">
+						<ul class="mui-table-view">
+						    <li class="mui-table-view-cell" id="goMap">
+						        <a class="mui-navigate-right title">位置及周边：通州，新建村</a>
+						    </li>
+						</ul>
+						<div class="static">
+							<img src="../../img/staticimage.png" alt="" />
+							<div class="coord">
+								<div class="coord-bottom"></div>
+								<div class="coordTitle">通州，新建村</div>
+								<div class="coordSub">距6号线物资学院站753米</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+     	</div>
+	</body>
+</html>
+<script src="../../lib/jquery-2.1.0.min.js"></script>
+<script src="../../js/mui.min.js"></script>
+<script src="../../js/common.js"></script>
+<script type="text/javascript">
+	mui.init()
+	mui('.mui-scroll-wrapper').scroll({
+		deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+	});
+	/*打电话*/
+	$('#tel').click(function(){
+		mui.confirm('13536309485','拨打电话',['呼叫','取消']);
+	})
+	/*去周边*/
+	openNewPage({
+		btn:'#goMap',
+		url:'../second-house/map.html',
+		data:{}
+	})
+	/*header变化*/
+	document.querySelector('.mui-scroll').addEventListener('scroll', function (e ) {
+		console.log(e.detail.y);
+		if(-(e.detail.y) > 100){
+			$('header.mui-badge-light-blue').css({'background':'#f7f7f7',})
+		}
+		if(-(e.detail.y) < 100){
+			$('header.mui-badge-light-blue').css({'background':'transparent',})
+		}
+	});
+	/*点击关注*/
+	$('#xiaoqu').click(function(){
+		if($(this).text() == '关注小区'){
+			$(this).text('已关注')
+		}else{
+			$(this).text('关注小区')
+		}
+		
+	})
+</script>

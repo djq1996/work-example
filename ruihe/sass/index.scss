@@ -1,0 +1,148 @@
+@import 'reset';
+/*首页*/
+.m-banner{
+    width: 100%;
+    height: 180px;
+    background:url(../img/index/house2.jpg) no-repeat;
+    background-size: cover;
+    position: relative;
+    .serach-box{
+        position: absolute;
+        bottom: 0;
+        left: 5%;
+        right:5%;
+        input.serach{
+            font-size: 14px;
+            background:rgba(255,255,255,1);
+        }
+        i{
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            font-size: 20px;
+        }
+    }
+    
+}
+.mui-search .mui-placeholder{
+    font-size: 14px;
+}
+.m-icon{
+    display: block;
+    width: 45px;
+    height: 45px;
+    margin: 0 auto;
+    background: url(../img/grid.png) no-repeat;
+//  background: 100%;
+}
+.mui-grid-view .sell{
+    background-position: 0 0;
+}
+.mui-grid-view .rent{
+    background-position: 0 -59px;
+}
+.mui-grid-view .broker{
+    background-position: 0 -121px;
+}
+.mui-grid-view .weituo{
+    background-position: 0 -188px;
+}
+.mui-grid-view .house{
+    background-position: 0 -252px;
+}
+.mui-grid-view .counter{
+    background-position: 0 -306px;
+}
+.m-title{
+    margin-top: 10px;
+    padding: 10px 12px;
+    position: relative;
+    h2{
+        font-size: 16px;
+        font-weight: bold;
+        display: inline-block;
+    }
+    .tab{
+        float: right;
+        a{
+            color: #333;
+            padding: 0 5px;
+        }
+        a.active{
+            color: #32c78e;
+        }
+    }
+}
+.mui-table-view:after{
+    content: none;
+}
+.m-title:after,.m-con-list li:after{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #c8c7cc;
+}
+
+.m-con-list{
+    li{
+        position: relative;
+        padding: 12px;
+        &>a{
+            display: block;
+            overflow: hidden;
+        }
+    }
+    .img-box{
+        width: 110px;
+        height: 75px;
+        float: left;
+        img{
+            width: 100%;
+        }
+    }
+    .img-detail{
+        margin-left: 122px;
+        color: #394043;
+        overflow: hidden;
+        h3{
+            margin-bottom: .45rem;
+            line-height: 1.2em;
+            overflow: hidden;
+            font-size: 1rem;
+            font-weight: 600;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+        }
+        .money{
+            font-weight: 500;
+            font-size: 14px;
+            span{
+                font-size:14px;
+                float: right;
+                color: #8c198c;
+            }
+            
+        }
+        .msg{
+            color: #999;
+        }
+        .tag{
+            width: 400px;
+        }
+        
+    }
+}
+.mui-scroll-wrapper{
+    padding-bottom:60px;
+}
+.mui-bar-tab{
+    background: #fff;
+}
+.mui-bar-tab .mui-tab-item.mui-active {
+    color: #32c78e;
+}

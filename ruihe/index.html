@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+
+	<body>
+		<!--底部导航-->
+		<nav class="mui-bar mui-bar-tab">
+			<a id="defaultTab" class="mui-tab-item mui-active" href="tab-webview-subpage-about.html">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="tab-webview-subpage-chat.html" id="tomy">
+				<span class="mui-icon mui-icon-person"></span>
+				<span class="mui-tab-label">消息</span>
+			</a>
+		</nav>
+		<!--内容-->
+		
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="m-banner">
+						<div class="serach-box mui-input-row mui-search">
+							<input class="serach" type="search" name="" id="" value="" placeholder="请输入小区名字或者商圈名" />
+						</div>
+					</div>
+					<ul class="mui-table-view mui-grid-view mui-grid-6">
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="toSecondHouse">
+							<a href="#">
+								<span class="m-icon sell"></span>
+								<div class="mui-media-body">二手房</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="torentHouse">
+							<a href="#">
+								<span class="m-icon rent"></span>
+								<div class="mui-media-body">租房</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="tobroker">
+							<a href="#">
+								<span class="m-icon broker"></span>
+								<div class="mui-media-body">经纪人</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="toentrust">
+							<a href="#">
+								<span class="m-icon weituo"></span>
+								<div class="mui-media-body">委托</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="toestate">
+							<a href="#">
+								<span class="m-icon house"></span>
+								<div class="mui-media-body">找小区</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="tojisuanqi">
+							<a href="#">
+								<span class="m-icon counter"></span>
+								<div class="mui-media-body">计算器</div>
+							</a>
+						</li>
+					</ul>
+					<div class="m-title">
+						<h2>精品房源</h2>
+						<div id="tab" class="tab">
+							<a class="active" href="javascript:void(0);">二手房</a>
+							<a href="javascript:void(0);">小区</a>
+							<a href="javascript:void(0);">租房</a>
+						</div>
+					</div>
+					<div class="m-con-list">
+						<ul>
+							<li class="tohouseDetails">
+								<a href="javascript:void(0);">
+									<div class="img-box">
+										<img src="" onerror="this.src='img/index/1.png'" />
+									</div>
+									<div class="img-detail">
+										<h3>性价比高 一带三 赠100平</h3>
+										<div class="money">
+											国际花都
+											<span class="">55<i>万</i></span>
+										</div>
+										<div class="msg">
+											3室1厅&nbsp;&nbsp;85.67㎡&nbsp;&nbsp;南北
+										</div>
+										<div class="tag">
+											<span class="spanTagAile hasKey">随时看房</span>
+											<span class="spanTagAile M5">满五年</span>
+											<span class="spanTagAile xinShang">新房</span>
+											<span class="spanTagAile duJia">独家</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">
+									<div class="img-box">
+										<img src="" onerror="this.src='img/index/1.png'" />
+									</div>
+									<div class="img-detail">
+										<h3>性价比高 一带三 赠100平</h3>
+										<div class="money">
+											国际花都
+											<span class="">55<i>万</i></span>
+										</div>
+										<div class="msg">
+											3室1厅&nbsp;&nbsp;85.67㎡&nbsp;&nbsp;南北
+										</div>
+										<div class="tag">
+											<span class="spanTagAile hasKey">随时看房</span>
+											<span class="spanTagAile M5">满五年</span>
+											<span class="spanTagAile xinShang">新房</span>
+											<span class="spanTagAile duJia">独家</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+						<div class="noinfo">
+							<img src="img/noinfo.png" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="lib/jquery-2.1.0.min.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/common.js"></script>
+<script type="text/javascript">
+	mui.init();
+	mui('.mui-scroll-wrapper').scroll({
+		deceleration: 0.0006 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+	});
+	$("#tab a").click(function(){
+		$(this).addClass('active').siblings().removeClass('active')
+	});
+	/*去二手房*/
+	openNewPage({
+		btn:'#toSecondHouse',
+		url:'page/second-house/second-house-list.html',
+		data:{}
+	});
+	/*去租房*/
+	openNewPage({
+		btn:'#torentHouse',
+		url:'page/rent-house/rent-house-list.html',
+		data:{}
+	});
+	/*去经纪人*/
+	openNewPage({
+		btn:'#tobroker',
+		url:'page/broker/broker-list.html',
+		data:{}
+	});
+	/*去委托*/
+	openNewPage({
+		btn:'#toentrust',
+		url:'page/entrust/entrust.html',
+		data:{}
+	});
+	/*去小区*/
+	openNewPage({
+		btn:'#toestate',
+		url:'page/estate/eatate-list.html',
+		data:{}
+	});
+	/*去计算器*/
+	openNewPage({
+		btn:'#tojisuanqi',
+		url:'page/Mortgage/Dksl2.html',
+		data:{}
+	});
+	/*列表跳详情--二手房*/
+	openNewPage({
+		btn:'.tohouseDetails',
+		url:'page/second-house/second-house-detaild.html',
+		data:{}
+	});
+	/*列表跳详情--小区*/
+	openNewPage({
+		btn:'.toestateDetails',
+		url:'page/estate/estate-details.html',
+		data:{}
+	});
+	/*列表跳详情--租房*/
+	openNewPage({
+		btn:'.torentDetails',
+		url:'page/rent-house/rent-houseDetails.html',
+		data:{}
+	});
+	/*跳转我的*/
+	openNewPage({
+		btn:'#tomy',
+		url:'page/my/myPage.html',
+		data:{}
+	});
+</script>

@@ -1,0 +1,421 @@
+@import '../reset';
+header{
+    &.mui-badge-light-blue{
+        background: transparent;
+        box-shadow: none;
+    }
+}
+nav{
+    &.mui-bar{
+        height: 57px;
+        background: #fff;
+        line-height: 57px;
+        text-align: center;
+        button{
+            height: 42px;
+            width: 40%;
+            border: 0;
+            &#love{
+                i{
+                    margin-right: 5px;
+                    vertical-align: middle;
+                }
+                &.love_active{
+                    i{
+                        color: #F0AD4E;
+                    }
+                }
+            }
+            &#broker{
+                background: $comminColorGreen;
+                margin-left: 15px;
+                color: #fff;
+            }
+        }
+    }
+}
+.mui-content{
+    background: #fff;
+    font-family: "微软雅黑";
+    .mui-scroll-wrapper{
+        background: #f1f1f1;
+        padding-bottom: 40px;
+        .mui-table-view:before{
+            height: 0;
+        }
+        /*基本信息*/
+        .m-detailsCon{
+            background: #fff;
+            margin-bottom: 10px;
+            h3{
+                font-size: 14px;
+                font-weight: bold;
+                line-height: 65px;
+                font-size: 20px;
+                border-bottom: 1px solid $commoBorder;
+                color: #333;
+                padding: 0 15px; 
+            }
+            .sprice{
+                padding:15px;
+                border-bottom: 1px solid $commoBorder;
+                .sprice_mess{
+                    display: inline-block;
+                    font-size: 14px;
+                    &:nth-child(2),&:nth-child(3){
+                        border-left: 1px solid #ccc;
+                        padding-left: 15px;
+                    }
+                    span{
+                        color: $commoTextLabel;
+                    }
+                    div{
+                        font-weight: bold;
+                        color: $commonTextColorRed;
+                    }
+                }
+            }
+            .conList{
+                padding:15px;
+                font-size: 14px;
+                div{
+                    margin-bottom:5px;
+                    label{
+                        color: $commoTextLabel;
+                        margin-right: 10px;
+                        & + span{
+                            color: #333;
+                        }
+                    }
+                    .rightArrow{
+                        color:#000;
+                        font-size: 16px;
+                    }
+                    .mui-table-view{
+                        &:after{
+                            height: 0;
+                        }
+                        &:before{
+                            height: 0;
+                        }
+                        a{
+                            color: $commoTextLabel;
+                            padding: 0;
+                            span{
+                                color: $commoBg;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        /*经纪人房评*/
+        .evaluate{
+            background: #fff;
+            margin-bottom: 10px;
+            ul{
+                li{
+                    position: relative;
+                    &.mui-table-view-cell:after{
+                        left: 0;
+                    }
+                    .title{
+                        font-size: 14px;
+                        font-weight: bold;
+                        color: #333;
+                    }
+                    .evaluateImg{
+                        display: inline-block;
+                        width: 50px;
+                        height: 50px;
+                        margin-right: 20px;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .evaluateRight{
+                        display: inline-block;
+                        vertical-align: top;
+                        div{
+                            margin-bottom: 10px;
+                            label{
+                                color: #333;
+                                margin-right:10px;
+                            }
+                            &.tel{
+                                position: absolute;
+                                right: 20px;
+                                top: 15px;
+                                text-align: center;
+                                color: $commoBg;
+                            }
+                        }
+                    }
+                    .remark{
+                        height: 80px;
+                        text-overflow: ellipsis;
+                        white-space: normal;
+                        width: 100%;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 4;
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+        /*位置及周边*/
+       .location{
+           background: #fff;
+            ul{
+                li{
+                    .title{
+                       font-size: 14px;
+                       color: #333;
+                       font-weight: bold;
+                    }
+                }
+           }
+           .static{
+               width: 100%;
+               height: 180px;
+               position: relative;
+               img{
+                   width: 100%;
+                   height: 100%;
+               }
+               .coord{
+                    background: #fff;
+                    position: absolute;
+                    left: 30%;
+                    top: 20%;
+                    padding: 20px;
+                   .coord-bottom{  
+                        position:absolute;  
+                        bottom:-10px;  
+                        left:20px;  
+                        width:0;  
+                        height:0;  
+                        border-left:15px solid transparent;  
+                        border-right:15px solid transparent;  
+                        border-top:15px solid #fff;  
+                    }
+                    .coordTitle{
+                        color: #333;
+                        font-size: 14px;
+                    }
+               }
+           }
+        }
+        /*客户看房记录*/
+        .lookHouse{
+            margin-bottom: 10px;
+            background: #fff;
+            ul{
+                li{
+                    &.mui-table-view-cell:after{
+                        left: 0;
+                    }
+                    .title{
+                       font-size: 14px;
+                       color: #333;
+                       font-weight: bold;
+                    }
+                    .lookHouseNum{
+                        span{
+                            color: $commonTextColorRed;
+                            margin: 0 10px;
+                        }
+                    }
+                }
+                &:after{
+                    height: 0;
+                }
+            }
+        }
+        /*同小区成交*/
+       .deal{
+           background: #fff;
+           margin-bottom: 10px;
+           ul{
+                &:after{
+                    height: 0;
+                }
+               li{
+                    &:after{
+                        height: 0;
+                    }
+                   .title{
+                       font-size: 14px;
+                       color: #333;
+                       font-weight: bold;
+                       margin-bottom: 10px;
+                    }
+                    &.dealList{
+                        position: relative;
+                        padding-left: 30px;
+                        margin-top: -10px;
+                        .mui-row{
+                            .mui-col-xs-9{
+                                color: #333;
+                                font-size: 14px;
+                            }
+                            .mui-col-xs-3{
+                                color: $commonTextColorRed;
+                                font-weight: bold;
+                            }
+                        }
+                        &:before{
+                            position: absolute;
+                            left: 10px;
+                            top: 15px;
+                            content: '';
+                            width: 15px;
+                            height: 15px;
+                            border-radius:50%;
+                            background-color: #e5e5e5;
+                        }
+                        &:after{
+                            content: '';
+                            position: absolute;
+                            width: 1px;
+                            background: #e5e5e5;
+                            height:100px;
+                            left: 17px;
+                            top: 0;
+                        }
+                    }
+               }
+           }
+        }
+        /*房源热度*/
+        .houseHot{
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 15px;
+            h3{
+                font-size: 14px;
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+            }
+            .con{
+                &>div{
+                    display: inline-block;
+                    text-align: center;
+                    width: 30%;
+                    span{
+                        color: #333;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        /*同小区房源*/
+        .alikeEstate{
+            background: #fff;
+            padding: 15px 0;
+            h3{
+                font-size: 14px;
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+                padding-left: 15px;
+            }
+            .alikeEstateBox{
+                overflow-x:auto;
+                overflow-y:hidden ;
+                ul{
+                    width: 840px;
+                    overflow-x:auto;
+                    overflow-y:hidden ;
+                    li{
+                        float: left;
+                        margin-left: 15px;
+                        a{
+                            .img{
+                                width: 152px;
+                                height: 124px;
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                                
+                            }
+                            .houseDetails{
+                                color: #333;
+                                font-size: 14px;
+                                margin-bottom: 10px;
+                            }
+                            .houseSprice{
+                                color: $commonTextColorRed;
+                                font-size: 14px;
+                                font-weight: bold;
+                                margin-bottom: 10px;
+                                span{
+                                    font-weight: normal;
+                                    color:$commoTextLabel ;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+ /*同小区成交*/
+//     .deal{
+//         background: #fff;
+//         margin-bottom: 0.5rem;
+//         ul{
+//             li{
+//                  &:after{
+//                      height: 0;
+//                  }
+//                 .title{
+//                     font-size: 14px;
+//                     color: #333;
+//                     font-weight: bold;
+//                  }
+//                  &.dealList{
+//                      position: relative;
+//                      .mui-row{
+//                          .mui-col-xs-9{
+//                              color: #333;
+//                              font-size: 14px;
+//                          }
+//                          .mui-col-xs-3{
+//                              color: $commonTextColorRed;
+////                              font-size: 14px;
+//                              font-weight: bold;
+//                          }
+//                      }
+////                      &:before{
+////                          position: absolute;
+////                          left: 0rem;
+////                          top: .29rem;
+////                          content: '';
+////                          width: .25rem;
+////                          height: .25rem;
+////                          border-radius: .625rem;
+////                          background-color: #e5e5e5;
+////                      }
+////                      &:after{
+////                          content: '';
+////                          position: absolute;
+////                          width: 0.01rem;
+////                          background: #e5e5e5;
+////                          height:2rem;
+////                          left: 0.13rem;
+////                          top: 0rem;
+////                      }
+//                  }
+//             }
+//         }
+//      }

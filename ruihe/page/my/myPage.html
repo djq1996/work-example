@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/my/myPage.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+        	<a class="mui-icon mui-icon-gear mui-pull-right" id="gosetting"></a>
+     	</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item" href="tab-webview-subpage-about.html" id="goIndex">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item mui-active" href="tab-webview-subpage-chat.html" id="tomy">
+				<span class="mui-icon mui-icon-person"></span>
+				<span class="mui-tab-label">消息</span>
+			</a>
+		</nav>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="m-myPage">
+						<!--上部分-->
+						<div class="my-head">
+							<div class="my-message">
+								<div class="mui-row">
+									<div class="mui-col-xs-4">
+										<img src="../../img/honorUser.png" alt="" />
+									</div>
+									<!--未登录-->
+									<!--<div class="mui-col-xs-8" id="toLogin">
+										<div class="userName">点击登录/注册</div>
+										<div>注册手机号不会透露给经纪人</div>
+									</div>-->
+									<!--已登录-->
+									<div class="mui-col-xs-8" id="toperson">
+										<div class="userName">15893565355</div>
+										<div>查看并编辑个人资料</div>
+									</div>
+								</div>
+							</div>
+							<div class="lookHouse">
+								<div class="lookHouseNum" id="tolookHouse">
+									<span>0</span>
+									<div>看房记录</div>
+								</div>
+								<div class="lookHouseNum">
+									<span>0</span>
+									<div>我的委托</div>
+								</div>
+							</div>
+						</div>
+						<div class="jiange"></div>
+						<!--我关注的-->
+						<div class="my-attention">
+							<h3>我关注的</h3>
+							<div class="attentionType">
+								<div id="goSecondHouse">
+									<span></span>
+									<div>二手房( 0 )</div>
+								</div>
+								<div id="goBroker">
+									<span></span>
+									<div>经纪人( 0 )</div>
+								</div>
+								<div id="goRentHouse">
+									<span></span>
+									<div>租房( 0 )</div>
+								</div>
+								<div id="goEstate">
+									<span></span>
+									<div>小区( 0 )</div>
+								</div>
+							</div>
+						</div>
+						<div class="jiange"></div>
+						<!--工具-->
+						<div class="my-tool">
+							<ul class="mui-table-view">
+							    <li class="mui-table-view-cell" id="tojisuanqi">
+							    	<a class="mui-navigate-right">计算器</a>
+							    </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="../../lib/jquery-2.1.0.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/mui.min.js"></script>
+<script type="text/javascript">
+	mui.init();
+	mui('.mui-scroll-wrapper').scroll({
+		deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+	});
+	/*去首页*/
+	openNewPage({
+		btn:'#goIndex',
+		url:'../../index.html',
+		data:{}
+	});
+	/*去设置*/
+	openNewPage({
+		btn:'#gosetting',
+		url:'setting.html',
+		data:{}
+	});
+	/*去资料*/
+	openNewPage({
+		btn:'#toperson',
+		url:'personage.html',
+		data:{}
+	});
+	/*去登陆*/
+	openNewPage({
+		btn:'#toLogin',
+		url:'../login/login.html',
+		data:{}
+	});
+	/*去看房记录*/
+	openNewPage({
+		btn:'#tolookHouse',
+		url:'look-house.html',
+		data:{}
+	});
+	/*去二手房*/
+	openNewPage({
+		btn:'#goSecondHouse',
+		url:'../second-house/second-house-list.html',
+		data:{}
+	});
+	/*去租房*/
+	openNewPage({
+		btn:'#goRentHouse',
+		url:'../rent-house/rent-house-list.html',
+		data:{}
+	});
+	/*去经纪人*/
+	openNewPage({
+		btn:'#goBroker',
+		url:'../broker/broker-list.html',
+		data:{}
+	});
+	/*去小区*/
+	openNewPage({
+		btn:'#goEstate',
+		url:'../estate/eatate-list.html',
+		data:{}
+	});
+	/*去计算器*/
+	openNewPage({
+		btn:'#tojisuanqi',
+		url:'../Mortgage/Dksl2.html',
+		data:{}
+	});
+</script>

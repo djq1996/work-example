@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的委托</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/my/my-entrust.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+        	<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+        	<h1 class="mui-title mui-ellipsis">我的委托</h1>
+     	</header>
+     	<div class="mui-content">
+     		<div id="slider" class="mui-slider">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item" href="#item1mobile">买房</a>
+					<a class="mui-control-item" href="#item2mobile">卖房</a>
+					<a class="mui-control-item" href="#item3mobile">租房</a>
+					<a class="mui-control-item" href="#item4mobile">出租</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell">
+										<div class="mui-row">
+											<div class="mui-col-xs-8">
+												<h4>新世纪嘉园</h4>
+												<div>1室1厅 11-11㎡ 西</div>
+											</div>
+											<div class="mui-col-xs-4">
+												<span>1-110万</span>
+												<div>2018-01-01</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll2" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell">
+										<div class="mui-row">
+											<div class="mui-col-xs-8">
+												<h4>我要卖房子</h4>
+												<div>1室1厅 110㎡ 西</div>
+											</div>
+											<div class="mui-col-xs-4">
+												<span>110万</span>
+												<div>2018-01-01</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll3" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell">
+										<div class="mui-row">
+											<div class="mui-col-xs-8">
+												<h4>我要租房子</h4>
+												<div>1室1厅 10㎡ 西</div>
+											</div>
+											<div class="mui-col-xs-4">
+												<span>1100元/月</span>
+												<div>2018-01-01</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item4mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll3" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell">
+										<div class="mui-row">
+											<div class="mui-col-xs-8">
+												<h4>我要出租</h4>
+												<div>2室1厅 13㎡ 西</div>
+											</div>
+											<div class="mui-col-xs-4">
+												<span>1600元/月</span>
+												<div>2018-01-01</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+     	</div>
+	</body>
+</html>
+<script src="../../lib/jquery-2.1.0.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/mui.min.js"></script>
+<script type="text/javascript">
+	mui.init();
+	mui('.mui-scroll-wrapper').scroll({
+		deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+	});
+</script>

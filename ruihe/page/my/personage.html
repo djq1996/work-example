@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人信息</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/my/personage.css" />
+	</head>
+	<body class="mui-fullscreen">
+		<!--页面主结构开始-->
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<!--页面主结构结束-->
+		<!--单页面开始-->
+		<div class="mui-page" id="m-personage">
+			<!--页面标题-->
+			<div class="mui-navbar-inner mui-bar mui-bar-nav mui-badge-light-blue">
+				<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+    			<h1 class="mui-title mui-ellipsis">我的个人信息</h1>
+			</div>
+			<!--页面内容-->
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper" style="padding-bottom: 50px;">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+						    <li class="mui-table-view-cell">
+						        <span class="userHead">头像</span>
+						        <img class="mui-pull-right" id="headUrl" src="../../img/honorUser.png" alt="" />
+						        <input type="file" id="fileImg" style="display: none;" name="" id="" value="" />
+						        <i class="mui-navigate-right"></i>
+						    </li>
+						    <li class="mui-table-view-cell" id="amendName"> 
+						    	<a href="#userName">
+						    		<span>昵称</span>
+							        <span class="mui-pull-right">13536309485</span>
+							        <i class="mui-navigate-right"></i>
+						    	</a>
+						    </li>
+						    <li class="mui-table-view-cell">
+						        <span>手机号</span>
+						        <span class="mui-pull-right">13536309485</span>
+						    </li>
+						    <li class="mui-table-view-cell" id="amendPwd">
+						    	<a href="#settingPwd">
+						    		<span>密码</span>
+							        <span class="mui-pull-right">设置密码</span>
+							        <i class="mui-navigate-right"></i>
+						    	</a>
+						    </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--单页面结束-->
+		<!--修改昵称-->
+		<div id="userName" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav mui-badge-light-blue">
+				<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+				<h1 class="mui-center mui-title">昵称</h1>
+				<a class="mui-pull-right saveName">保存</a>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="nameBox">
+							<input type="text" value="my name"/>
+							<span class="mui-icon mui-icon-close emptyName"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--设置密码-->
+		<div id="settingPwd" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav mui-badge-light-blue">
+				<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+				<h1 class="mui-center mui-title">设置密码</h1>
+			</div>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="oldPwd">
+							<input type="text" placeholder="原密码"/>
+						</div>
+						<div class="newPwd">
+							<input type="text" placeholder="新密码"/>
+						</div>
+						<div class="newPwds">
+							<input type="text" placeholder="再次输入新密码"/>
+						</div>
+						<div class="saveBtn">
+							<button>提交</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="../../lib/jquery-2.1.0.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/mui.js"></script>
+<script src="../../js/mui.view.js "></script>
+<script type="text/javascript">
+	mui.init();
+	/*去关于我们*/
+	openNewPage({
+		btn:'#goAbout',
+		url:'about.html',
+		data:{}
+	});
+	/*昵称清空*/
+	$('.nameBox').on('click','.emptyName',function(){
+		$(this).prev().val('');
+	});
+	mui('.mui-scroll-wrapper').scroll();
+	//初始化单页view
+	var viewApi = mui('#app').view({
+		defaultPage: '#m-personage'
+	});
+	var view = viewApi.view;
+	(function($) {
+		//处理view的后退与webview后退
+		var oldBack = $.back;
+		$.back = function() {
+			if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+				viewApi.back();
+			} else { //执行webview后退
+				oldBack();
+			}
+		};
+		//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+		//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+		view.addEventListener('pageBeforeShow', function(e) {
+			//				console.log(e.detail.page.id + ' beforeShow');
+		});
+		view.addEventListener('pageShow', function(e) {
+			//				console.log(e.detail.page.id + ' show');
+		});
+		view.addEventListener('pageBeforeBack', function(e) {
+			//				console.log(e.detail.page.id + ' beforeBack');
+		});
+		view.addEventListener('pageBack', function(e) {
+			//				console.log(e.detail.page.id + ' back');
+		});
+	})(mui);
+	/*获取图片文件*/
+	$('#headUrl').on('click',function(){
+		$('#fileImg').click();
+		$('#fileImg').on('change',function(){
+			$('#headUrl').attr('src',$('#fileImg').val());
+		});
+	});
+	
+	
+	
+</script>

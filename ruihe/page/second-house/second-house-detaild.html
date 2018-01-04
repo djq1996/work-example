@@ -1,0 +1,383 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>二手房详情页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/icons-extra.css" />
+		<link rel="stylesheet" href="../../fonts/mui-icons-extra.ttf" />
+		<link rel="stylesheet" href="../../css/second-house/second-houseDetails.css" />
+	</head> 
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+        	<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+        	<h1 class="mui-title mui-ellipsis">房源名称</h1>
+     	</header>
+     	<nav class="mui-bar mui-bar-tab">
+			<button type="button" class="mui-btn mui-badge-light-blue" id="love">
+				<i class="mui-icon-extra mui-icon-extra-heart"></i><span>关注</span>
+		    </button>
+			<button type="button" class="mui-btn mui-badge-light-blue " id="houseDai"> 
+				房贷计算器
+		    </button>
+			<button type="button" class="mui-btn mui-badge-light-blue" id="broker"> 
+				咨询经纪人
+		    </button>
+		</nav>
+     	<div class="mui-content">
+     		<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<!--轮播-->
+					<div class="mui-slider">
+					  <div class="mui-slider-group">
+					    <!--第一个内容区容器-->
+					    <div class="mui-slider-item">
+					      <!-- 具体内容 -->
+					      <img src="../../img/house2.jpg" alt="" />
+					    </div>
+					    <!--第二个内容区-->
+					    <div class="mui-slider-item">
+					      <!-- 具体内容 -->
+					      <img src="../../img/house3.jpg" alt="" />
+					    </div>
+					  </div>
+					</div>
+					<!--基本内容-->
+					<div class="m-detailsCon">
+						<h3>北店嘉园 低楼层两居室 精装修</h3>
+						<div class="sprice mui-row" >
+							<div class="sprice_mess mui-col-xs-4">
+								<span>售价</span>
+								<div>420万</div>
+							</div>
+							<div class="sprice_mess mui-col-xs-4">
+								<span>房型</span>
+								<div>2室1厅</div>
+							</div>
+							<div class="sprice_mess mui-col-xs-4">
+								<span>建筑面积</span>
+								<div>77.08㎡</div>
+							</div>
+						</div>
+						<div class="conList">
+							<div class="mui-row tag">
+								<div class="mui-col-xs-12">
+									<label>特点:</label>
+									<i></i>
+									<span class="spanTagAile M5">满五年</span>
+									<span class="spanTagAile hasKey">随时可看</span>
+								</div>
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6">
+									<label for="">单价:</label>
+									<span>54425元/平</span>
+								</div>
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6">
+									<label for="">朝向:</label>
+									<span>南 北</span>
+								</div>
+								<div class="mui-col-xs-6">
+									<label for="">楼层:</label>
+									<span>低楼层/7层</span>
+								</div>
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6">
+									<label for="">楼型:</label>
+									<span>板楼</span>
+								</div>
+								<div class="mui-col-xs-6">
+									<label for="">电梯:</label>
+									<span>无</span>
+								</div>
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6">
+									<label for="">装修:</label>
+									<span>精装</span>
+								</div>
+								<div class="mui-col-xs-6">
+									<label for="">年代:</label>
+									<span>2003年</span>
+								</div>
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6">
+									<label for="">用途:</label>
+									<span>普通住宅</span>
+								</div>
+								<div class="mui-col-xs-6">
+									<label for="">编号:</label>
+									<span>S000001</span>
+								</div>
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6">
+									<label for="">首付:</label>
+									<span>面议</span>
+								</div>
+							</div>
+							<div>
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell" id="goEstate">
+										<a class="mui-navigate-right">小区: <span>北店嘉园</span></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--经纪人房评-->
+					<div class="evaluate">
+						<ul class="mui-table-view">
+						    <li class="mui-table-view-cell">
+						        <a id="goEvaluate" class="mui-navigate-right title">经纪人房评</a>
+						    </li>
+						    <li class="mui-table-view-cell">
+						    	<div class="evaluateImg">
+						    		<img src="../../img/kehu.png" alt="" />
+						    	</div>
+						    	<div class="evaluateRight">
+						    		<div>
+						    			<label for="">董建强:</label>
+						    			<span>房产顾问</span>
+						    		</div>
+						    		<div>
+						    			<label for="">所属门店:</label>
+						    			<span>南区二部</span>
+						    		</div>
+						    		<div class="tel">
+						    			<span class="mui-icon mui-icon-phone"></span>
+						    			<div>马上联系</div>
+						    		</div>
+						    	</div>
+						    </li>
+						    <li class="mui-table-view-cell">
+						    	<div class="remark">
+						    		房子是天鸿美域小区中间位置，精装修，带前后花园
+						    		房子是天鸿美域小区里主打户型的错层四居室，南北通透，
+						    		一层带前后花园，首层是客厅朝南带阳台，有出去的门直接通南面花园，
+						    		厨房和卫生间朝北，可以从厨房直通北花园，独立餐厅；二层是南北的三个卧室，
+						    		两个卧室朝南，一个卧室朝北，另外楼上有一个卫生间。
+						    	</div>
+						    </li>
+						</ul>
+					</div>
+					<!--位置及周边-->
+					<div class="location">
+						<ul class="mui-table-view">
+						    <li class="mui-table-view-cell" id="goMap">
+						        <a class="mui-navigate-right title">位置及周边：通州，新建村</a>
+						    </li>
+						</ul>
+						<div class="static">
+							<img src="../../img/staticimage.png" alt="" />
+							<div class="coord">
+								<div class="coord-bottom"></div>
+								<div class="coordTitle">通州，新建村</div>
+								<div class="coordSub">距6号线物资学院站753米</div>
+							</div>
+						</div>
+					</div>
+					<!--客户看房记录-->
+					<div class="lookHouse">
+						<ul class="mui-table-view">
+						    <li class="mui-table-view-cell">
+						        <a id="goLookHouse" class="mui-navigate-right title">客户看房记录</a>
+						    </li>
+						    <li class="mui-table-view-cell">
+						    	<div class="lookHouseNum">
+						    		近一个月新增<span>12</span>位看房记录，累计看房<span>13</span>位
+						    	</div>
+						    </li>
+						</ul>
+					</div>
+					<!--同小区成交-->
+					<div class="deal">
+						<ul class="mui-table-view">
+						    <li class="mui-table-view-cell">
+						        <a class="mui-navigate-right title">同小区成交(229)</a>
+						    </li>
+						    <li class="mui-table-view-cell dealList">
+						    	<div class="mui-row">
+									<div class="mui-col-xs-10">
+										2室1厅 / 77.20㎡ / 南 北
+									</div>
+									<div class="mui-col-xs-2">
+										451万
+									</div>
+								</div>
+								<div class="mui-row">
+									<div class="mui-col-xs-12">
+										单价53886元/平，2017.05.04成交
+									</div>
+								</div>
+						    </li>
+						    <li class="mui-table-view-cell dealList">
+						    	<div class="mui-row">
+									<div class="mui-col-xs-10">
+										2室1厅 / 77.20㎡ / 南 北
+									</div>
+									<div class="mui-col-xs-2">
+										451万
+									</div>
+								</div>
+								<div class="mui-row">
+									<div class="mui-col-xs-12">
+										单价53886元/平，2017.05.04成交
+									</div>
+								</div>
+						    </li>
+						</ul>
+					</div>
+					<!--房源热度-->
+					<div class="houseHot">
+						<h3>房源热度</h3>
+						<div class="con">
+							<div>
+								<span>4</span>
+								<div>关注（人）</div>
+							</div>
+							<div>
+								<span>1000</span>
+								<div>浏览（次）</div>
+							</div>
+							<div>
+								<span>20</span>
+								<div>看过（人）</div>
+							</div>
+						</div>
+					</div>
+					<!--同小区房源-->
+					<div class="alikeEstate">
+						<h3>同小区房源(10)</h3>
+						<div class="alikeEstateBox">
+							<ul>
+								<li>
+									<a href="javascritp:;">
+										<div class="img"><img src="../../img/house4.jpg" alt="" /></div>
+										<div class="houseDetails">4室1厅/156㎡/南 北</div>
+										<div class="houseSprice">930万元 <span>59330元/平</span></div>
+									</a>
+								</li>
+								<li>
+									<a href="javascritp:;">
+										<div class="img"><img src="../../img/house4.jpg" alt="" /></div>
+										<div class="houseDetails">
+											4室1厅/156㎡/南 北
+										</div>
+										<div class="houseSprice">
+											930万元 <span>59330元/平</span>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="javascritp:;">
+										<div class="img"><img src="../../img/house4.jpg" alt="" /></div>
+										<div class="houseDetails">
+											4室1厅/156㎡/南 北
+										</div>
+										<div class="houseSprice">
+											930万元 <span>59330元/平</span>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="javascritp:;">
+										<div class="img"><img src="../../img/house4.jpg" alt="" /></div>
+										<div class="houseDetails">
+											4室1厅/156㎡/南 北
+										</div>
+										<div class="houseSprice">
+											930万元 <span>59330元/平</span>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="javascritp:;">
+										<div class="img"><img src="../../img/house4.jpg" alt="" /></div>
+										<div class="houseDetails">
+											4室1厅/156㎡/南 北
+										</div>
+										<div class="houseSprice">
+											930万元 <span>59330元/平</span>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+     	</div>
+	</body>
+</html>
+<script src="../../lib/jquery-2.1.0.min.js"></script>
+<script src="../../js/mui.min.js"></script>
+<script src="../../js/common.js"></script>
+<script type="text/javascript">
+	mui.init()
+	mui('.mui-scroll-wrapper').scroll({
+		deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+	});
+	/*去看房记录*/
+	openNewPage({
+		btn:'#goLookHouse',
+		url:'../second-house/cust-lookHouse.html',
+		data:{}
+	});
+	/*去经纪人房评*/
+	openNewPage({
+		btn:'#goEvaluate',
+		url:'../second-house/evaluate.html',
+		data:{}
+	});
+	/*去小区详情*/
+	openNewPage({
+		btn:'#goEstate',
+		url:'../estate/estate-details.html',
+		data:{}
+	})
+	/*去周边*/
+	openNewPage({
+		btn:'#goMap',
+		url:'map.html',
+		data:{}
+	});
+	/*去计算器*/
+	openNewPage({
+		btn:'#houseDai',
+		url:'../Mortgage/Dksl2.html',
+		data:{}
+	})
+	/*点击弹蒙版*/
+	$('.tel').click(function(){
+		mui.confirm('13536309485','拨打电话',['呼叫','取消']);
+	})
+	$('#broker').click(function(){
+		mui.confirm('13536309485','拨打电话',['呼叫','取消']);
+	})
+	/*header变化*/
+	document.querySelector('.mui-scroll').addEventListener('scroll', function (e ) {
+		if(-(e.detail.y) > 100){
+			$('header.mui-badge-light-blue').css({'background':'#f7f7f7',})
+		}
+		if(-(e.detail.y) < 100){
+			$('header.mui-badge-light-blue').css({'background':'transparent',})
+		}
+	});
+	/*点击关注*/
+	$('#love').on('click',function(){
+		if($(this).hasClass('love_active')){
+			$(this).find('span').text('关注');
+			$(this).removeClass('love_active');
+		}else{
+			$(this).find('span').text('已关注');
+			$(this).addClass('love_active');
+		}
+	})
+</script>

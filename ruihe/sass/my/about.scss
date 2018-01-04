@@ -1,0 +1,45 @@
+@import '../reset';
+//header{
+//  &.mui-badge-light-blue{
+//      background: $commoBg;
+//  }
+//}
+nav{
+    &.mui-bar-tab{
+        text-align: center;
+        line-height: 50px;
+        background: #fff;
+        box-shadow: none;
+        border-top: 1px solid #eee;
+    }
+}
+.mui-content{
+    .mui-scroll-wrapper{
+        background: #fff;
+        margin-top: 44px;
+        .mui-scroll{
+            .m-about{
+                .logo{
+                    text-align: center;
+                    margin-top: 100px;
+                    b{
+                        font-size: 14px;
+                        color: #333;
+                        display: inline-block;
+                        margin: 20px 0;
+                    }
+                }
+                .con{
+                    margin-top: 80px;
+                    padding: 15px;
+                    div{
+                        color:$commoTextLabel;
+                        &:first-child{
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+/* iCheck plugin Square skin, blue
+----------------------------------- */
+
+.icheckbox_square-blue,
+.iradio_square-blue {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+    background: url(blue.png) no-repeat;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px 0 3px;
+}
+
+.icheckbox_square-blue {
+    background-position: -3px -3px;
+}
+    .icheckbox_square-blue.hover {
+        background-position: -27px -3px;
+    }
+    .icheckbox_square-blue.checked {
+        background-position: -52px -3px;
+    }
+    .icheckbox_square-blue.disabled {
+        background-position: -72px -3px;
+        cursor: default;
+    }
+    .icheckbox_square-blue.checked.disabled {
+        background-position: -96px -3px;
+    }
+
+.iradio_square-blue {
+    background-position: -123px -3px;
+}
+    .iradio_square-blue.hover {
+        background-position: -147px -3px;
+    }
+    .iradio_square-blue.checked {
+        background-position: -171px -3px;
+    }
+    .iradio_square-blue.disabled {
+        background-position: -195px -3px;
+        cursor: default;
+    }
+    .iradio_square-blue.checked.disabled {
+        background-position: -219px -3px;
+    }
+
+/* HiDPI support */
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
+    .icheckbox_square-blue,
+    .iradio_square-blue {
+        background-image: url(blue@2x.png);
+        -webkit-background-size: 240px 24px;
+        background-size: 240px 24px;
+    }
+}

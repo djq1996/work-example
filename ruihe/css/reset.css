@@ -1,0 +1,308 @@
+@charset "UTF-8";
+/*---------------reset start*/
+html {
+  font-family: "微软雅黑";
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+h1, h2, h3, h4, h5, h6, p {
+  font-weight: inherit;
+  margin: 0; }
+
+ul, ol {
+  margin: 0;
+  padding: 0; }
+
+ul li, ol li {
+  list-style: none; }
+
+[hidden],
+template {
+  display: none; }
+
+a {
+  background: 0 0;
+  color: #03a9f4; }
+
+a:active,
+a:hover {
+  outline: 0; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b,
+strong {
+  font-weight: 700; }
+
+dfn {
+  font-style: italic; }
+
+h1 {
+  margin: .67em 0; }
+
+mark {
+  color: #000;
+  background: #ff0; }
+
+small {
+  font-size: 80%; }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -.5em; }
+
+sub {
+  bottom: -.25em; }
+
+img {
+  border: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 1em 40px; }
+
+hr {
+  box-sizing: content-box;
+  height: 0; }
+
+pre {
+  overflow: auto; }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+  margin: 0;
+  color: inherit; }
+
+button {
+  overflow: visible; }
+
+button,
+select {
+  text-transform: none; }
+
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+  cursor: pointer;
+  -webkit-appearance: button; }
+
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+input {
+  line-height: normal; }
+
+input[type=checkbox],
+input[type=radio] {
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  height: auto; }
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+fieldset {
+  margin: 0 2px;
+  padding: .35em .625em .75em;
+  border: 1px solid silver; }
+
+legend {
+  padding: 0;
+  border: 0; }
+
+textarea {
+  overflow: auto; }
+
+optgroup {
+  font-weight: 700; }
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse; }
+
+td,
+th {
+  padding: 0; }
+
+i {
+  font-style: normal; }
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  background-repeat: no-repeat; }
+
+body {
+  font-family: '微软雅黑';
+  font-size: 14px;
+  color: #666666;
+  background-color: #ffffff;
+  -webkit-overflow-scrolling: touch; }
+
+a {
+  text-decoration: none; }
+
+.clearfix {
+  *zoom: 1; }
+
+.clearfix:after {
+  content: ".";
+  /*内容为“.”就是一个英文的句号而已。也可以不写。*/
+  display: block;
+  /*加入的这个元素转换为块级元素。*/
+  clear: both;
+  /*清除左右两边浮动。*/
+  visibility: hidden;
+  /*可见度设为隐藏。注意它和display:none;是有区别的。visibility:hidden;仍然占据空间，只是看不到而已；*/
+  line-height: 0;
+  /*行高为0；*/
+  height: 0;
+  /*高度为0；*/
+  font-size: 0;
+  /*字体大小为0；*/ }
+
+/* scroll style*/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px; }
+
+::-webkit-scrollbar-button:vertical {
+  display: none; }
+
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-track {
+  background-color: #e2e2e2; }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.3); }
+
+::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: rgba(0, 0, 0, 0.35); }
+
+::-webkit-scrollbar-thumb:vertical:active {
+  background-color: rgba(0, 0, 0, 0.38); }
+
+/*----------------------reset end   */
+/*----------------------公用变量*/
+/*背景颜色*/
+/*文字颜色*/
+/*暂无数据*/
+.noinfo {
+  display: none;
+  width: 100px;
+  height: 100px;
+  margin: 20px auto; }
+  .noinfo img {
+    width: 100%;
+    height: 100%; }
+
+/*公用标签(span)*/
+.spanTagAile {
+  display: inline-block;
+  font-size: 12px;
+  padding: 0 3px;
+  margin-right: 6px;
+  /*随时看房*/
+  /*独家,销售达人*/
+  /*满五 满二 带看活跃*/
+  /*实勘 客户热评*/
+  /*精装*/
+  /*新上*/
+  /*优选*/ }
+  .spanTagAile.hasKey {
+    background: #e1f5ed;
+    color: #33BE85; }
+  .spanTagAile.duJia {
+    background-color: #f4f7f9;
+    color: #849aae; }
+  .spanTagAile.M5, .spanTagAile.M2 {
+    background: #ffece8;
+    color: #FF8062; }
+  .spanTagAile.shiKan {
+    background: #d3f2e9;
+    color: #38b792; }
+  .spanTagAile.jingZhuang {
+    color: #f65761;
+    background: #fedbdd; }
+  .spanTagAile.xinShang {
+    background: #ebebeb;
+    color: #a7a7aa; }
+  .spanTagAile.youxuan {
+    background: #f7bd26;
+    color: #fff; }
+
+/*----------------------兼容代码块*/
+/*暂无数据*/
+.m-no-data {
+  padding-top: 93px; }
+  .m-no-data div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 94px;
+    height: 94px;
+    background: url(../../img/c-icon.png) no-repeat;
+    background-position: 0 -64px; }
+  .m-no-data p {
+    text-align: center;
+    padding-top: 35px;
+    height: 14px;
+    font-size: 14px;
+    line-height: 30px; }

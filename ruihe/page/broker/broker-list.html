@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>经纪人列表</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../lib/iCheck/blue.css" />
+		<link href="../../css/mui.picker.css" rel="stylesheet" />
+		<link href="../../css/mui.poppicker.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/borker/borker-list.css" />
+	</head>
+	<body>
+		<!--<header class="mui-bar mui-bar-nav mui-badge-light-blue mui-input-row">
+			<input type="search" class="mui-input-clear" placeholder="请输入小区或商圈名">
+			<a class="mui-icon mui-icon-arrowleft mui-pull-left"></a>
+			<span class="mui-icon mui-icon-search"></span>
+		</header>-->
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+        	<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+        	<h1 class="mui-title mui-ellipsis">经纪人列表</h1>
+     	</header>
+		<div class="mui-content">
+			<div class="m-houseList">
+				<!--搜索框-->
+				<div class="search">
+					<input type="text" placeholder="请输入商圈、小区或经纪人的姓名、电话"/>
+					<span class="mui-icon mui-icon-search"></span>
+				</div>
+				<!--筛选-->
+				<div class="serch-box">
+					<div class="search-top">
+						<ul class="nav_ul mui-clearfix">
+							<li class="nav_ul_li">
+								<input type="hidden" name="dataType" value=""/>
+								<p>区域<i class="mui-icon mui-icon-arrowdown"></i></p>
+								<ul class="nav_child mui-table-view">
+									<li class="mui-table-view-cell">江南新区</li>
+								    <li class="mui-table-view-cell">爱民区</li>
+								    <li class="mui-table-view-cell">阳明区</li>
+								    <li class="mui-table-view-cell">东安区</li>
+								    <li class="mui-table-view-cell">西安区</li>
+								    <li class="mui-table-view-cell">商业地产</li>
+								</ul>
+							</li>
+							<li class="nav_ul_li">
+								<input type="hidden" name="Prices" />
+								<p>筛选<i class="mui-icon mui-icon-arrowdown"></i></p>
+								<ul class="nav_child mui-table-view">
+								    <li class="mui-table-view-cell">
+								    	房东信赖
+								    	<!--<input type="checkbox" class="mui-pull-right" name="" id="" value="" />-->
+								    </li>
+								    <li class="mui-table-view-cell">客户热评</li>
+								    <li class="mui-table-view-cell">销售达人</li>
+								    <li class="mui-table-view-cell">带看活跃</li>
+								</ul>
+							</li>
+							<li class="nav_ul_li">
+								<input type="hidden" name="Prices" />
+								<p>排序<i class="mui-icon mui-icon-arrowdown"></i></p>
+								<ul class="nav_child mui-table-view">
+								    <li class="mui-table-view-cell">好评率从高到低</li>
+								    <li class="mui-table-view-cell">好评率从低到高</li>
+								    <li class="mui-table-view-cell">带看量从高到低</li>
+								    <li class="mui-table-view-cell">带看量从低到高</li>
+								    <li class="mui-table-view-cell">成交量从高到低</li>
+								    <li class="mui-table-view-cell">成交量从低到高</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="bg"></div>
+				</div>
+				<!--列表-->
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="listCon">
+							<ul>
+								<li class="tobrokerDetails">
+									<a class="img" href="javascript:;">
+										<img src="../../img/honorUser.png" alt="" />
+									</a>
+									<div class="conRight">
+										<div class="title">张元 <span>高级店经理</span></div>
+										<div>月坛 - 西便门东里临时一店</div>
+										<div class="tag">
+											<span class="spanTagAile duJia">销售达人</span>
+											<span class="spanTagAile shiKan">客户热评</span>
+											<span class="spanTagAile M5">带看活跃</span>
+										</div>
+										<div class="price">
+										 	<div>
+										 		好评率<span>100%</span>
+										 	</div>
+										 	<div>129人</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<!--暂无数据-->
+						<div class="noinfo">
+							<img src="../../img/noinfo.png" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="../../lib/jquery-2.1.0.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../lib/iCheck/icheck.min.js"></script>
+<script src="../../js/mui.js"></script>
+<script src="../../js/mui.picker.min.js"></script>
+<script src="../../js/mui.poppicker.js"></script>
+<script type="text/javascript">
+	mui.init();
+	mui('.mui-scroll-wrapper').scroll({
+		deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+	});
+	//修改单选复选框样式
+	$(document).ready(function(){
+		$('input').iCheck({
+		    checkboxClass: 'icheckbox_square-blue',
+		    radioClass: 'iradio_square-blue',
+		    increaseArea: '20%' // optional
+		});
+	});
+	$('.nav_ul_li').on('tap', 'p', function() {
+		if($(this).parent().find(".nav_child").is(":hidden")) {
+			$(".nav_ul_li p").css("color", "#333");
+			$(this).css("color", "#333");
+			$(".nav_ul_li p .mui-icon").removeClass("mui-icon-arrowup");
+			$(".nav_ul_li p .mui-icon").addClass("mui-icon-arrowdown");
+			$(this).find(".mui-icon").removeClass("mui-icon-arrowdown");
+			$(this).find(".mui-icon").addClass("mui-icon-arrowup");
+			$(".nav_child").hide();
+			$(this).parent().find(".nav_child").slideDown(500);
+			$(".bg").show();
+		} else {
+			$(this).css("color", "#333");
+			$(this).find(".mui-icon").removeClass("mui-icon-arrowup");
+			$(this).find(".mui-icon").addClass("mui-icon-arrowdown");
+			$(".nav_ul_li p .mui-icon").removeClass("mui-icon-arrowup");
+			$(".nav_ul_li p .mui-icon").addClass("mui-icon-arrowdown");
+			$(".nav_child").slideUp(500);
+			$(".bg").hide();
+		}
+	});
+	/*二级菜单选择*/
+	$('.nav_child').on('tap', 'li', function() {
+		var secondtext = $(this).text().trim();
+		if(secondtext.length > 6) {
+			secondtext = secondtext.substr(0, 5) + '...';
+		}
+		$(this).parents(".nav_child").prev().text(secondtext).append('<i class="mui-icon mui-icon-arrowdown"></i>');
+		$(".nav_child").slideUp(300);
+		$(".bg").hide();
+	});
+	/*去经纪人详情*/
+	openNewPage({
+		btn:'.tobrokerDetails',
+		url:'borker-details.html',
+		data:{}
+	});
+	//列表上拉加载，下拉刷新
+	mui('.mui-scroll-wrapper').pullRefresh({
+		down: {
+			callback: function() {
+				setTimeout(function() {
+					mui('.mui-scroll-wrapper').pullRefresh().endPulldownToRefresh();
+					mui.toast("刷新成功");
+				}, 1500);
+			}
+		},
+		up: {
+			contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+			contentnomore: '没有更多数据了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+			callback: function() {
+				setTimeout(function() {
+					mui('.mui-scroll-wrapper').pullRefresh().endPullupToRefresh();
+					for(var i=0; i<2; i++){
+						var str = '<li class="tobrokerDetails">'+
+										'<a class="img" href="javascript:;">'+
+											'<img src="../../img/honorUser.png" alt="" />'+
+										'</a>'+
+										'<div class="conRight">'+
+											'<div class="title">张元 <span>高级店经理</span></div>'+
+											'<div>月坛 - 西便门东里临时一店</div>'+
+											'<div class="tag">'+
+												'<span class="spanTagAile duJia">销售达人</span>'+
+												'<span class="spanTagAile shiKan">客户热评</span>'+
+												'<span class="spanTagAile M5">带看活跃</span>'+
+											'</div>'+
+											'<div class="price">'+
+											 	'<div>'+
+											 		'好评率<span>100%</span>'+
+											 	'</div>'+
+											 	'<div>129人</div>'+
+											'</div>'+
+										'</div>'+
+									'</li>'
+						$('.listCon ul').append(str);
+					}
+				}, 1500);
+			}
+		}
+	});
+</script>

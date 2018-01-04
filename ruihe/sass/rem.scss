@@ -1,0 +1,25 @@
+$ui-width:750px;
+@function px2rem($width){
+    
+    @return #{$width/$ui-width*100}rem;
+    
+}
+
+/*背景颜色*/
+$commoBg:#591571;
+$commoImpt:#db4c3f;
+$commoBorder:#f1f1f1;
+
+/*文字颜色*/
+$commoText:#333;
+$commoTextLabel:#888;
+
+$commonColor:#6b2c75;
+$commonBgBtn:#38ad6a;
+$commonTextNavColor:#a9abab;
+$commonLi:#d7dada;
+$comminColorGreen:#00ae66;
+$commonTextColorRed:#db4c3f;
+
+
+

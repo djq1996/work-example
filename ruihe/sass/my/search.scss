@@ -1,0 +1,132 @@
+@import '../reset';
+
+header{
+    .searchCon{
+        margin-left: 35px;
+        line-height: 44px;
+        display: inline-block;
+        position: relative;
+        i{
+            &.mui-icon{
+                font-size: 18px;
+            }
+        }
+        a{
+            color: #333;
+        }
+    }
+    .searchInp{
+        display: inline-block;
+        width: 55%;
+        position: relative;
+        input[type="search"]{
+            margin-left: 5px;
+            border-radius: 2px;
+            background: #f7f7f7;
+            font-size: 14px;
+        }
+        .mui-icon-search{
+            position: absolute;
+            top: 0;
+            right: -10px;
+            font-size: 20px;
+        }
+    }
+    .selectBox{
+        position: absolute;
+        left: 56px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 3px #eee;
+        display: none;
+        .selectCon{
+            position: relative;
+            ul{
+                &:before{
+                    background: #fff;
+                }
+                li{
+                    &:after{
+                        left: 0;
+                    }
+                }
+            }
+            .arrowTop{
+                position: absolute;
+                top:-10px;  
+                left:20px;  
+                width:0;  
+                height:0;  
+                border-left:15px solid transparent;  
+                border-right:15px solid transparent;  
+                border-bottom:15px solid #fff;  
+            }
+        }
+    }
+}
+.mui-content{
+    .mui-scroll-wrapper{
+        background: #fff;
+        margin-top: 44px;
+        .mui-scroll{
+            ul{
+                li{
+                    &:after{
+                        left: 0;
+                    }
+                    .mui-row{
+                        .mui-col-xs-10{
+                            color: #333;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space:nowrap;
+                            span{
+                                margin-left: 10px;
+                                color: $commoTextLabel;
+                            }
+                        }
+                    }
+                }
+            }
+            .historyBox{
+                .history_title{
+                    padding: 15px;
+                    height: 40px;
+                    background: #f1f1f1;
+                    span{line-height: 10px;}
+                    .mui-pull-right{
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

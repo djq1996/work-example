@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>税费计算器</title>
+	<link rel="stylesheet" href="sm.css">
+	<script src="jquery.js"></script>
+	
+</head>
+<body>
+ 	<div class="container">
+		<div class="count smtop">
+			<div >房屋面积
+				<div class="smco">
+					<span>㎡</span><input onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" type="number" value="0" onfocus="javascript:if(this.value=='0'||this.value=='')this.value='';" onblur="javascript:if(this.value=='')this.value='0';"/>
+				</div>
+			</div>
+			<div>房屋总价
+				<div class="smco">
+					<span>万元</span><input onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" type="number" value="0" onfocus="javascript:if(this.value=='0'||this.value=='')this.value='';" onblur="javascript:if(this.value=='')this.value='0'" />
+				</div>
+			</div>
+		</div>
+		<div class="count">
+			<!-- <div class="fir">
+			</div>
+			<div class="jian">住宅类型
+				<div class="smco">
+					<input type="text" value="0"  data-Total="">万
+				</div>
+			</div> -->
+			<div class="jian w100">住宅类型
+				<div class="smco">
+					<!--<input type="text"  class="downalert posi" id='picker' value="普通住宅" data-type="Proportion"/>-->
+                    <div class="downalert posi" id='picker' data-type="Proportion">普通住宅</div>
+				</div>
+			</div>
+			<div class="jian w100">卖方唯一
+				<div class="smco">
+					<!--<input type="text"class="downalert posi" value="唯一套" data-type="only"/>-->
+                    <div class="downalert posi" data-type="only">唯一套</div>
+				</div>
+			</div>
+			<div class="jian w100">上次交易
+				<div class="smco">
+					<!--<input type="text"class="downalert posi" value="满5年" data-type="lasttime"/>-->
+                    <div class="downalert posi" data-type="lasttime">满5年</div>
+				</div>
+			</div>
+			<div class="jian w100">计征方式
+				<div class="smco">
+					<!--<input type="text"class="downalert posi" value="总价" data-type="mode"/>-->
+                    <div class="downalert posi" data-type="mode">总价</div>
+				</div>
+			</div>
+			<div class="jian w100">买房首套
+				<div class="smco">
+					<!--<input type="text" class="downalert posi" id='pickeryear' value="首套"data-type="year" />-->
+                    <div class="downalert posi" id='pickeryear'  data-type="year">首套</div>
+				</div>
+			</div>
+			<div class="begin">
+				<p>此计算仅供参考</p>
+				<div>开始计算</div>
+			</div>
+		</div>
+		<div class="Result">
+			<div class="total"><span>税种</span>
+				<div><span>税额</span></div>
+			</div>
+			<div class="months"><span>契税</span>
+				<div><span>0</span>元</div>
+			</div>
+			<div class="interest"><span>增值税</span>
+				<div><span>0</span>元</div>
+			</div>
+			<div class="repayment"><span>个人所得税</span>
+				<div><span>0</span>元</div>
+			</div>
+			<div class="repayment"><span>合计</span>
+				<div><span>0</span>元</div>
+			</div>
+		</div>
+	</div>
+	<div class="bg">
+		<ul data-type="Proportion" >
+			<div>住宅类型</div>
+			<li data-val="普通住宅">普通住宅</li>
+			<li data-val="非普通住宅">非普通住宅</li>
+		</ul>
+		<ul data-type="year" >
+			<div>买房家庭首套</div>
+			<li data-val="首套">首套</li>
+			<li data-val="非首套">非首套</li>
+		</ul>
+		<ul data-type="only" >
+			<div>卖方家庭唯一一套</div>
+			<li data-val="唯一套">唯一套</li>
+			<li data-val="非唯一套">非唯一套</li>
+		</ul>
+		<ul data-type="lasttime" >
+			<div>距离上次</div>
+			<li data-val="满五年">满五年</li>
+			<li data-val="满两年不满五年">满两年不满五年</li>
+			<li data-val="不满两年">不满两年</li>
+		</ul>
+		<ul data-type="mode" >
+			<div>计征方式</div>
+			<li data-val="总价">总价</li>
+			<li data-val="差价">差价</li>
+		</ul>
+		<ul data-type="lilv" >
+			<div>贷款利率</div>
+			<li data-val="2015年10月24日基准利率">2015年10月24日基准利率</li>
+			<li data-val="2015年10月24日利率下折(7折)">2015年10月24日利率下折(7折)</li>
+			<li data-val="2015年10月24日利率下折(8折)">2015年10月24日利率下折(8折)</li>
+			<li data-val="2015年10月24日利率下折(85折)">2015年10月24日利率下折(85折)</li>
+			<li data-val="2015年10月24日利率下折(9折)">2015年10月24日利率下折(9折)</li>
+		</ul>
+		<div class="no"></div>
+	</div>
+</body>
+
+<script>
+</script>
+
+<script>
+
+
+    $(function () {
+        $(".count>div").click(function () {
+            $(this).find("input").focus();
+        })
+
+		function guanbi(){
+			$(".container").removeClass("shadow");
+			$(".bg").slideUp(200);
+			setTimeout(function(){
+				$(".bg ul").removeClass("active");
+			},200)
+		}
+		//遮罩层关闭
+		$(".container").click(function(e){
+			if ($(e.target).is(this)) {
+				guanbi();
+			}
+		})
+		$(".no").click(function(){
+			guanbi();
+		})
+
+		//标题点击切换
+		$("nav div div").click(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+			if($(this).is('.combination')){
+				$(".none").addClass("active");
+			}else{
+				$(".none").removeClass("active");
+			}
+		})
+
+		//本金 本息切换
+		$(".fir div div").click(function(){
+			$(this).addClass("active").parent().siblings("div").find("div").removeClass("active")
+			if($(this).html()=="等额本金"){
+				$(".repayment>span").html("首月还款")
+			}else{
+				$(".repayment>span").html("月均还款")
+			}
+		})
+		//上面点击
+		$(".downalert").click(function(){
+			var node = $(this),type=node.data("type");
+			switch(type){
+				case "Proportion":
+					$(".bg ul[data-type='Proportion']").addClass("active")
+					break;
+				case "year":
+					$(".bg ul[data-type='year']").addClass("active")
+					break;
+				case "lilv":
+					$(".bg ul[data-type='lilv']").addClass("active")
+					break;
+				case "lasttime":
+					$(".bg ul[data-type='lasttime']").addClass("active")
+					break;
+				case "only":
+					$(".bg ul[data-type='only']").addClass("active")
+					break;
+				case "mode":
+					$(".bg ul[data-type='mode']").addClass("active")
+					break;
+			}
+			$(".bg").slideDown(200)
+			$(".container").addClass("shadow")
+		})
+
+		$(".bg li").click(function(){
+			var par = $(this).parent(),type=par.data("type"),val=$(this).data("val");
+			$(this).addClass("active").siblings("li").removeClass("active");
+			$(".count div[data-type='"+type+"']").html(val);
+			guanbi();
+		})
+
+
+
+
+
+
+
+		$(".begin div").click(function(){
+			alert($(".count>div").eq(5).find("input").val());
+		})
+	})
+</script>
+
+
+</html>

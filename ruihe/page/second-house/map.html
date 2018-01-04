@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>位置及周边</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../fonts/map/iconfont.css"/>
+		<link rel="stylesheet" href="../../css/second-house/map.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+			<h1 class="mui-title mui-ellipsis">位置及周边</h1>
+		</header>
+		<!--内容-->
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div id="djq-gaode-api">
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--底部导航-->
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" data-type="地铁|公交">
+				<span class="mui-icon iconfont icon-jt"></span>
+				<span class="mui-tab-label">交通</span>
+			</a>
+			<a class="mui-tab-item" data-type="银行">
+				<span class="mui-icon iconfont icon-yinhang"></span>
+				<span class="mui-tab-label">银行</span>
+			</a>
+			<a class="mui-tab-item" data-type="幼儿园|小学|中学|大学">
+				<span class="mui-icon iconfont icon-school"></span>
+				<span class="mui-tab-label">教育</span>
+			</a>
+			<a class="mui-tab-item" data-type="医院">
+				<span class="mui-icon iconfont icon-add"></span>
+				<span class="mui-tab-label">医院</span>
+			</a>
+			<a class="mui-tab-item" data-type="咖啡厅|健身">
+				<span class="mui-icon iconfont icon-xiuxian1"></span>
+				<span class="mui-tab-label">休闲</span>
+			</a>
+			<a class="mui-tab-item" data-type="商场|超市|市场">
+				<span class="mui-icon iconfont icon-gouwu1"></span>
+				<span class="mui-tab-label">购物</span>
+			</a>
+		</nav>
+	</body>
+
+</html>
+<script src="../../lib/jquery-2.1.0.min.js"></script>
+<script src="../../js/mui.min.js"></script>
+<script src="../../js/common.js"></script>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.2&key=0e95b54af285de95d386092d595c0319"></script>
+<script type="text/javascript">
+	"use strict"
+	mui.init();
+	
+
+	/*---------------------------地图需要小区的名称 -----------------------------------*/
+		var communityName = "牡丹江新星花园";
+	/*---------------------------地图需要小区的名称 -----------------------------------*/
+	/*初始化地图*/
+	var map = new AMap.Map("djq-gaode-api", {
+		resizeEnable: true,
+		zoom: 10
+	});
+	var placeSearch, geocoder, lngAndLat = [], //周边搜索，经纬度获取，经纬度存值
+		classNum = 0, // icon  样式
+		lnglat; //计算距离
+	//地点查询参数
+	var option = {
+		city: "全国", //城市
+		type: "地铁|公交",
+		map: map,
+		//panel: "panel"
+	};
+	AMap.service(["AMap.PlaceSearch"], function() {
+		//构造地点查询类
+		placeSearch = new AMap.PlaceSearch(option);
+	});
+	AMap.service('AMap.Geocoder', function() { //回调函数
+		//实例化Geocoder
+		geocoder = new AMap.Geocoder({
+			city: "全国" //
+		});
+
+	})
+
+	$(".mui-bar-tab a").click(function() {
+		classNum = $(this).index();
+		/*设置搜索关键字*/
+		placeSearch.setType($(this).attr('data-type'));
+		//获取当前房子位置经纬度
+		getNL();
+		$(this).addClass('active').siblings().removeClass('active')
+	});
+	/*默认执行一次搜索交通*/
+	setTimeout(function() {
+		getNL()
+	}, 100);
+	/*根据关键字获取经纬度*/
+	var getNL = function() {
+		geocoder.getLocation(communityName, function(status, result) {
+			if(status === 'complete' && result.info === 'OK') {
+				var data = result.geocodes[0];
+				lngAndLat.push(data.location.lng)
+				lngAndLat.push(data.location.lat)
+				//
+				lnglat = new AMap.LngLat(data.location.lng, data.location.lat)
+				load()
+				//比如在获得的经纬度上打上一个Marker
+			} else {
+				console.log('获取经纬度失败')
+				//获取经纬度失败
+			}
+		});
+//		var $CoordinatesX = $("#CoordinatesX").val();
+//		var $CoordinatesY = $("#CoordinatesY").val();
+//		lngAndLat.push($CoordinatesX)
+//		lngAndLat.push($CoordinatesY)
+		//lnglat = new AMap.LngLat($CoordinatesX, $CoordinatesY)
+//		load()
+	}
+	//周边查询
+	var load = function() {
+		placeSearch.searchNearBy("", lngAndLat, 2000, function(status, result) {
+			if(status === 'complete' && result.info === 'OK') {
+				var arr = result.poiList.pois;
+				var str = '';
+				var classArr = ['icon-jt', 'icon-gouwu1', 'icon-school', 'icon-yinhang', 'icon-add', 'icon-canting', 'icon-xiuxian1']
+				for(var i = 0; i < arr.length; i++) {
+					str += '<li>' +
+						'<div class="address clearfix">' +
+						'<div class="address-name">' +
+						'<i class="icon iconfont ' + classArr[classNum] + '"></i>' +
+						'<span>' + arr[i].name + '</span>' +
+						'</div>' +
+						'<div class="address-juli">' +
+						'<i class="icon iconfont icon-juli"></i>' +
+						'<span>' + lnglat.distance([arr[i].location.lng, arr[i].location.lat]).toFixed(0) + '米</span>' +
+						'</div>' +
+						'</div>' +
+						'<div class="address-car">' + arr[i].address + '</div>' +
+						'</li>'
+				}
+				$(".results-box").html(str)
+			}
+		});
+	};
+</script>

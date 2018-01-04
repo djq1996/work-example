@@ -1,0 +1,28 @@
+@import '../reset';
+//header{
+//  &.mui-badge-light-blue{
+//      background: $commoBg;
+//  }
+//}
+.mui-content{
+    .mui-scroll-wrapper{
+        background: #fff;
+        margin-top: 44px;
+        .mui-scroll{
+            .m-setting{
+                .mui-table-view-cell:after{
+                    left: 0;
+                }
+                #clearCache{
+                    position: relative;
+                    span{
+                        position: absolute;
+                        right: 30px;
+                        top: 12px;
+                        color: $commoTextLabel;
+                    }
+                }
+            }
+        }
+    }
+}
