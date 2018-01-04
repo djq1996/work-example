@@ -49,12 +49,12 @@
 								    <li class="mui-table-view-cell">150-200万</li>
 								    <li class="mui-table-view-cell">200-250万</li>
 								    <li class="mui-table-view-cell">250万以上</li>
-								    <li class="mui-table-view-cell">
+								    <li class="no_view">
 								    	<span>自定义价格</span>
-								    	<input type="text" placeholder="最低"/>
+								    	<input type="text" class="lowPrice" placeholder="最低"/>
 								    	<i>-</i>
-								    	<input type="text" placeholder="最高"/>
-								    	<a href="javascript:;">确定</a>
+								    	<input type="text" class="highPrice" placeholder="最高"/>
+								    	<a href="javascript:;" class="priceSave">确定</a>
 								    </li>
 								</ul>
 								
@@ -154,7 +154,7 @@
 		}
 	});
 	/*二级菜单选择*/
-	$('.nav_child').on('tap', 'li', function() {
+	$('.nav_child').on('tap', 'mui-table-view-cell', function() {
 		var secondtext = $(this).text().trim();
 		if(secondtext.length > 4) {
 			secondtext = secondtext.substr(0, 3) + '...';
@@ -162,6 +162,28 @@
 		$(this).parents(".nav_child").prev().text(secondtext).append('<i class="mui-icon mui-icon-arrowdown"></i>');
 		$(".nav_child").slideUp(300);
 		$(".bg").hide();
+	});
+	/*点击背景下拉消失*/
+	$(".bg").click(function(){
+		$(".nav_child").slideUp(300);
+		$(".bg").hide();
+	});
+	/*点击价格确定按钮*/
+	$('.priceSave').on('tap',function(){
+		var low = $('.lowPrice').val();
+		var high = $('.highPrice').val();
+		low == '' ? low = 0 : low = low;
+		high == '' ? high = 0 : high = high;
+		var str = low+'万-'+high+'万';
+		if(str.length >5) {
+			str = str.substr(0, 4) + '...';
+		};
+		$(this).parent().parent().prev().text(str).append('<i class="mui-icon mui-icon-arrowdown"></i>');
+		console.log($(this).parent().parent().prev().text())
+		$(".nav_child").slideUp(300);
+		$(".bg").hide();
+		$('.lowPrice').val('');
+		$('.highPrice').val('');
 	});
 	(function($, doc) {
 		//普通示例

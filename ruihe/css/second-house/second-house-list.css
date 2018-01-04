@@ -386,10 +386,10 @@ header.mui-badge-light-blue {
             position: relative;
             float: left;
             width: 100%;
-            padding: .5rem 0;
+            padding: 10px 0;
             text-align: center;
             color: #333;
-            font-size: .65rem;
+            font-size: 14px;
             font-weight: normal;
             cursor: pointer;
             margin: 0; }
@@ -423,22 +423,24 @@ header.mui-badge-light-blue {
               color: #333; }
               .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child li:after {
                 left: 0; }
-              .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child li input[type='text'] {
-                width: 60px;
-                margin-bottom: 0;
-                height: 25px;
-                line-height: 40px;
-                padding: 0;
-                text-indent: 10px; }
-              .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child li a {
-                display: inline-block;
-                margin-left: 10px;
-                vertical-align: middle;
-                background: #591571;
-                color: #fff;
-                width: 60px;
-                line-height: 5px;
-                text-align: center; }
+              .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child li.no_view {
+                padding: 11px 15px; }
+                .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child li.no_view input[type='text'] {
+                  width: 60px;
+                  margin-bottom: 0;
+                  height: 25px;
+                  line-height: 40px;
+                  padding: 0;
+                  text-indent: 10px; }
+                .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child li.no_view a {
+                  display: inline-block;
+                  margin-left: 10px;
+                  vertical-align: middle;
+                  background: #591571;
+                  color: #fff;
+                  width: 60px;
+                  line-height: 25px;
+                  text-align: center; }
   .mui-content .m-houseList .mui-scroll-wrapper {
     background: #fff;
     margin-top: 80px; }

@@ -12,11 +12,6 @@
 		<link rel="stylesheet" href="../../css/borker/borker-list.css" />
 	</head>
 	<body>
-		<!--<header class="mui-bar mui-bar-nav mui-badge-light-blue mui-input-row">
-			<input type="search" class="mui-input-clear" placeholder="请输入小区或商圈名">
-			<a class="mui-icon mui-icon-arrowleft mui-pull-left"></a>
-			<span class="mui-icon mui-icon-search"></span>
-		</header>-->
 		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
         	<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
         	<h1 class="mui-title mui-ellipsis">经纪人列表</h1>
@@ -129,6 +124,7 @@
 		    increaseArea: '20%' // optional
 		});
 	});
+	/*点击下拉*/
 	$('.nav_ul_li').on('tap', 'p', function() {
 		if($(this).parent().find(".nav_child").is(":hidden")) {
 			$(".nav_ul_li p").css("color", "#333");
@@ -157,6 +153,11 @@
 			secondtext = secondtext.substr(0, 5) + '...';
 		}
 		$(this).parents(".nav_child").prev().text(secondtext).append('<i class="mui-icon mui-icon-arrowdown"></i>');
+		$(".nav_child").slideUp(300);
+		$(".bg").hide();
+	});
+	/*点击背景下拉消失*/
+	$(".bg").click(function(){
 		$(".nav_child").slideUp(300);
 		$(".bg").hide();
 	});

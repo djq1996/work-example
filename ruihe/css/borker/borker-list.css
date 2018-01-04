@@ -307,6 +307,9 @@ a {
     font-size: 14px;
     line-height: 30px; }
 
+.mui-bar-nav ~ .mui-content .mui-pull-top-pocket {
+  top: 0; }
+
 header.mui-badge-light-blue {
   position: relative; }
   header.mui-badge-light-blue input[type='search'] {
@@ -399,10 +402,10 @@ header.mui-badge-light-blue {
             position: relative;
             float: left;
             width: 100%;
-            padding: .5rem 0;
+            padding: 10px 0;
             text-align: center;
             color: #333;
-            font-size: .65rem;
+            font-size: 14px;
             font-weight: normal;
             cursor: pointer;
             margin: 0; }
@@ -484,7 +487,7 @@ header.mui-badge-light-blue {
             .mui-content .m-houseList .mui-scroll-wrapper .mui-scroll .listCon ul li .conRight div.price {
               text-align: center;
               position: absolute;
-              right: 5px;
+              right: 20px;
               top: 15px;
               color: #888;
               font-size: 12px; }
