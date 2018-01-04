@@ -17,12 +17,15 @@
         	<h1 class="mui-title mui-ellipsis">经纪人列表</h1>
      	</header>
 		<div class="mui-content">
+			<div class="mui-input-row mui-search">
+			    <input type="search" class="mui-input-clear" placeholder="">
+			</div>
 			<div class="m-houseList">
 				<!--搜索框-->
-				<div class="search">
+				<!--<div class="search">
 					<input type="text" placeholder="请输入商圈、小区或经纪人的姓名、电话"/>
 					<span class="mui-icon mui-icon-search"></span>
-				</div>
+				</div>-->
 				<!--筛选-->
 				<div class="serch-box">
 					<div class="search-top">
@@ -124,7 +127,7 @@
 		    increaseArea: '20%' // optional
 		});
 	});
-	/*点击下拉*/
+	/*下拉*/
 	$('.nav_ul_li').on('tap', 'p', function() {
 		if($(this).parent().find(".nav_child").is(":hidden")) {
 			$(".nav_ul_li p").css("color", "#333");

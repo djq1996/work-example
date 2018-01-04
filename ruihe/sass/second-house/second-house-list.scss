@@ -5,23 +5,16 @@
 header{
     &.mui-badge-light-blue{
         position: relative;
-        input[type='search']{
-            width: 90%;
-            background: #f7f7f7;
-            opacity: 0.9;
-            float: right;
-            border-radius: 2px;
-            margin-top: 10px;
-            height: 25px;
-            font-size: 12px;
+    }
+    .mui-search{
+        display: inline-block;
+        width: 90%;
+        height: 100%;
+        .mui-placeholder{
+            font-size: 14px;
         }
-        .mui-icon-search{
-            position: absolute;
-            color: #fff;
-            right: 15px;
-            top: 2px;
-            font-size: 20px;
-            color: #03a9f4;
+        input{
+            background: #f7f7f7;
         }
     }
 }
@@ -34,7 +27,7 @@ header{
         height: 100%;
         background: #000000;
         opacity: 0.5;
-        z-index: 1;
+        z-index: 4;
         display: none;  
     }
     #sortBtn{
@@ -114,7 +107,7 @@ header{
                             width: 100%;
                             position: absolute;
                             left: 0px;
-                            top:32px;
+                            top:40px;
                             z-index: 99999;
                             background: #fff;
 //                                  max-height: 300px;

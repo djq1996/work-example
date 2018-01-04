@@ -428,7 +428,7 @@ header.mui-badge-light-blue {
             width: 100%;
             position: absolute;
             left: 0px;
-            top: 32px;
+            top: 40px;
             z-index: 99999;
             background: #fff;
             border-bottom: 2px solid #eee; }
@@ -443,7 +443,6 @@ header.mui-badge-light-blue {
                 width: 60px;
                 margin-bottom: 0;
                 height: 25px;
-                line-height: 40px;
                 padding: 0;
                 text-indent: 10px; }
               .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child li a {

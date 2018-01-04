@@ -12,9 +12,12 @@
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav mui-badge-light-blue mui-input-row">
-			<input type="search" class="mui-input-clear" placeholder="请输入小区或商圈名">
 			<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
-			<span class="mui-icon mui-icon-search"></span>
+			<!--<input type="search" class="mui-input-clear" placeholder="请输入小区或商圈名">-->
+			<!--<span class="mui-icon mui-icon-search"></span>-->
+			<div class="mui-input-row mui-search"  id="gosearch">
+			    <input type="search" class="mui-input-clear" placeholder="请输入小区或商圈名" disabled>
+			</div>
 		</header>
 		<div class="mui-content">
 			<!--排序-->
@@ -75,8 +78,8 @@
 							</li>
 						</ul>
 					</div>
-					<div class="bg"></div>
 				</div>
+				<div class="bg"></div>
 				<!--列表-->
 				<div class="mui-scroll-wrapper">
 					<div class="mui-scroll">
@@ -123,6 +126,12 @@
 		url:'second-house-detaild.html',
 		data:{}
 	});
+	/*去搜索*/
+	openNewPage({
+		btn:'#gosearch',
+		url:'../my/search.html',
+		data:{}
+	});
 	/*打开侧滑菜单*/
 	$(document).ready(function() {
 		ReadyMorePage('offcanvasMore.html', 'offMore');
@@ -140,21 +149,23 @@
 			$(".nav_ul_li p .mui-icon").addClass("mui-icon-arrowdown");
 			$(this).find(".mui-icon").removeClass("mui-icon-arrowdown");
 			$(this).find(".mui-icon").addClass("mui-icon-arrowup");
-			$(".nav_child").hide();
 			$(this).parent().find(".nav_child").slideDown(500);
 			$(".bg").show();
+			$('.mui-content .m-houseList .serch-box').css({'top':'0','z-index':'100'});
 		} else {
 			$(this).css("color", "#333");
 			$(this).find(".mui-icon").removeClass("mui-icon-arrowup");
 			$(this).find(".mui-icon").addClass("mui-icon-arrowdown");
 			$(".nav_ul_li p .mui-icon").removeClass("mui-icon-arrowup");
 			$(".nav_ul_li p .mui-icon").addClass("mui-icon-arrowdown");
-			$(".nav_child").slideUp(500);
+			$(this).parent().find(".nav_child").slideUp(1000);
 			$(".bg").hide();
+			$('.mui-content .m-houseList .serch-box').css({'top':'0','z-index':'100'});
+			console.log(111)
 		}
 	});
 	/*二级菜单选择*/
-	$('.nav_child').on('tap', 'mui-table-view-cell', function() {
+	$('.nav_child').on('tap', '.mui-table-view-cell', function() {
 		var secondtext = $(this).text().trim();
 		if(secondtext.length > 4) {
 			secondtext = secondtext.substr(0, 3) + '...';
@@ -162,12 +173,13 @@
 		$(this).parents(".nav_child").prev().text(secondtext).append('<i class="mui-icon mui-icon-arrowdown"></i>');
 		$(".nav_child").slideUp(300);
 		$(".bg").hide();
+		$('.mui-content .m-houseList .serch-box').css({'top':'44px','z-index':'5'});
 	});
 	/*点击背景下拉消失*/
-	$(".bg").click(function(){
-		$(".nav_child").slideUp(300);
-		$(".bg").hide();
-	});
+//	$(".bg").click(function(){
+//		$(".nav_child").slideUp(3000);
+//		$(".bg").hide();
+//	});
 	/*点击价格确定按钮*/
 	$('.priceSave').on('tap',function(){
 		var low = $('.lowPrice').val();
@@ -179,12 +191,13 @@
 			str = str.substr(0, 4) + '...';
 		};
 		$(this).parent().parent().prev().text(str).append('<i class="mui-icon mui-icon-arrowdown"></i>');
-		console.log($(this).parent().parent().prev().text())
 		$(".nav_child").slideUp(300);
 		$(".bg").hide();
 		$('.lowPrice').val('');
 		$('.highPrice').val('');
+		$('.mui-content .m-houseList .serch-box').css({'top':'44px','z-index':'5'});
 	});
+	/*排序插件*/
 	(function($, doc) {
 		//普通示例
 		var userPicker = new $.PopPicker();
