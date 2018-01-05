@@ -22,10 +22,13 @@ $(".nav_ul_li").on('tap',function(){
 	
 	if($nav_child.eq(index).is(':hidden')){
 		serach.className = 'search-top fixd-select';
-		$bg.show()
+		$bg.show();
+		$arrow.removeClass('active');
+		$nav_child.hide();
 		$nav_child.eq(index).show();
 		$arrow.eq(index).addClass('active')
 	}else{
+		$("body").css("overflow","initial");
 		serach.className = 'search-top';
 		$nav_child.hide();
 		$bg.hide()
@@ -34,6 +37,7 @@ $(".nav_ul_li").on('tap',function(){
 	
 });
 $bg.on('tap',function(){
+	
 	$("body").css("overflow","initial");
 	$nav_child.hide();
 	$arrow.removeClass('active')
@@ -41,8 +45,13 @@ $bg.on('tap',function(){
 	setTimeout(function(){
 		$bg.hide()
 	},30)
+	e.preventDefault()
 });
-
+//$('.mask').on('touchmove',function(e){})
+$nav_child.on('tap',function(){
+	console.log('12345554332')
+	return false
+})
 
 
 

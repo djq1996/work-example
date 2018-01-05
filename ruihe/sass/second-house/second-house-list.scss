@@ -123,6 +123,7 @@ header {
                             li {
                                 color: #333;
                                 font-size: 14px;
+                                font-weight:500; 
                                 &:after {
                                     left: 0;
                                 }
@@ -160,7 +161,7 @@ header {
                     &>a {
                         display: block;
                     }
-                    padding:8px 15px;
+                    padding:15px;
                     border-bottom: 1px solid $commoBorder;
                     .img {
                         display: inline-block;
@@ -222,7 +223,8 @@ header {
     a.m-clear{
         bottom: 40px;
         color: #666;
-        background: #fff;
+        background: #FAFAFA;
+        border-top: #eee 1px solid;
     }
     a.m-sure{
         color: #fff;

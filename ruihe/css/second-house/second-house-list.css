@@ -416,7 +416,8 @@ header .mui-search {
               height: 0; }
             .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child li {
               color: #333;
-              font-size: 14px; }
+              font-size: 14px;
+              font-weight: 500; }
               .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child li:after {
                 left: 0; }
               .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child li.no_view {
@@ -438,7 +439,7 @@ header .mui-search {
                   line-height: 25px;
                   text-align: center; }
   .mui-content .m-houseList .listCon ul li {
-    padding: 8px 15px;
+    padding: 15px;
     border-bottom: 1px solid #eee; }
     .mui-content .m-houseList .listCon ul li > a {
       display: block; }
@@ -487,7 +488,8 @@ header .mui-search {
 .opt-box a.m-clear {
   bottom: 40px;
   color: #666;
-  background: #fff; }
+  background: #FAFAFA;
+  border-top: #eee 1px solid; }
 
 .opt-box a.m-sure {
   color: #fff;
