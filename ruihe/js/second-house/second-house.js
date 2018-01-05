@@ -12,21 +12,31 @@ window.onscroll = function(e ) {
      	serach.className = 'search-top';
      }
 };
+//筛选
 var $nav_child = $(".nav_child");
+var $arrow = $(".nav_ul .mui-icon");
 var $bg = $(".bg");
 $(".nav_ul_li").on('tap',function(){
 	$("body").css("overflow","hidden");
 	var index = $(this).index()
 	
-	serach.className = 'search-top fixd-select';
+	if($nav_child.eq(index).is(':hidden')){
+		serach.className = 'search-top fixd-select';
+		$bg.show()
+		$nav_child.eq(index).show();
+		$arrow.eq(index).addClass('active')
+	}else{
+		serach.className = 'search-top';
+		$nav_child.hide();
+		$bg.hide()
+		$arrow.removeClass('active')
+	}
 	
-	$nav_child.hide()
-	$bg.show()
-	$nav_child.eq(index).show();
 });
 $bg.on('tap',function(){
 	$("body").css("overflow","initial");
-	$nav_child.hide()
+	$nav_child.hide();
+	$arrow.removeClass('active')
 	serach.className = 'search-top';
 	setTimeout(function(){
 		$bg.hide()
@@ -36,11 +46,6 @@ $bg.on('tap',function(){
 
 
 
-/*打开侧滑菜单*/
-$(document).ready(function() {
-	ReadyMorePage('offcanvasMore.html', 'offMore');
-	document.getElementById("show-btn").addEventListener('tap', openMenu);
-});
 
 
 

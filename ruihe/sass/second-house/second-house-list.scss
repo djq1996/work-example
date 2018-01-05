@@ -1,37 +1,39 @@
 @import '../reset';
-.mui-bar-nav ~ .mui-content .mui-pull-top-pocket{
+.mui-bar-nav~.mui-content .mui-pull-top-pocket {
     top: 0;
 }
-header{
-    &.mui-badge-light-blue{
+
+header {
+    &.mui-badge-light-blue {
         position: relative;
     }
-    .mui-search{
+    .mui-search {
         display: inline-block;
         width: 90%;
         height: 100%;
-        .mui-placeholder{
+        .mui-placeholder {
             font-size: 14px;
         }
-        input{
+        input {
             background: #f7f7f7;
         }
     }
 }
-.bg{
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        background: #000000;
-        opacity: 0.5;
-        z-index: 4;
-        display: none;  
-    }
-.mui-content{
-    
-    #sortBtn{
+
+.bg {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.5;
+    z-index: 4;
+    display: none;
+}
+
+.mui-content {
+    #sortBtn {
         position: fixed;
         bottom: 20px;
         right: 20px;
@@ -43,34 +45,34 @@ header{
         line-height: 25px;
         border-radius: 50%;
         z-index: 4;
-        .sortIcon{
+        .sortIcon {
             display: inline-block;
             width: 16px;
             height: 16px;
             background: url(../../img/sort.png) no-repeat;
             margin-top: 7px;
         }
-        div{
+        div {
             color: #fff;
             margin-top: -8px;
         }
     }
-    .m-houseList{
+    .m-houseList {
         background: #fff;
         /*筛选*/
-        .serch-box{
+        .serch-box {
             width: 100%;
             height: 44px;
             z-index: 4;
-            .fixd-select{
+            .fixd-select {
                 position: fixed;
                 top: 0;
             }
-            .search-top{
-                width:100% ;
+            .search-top {
+                width: 100%;
                 z-index: 20;
                 background: #fff;
-                .nav_ul{
+                .nav_ul {
                     list-style: none;
                     padding: 0px;
                     margin: 0px;
@@ -78,8 +80,9 @@ header{
                     z-index: 10;
                     background: #fff;
                     width: 100%;
+                    font-weight: 600;
                     border-bottom: 1px solid #ccc;
-                    .nav_ul_li{
+                    .nav_ul_li {
                         width: 25%;
                         float: left;
                         p {
@@ -90,11 +93,16 @@ header{
                             text-align: center;
                             color: #333;
                             font-size: 14px;
-                            font-weight: normal;
                             cursor: pointer;
                             margin: 0;
                             i {
-                                font-size:16px;
+                                font-size: 20px;
+                                transition: all .3s;
+                                transform-origin: center;
+                                transform: rotate(0deg);
+                            }
+                            i.active{
+                                transform:rotate(180deg) ;
                             }
                         }
                         .nav_child {
@@ -106,21 +114,21 @@ header{
                             width: 100%;
                             position: absolute;
                             left: 0px;
-                            top:40px;
+                            top: 40px;
                             z-index: 9;
                             background: #fff;
-                            border-bottom: 2px solid #eee;
-                            &:after{
+                            &:after {
                                 height: 0;
                             }
-                            li{
-                                color:#333; 
-                                &:after{
+                            li {
+                                color: #333;
+                                font-size: 14px;
+                                &:after {
                                     left: 0;
                                 }
-                                &.no_view{
+                                &.no_view {
                                     padding: 11px 15px;
-                                    input[type='text']{
+                                    input[type='text'] {
                                         width: 60px;
                                         margin-bottom: 0;
                                         height: 25px;
@@ -128,7 +136,7 @@ header{
                                         padding: 0;
                                         text-indent: 10px;
                                     }
-                                    a{
+                                    a {
                                         display: inline-block;
                                         margin-left: 10px;
                                         vertical-align: middle;
@@ -145,70 +153,89 @@ header{
                 }
             }
         }
-                /*列表*/
-                .listCon{
-                    ul{
-                        li{
-                            &>a{
-                                display: block;
+        /*列表*/
+        .listCon {
+            ul {
+                li {
+                    &>a {
+                        display: block;
+                    }
+                    padding:8px 15px;
+                    border-bottom: 1px solid $commoBorder;
+                    .img {
+                        display: inline-block;
+                        width: 30%;
+                        height: 70px;
+                        vertical-align: 5px;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .conRight {
+                        display: inline-block;
+                        width: 65%;
+                        margin-left: 10px;
+                        div {
+                            &.title {
+                                font-size: 16px;
+                                color: #333;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
                             }
-                            padding:8px 15px;
-                            border-bottom: 1px solid $commoBorder;
-                            .img{
-                                display: inline-block;
-                                width: 30%;
-                                height: 70px;
-                                vertical-align: 10px;
-                                img{
-                                    width: 100%;
-                                    height: 100%;
-                                }
-                            }
-                            .conRight{
-                                display: inline-block;
-                                width: 65%;
-                                margin-left: 10px;
-                                div{
-                                    margin-top: 3px;
-                                    &.title{
-                                        font-size: 16px;
-                                        color: #333;
-                                        overflow: hidden;
-                                        text-overflow: ellipsis;
-                                        white-space: nowrap;
-                                    }   
-                                    &.price{
-                                        font-size: 14px;
-                                        color: $commonTextColorRed;
-                                        font-weight: bold;
-                                        span{
-                                            margin-left: 5px;
-                                            font-size: 12px;
-                                            color: $commoTextLabel;
-                                            font-weight: normal;
-                                        }
-                                    }
-                                }
-                                .info{
-                                    color: #666;
+                            &.price {
+                                font-size: 14px;
+                                color: $commonTextColorRed;
+                                font-weight: bold;
+                                span {
+                                    margin-left: 5px;
+                                    font-size: 12px;
+                                    color: $commoTextLabel;
+                                    font-weight: normal;
                                 }
                             }
                         }
+                        .info {
+                            color: #666;
+                        }
                     }
                 }
+            }
+        }
     }
 }
-.mui-table-view:before {
-    top: 0;
+.opt-box{
+    a.m-clear,
+    a.m-sure {
+        position: absolute;
+        display: block;
+        width: 100%;
+        -webkit-border-radius: 1px;
+        border-radius: 1px;
+        height: 40px;
+        line-height: 40px;
+//      color: #fff;
+        font-size: 14px;
+        text-align: center;
+    }
+    a.m-clear{
+        bottom: 40px;
+        color: #666;
+        background: #fff;
+    }
+    a.m-sure{
+        color: #fff;
+        bottom: 0;
+        background:$commoBg;
+    }
 }
-.more-serach{
+.m-border{
     position: relative;
-    height: 400px;
-    overflow-y: auto;
 }
-.more-serach:before{
+.m-border:before {
     position: absolute;
-    top:0;
+    top: -1px;
     right: 0;
     left: 0;
     height: 1px;
@@ -217,96 +244,58 @@ header{
     transform: scaleY(.5);
     background-color: #c8c7cc;
 }
-.mui-bar {
-    background: transparent;
-    box-shadow: none;
-    -webkit-box-shadow: none;
+
+.more-serach {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-bottom: 80px;
+    .mui-bar {
+        background: transparent;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+    .mui-bar button {
+        width: 50%;
+        display: inline-block;
+        color: #000;
+        vertical-align: middle;
+        line-height: 50px;
+        border: 0;
+        font-size: 12px;
+    }
+    .mui-bar button.yes {
+        background: #007aff;
+        color: #fff;
+    }
+    .mui-bar-nav~.mui-content {
+        padding: 0;
+    }
+    .box {
+        padding-left: 5px;
+    }
+    .box button {
+        width: 25%;
+        margin-left: 10px;
+        margin-top: 10px;
+        color: #000;
+    }
+    .title {
+        font-size: 14px;
+        padding: 15px;
+        padding-bottom: 0;
+        font-weight: 600;
+    }
+    .title+.content {
+        margin: 10px 15px 35px;
+        color: #bbb;
+        text-indent: 1em;
+        font-size: 14px;
+        line-height: 24px;
+    }
+    #pullrefresh .mui-btn {
+        padding-top: .1rem;
+        padding-bottom: .1rem;
+        margin: 5px;
+    }
+    
 }
-
-.mui-bar button {
-    width: 50%;
-    display: inline-block;
-    color: #000;
-    vertical-align: middle;
-    line-height: 50px;
-    border: 0;
-    font-size: .75rem;
-}
-
-.mui-bar button.yes {
-    background: #007aff;
-    color: #fff;
-}
-
-.mui-bar-nav~.mui-content {
-    padding: 0;
-}
-
-.box {
-    padding-left: 5px;
-}
-
-.box button {
-    width: 25%;
-    margin-left: 10px;
-    margin-top: 10px;
-    color: #000;
-}
-
-.title {
-    font-size: .7rem;
-    padding: 10px;
-    padding-bottom: 0;
-}
-
-.title+.content {
-    margin: 10px 15px 35px;
-    color: #bbb;
-    text-indent: 1em;
-    font-size: 14px;
-    line-height: 24px;
-}
-
-.mui-table-view {
-    margin-bottom: 35px;
-}
-
-#pullrefresh .mui-btn {
-    padding-top: .1rem;
-    padding-bottom: .1rem;
-    margin: 5px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

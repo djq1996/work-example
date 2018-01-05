@@ -12,11 +12,11 @@
 	<body>
 		<!--底部导航-->
 		<nav class="mui-bar mui-bar-tab">
-			<a id="defaultTab" class="mui-tab-item mui-active" href="tab-webview-subpage-about.html">
+			<a id="defaultTab" class="mui-tab-item mui-active" href="javascript:;">
 				<span class="mui-icon mui-icon-home"></span>
 				<span class="mui-tab-label">首页</span>
 			</a>
-			<a class="mui-tab-item" href="tab-webview-subpage-chat.html" id="tomy">
+			<a class="mui-tab-item" href="page/my/myPage.html" id="">
 				<span class="mui-icon mui-icon-person"></span>
 				<span class="mui-tab-label">消息</span>
 			</a>
@@ -32,38 +32,38 @@
 						</div>
 					</div>
 					<ul class="mui-table-view mui-grid-view mui-grid-6">
-						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="toSecondHouse">
-							<a href="#">
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="">
+							<a href="./page/second-house/second-house-list.html">
 								<span class="m-icon sell"></span>
 								<div class="mui-media-body">二手房</div>
 							</a>
 						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="torentHouse">
-							<a href="#">
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="">
+							<a href="./page/rent-house/rent-house-list.html">
 								<span class="m-icon rent"></span>
 								<div class="mui-media-body">租房</div>
 							</a>
 						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="tobroker">
-							<a href="#">
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="">
+							<a href="page/broker/broker-list.html">
 								<span class="m-icon broker"></span>
 								<div class="mui-media-body">经纪人</div>
 							</a>
 						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="toentrust">
-							<a href="#">
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="">
+							<a href="page/entrust/entrust.html">
 								<span class="m-icon weituo"></span>
 								<div class="mui-media-body">委托</div>
 							</a>
 						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="toestate">
-							<a href="#">
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="">
+							<a href="page/estate/eatate-list.html">
 								<span class="m-icon house"></span>
 								<div class="mui-media-body">找小区</div>
 							</a>
 						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="tojisuanqi">
-							<a href="#">
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id="">
+							<a href="page/Mortgage/Dksl2.html">
 								<span class="m-icon counter"></span>
 								<div class="mui-media-body">计算器</div>
 							</a>
@@ -80,7 +80,7 @@
 					<div class="m-con-list">
 						<ul>
 							<li class="tohouseDetails">
-								<a href="javascript:void(0);">
+								<a href="page/second-house/second-house-detaild.html">
 									<div class="img-box">
 										<img src="" onerror="this.src='img/index/1.png'" />
 									</div>
@@ -103,7 +103,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="javascript:void(0);">
+								<a href="page/second-house/second-house-detaild.html">
 									<div class="img-box">
 										<img src="" onerror="this.src='img/index/1.png'" />
 									</div>
@@ -146,64 +146,10 @@
 	$("#tab a").click(function(){
 		$(this).addClass('active').siblings().removeClass('active')
 	});
-	/*去二手房*/
-	openNewPage({
-		btn:'#toSecondHouse',
-		url:'page/second-house/second-house-list.html',
-		data:{}
-	});
-	/*去租房*/
-	openNewPage({
-		btn:'#torentHouse',
-		url:'page/rent-house/rent-house-list.html',
-		data:{}
-	});
-	/*去经纪人*/
-	openNewPage({
-		btn:'#tobroker',
-		url:'page/broker/broker-list.html',
-		data:{}
-	});
-	/*去委托*/
-	openNewPage({
-		btn:'#toentrust',
-		url:'page/entrust/entrust.html',
-		data:{}
-	});
-	/*去小区*/
-	openNewPage({
-		btn:'#toestate',
-		url:'page/estate/eatate-list.html',
-		data:{}
-	});
-	/*去计算器*/
-	openNewPage({
-		btn:'#tojisuanqi',
-		url:'page/Mortgage/Dksl2.html',
-		data:{}
-	});
 	/*列表跳详情--二手房*/
-	openNewPage({
-		btn:'.tohouseDetails',
-		url:'page/second-house/second-house-detaild.html',
-		data:{}
-	});
+		//url:'page/second-house/second-house-detaild.html',
 	/*列表跳详情--小区*/
-	openNewPage({
-		btn:'.toestateDetails',
-		url:'page/estate/estate-details.html',
-		data:{}
-	});
+		//url:'page/estate/estate-details.html',
 	/*列表跳详情--租房*/
-	openNewPage({
-		btn:'.torentDetails',
-		url:'page/rent-house/rent-houseDetails.html',
-		data:{}
-	});
-	/*跳转我的*/
-	openNewPage({
-		btn:'#tomy',
-		url:'page/my/myPage.html',
-		data:{}
-	});
+		//url:'page/rent-house/rent-houseDetails.html',
 </script>

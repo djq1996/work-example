@@ -378,6 +378,7 @@ header .mui-search {
         z-index: 10;
         background: #fff;
         width: 100%;
+        font-weight: 600;
         border-bottom: 1px solid #ccc; }
         .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li {
           width: 25%;
@@ -390,11 +391,15 @@ header .mui-search {
             text-align: center;
             color: #333;
             font-size: 14px;
-            font-weight: normal;
             cursor: pointer;
             margin: 0; }
             .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li p i {
-              font-size: 16px; }
+              font-size: 20px;
+              transition: all .3s;
+              transform-origin: center;
+              transform: rotate(0deg); }
+            .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li p i.active {
+              transform: rotate(180deg); }
           .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child {
             display: none;
             list-style: none;
@@ -406,12 +411,12 @@ header .mui-search {
             left: 0px;
             top: 40px;
             z-index: 9;
-            background: #fff;
-            border-bottom: 2px solid #eee; }
+            background: #fff; }
             .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child:after {
               height: 0; }
             .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child li {
-              color: #333; }
+              color: #333;
+              font-size: 14px; }
               .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child li:after {
                 left: 0; }
               .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li .nav_child li.no_view {
@@ -441,7 +446,7 @@ header .mui-search {
       display: inline-block;
       width: 30%;
       height: 70px;
-      vertical-align: 10px; }
+      vertical-align: 5px; }
       .mui-content .m-houseList .listCon ul li .img img {
         width: 100%;
         height: 100%; }
@@ -449,37 +454,52 @@ header .mui-search {
       display: inline-block;
       width: 65%;
       margin-left: 10px; }
-      .mui-content .m-houseList .listCon ul li .conRight div {
-        margin-top: 3px; }
-        .mui-content .m-houseList .listCon ul li .conRight div.title {
-          font-size: 16px;
-          color: #333;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap; }
-        .mui-content .m-houseList .listCon ul li .conRight div.price {
-          font-size: 14px;
-          color: #db4c3f;
-          font-weight: bold; }
-          .mui-content .m-houseList .listCon ul li .conRight div.price span {
-            margin-left: 5px;
-            font-size: 12px;
-            color: #888;
-            font-weight: normal; }
+      .mui-content .m-houseList .listCon ul li .conRight div.title {
+        font-size: 16px;
+        color: #333;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+      .mui-content .m-houseList .listCon ul li .conRight div.price {
+        font-size: 14px;
+        color: #db4c3f;
+        font-weight: bold; }
+        .mui-content .m-houseList .listCon ul li .conRight div.price span {
+          margin-left: 5px;
+          font-size: 12px;
+          color: #888;
+          font-weight: normal; }
       .mui-content .m-houseList .listCon ul li .conRight .info {
         color: #666; }
 
-.mui-table-view:before {
-  top: 0; }
-
-.more-serach {
-  position: relative;
-  height: 400px;
-  overflow-y: auto; }
-
-.more-serach:before {
+.opt-box a.m-clear,
+.opt-box a.m-sure {
   position: absolute;
-  top: 0;
+  display: block;
+  width: 100%;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  text-align: center; }
+
+.opt-box a.m-clear {
+  bottom: 40px;
+  color: #666;
+  background: #fff; }
+
+.opt-box a.m-sure {
+  color: #fff;
+  bottom: 0;
+  background: #591571; }
+
+.m-border {
+  position: relative; }
+
+.m-border:before {
+  position: absolute;
+  top: -1px;
   right: 0;
   left: 0;
   height: 1px;
@@ -488,52 +508,46 @@ header .mui-search {
   transform: scaleY(0.5);
   background-color: #c8c7cc; }
 
-.mui-bar {
-  background: transparent;
-  box-shadow: none;
-  -webkit-box-shadow: none; }
-
-.mui-bar button {
-  width: 50%;
-  display: inline-block;
-  color: #000;
-  vertical-align: middle;
-  line-height: 50px;
-  border: 0;
-  font-size: .75rem; }
-
-.mui-bar button.yes {
-  background: #007aff;
-  color: #fff; }
-
-.mui-bar-nav ~ .mui-content {
-  padding: 0; }
-
-.box {
-  padding-left: 5px; }
-
-.box button {
-  width: 25%;
-  margin-left: 10px;
-  margin-top: 10px;
-  color: #000; }
-
-.title {
-  font-size: .7rem;
-  padding: 10px;
-  padding-bottom: 0; }
-
-.title + .content {
-  margin: 10px 15px 35px;
-  color: #bbb;
-  text-indent: 1em;
-  font-size: 14px;
-  line-height: 24px; }
-
-.mui-table-view {
-  margin-bottom: 35px; }
-
-#pullrefresh .mui-btn {
-  padding-top: .1rem;
-  padding-bottom: .1rem;
-  margin: 5px; }
+.more-serach {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-bottom: 80px; }
+  .more-serach .mui-bar {
+    background: transparent;
+    box-shadow: none;
+    -webkit-box-shadow: none; }
+  .more-serach .mui-bar button {
+    width: 50%;
+    display: inline-block;
+    color: #000;
+    vertical-align: middle;
+    line-height: 50px;
+    border: 0;
+    font-size: 12px; }
+  .more-serach .mui-bar button.yes {
+    background: #007aff;
+    color: #fff; }
+  .more-serach .mui-bar-nav ~ .mui-content {
+    padding: 0; }
+  .more-serach .box {
+    padding-left: 5px; }
+  .more-serach .box button {
+    width: 25%;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #000; }
+  .more-serach .title {
+    font-size: 14px;
+    padding: 15px;
+    padding-bottom: 0;
+    font-weight: 600; }
+  .more-serach .title + .content {
+    margin: 10px 15px 35px;
+    color: #bbb;
+    text-indent: 1em;
+    font-size: 14px;
+    line-height: 24px; }
+  .more-serach #pullrefresh .mui-btn {
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+    margin: 5px; }
