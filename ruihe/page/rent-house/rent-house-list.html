@@ -7,17 +7,20 @@
 		<link href="../../css/mui.css" rel="stylesheet" />
 		<link href="../../css/mui.picker.css" rel="stylesheet" />
 		<link href="../../css/mui.poppicker.css" rel="stylesheet" />
-		
 		<link rel="stylesheet" href="../../css/reset.css" />
 		<link rel="stylesheet" href="../../css/rent-house/rent-house-list.css" />
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav mui-badge-light-blue mui-input-row">
-			<input type="search" class="mui-input-clear" placeholder="请输入小区或商圈名">
 			<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
-			<span class="mui-icon mui-icon-search"></span>
+			<!--<input type="search" class="mui-input-clear" placeholder="请输入小区或商圈名">
+			<span class="mui-icon mui-icon-search"></span>-->
+			<div class="mui-input-row mui-search"  id="gosearch">
+			    <input type="search" class="mui-input-clear" placeholder="请输入小区或商圈名" disabled>
+			</div>
 		</header>
 		<div class="mui-content">
+			<div class="bg"></div>
 			<!--排序-->
 			<div id="sortBtn">
 				<span class="sortIcon"></span>
@@ -76,7 +79,6 @@
 							</li>
 						</ul>
 					</div>
-					<div class="bg"></div>
 				</div>
 				<!--列表-->
 				<div class="mui-scroll-wrapper">
@@ -118,6 +120,12 @@
 <script src="../../js/mui.poppicker.js"></script>
 <script type="text/javascript">
 	mui.init();
+	/*去搜索*/
+	openNewPage({
+		btn:'#gosearch',
+		url:'../my/search.html',
+		data:{}
+	});
 	$('.nav_ul_li').on('tap', 'p', function() {
 		if($(this).parent().find(".nav_child").is(":hidden")) {
 			$(".nav_ul_li p").css("color", "#333");
@@ -129,6 +137,7 @@
 			$(".nav_child").hide();
 			$(this).parent().find(".nav_child").slideDown(500);
 			$(".bg").show();
+			$('.mui-content .m-houseList .serch-box').css({'top':'0','z-index':'100'});
 		} else {
 			$(this).css("color", "#333");
 			$(this).find(".mui-icon").removeClass("mui-icon-arrowup");
@@ -137,6 +146,7 @@
 			$(".nav_ul_li p .mui-icon").addClass("mui-icon-arrowdown");
 			$(".nav_child").slideUp(500);
 			$(".bg").hide();
+			$('.mui-content .m-houseList .serch-box').css({'top':'44px','z-index':'5'});
 		}
 	});
 	/*二级菜单选择*/
@@ -148,12 +158,13 @@
 		$(this).parents(".nav_child").prev().text(secondtext).append('<i class="mui-icon mui-icon-arrowdown"></i>');
 		$(".nav_child").slideUp(300);
 		$(".bg").hide();
+		$('.mui-content .m-houseList .serch-box').css({'top':'44px','z-index':'5'});
 	});
 	/*点击背景下拉消失*/
-	$(".bg").click(function(){
-		$(".nav_child").slideUp(300);
-		$(".bg").hide();
-	});
+//	$(".bg").click(function(){
+//		$(".nav_child").slideUp(300);
+//		$(".bg").hide();
+//	});
 	/*点击价格确定按钮*/
 	$('.priceSave').on('tap',function(){
 		var low = $('.lowPrice').val();
@@ -170,6 +181,7 @@
 		$(".bg").hide();
 		$('.lowPrice').val('');
 		$('.highPrice').val('');
+		$('.mui-content .m-houseList .serch-box').css({'top':'44px','z-index':'5'});
 	});
 	
 	(function($, doc) {

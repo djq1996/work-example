@@ -312,22 +312,15 @@ a {
 
 header.mui-badge-light-blue {
   position: relative; }
-  header.mui-badge-light-blue input[type='search'] {
-    width: 90%;
-    background: #f7f7f7;
-    opacity: 0.9;
-    float: right;
-    border-radius: 2px;
-    margin-top: 10px;
-    height: 25px;
-    font-size: 12px; }
-  header.mui-badge-light-blue .mui-icon-search {
-    position: absolute;
-    color: #fff;
-    right: 15px;
-    top: 2px;
-    font-size: 20px;
-    color: #03a9f4; }
+
+header .mui-search {
+  display: inline-block;
+  width: 90%;
+  height: 100%; }
+  header .mui-search .mui-placeholder {
+    font-size: 14px; }
+  header .mui-search input {
+    background: #f7f7f7; }
 
 .mui-content .bg {
   position: fixed;
@@ -337,7 +330,7 @@ header.mui-badge-light-blue {
   height: 100%;
   background: #000000;
   opacity: 0.5;
-  z-index: 1;
+  z-index: 4;
   display: none; }
 
 .mui-content #sortBtn {
@@ -412,7 +405,7 @@ header.mui-badge-light-blue {
             width: 100%;
             position: absolute;
             left: 0px;
-            top: 32px;
+            top: 40px;
             z-index: 99999;
             background: #fff;
             border-bottom: 2px solid #eee; }

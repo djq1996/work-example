@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title>二手房列表</title>
@@ -7,270 +8,309 @@
 		<link href="../../css/mui.css" rel="stylesheet" />
 		<link href="../../css/mui.picker.css" rel="stylesheet" />
 		<link href="../../css/mui.poppicker.css" rel="stylesheet" />
- 		<link rel="stylesheet" href="../../css/reset.css" />
 		<link rel="stylesheet" href="../../css/second-house/second-house-list.css" />
 	</head>
+
 	<body>
-		<header class="mui-bar mui-bar-nav mui-badge-light-blue mui-input-row">
-			<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
-			<!--<input type="search" class="mui-input-clear" placeholder="请输入小区或商圈名">-->
-			<!--<span class="mui-icon mui-icon-search"></span>-->
-			<div class="mui-input-row mui-search"  id="gosearch">
-			    <input type="search" class="mui-input-clear" placeholder="请输入小区或商圈名" disabled>
-			</div>
-		</header>
+
+		<div class="bg"></div>
 		<div class="mui-content">
+
 			<!--排序-->
 			<div id="sortBtn">
 				<span class="sortIcon"></span>
 				<div>排序</div>
 			</div>
+
 			<div class="m-houseList">
+				<!--列表-->
+				<header class="mui-bar mui-bar-nav mui-badge-light-blue mui-input-row">
+					<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+					<!--<input type="search" class="mui-input-clear" placeholder="请输入小区或商圈名">-->
+					<!--<span class="mui-icon mui-icon-search"></span>-->
+					<div class="mui-input-row mui-search" id="gosearch">
+						<a href="../my/search.html">
+							<input type="search" class="mui-input-clear" placeholder="请输入小区或商圈名" disabled="">
+						</a>
+					</div>
+				</header>
 				<!--筛选-->
 				<div class="serch-box">
-					<div class="search-top">
+					<div class="search-top" id="js-serach">
 						<ul class="nav_ul mui-clearfix">
 							<li class="nav_ul_li">
-								<input type="hidden" name="dataType" value=""/>
 								<p>区域<i class="mui-icon mui-icon-arrowdown"></i></p>
-								<ul class="nav_child mui-table-view">
-									<li class="mui-table-view-cell">江南新区</li>
-								    <li class="mui-table-view-cell">爱民区</li>
-								    <li class="mui-table-view-cell">阳明区</li>
-								    <li class="mui-table-view-cell">东安区</li>
-								    <li class="mui-table-view-cell">西安区</li>
-								    <li class="mui-table-view-cell">商业地产</li>
-								</ul>
+								<div class="nav_child">
+									<ul class="mui-table-view">
+										<li class="mui-table-view-cell">
+											<a href="https://baidu.com">江南新区</a>
+										</li>
+										<li class="mui-table-view-cell">爱民区</li>
+										<li class="mui-table-view-cell">阳明区</li>
+										<li class="mui-table-view-cell">东安区</li>
+										<li class="mui-table-view-cell">西安区</li>
+										<li class="mui-table-view-cell">商业地产</li>
+									</ul>
+								</div>
 							</li>
 							<li class="nav_ul_li">
-								<input type="hidden" name="Prices" />
 								<p>价格<i class="mui-icon mui-icon-arrowdown"></i></p>
-								<ul class="nav_child mui-table-view">
-								    <li class="mui-table-view-cell">50万以下</li>
-								    <li class="mui-table-view-cell">50-100万</li>
-								    <li class="mui-table-view-cell">100-150万</li>
-								    <li class="mui-table-view-cell">150-200万</li>
-								    <li class="mui-table-view-cell">200-250万</li>
-								    <li class="mui-table-view-cell">250万以上</li>
-								    <li class="no_view">
-								    	<span>自定义价格</span>
-								    	<input type="text" class="lowPrice" placeholder="最低"/>
-								    	<i>-</i>
-								    	<input type="text" class="highPrice" placeholder="最高"/>
-								    	<a href="javascript:;" class="priceSave">确定</a>
-								    </li>
-								</ul>
-								
+								<div class="nav_child">
+									<ul class="mui-table-view">
+										<li class="mui-table-view-cell">50万以下</li>
+										<li class="mui-table-view-cell">50-100万</li>
+										<li class="mui-table-view-cell">100-150万</li>
+										<li class="mui-table-view-cell">150-200万</li>
+										<li class="mui-table-view-cell">200-250万</li>
+										<li class="mui-table-view-cell">250万以上</li>
+										<li class="no_view">
+											<span>自定义价格</span>
+											<input type="text" class="lowPrice" placeholder="最低" />
+											<i>-</i>
+											<input type="text" class="highPrice" placeholder="最高" />
+											<a href="javascript:;" class="priceSave">确定</a>
+										</li>
+									</ul>
+								</div>
 							</li>
 							<li class="nav_ul_li">
-								<input type="hidden" name="bedrooms" />
 								<p>房型<i class="mui-icon mui-icon-arrowdown"></i></p>
-								<ul class="nav_child mui-table-view">
-								    <li class="mui-table-view-cell">一室</li>
-								    <li class="mui-table-view-cell">二室</li>
-								    <li class="mui-table-view-cell">三室</li>
-								    <li class="mui-table-view-cell">四室</li>
-								    <li class="mui-table-view-cell">五室以上</li>
-								</ul>
+								<div class="nav_child">
+									<ul class="mui-table-view">
+										<li class="mui-table-view-cell">一室</li>
+										<li class="mui-table-view-cell">二室</li>
+										<li class="mui-table-view-cell">三室</li>
+										<li class="mui-table-view-cell">四室</li>
+										<li class="mui-table-view-cell">五室以上</li>
+									</ul>
+								</div>
 							</li>
 							<li class="nav_ul_li">
-								<p id="show-btn">更多<i class="mui-icon mui-icon-arrowdown"></i></p>
+								<p>更多<i class="mui-icon mui-icon-arrowdown"></i></p>
+								<div class="nav_child">
+									<div class="more-serach">
+									<div class="title">面积</div>
+									<div class="mjBox box">
+										<button type="button" class="mui-btn  mui-btn-outlined">50㎡以下</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">50-70</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">70-90</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">90-110</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">110-130</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">130-150</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">150㎡以上</button>
+									</div>
+									<div class="title">朝向</div>
+									<div class="cxBox box">
+										<button type="button" class="mui-btn  mui-btn-outlined">东</button>
+										<button type="button" class="mui-btn mui-btn-outlined">南</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">西</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">北</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">东西</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">南北</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">东南</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">西南</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">东北</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">西北</button>
+									</div>
+									<div class="title">标签</div>
+									<div class="zxBox box">
+										<button type="button" class="mui-btn  mui-btn-outlined">随时看房</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">独家</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">满五</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">满二</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">实勘</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">精装</button>
+										<button type="button" class="mui-btn  mui-btn-outlined">新上</button>
+									</div>
+									</div>
+								</div>
 							</li>
 						</ul>
 					</div>
 				</div>
-				<div class="bg"></div>
-				<!--列表-->
-				<div class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-						<div class="listCon">
-							<ul>
-								<li class="tohouseDetails">
-									<a class="img" href="javascript:;">
-										<img src="../../img/house5.jpg" alt="" />
-									</a>
-									<div class="conRight">
-										<div class="title">90年 东南向两居室居室居室</div>
-										<div>2室1厅/61.6㎡/东南 西南/ 有电梯</div>
-										<div class="tag">
-											<span class="spanTagAile M5">满五年</span>
-											<span class="spanTagAile hasKey">随时可看</span>
-										</div>
-										<div class="price">
-											442万<span>71745元/平</span>
-										</div>
+
+				<div class="listCon">
+					<ul>
+						<li class="tohouseDetails">
+							<a href="second-house-detaild.html">
+								<div class="img">
+									<img src="../../img/house5.jpg" alt="" />
+								</div>
+								<div class="conRight">
+									<div class="title">90年 东南向两居室居室居室</div>
+									<div class="info">2室1厅/61.6㎡/东南 西南/ 有电梯</div>
+									<div class="tag">
+										<span class="spanTagAile M5">满五年</span>
+										<span class="spanTagAile hasKey">随时可看</span>
 									</div>
-								</li>
-							</ul>
-						</div>
-						<!--暂无数据-->
-						<div class="noinfo">
-							<img src="../../img/noinfo.png" alt="" />
-						</div>
-					</div>
+									<div class="price">
+										442万<span>71745元/平</span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="tohouseDetails">
+							<a href="second-house-detaild.html">
+								<div class="img">
+									<img src="../../img/house5.jpg" alt="" />
+								</div>
+								<div class="conRight">
+									<div class="title">90年 东南向两居室居室居室</div>
+									<div class="info">2室1厅/61.6㎡/东南 西南/ 有电梯</div>
+									<div class="tag">
+										<span class="spanTagAile M5">满五年</span>
+										<span class="spanTagAile hasKey">随时可看</span>
+									</div>
+									<div class="price">
+										442万<span>71745元/平</span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="tohouseDetails">
+							<a href="second-house-detaild.html">
+								<div class="img">
+									<img src="../../img/house5.jpg" alt="" />
+								</div>
+								<div class="conRight">
+									<div class="title">90年 东南向两居室居室居室</div>
+									<div class="info">2室1厅/61.6㎡/东南 西南/ 有电梯</div>
+									<div class="tag">
+										<span class="spanTagAile M5">满五年</span>
+										<span class="spanTagAile hasKey">随时可看</span>
+									</div>
+									<div class="price">
+										442万<span>71745元/平</span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="tohouseDetails">
+							<a href="second-house-detaild.html">
+								<div class="img">
+									<img src="../../img/house5.jpg" alt="" />
+								</div>
+								<div class="conRight">
+									<div class="title">90年 东南向两居室居室居室</div>
+									<div class="info">2室1厅/61.6㎡/东南 西南/ 有电梯</div>
+									<div class="tag">
+										<span class="spanTagAile M5">满五年</span>
+										<span class="spanTagAile hasKey">随时可看</span>
+									</div>
+									<div class="price">
+										442万<span>71745元/平</span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="tohouseDetails">
+							<a href="second-house-detaild.html">
+								<div class="img">
+									<img src="../../img/house5.jpg" alt="" />
+								</div>
+								<div class="conRight">
+									<div class="title">90年 东南向两居室居室居室</div>
+									<div class="info">2室1厅/61.6㎡/东南 西南/ 有电梯</div>
+									<div class="tag">
+										<span class="spanTagAile M5">满五年</span>
+										<span class="spanTagAile hasKey">随时可看</span>
+									</div>
+									<div class="price">
+										442万<span>71745元/平</span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="tohouseDetails">
+							<a href="second-house-detaild.html">
+								<div class="img">
+									<img src="../../img/house5.jpg" alt="" />
+								</div>
+								<div class="conRight">
+									<div class="title">90年 东南向两居室居室居室</div>
+									<div class="info">2室1厅/61.6㎡/东南 西南/ 有电梯</div>
+									<div class="tag">
+										<span class="spanTagAile M5">满五年</span>
+										<span class="spanTagAile hasKey">随时可看</span>
+									</div>
+									<div class="price">
+										442万<span>71745元/平</span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li class="tohouseDetails">
+							<a href="second-house-detaild.html">
+								<div class="img">
+									<img src="../../img/house5.jpg" alt="" />
+								</div>
+								<div class="conRight">
+									<div class="title">90年 东南向两居室居室居室</div>
+									<div class="info">2室1厅/61.6㎡/东南 西南/ 有电梯</div>
+									<div class="tag">
+										<span class="spanTagAile M5">满五年</span>
+										<span class="spanTagAile hasKey">随时可看</span>
+									</div>
+									<div class="price">
+										442万<span>71745元/平</span>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--暂无数据-->
+				<div class="noinfo">
+					<img src="../../img/noinfo.png" alt="" />
 				</div>
 			</div>
 		</div>
 	</body>
+
 </html>
 <script src="../../lib/jquery-2.1.0.min.js"></script>
-<script src="../../js/common.js"></script>
 <script src="../../js/mui.js"></script>
 <script src="../../js/mui.picker.min.js"></script>
 <script src="../../js/mui.poppicker.js"></script>
 <script src="../../js/webviewoffcanvas.js"></script>
+<script src="../../js/second-house/second-house.js"></script>
+<script src="../../js/common.js"></script>
 <script type="text/javascript">
-	/*列表跳详情--二手房*/
-	openNewPage({
-		btn:'.tohouseDetails',
-		url:'second-house-detaild.html',
-		data:{}
-	});
-	/*去搜索*/
-	openNewPage({
-		btn:'#gosearch',
-		url:'../my/search.html',
-		data:{}
-	});
-	/*打开侧滑菜单*/
-	$(document).ready(function() {
-		ReadyMorePage('offcanvasMore.html', 'offMore');
-		document.getElementById("show-btn").addEventListener('tap', openMenu);
-	});
-	mui.init();
-	mui('.mui-scroll-wrapper').scroll({
-		deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
-	});
-	$('.nav_ul_li').on('tap', 'p', function() {
-		if($(this).parent().find(".nav_child").is(":hidden")) {
-			$(".nav_ul_li p").css("color", "#333");
-			$(this).css("color", "#333");
-			$(".nav_ul_li p .mui-icon").removeClass("mui-icon-arrowup");
-			$(".nav_ul_li p .mui-icon").addClass("mui-icon-arrowdown");
-			$(this).find(".mui-icon").removeClass("mui-icon-arrowdown");
-			$(this).find(".mui-icon").addClass("mui-icon-arrowup");
-			$(this).parent().find(".nav_child").slideDown(500);
-			$(".bg").show();
-			$('.mui-content .m-houseList .serch-box').css({'top':'0','z-index':'100'});
-		} else {
-			$(this).css("color", "#333");
-			$(this).find(".mui-icon").removeClass("mui-icon-arrowup");
-			$(this).find(".mui-icon").addClass("mui-icon-arrowdown");
-			$(".nav_ul_li p .mui-icon").removeClass("mui-icon-arrowup");
-			$(".nav_ul_li p .mui-icon").addClass("mui-icon-arrowdown");
-			$(this).parent().find(".nav_child").slideUp(1000);
-			$(".bg").hide();
-			$('.mui-content .m-houseList .serch-box').css({'top':'0','z-index':'100'});
-			console.log(111)
-		}
-	});
-	/*二级菜单选择*/
-	$('.nav_child').on('tap', '.mui-table-view-cell', function() {
-		var secondtext = $(this).text().trim();
-		if(secondtext.length > 4) {
-			secondtext = secondtext.substr(0, 3) + '...';
-		}
-		$(this).parents(".nav_child").prev().text(secondtext).append('<i class="mui-icon mui-icon-arrowdown"></i>');
-		$(".nav_child").slideUp(300);
-		$(".bg").hide();
-		$('.mui-content .m-houseList .serch-box').css({'top':'44px','z-index':'5'});
-	});
-	/*点击背景下拉消失*/
-//	$(".bg").click(function(){
-//		$(".nav_child").slideUp(3000);
-//		$(".bg").hide();
-//	});
-	/*点击价格确定按钮*/
-	$('.priceSave').on('tap',function(){
-		var low = $('.lowPrice').val();
-		var high = $('.highPrice').val();
-		low == '' ? low = 0 : low = low;
-		high == '' ? high = 0 : high = high;
-		var str = low+'万-'+high+'万';
-		if(str.length >5) {
-			str = str.substr(0, 4) + '...';
-		};
-		$(this).parent().parent().prev().text(str).append('<i class="mui-icon mui-icon-arrowdown"></i>');
-		$(".nav_child").slideUp(300);
-		$(".bg").hide();
-		$('.lowPrice').val('');
-		$('.highPrice').val('');
-		$('.mui-content .m-houseList .serch-box').css({'top':'44px','z-index':'5'});
-	});
-	/*排序插件*/
-	(function($, doc) {
-		//普通示例
-		var userPicker = new $.PopPicker();
-		userPicker.setData([{
-			value: '1',
-			text: '默认排序'
-		}, {
-			value: '2',
-			text: '面积从高到低'
-		}, {
-			value: '3',
-			text: '面积从低到高'
-		}, {
-			value: '4',
-			text: '单价从高到低'
-		}, {
-			value: '5',
-			text: '单价从低到高'
-		}, {
-			value: '6',
-			text: '总价从高到低'
-		},{
-			value: '7',
-			text: '总价从低到高'
-		},{
-			value: '8',
-			text: '看房客户多'
-		}]);
-		var showUserPickerButton = doc.getElementById('sortBtn');
-		//var userResult = doc.getElementById('userResult');
-		showUserPickerButton.addEventListener('tap', function(event) {
-			userPicker.show(function(items) {
-				//userResult.innerText = JSON.stringify(items[0]);
-				//返回 false 可以阻止选择框的关闭
-				//return false;
-			});
-		}, false);
-	})(mui, document);
 	//列表上拉加载，下拉刷新
-	mui('.mui-scroll-wrapper').pullRefresh({
-		down: {
-			callback: function() {
-				setTimeout(function() {
-					mui('.mui-scroll-wrapper').pullRefresh().endPulldownToRefresh();
-					mui.toast("刷新成功");
-				}, 1500);
-			}
-		},
-		up: {
-			contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
-			contentnomore: '没有更多数据了', //可选，请求完毕若没有更多数据时显示的提醒内容；
-			callback: function() {
-				setTimeout(function() {
-					mui('.mui-scroll-wrapper').pullRefresh().endPullupToRefresh();
-					for(var i=0; i<2; i++){
-						var str = '<li class="tohouseDetails">'+
-									'<a class="img" href="javascript:;">'+
-										'<img src="../../img/house5.jpg" alt="" />'+
-									'</a>'+
-									'<div class="conRight">'+
-										'<div class="title">90年 东南向两居室居室居室</div>'+
-										'<div>2室1厅/61.6㎡/东南 西南/ 有电梯</div>'+
-										'<div class="tag">'+
-											'<span class="spanTagAile M5">满五年</span>'+
-											'<span class="spanTagAile hasKey">随时可看</span>'+
-										'</div>'+
-										'<div class="price">442万<span>71745元/平</span></div>'+
-									'</div>'+
-								'</li>'
-						$('.listCon ul').append(str);
-					}
-				}, 1500);
-			}
-		}
-	});
+	//	mui('.mui-scroll-wrapper').pullRefresh({
+	//		down: {
+	//			callback: function() {
+	//				setTimeout(function() {
+	//					mui('.mui-scroll-wrapper').pullRefresh().endPulldownToRefresh();
+	//					mui.toast("刷新成功");
+	//				}, 1500);
+	//			}
+	//		},
+	//		up: {
+	//			contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+	//			contentnomore: '没有更多数据了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+	//			callback: function() {
+	//				setTimeout(function() {
+	//					mui('.mui-scroll-wrapper').pullRefresh().endPullupToRefresh();
+	//					for(var i=0; i<2; i++){
+	//						var str = '<li class="tohouseDetails">'+
+	//									'<a class="img" href="javascript:;">'+
+	//										'<img src="../../img/house5.jpg" alt="" />'+
+	//									'</a>'+
+	//									'<div class="conRight">'+
+	//										'<div class="title">90年 东南向两居室居室居室</div>'+
+	//										'<div>2室1厅/61.6㎡/东南 西南/ 有电梯</div>'+
+	//										'<div class="tag">'+
+	//											'<span class="spanTagAile M5">满五年</span>'+
+	//											'<span class="spanTagAile hasKey">随时可看</span>'+
+	//										'</div>'+
+	//										'<div class="price">442万<span>71745元/平</span></div>'+
+	//									'</div>'+
+	//								'</li>'
+	//						$('.listCon ul').append(str);
+	//					}
+	//				}, 1500);
+	//			}
+	//		}
+	//	});
 </script>

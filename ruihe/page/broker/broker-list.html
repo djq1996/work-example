@@ -17,15 +17,16 @@
         	<h1 class="mui-title mui-ellipsis">经纪人列表</h1>
      	</header>
 		<div class="mui-content">
-			<div class="mui-input-row mui-search">
+			<!--<div class="mui-input-row mui-search">
 			    <input type="search" class="mui-input-clear" placeholder="">
-			</div>
+			</div>-->
 			<div class="m-houseList">
 				<!--搜索框-->
-				<!--<div class="search">
+				<div class="search">
 					<input type="text" placeholder="请输入商圈、小区或经纪人的姓名、电话"/>
 					<span class="mui-icon mui-icon-search"></span>
-				</div>-->
+				</div>
+				<div class="bg"></div>
 				<!--筛选-->
 				<div class="serch-box">
 					<div class="search-top">
@@ -69,7 +70,6 @@
 							</li>
 						</ul>
 					</div>
-					<div class="bg"></div>
 				</div>
 				<!--列表-->
 				<div class="mui-scroll-wrapper">
@@ -139,14 +139,16 @@
 			$(".nav_child").hide();
 			$(this).parent().find(".nav_child").slideDown(500);
 			$(".bg").show();
+			$('.mui-content .m-houseList .serch-box').css({'top':'0','z-index':'100'});
 		} else {
 			$(this).css("color", "#333");
 			$(this).find(".mui-icon").removeClass("mui-icon-arrowup");
 			$(this).find(".mui-icon").addClass("mui-icon-arrowdown");
 			$(".nav_ul_li p .mui-icon").removeClass("mui-icon-arrowup");
 			$(".nav_ul_li p .mui-icon").addClass("mui-icon-arrowdown");
-			$(".nav_child").slideUp(500);
+			$(this).parent().find(".nav_child").slideUp(500);
 			$(".bg").hide();
+			$('.mui-content .m-houseList .serch-box').css({'top':'80px','z-index':'5'});
 		}
 	});
 	/*二级菜单选择*/
@@ -158,12 +160,13 @@
 		$(this).parents(".nav_child").prev().text(secondtext).append('<i class="mui-icon mui-icon-arrowdown"></i>');
 		$(".nav_child").slideUp(300);
 		$(".bg").hide();
+		$('.mui-content .m-houseList .serch-box').css({'top':'80px','z-index':'5'});
 	});
 	/*点击背景下拉消失*/
-	$(".bg").click(function(){
-		$(".nav_child").slideUp(300);
-		$(".bg").hide();
-	});
+//	$(".bg").click(function(){
+//		$(".nav_child").slideUp(300);
+//		$(".bg").hide();
+//	});
 	/*去经纪人详情*/
 	openNewPage({
 		btn:'.tobrokerDetails',
