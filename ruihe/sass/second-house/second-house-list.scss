@@ -9,13 +9,13 @@ header {
     }
     .mui-search {
         display: inline-block;
-        width: 90%;
+        width: 80%;
         height: 100%;
         .mui-placeholder {
             font-size: 14px;
         }
         input {
-            background: #f7f7f7;
+//          background: #f7f7f7;
         }
     }
 }
@@ -28,7 +28,7 @@ header {
     height: 100%;
     background: #000000;
     opacity: 0.5;
-    z-index: 4;
+    z-index: 5;
     display: none;
 }
 
@@ -123,7 +123,6 @@ header {
                             li {
                                 color: #333;
                                 font-size: 14px;
-                                font-weight:500; 
                                 &:after {
                                     left: 0;
                                 }
@@ -164,19 +163,19 @@ header {
                     padding:15px;
                     border-bottom: 1px solid $commoBorder;
                     .img {
-                        display: inline-block;
+                        float: left;
                         width: 30%;
-                        height: 70px;
                         vertical-align: 5px;
+                        height: 70px;
                         img {
                             width: 100%;
                             height: 100%;
                         }
                     }
                     .conRight {
-                        display: inline-block;
-                        width: 65%;
-                        margin-left: 10px;
+                        width: 69%;
+                        margin-left: 30%;
+                        padding-left: 15px;
                         div {
                             &.title {
                                 font-size: 16px;
@@ -259,11 +258,13 @@ header {
     .mui-bar button {
         width: 50%;
         display: inline-block;
-        color: #000;
+        color: #666;
         vertical-align: middle;
         line-height: 50px;
         border: 0;
         font-size: 12px;
+        font-weight: 300;
+        
     }
     .mui-bar button.yes {
         background: #007aff;
@@ -289,7 +290,7 @@ header {
     }
     .title+.content {
         margin: 10px 15px 35px;
-        color: #bbb;
+        color: #333;
         text-indent: 1em;
         font-size: 14px;
         line-height: 24px;

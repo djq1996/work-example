@@ -45,8 +45,11 @@ $bg.on('tap',function(){
 	setTimeout(function(){
 		$bg.hide()
 	},30)
-	e.preventDefault()
+
 });
+$bg.on('touchmove',function(){
+	e.preventDefault()
+})
 //$('.mask').on('touchmove',function(e){})
 $nav_child.on('tap',function(){
 	console.log('12345554332')
