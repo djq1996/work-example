@@ -15,7 +15,7 @@ header {
             font-size: 14px;
         }
         input {
-//          background: #f7f7f7;
+            background: #f7f7f7;
         }
     }
 }
@@ -80,7 +80,6 @@ header {
                     z-index: 10;
                     background: #fff;
                     width: 100%;
-                    font-weight: 600;
                     border-bottom: 1px solid #ccc;
                     .nav_ul_li {
                         width: 25%;
@@ -91,7 +90,7 @@ header {
                             width: 100%;
                             padding: 10px 0;
                             text-align: center;
-                            color: #333;
+                            color: #666;
                             font-size: 14px;
                             cursor: pointer;
                             margin: 0;

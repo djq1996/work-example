@@ -288,7 +288,7 @@ $commonColor:#6b2c75;
 $commonBgBtn:#38ad6a;
 $commonTextNavColor:#a9abab;
 $commonLi:#d7dada;
-$comminColorGreen:#00ae66;
+$comminColorGreen:#591571;
 $commonTextColorRed:#db4c3f;
 /*暂无数据*/
 .noinfo{
@@ -308,42 +308,48 @@ $commonTextColorRed:#db4c3f;
 .spanTagAile{
     display: inline-block;
     font-size: 12px;
+//  line-height: 25px;
     padding: 0 3px;
-    margin-right: 6px;
+    margin-right: 6px; 
     /*随时看房*/
     &.hasKey{
-        background: #e1f5ed;
+        border:1px solid #33BE85;
         color: #33BE85;
     }
-    /*独家,销售达人*/
+    /*独家*/
     &.duJia{
-        background-color: #f4f7f9;
-        color: #849aae;
+        border:1px solid #ef9c0d;
+        color: #ef9c0d;
     }
-    /*满五 满二 带看活跃*/
-    &.M5,&.M2{
-        background: #ffece8;
+    /*满五*/
+    &.M5{
+        border:1px solid  #FF8062;
         color: #FF8062;
+    } 
+    /*满二*/
+    &.M2{
+        color: #33BE85;
+       border:1px solid  #33BE85;
     }
-    /*实勘 客户热评*/
+    /*实勘*/
     &.shiKan{
-        background: #d3f2e9;
-        color: #38b792;
+        border:1px solid  #ef9c0d;
+        color: #ef9c0d;
     }
     /*精装*/
     &.jingZhuang{
-        color: #f65761;
-        background: #fedbdd;
+        border:1px solid  #80b6d8;
+        color: #80b6d8;
     }
     /*新上*/
     &.xinShang{
-        background: #ebebeb;
-        color: #a7a7aa;
+        border:1px solid #a97ed7;
+        color: #a97ed7;
     }
-    /*优选*/
-    &.youxuan{
-        background: #f7bd26;
-        color: #fff;
+    /**/
+    &.duWei{
+        border:1px solid #55a278;
+        color: #55a278;
     }
 }
 /*----------------------兼容代码块*/

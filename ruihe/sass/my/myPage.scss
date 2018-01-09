@@ -6,7 +6,7 @@
 //  }
 //}
 .mui-bar-tab .mui-tab-item.mui-active {
-    color: #32c78e;
+    color: $comminColorGreen;
 }
 nav{
     &.mui-bar{
@@ -35,7 +35,7 @@ nav{
 .mui-content{
     .mui-scroll-wrapper{
         background: #fff;
-        margin-top: 44px;
+        margin: 44px 0 50px 0;
         .mui-scroll{
             .m-myPage{
                 /*间隔*/

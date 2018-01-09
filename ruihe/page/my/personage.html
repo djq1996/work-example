@@ -109,17 +109,11 @@
 	</body>
 </html>
 <script src="../../lib/jquery-2.1.0.min.js"></script>
-<script src="../../js/common.js"></script>
 <script src="../../js/mui.js"></script>
 <script src="../../js/mui.view.js "></script>
+<script src="../../js/common.js"></script>
 <script type="text/javascript">
 	mui.init();
-	/*去关于我们*/
-	openNewPage({
-		btn:'#goAbout',
-		url:'about.html',
-		data:{}
-	});
 	/*昵称清空*/
 	$('.nameBox').on('click','.emptyName',function(){
 		$(this).prev().val('');

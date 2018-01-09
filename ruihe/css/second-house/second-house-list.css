@@ -261,33 +261,37 @@ a {
   padding: 0 3px;
   margin-right: 6px;
   /*随时看房*/
-  /*独家,销售达人*/
-  /*满五 满二 带看活跃*/
-  /*实勘 客户热评*/
+  /*独家*/
+  /*满五*/
+  /*满二*/
+  /*实勘*/
   /*精装*/
   /*新上*/
-  /*优选*/ }
+  /**/ }
   .spanTagAile.hasKey {
-    background: #e1f5ed;
+    border: 1px solid #33BE85;
     color: #33BE85; }
   .spanTagAile.duJia {
-    background-color: #f4f7f9;
-    color: #849aae; }
-  .spanTagAile.M5, .spanTagAile.M2 {
-    background: #ffece8;
+    border: 1px solid #ef9c0d;
+    color: #ef9c0d; }
+  .spanTagAile.M5 {
+    border: 1px solid  #FF8062;
     color: #FF8062; }
+  .spanTagAile.M2 {
+    color: #33BE85;
+    border: 1px solid  #33BE85; }
   .spanTagAile.shiKan {
-    background: #d3f2e9;
-    color: #38b792; }
+    border: 1px solid  #ef9c0d;
+    color: #ef9c0d; }
   .spanTagAile.jingZhuang {
-    color: #f65761;
-    background: #fedbdd; }
+    border: 1px solid  #80b6d8;
+    color: #80b6d8; }
   .spanTagAile.xinShang {
-    background: #ebebeb;
-    color: #a7a7aa; }
-  .spanTagAile.youxuan {
-    background: #f7bd26;
-    color: #fff; }
+    border: 1px solid #a97ed7;
+    color: #a97ed7; }
+  .spanTagAile.duWei {
+    border: 1px solid #55a278;
+    color: #55a278; }
 
 /*----------------------兼容代码块*/
 /*暂无数据*/
@@ -319,6 +323,8 @@ header .mui-search {
   height: 100%; }
   header .mui-search .mui-placeholder {
     font-size: 14px; }
+  header .mui-search input {
+    background: #f7f7f7; }
 
 .bg {
   position: fixed;
@@ -376,7 +382,6 @@ header .mui-search {
         z-index: 10;
         background: #fff;
         width: 100%;
-        font-weight: 600;
         border-bottom: 1px solid #ccc; }
         .mui-content .m-houseList .serch-box .search-top .nav_ul .nav_ul_li {
           width: 25%;
@@ -387,7 +392,7 @@ header .mui-search {
             width: 100%;
             padding: 10px 0;
             text-align: center;
-            color: #333;
+            color: #666;
             font-size: 14px;
             cursor: pointer;
             margin: 0; }

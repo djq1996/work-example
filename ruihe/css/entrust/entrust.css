@@ -261,33 +261,37 @@ a {
   padding: 0 3px;
   margin-right: 6px;
   /*随时看房*/
-  /*独家,销售达人*/
-  /*满五 满二 带看活跃*/
-  /*实勘 客户热评*/
+  /*独家*/
+  /*满五*/
+  /*满二*/
+  /*实勘*/
   /*精装*/
   /*新上*/
-  /*优选*/ }
+  /**/ }
   .spanTagAile.hasKey {
-    background: #e1f5ed;
+    border: 1px solid #33BE85;
     color: #33BE85; }
   .spanTagAile.duJia {
-    background-color: #f4f7f9;
-    color: #849aae; }
-  .spanTagAile.M5, .spanTagAile.M2 {
-    background: #ffece8;
+    border: 1px solid #ef9c0d;
+    color: #ef9c0d; }
+  .spanTagAile.M5 {
+    border: 1px solid  #FF8062;
     color: #FF8062; }
+  .spanTagAile.M2 {
+    color: #33BE85;
+    border: 1px solid  #33BE85; }
   .spanTagAile.shiKan {
-    background: #d3f2e9;
-    color: #38b792; }
+    border: 1px solid  #ef9c0d;
+    color: #ef9c0d; }
   .spanTagAile.jingZhuang {
-    color: #f65761;
-    background: #fedbdd; }
+    border: 1px solid  #80b6d8;
+    color: #80b6d8; }
   .spanTagAile.xinShang {
-    background: #ebebeb;
-    color: #a7a7aa; }
-  .spanTagAile.youxuan {
-    background: #f7bd26;
-    color: #fff; }
+    border: 1px solid #a97ed7;
+    color: #a97ed7; }
+  .spanTagAile.duWei {
+    border: 1px solid #55a278;
+    color: #55a278; }
 
 /*----------------------兼容代码块*/
 /*暂无数据*/
@@ -318,11 +322,11 @@ header.mui-badge-light-blue {
 .mui-control-content .mui-loading {
   margin-top: 50px; }
 
-.mui-bar-nav ~ .mui-content {
-  padding-top: 0; }
-
 .mui-slider .mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-group .mui-slider-item {
   border: 0; }
+
+.mui-scroll-wrapper {
+  padding-top: 44px; }
 
 .mui-content .m-entrust .banner {
   position: relative;
@@ -337,25 +341,30 @@ header.mui-badge-light-blue {
     left: 10px;
     color: #fff; }
 
-.mui-content .m-entrust .mui-slider .mui-slider-group #item1mobile .mui-input-group:after, .mui-content .m-entrust .mui-slider .mui-slider-group #item2mobile .mui-input-group:after, .mui-content .m-entrust .mui-slider .mui-slider-group #item4mobile .mui-input-group:after, .mui-content .m-entrust .mui-slider .mui-slider-group #item3mobile .mui-input-group:after {
-  height: 0; }
+.m-group label {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px; }
 
-.mui-content .m-entrust .mui-slider .mui-slider-group #item1mobile .mui-input-group div input[type='text'], .mui-content .m-entrust .mui-slider .mui-slider-group #item2mobile .mui-input-group div input[type='text'], .mui-content .m-entrust .mui-slider .mui-slider-group #item4mobile .mui-input-group div input[type='text'], .mui-content .m-entrust .mui-slider .mui-slider-group #item3mobile .mui-input-group div input[type='text'] {
+.m-group input {
   text-align: right; }
 
-.mui-content .m-entrust .mui-slider .mui-slider-group #item1mobile .mui-input-group div.smallInput input[type='text'], .mui-content .m-entrust .mui-slider .mui-slider-group #item2mobile .mui-input-group div.smallInput input[type='text'], .mui-content .m-entrust .mui-slider .mui-slider-group #item4mobile .mui-input-group div.smallInput input[type='text'], .mui-content .m-entrust .mui-slider .mui-slider-group #item3mobile .mui-input-group div.smallInput input[type='text'] {
-  float: inherit;
-  width: 27%;
-  padding: 0;
-  text-align: center; }
+.m-group button {
+  width: 100px;
+  display: block;
+  margin: 15px auto; }
 
-.mui-content .m-entrust .mui-slider .mui-slider-group #item1mobile .btnBox, .mui-content .m-entrust .mui-slider .mui-slider-group #item2mobile .btnBox, .mui-content .m-entrust .mui-slider .mui-slider-group #item4mobile .btnBox, .mui-content .m-entrust .mui-slider .mui-slider-group #item3mobile .btnBox {
-  text-align: center;
-  border: 0;
-  margin-top: 20px; }
-  .mui-content .m-entrust .mui-slider .mui-slider-group #item1mobile .btnBox .saveBtn, .mui-content .m-entrust .mui-slider .mui-slider-group #item2mobile .btnBox .saveBtn, .mui-content .m-entrust .mui-slider .mui-slider-group #item4mobile .btnBox .saveBtn, .mui-content .m-entrust .mui-slider .mui-slider-group #item3mobile .btnBox .saveBtn {
-    display: inline-block;
-    width: 80px;
-    background: #591571;
-    color: #fff;
-    border: 0; }
+.m-group h4 {
+  color: #999;
+  font-size: 16px;
+  padding: 8px;
+  background: #eee; }
+
+.m-group .m-rg {
+  position: relative; }
+  .m-group .m-rg button {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    padding: 5px 15px;
+    margin: 0; }
