@@ -256,9 +256,8 @@ a {
 
 /*公用标签(span)*/
 .spanTagAile {
-  display: inline-block;
   font-size: 12px;
-  padding: 0 3px;
+  padding: 0 5px;
   margin-right: 6px;
   /*随时看房*/
   /*独家*/

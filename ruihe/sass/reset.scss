@@ -306,10 +306,9 @@ $commonTextColorRed:#db4c3f;
 //优选：独家，钥匙其中一个就是优选
 
 .spanTagAile{
-    display: inline-block;
     font-size: 12px;
 //  line-height: 25px;
-    padding: 0 3px;
+    padding: 0 5px;
     margin-right: 6px; 
     /*随时看房*/
     &.hasKey{
