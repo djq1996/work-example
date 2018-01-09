@@ -170,8 +170,8 @@
 					<!--位置及周边-->
 					<div class="location">
 						<ul class="mui-table-view">
-						    <li class="mui-table-view-cell" id="goMap">
-						        <a class="mui-navigate-right title">位置及周边：通州，新建村</a>
+						    <li class="mui-table-view-cell" id="">
+						        <a href="map.html" class="mui-navigate-right title">位置及周边：通州，新建村</a>
 						    </li>
 						</ul>
 						<div class="static">
@@ -324,36 +324,7 @@
 	mui('.mui-scroll-wrapper').scroll({
 		deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
 	});
-	/*去看房记录*/
-	openNewPage({
-		btn:'#goLookHouse',
-		url:'../second-house/cust-lookHouse.html',
-		data:{}
-	});
-	/*去经纪人房评*/
-	openNewPage({
-		btn:'#goEvaluate',
-		url:'../second-house/evaluate.html',
-		data:{}
-	});
-	/*去小区详情*/
-	openNewPage({
-		btn:'#goEstate',
-		url:'../estate/estate-details.html',
-		data:{}
-	})
-	/*去周边*/
-	openNewPage({
-		btn:'#goMap',
-		url:'map.html',
-		data:{}
-	});
-	/*去计算器*/
-	openNewPage({
-		btn:'#houseDai',
-		url:'../Mortgage/Dksl2.html',
-		data:{}
-	})
+	
 	/*点击弹蒙版*/
 	$('.tel').click(function(){
 		mui.confirm('13536309485','拨打电话',['呼叫','取消']);

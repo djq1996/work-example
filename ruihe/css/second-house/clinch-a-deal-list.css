@@ -307,128 +307,57 @@ a {
     font-size: 14px;
     line-height: 30px; }
 
-/*首页*/
-.m-banner {
-  width: 100%;
-  height: 180px;
-  background: url(../img/index/house2.jpg) no-repeat;
-  background-size: cover;
+.mui-content {
+  padding-top: 44px !important; }
+  .mui-content .m-houseList {
+    background: #fff;
+    /*列表*/ }
+    .mui-content .m-houseList .listCon ul li {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+      overflow: hidden; }
+      .mui-content .m-houseList .listCon ul li > a {
+        display: block; }
+      .mui-content .m-houseList .listCon ul li .img {
+        float: left;
+        width: 30%;
+        vertical-align: 5px; }
+        .mui-content .m-houseList .listCon ul li .img img {
+          display: block;
+          width: 100%;
+          height: 100%; }
+      .mui-content .m-houseList .listCon ul li .conRight {
+        width: 69%;
+        margin-left: 30%;
+        padding-left: 15px; }
+        .mui-content .m-houseList .listCon ul li .conRight div.title {
+          font-size: 16px;
+          color: #333;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        .mui-content .m-houseList .listCon ul li .conRight div.price {
+          font-size: 14px;
+          color: #db4c3f;
+          font-weight: bold; }
+          .mui-content .m-houseList .listCon ul li .conRight div.price span {
+            margin-left: 5px;
+            font-size: 12px;
+            color: #888;
+            font-weight: normal; }
+        .mui-content .m-houseList .listCon ul li .conRight .info {
+          color: #666; }
+
+.m-border {
   position: relative; }
-  .m-banner .serach-box {
-    position: absolute;
-    bottom: 0;
-    left: 5%;
-    right: 5%; }
-    .m-banner .serach-box input.serach {
-      font-size: 14px;
-      background: white; }
-    .m-banner .serach-box i {
-      position: absolute;
-      left: 10px;
-      top: 8px;
-      font-size: 20px; }
 
-.mui-search .mui-placeholder {
-  font-size: 14px; }
-
-.m-icon {
-  display: block;
-  width: 45px;
-  height: 45px;
-  margin: 0 auto;
-  background: url(../img/grid.png) no-repeat; }
-
-.mui-grid-view .sell {
-  background-position: 0 0; }
-
-.mui-grid-view .rent {
-  background-position: 0 -59px; }
-
-.mui-grid-view .broker {
-  background-position: 0 -121px; }
-
-.mui-grid-view .weituo {
-  background-position: 0 -188px; }
-
-.mui-grid-view .house {
-  background-position: 0 -252px; }
-
-.mui-grid-view .counter {
-  background-position: 0 -306px; }
-
-.m-title {
-  margin-top: 10px;
-  padding: 10px 12px;
-  position: relative; }
-  .m-title h2 {
-    font-size: 16px;
-    font-weight: bold;
-    display: inline-block; }
-  .m-title .tab {
-    float: right; }
-    .m-title .tab a {
-      color: #333;
-      padding: 0 5px; }
-    .m-title .tab a.active {
-      color: #32c78e; }
-
-.mui-table-view:after {
-  content: none; }
-
-.m-title:after, .m-con-list li:after {
+.m-border:before {
   position: absolute;
+  top: -1px;
   right: 0;
-  bottom: 0;
   left: 0;
   height: 1px;
   content: '';
   -webkit-transform: scaleY(0.5);
   transform: scaleY(0.5);
   background-color: #c8c7cc; }
-
-.m-con-list li {
-  position: relative;
-  padding: 12px; }
-  .m-con-list li > a {
-    display: block;
-    overflow: hidden; }
-
-.m-con-list .img-box {
-  width: 110px;
-  height: 75px;
-  float: left; }
-  .m-con-list .img-box img {
-    width: 100%; }
-
-.m-con-list .img-detail {
-  margin-left: 122px;
-  color: #394043;
-  overflow: hidden; }
-  .m-con-list .img-detail h3 {
-    margin-bottom: .45rem;
-    line-height: 1.2em;
-    overflow: hidden;
-    font-size: 1rem;
-    font-weight: 600;
-    text-overflow: ellipsis;
-    white-space: nowrap; }
-  .m-con-list .img-detail .money {
-    font-weight: 500;
-    font-size: 14px; }
-    .m-con-list .img-detail .money span {
-      font-size: 14px;
-      float: right;
-      color: #8c198c; }
-  .m-con-list .img-detail .msg {
-    color: #999; }
-  .m-con-list .img-detail .tag {
-    width: 400px; }
-
-.mui-scroll-wrapper {
-  padding-bottom: 60px; }
-
-.mui-bar-tab {
-  background: #fff; }
-
-.mui-bar-tab .mui-tab-item.mui-active {
-  color: #32c78e; }

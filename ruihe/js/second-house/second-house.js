@@ -29,7 +29,6 @@ $(".nav_ul_li").on('tap',function(){
 		$arrow.eq(index).addClass('active')
 	}else{
 		$("body").css("overflow","initial");
-		serach.className = 'search-top';
 		$nav_child.hide();
 		$bg.hide()
 		$arrow.removeClass('active')
@@ -41,7 +40,6 @@ $bg.on('tap',function(){
 	$("body").css("overflow","initial");
 	$nav_child.hide();
 	$arrow.removeClass('active')
-	serach.className = 'search-top';
 	setTimeout(function(){
 		$bg.hide()
 	},30)
