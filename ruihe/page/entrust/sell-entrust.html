@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>买房委托</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/entrust/entrust.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">买房委托</h1>
+		</header>
+		<div class="mui-content">
+			<!--卖房-->
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll m-group">
+					<form  action="" method="post">
+						<div class="mui-input-group ">
+							<h4 class="title">详情</h4>
+							<div class="mui-input-row">
+								<label>小区所在城市</label>
+								<input type="text" placeholder="请输入">
+							</div>
+							<div class="mui-input-row">
+								<label>小区</label>
+								<input type="text" placeholder="请输入">
+							</div>
+							<div class="mui-input-row">
+								<label>楼栋</label>
+								<input type="text" placeholder="请输入">
+							</div>
+							<div class="mui-input-row">
+								<label>单元</label>
+								<input type="text" placeholder="请输入">
+							</div>
+							<div class="mui-input-row">
+								<label>门牌号</label>
+								<input type="text" placeholder="请输入">
+							</div>
+							<div class="mui-input-row m-place">
+								<label>期望租金</label>
+								<input type="text" class="mui-text-left" placeholder="请输入">
+								<span>万元</span>
+							</div>
+						</div>
+						<div class="mui-input-group ">
+							<h4 class="title">联系方式</h4>
+							<div class="mui-input-row">
+								<label>称呼</label>
+								<input type="text" placeholder="请输入">
+							</div>
+							<div class="mui-input-row">
+								<label>联系电话</label>
+								<input type="text" placeholder="请输入">
+							</div>
+							<div class="mui-input-row m-rg">
+								<label>验证码</label>
+								<input type="text" class="mui-text-left" placeholder="请输入">
+								<button type="button" class="mui-btn mui-btn-purple js-rg">获取</button>
+							</div>
+						</div>
+						<button type="submit" class="mui-btn mui-btn-blue">提交</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="../../lib/jquery-2.1.0.min.js"></script>
+<script src="../../js/mui.min.js"></script>
+<script src="../../js/common.js"></script>
+<script type="text/javascript">
+	mui.init();
+	mui('.mui-scroll-wrapper').scroll({
+		deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+	});
+	document.querySelector(".js-rg").addEventListener("tap",function(){
+		var timer = null,num=60;
+		var _this = this;
+		this.setAttribute("disabled","ture") 
+		
+		timer = setInterval(function(){
+				_this.innerText =num-- ;
+				if(num<0){
+					clearInterval(timer)
+					_this.innerText = "获取"
+					_this.removeAttribute("disabled");
+					num = 60;
+				}
+		},1000)
+	})
+</script>

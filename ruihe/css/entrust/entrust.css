@@ -352,7 +352,9 @@ header.mui-badge-light-blue {
 .m-group button {
   width: 100px;
   display: block;
-  margin: 15px auto; }
+  margin: 15px auto;
+  background: #591571;
+  border: none; }
 
 .m-group h4 {
   color: #999;
@@ -363,8 +365,21 @@ header.mui-badge-light-blue {
 .m-group .m-rg {
   position: relative; }
   .m-group .m-rg button {
+    width: 50px;
     position: absolute;
     right: 10px;
     top: 6px;
-    padding: 5px 15px;
-    margin: 0; }
+    padding: 5px 0;
+    margin: 0;
+    text-align: center; }
+
+.m-group .m-place input {
+  width: 30%;
+  float: left; }
+
+.m-group .m-place span {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  padding: 0 3px; }

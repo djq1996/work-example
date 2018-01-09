@@ -55,6 +55,8 @@ header {
         width: 100px;
         display: block;
         margin: 15px auto;
+        background: $comminColorGreen;
+        border: none;
     }
     h4{
         color: #999;
@@ -65,11 +67,27 @@ header {
     .m-rg{
         position: relative;
         button{
+            width: 50px;
             position: absolute;
             right: 10px;
             top: 6px;
-            padding: 5px 15px;
+            padding: 5px 0;
             margin: 0;
+            text-align: center;
+            
+        }
+    }
+    .m-place{
+        input{
+            width: 30%;
+            float: left;
+        }
+        span{
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            float: left;
+            padding: 0 3px;
         }
     }
 }
