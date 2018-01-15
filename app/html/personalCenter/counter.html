@@ -41,66 +41,96 @@
 						<!--商业贷款-->
 						<div id="item1" class="mui-control-content  mui-active">
 							<div class="mui-input-group">
+								<h4 class="title">卖方</h4>
 								<div class="mui-input-row nobefore">
-									<label>计税价</label>
-									<input type="number" name="taxPrice" value="" placeholder="请输入" style="">
-									<span style=""></span>
+									<label>面积</label>
+									<input type="number" name="taxPrice" value="" placeholder="房本建筑面积" style="">
+									<span style="">㎡</span>
 								</div>
-								<!--<div class="mui-input-row nobefore">
-									<label>指导价</label>
-									<input type="number" name="" value="" placeholder="请输入" style="">
-									<span style=""></span>
-								</div>-->
+								<div class="mui-input-row nobefore">
+									<label>指导单价</label>
+									<input type="number" name="originalValue" value="" placeholder="最低计税价格" style="">
+									<span style="">元/㎡</span>
+								</div>
 								<div class="mui-input-row nobefore">
 									<label>原值</label>
-									<input type="number" name="originalValue" value="" placeholder="请输入" style="">
-									<span style=""></span>
+									<input type="number" name="originalTax" value="" placeholder="契税票计税价" style="">
+									<span style="">万</span>
 								</div>
 								<div class="mui-input-row nobefore">
 									<label>原契税</label>
 									<input type="number" name="originalTax" value="" placeholder="请输入" style="">
-									<span style=""></span>
+									<span style="">元</span>
 								</div>
 								<div class="mui-input-row nobefore">
 									<label>利息</label>
 									<input type="number" name="interest" value="0" placeholder="请输入" style="">
-									<span style=""></span>
+									<span style="">元</span>
 								</div>
-								<div class="mui-input-row" id="a">
-									<label>增值税</label>
-									<input type="text" name="a" value="" placeholder="请选择" readonly="">
+								<div class="mui-input-row nobefore">
+									<label>售价</label>
+									<input type="number" name="interest" value="" placeholder="请输入" style="">
+									<span style="">万</span>
 								</div>
-								<h4 class="title">个税</h4>
-								<div class="mui-input-row" id="b">
-									<label></label>
+								<div class="mui-input-row nobefore" >
+									<div class="m-half">
+										<input type="text" id="a"  name="a" value="满五年" placeholder="" readonly="">
+									</div>
+									<div class="m-half">
+										<input type="text" id="b" name="a" value="家庭唯一" placeholder="家庭唯一" readonly="">
+									</div>
+								</div>
+								<div class="mui-input-row nobefore" id="a">
+									<div class="m-half">
+										<input type="text" id="c"  name="c" value="区县" placeholder="区县" readonly="">
+									</div>
+									<div class="m-half">
+										<input type="text" id="d"  name="d" value="环线" placeholder="环线" readonly="">
+									</div>
+								</div>
+								<h4 class="title">买方</h4>
+								<div class="mui-input-row" id="e">
+									<label>全款/贷款</label>
 									<input type="text" name="b" value="" placeholder="请选择" readonly="">
 								</div>
-								<!--<div class="mui-input-row" id="c" >
-									<label>指导价</label>
-									<input type="text" name="c" value="" data-type="1" placeholder="请选择" readonly="">
-								</div>-->
-								<h4 class="title">契税</h4>
-								<div class="mui-input-row" id="d">
-									<label></label>
-									<input type="text" name="d" value="" placeholder="请选择" readonly="">
+								<div class="mui-input-row" id="f">
+									<label>首套/二套</label>
+									<input type="text" name="b" value="" placeholder="请选择" readonly="">
 								</div>
-								<!--<div class="mui-input-row" id="e" >
-									<label>指导价</label>
-									<input type="text" name="e" value="" data-type="1" placeholder="请选择" readonly="">
-								</div>-->
+								<div class="mui-input-row" id="g">
+									<label>贷款方式</label>
+									<input type="text" name="b" value="" placeholder="首套购买（无贷款记录）" readonly="">
+								</div>
+								<div class="mui-input-row" id="h">
+									<label>评估成数</label>
+									<input type="text" name="b" value="85%" placeholder="请选择" readonly="">
+								</div>
+								<div class="mui-input-row nobefore" >
+									<label>贷款金额</label>
+									<input type="text" name="b" value="" placeholder="请输入" >
+								</div>
+								<div class="mui-input-row m-impt" id="I">
+									<i>*</i>
+									<input type="text" name="b" value="普通计算（按填写贷款额）" placeholder="请输入" readonly="">
+								</div>
 							</div>
 							<div class="mui-content-padded">
 								<button id='person-house' class="mui-btn mui-btn-block mui-badge-light-blue">开始计算</button>
 							</div>
-							<div class="mui-input-group">
+							<div class="mui-input-group m-result" >
 								<div class="mui-input-row nobefore">
-									<label>增值税</label>
+									<label>网签价</label>
 									<input type="number" name="tax1" placeholder="" readonly="" style="">
 									<span style=""></span>
 								</div>
 								<div class="mui-input-row nobefore">
-									<label>增值附加税</label>
-									<input type="number" name="tax2" placeholder="" readonly="" style="">
+									<label>贷款金额</label>
+									<input type="number" name="tax1" placeholder="" readonly="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>增值税及增值附加税</label>
+									<input type="number" name="tax1" placeholder="" readonly="" style="">
 									<span style=""></span>
 								</div>
 								<div class="mui-input-row nobefore">
@@ -108,21 +138,11 @@
 									<input type="number" name="tax3" placeholder="" readonly="" style="">
 									<span style=""></span>
 								</div>
-								<!--<div class="mui-input-row nobefore">
-									<label>个税指导价</label> </label>
-									<input type="number" name="tax4" placeholder="" readonly="" style="">
-									<span style=""></span>
-								</div>-->
 								<div class="mui-input-row nobefore">
 									<label>契税</label>
 									<input type="number" name="tax5" placeholder="" readonly="" style="">
 									<span style=""></span>
 								</div>
-								<!--<div class="mui-input-row nobefore">
-									<label>契税指导价</label>
-									<input type="number" name="tax6" placeholder="" readonly="" style="">
-									<span style=""></span>
-								</div>-->
 								<div class="mui-input-row nobefore">
 									<label>总价</label>
 									<input type="number" name="taxAll" placeholder="" readonly="" style="">
@@ -134,13 +154,23 @@
 						<div id="item2" class="mui-control-content">
 							<div class="mui-input-group">
 								<div class="mui-input-row nobefore">
-									<label>申报价</label>
-									<input type="number" name="businessPrice" placeholder="请输入" value="" style="">
+									<label>面积</label>
+									<input type="number" name="businessPrice" placeholder="房本建筑面积" value="" style="">
 									<span style=""></span>
 								</div>
 								<div class="mui-input-row nobefore">
+									<label>单价</label>
+									<input type="number" name="businessPrice" placeholder="地区指导单价" value="" style="">
+									<span style=""></span>
+								</div>
+								<!--<div class="mui-input-row nobefore">
+									<label>申报价</label>
+									<input type="number" name="businessPrice" placeholder="请输入" value="" style="">
+									<span style=""></span>
+								</div>-->
+								<div class="mui-input-row nobefore">
 									<label>原值</label>
-									<input type="number" name="businessOriginalValue" placeholder="请输入" value="" style="">
+									<input type="number" name="businessOriginalValue" placeholder="契税票计税价" value="" style="">
 									<span style=""></span>
 								</div>
 								<!--<div class="mui-input-row nobefore">
@@ -150,6 +180,11 @@
 								</div>-->
 								<div class="mui-input-row nobefore">
 									<label>增值年数</label>
+									<input type="number" name="businessYear" placeholder="请输入" value="" style="">
+									<span style=""></span>
+								</div>
+								<div class="mui-input-row nobefore">
+									<label>利息</label>
 									<input type="number" name="businessYear" placeholder="请输入" value="" style="">
 									<span style=""></span>
 								</div>

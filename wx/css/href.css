@@ -1,0 +1,10 @@
+.m-copy-img img{
+	display: block;
+	width: 55%;
+	margin: 0 auto;
+}
+.weui-cells__title {
+    margin-top: 1.71em;
+    margin-bottom: 1em;
+    color: #000;
+}

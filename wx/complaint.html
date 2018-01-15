@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>投诉</title>
+		<link rel="stylesheet" href="css/weui.css">
+	</head>
+
+	<body ontouchstart>
+		<div class="weui-cells__title">投诉账号</div>
+		<div class="weui-cells">
+			<div class="weui-cell">
+				<div class="weui-cell__hd m-head-img" style="position: relative;margin-right: 10px;overflow: hidden;border-radius: 50%;">
+					<img src="http://img4.imgtn.bdimg.com/it/u=462937419,318990901&fm=27&gp=0.jpg" style="width: 50px;display: block">
+					<!--<span class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</span>-->
+				</div>
+				<div class="weui-cell__bd">
+					<p>亲戚买房</p>
+					<p style="font-size: 13px;color: #888888;">微信号：qinqimaifang</p>
+				</div>
+			</div>
+			
+		</div>
+		<div class="weui-cells__title">投诉描述</div>
+		<div class="weui-cells weui-cells_form">
+			<div class="weui-cell">
+				<div class="weui-cell__bd">
+					<textarea class="weui-textarea" placeholder="请输入投诉内容" rows="3"></textarea>
+					<div class="weui-textarea-counter"><span>0</span>/200</div>
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__bd">
+					<div class="weui-uploader">
+						<div class="weui-uploader__hd">
+							<p class="weui-uploader__title">证据截图</p>
+							<div class="weui-uploader__info">0/4</div>
+						</div>
+						<div class="weui-uploader__bd">
+							<ul class="weui-uploader__files" id="uploaderFiles">
+								<li></li>
+							</ul>
+							<div class="weui-uploader__input-box">
+								<input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label for="" class="weui-label">证件链接</label></div>
+				<div class="weui-cell__bd">
+					<input class="weui-input" type="text" pattern="[0-9]*" placeholder="选填" />
+				</div>
+				<div class="weui-cell__ft">
+					<i class="weui-icon-info-circle"></i>
+				</div>
+			</div>
+		</div>
+
+		<div class="weui-btn-area">
+			<a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">提交</a>
+		</div>
+
+	</body>
+
+</html>

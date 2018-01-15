@@ -18,38 +18,170 @@ $('#segmentedControl a').on('tap', function() {
 		/*增值税*/
 		var arr1 = [{
 			value: 1,
-			text: '普通住宅不满两年'
+			text: '满五年'
 		}, {
 			value: 2,
-			text: '普通住宅满两年'
+			text: '满两年'
 		}, {
 			value: 3,
-			text: '非普通住宅不满两年'
-		}, {
-			value: 4,
-			text: '非普通住宅满两年'
+			text: '不满两年'
 		}];
 		/*个税*/
 		var arr2 = [{
 			value: 1,
-			text: '不满五年'
+			text: '家庭唯一'
 		}, {
 			value: 2,
-			text: '满五年不唯一'
-		}, {
-			value: 3,
-			text: '满五年唯一'
+			text: '家庭不唯一'
 		}];
 		/*契税*/
 		var arr3 = [{
 			value: 1,
-			text: '90平米以下'
+			text: '朝阳区'
 		}, {
 			value: 2,
-			text: '90平米以上'
+			text: '海淀区'
 		}, {
 			value: 3,
+			text: '东城区'
+		}, {
+			value: 4,
+			text: '西城区'
+		}, {
+			value: 5,
+			text: '丰台区'
+		}, {
+			value: 6,
+			text: '石景山区'
+		}, {
+			value: 7,
+			text: '通州区'
+		}, {
+			value: 8,
+			text: '昌平区'
+		}, {
+			value: 9,
+			text: '大兴区'
+		}, {
+			value: 10,
+			text: '顺义区'
+		}, {
+			value: 11,
+			text: '房山区'
+		}, {
+			value: 12,
+			text: '门头沟区'
+		}, {
+			value: 13,
+			text: '亦庄开发区'
+		}];
+		var arr4 = [{
+			value: 1,
+			text: '5环内'
+		}, {
+			value: 2,
+			text: '5环-6环'
+		}, {
+			value: 3,
+			text: '6环外'
+		}];
+		var arr5 = [{
+			value: 1,
+			text: '全款'
+		}, {
+			value: 2,
+			text: '贷款'
+		}];
+		var arr6 = [{
+			value: 1,
+			text: '首套'
+		}, {
+			value: 2,
 			text: '二套'
+		}];
+		var arr7 = [{
+			value: 1,
+			text: '首套购买（无贷款记录）'
+		}, {
+			value: 2,
+			text: '首套购买（有贷款记录）'
+		}, {
+			value: 3,
+			text: '二套购买'
+		}];
+		var arr8 = [{
+			value: 1,
+			text: '80%'
+		}, {
+			value: 2,
+			text: '81%'
+		}, {
+			value: 3,
+			text: '82%'
+		}, {
+			value: 4,
+			text: '83%'
+		}, {
+			value: 5,
+			text: '84%'
+		}, {
+			value: 6,
+			text: '85%'
+		}, {
+			value: 7,
+			text: '86%'
+		}, {
+			value: 8,
+			text: '87%'
+		}, {
+			value: 9,
+			text: '88%'
+		}, {
+			value: 10,
+			text: '89%'
+		}, {
+			value: 11,
+			text: '90%'
+		}, {
+			value: 12,
+			text: '91%'
+		}, {
+			value: 13,
+			text: '92%'
+		}, {
+			value: 14,
+			text: '93%'
+		}, {
+			value: 15,
+			text: '94%'
+		}, {
+			value: 16,
+			text: '95%'
+		}, {
+			value: 17,
+			text: '96%'
+		}, {
+			value: 18,
+			text: '97%'
+		}, {
+			value: 19,
+			text: '98%'
+		}, {
+			value: 20,
+			text: '99%'
+		}, {
+			value: 21,
+			text: '100%'
+		}];
+		var arr9 = [{
+			value: 1,
+			text: '普通计算（按填写贷款额）'
+		}, {
+			value: 2,
+			text: '税费最少（贷款额有限）'
+		}, {
+			value: 3,
+			text: '不超非普通住宅（多贷且税少）'
 		}];
 		var selectOption = function(id, data) {
 			var userPicker = new $.PopPicker();
@@ -66,9 +198,13 @@ $('#segmentedControl a').on('tap', function() {
 		/*计算方式*/
 		selectOption('a', arr1)
 		selectOption('b', arr2)
-//		selectOption('c', arr2)
-		selectOption('d', arr3)
-//		selectOption('e', arr3)
+		selectOption('c', arr3)
+		selectOption('d', arr4)
+		selectOption('e', arr5)
+		selectOption('f', arr6)
+		selectOption('g', arr7)
+		selectOption('h', arr8)
+		selectOption('I', arr9)
 	})
 })(mui, document);
 
@@ -81,9 +217,7 @@ $('#person-house').on('tap',function() {
 		$interest = $("input[name=interest]"), //利息
 		$a = $("input[name=a]"), //增值税
 		$b = $("input[name=b]"), //个税网签价
-//		$c = $("input[name=c]"), //个税指导价高
 		$d = $("input[name=d]"); //契税网签价
-//		$e = $("input[name=e]"); //契税指导价高
 	var tishi = '';
 //	if($e.attr('data-type') == undefined) {
 //		tishi = '请选择契税指导价';
