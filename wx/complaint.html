@@ -122,7 +122,8 @@
 				$gallery = $("#gallery"),
 				$galleryImg = $("#galleryImg"),
 				$uploaderInput = $("#uploaderInput"),
-				$uploaderFiles = $("#uploaderFiles");
+				$uploaderFiles = $("#uploaderFiles"),
+				_index = 1;
 
 			$uploaderInput.on("change", function(e) {
 				var src, url = window.URL || window.webkitURL || window.mozURL,
@@ -143,8 +144,11 @@
 			$uploaderFiles.on("click", "li", function() {
 				$galleryImg.attr("style", this.getAttribute("style"));
 				$gallery.fadeIn(100);
+				_index = parseInt($(this).index()+1)
+				alert(_index)
 			});
 			$gallery.on("click", function() {
+				$uploaderFiles.find('li').eq(_index).remove()
 				$gallery.fadeOut(100);
 			});
 
