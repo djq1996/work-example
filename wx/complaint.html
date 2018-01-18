@@ -6,9 +6,23 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
 		<title>投诉</title>
 		<link rel="stylesheet" href="css/weui.css">
+		<style>
+			.m-toast {
+				width: 100%;
+				height: 25px;
+				/*background: red;*/
+				position: fixed;
+				top: 0;
+				text-align: center;
+				color: red;
+				display: none;
+				background: rgba(0, 0, 0, .6);
+			}
+		</style>
 	</head>
 
 	<body ontouchstart>
+		<div class="m-toast">请填写完整信息</div>
 		<div class="weui-cells__title">投诉账号</div>
 		<div class="weui-cells">
 			<div class="weui-cell">
@@ -21,14 +35,15 @@
 					<p style="font-size: 13px;color: #888888;">微信号：qinqimaifang</p>
 				</div>
 			</div>
-			
+
 		</div>
 		<div class="weui-cells__title">投诉描述</div>
+
 		<div class="weui-cells weui-cells_form">
 			<div class="weui-cell">
 				<div class="weui-cell__bd">
-					<textarea class="weui-textarea" placeholder="请输入投诉内容" rows="3"></textarea>
-					<div class="weui-textarea-counter"><span>0</span>/200</div>
+					<textarea class="weui-textarea" id="js-textarea" placeholder="请输入投诉内容" rows="3"></textarea>
+					<div class="weui-textarea-counter"><span id="js-textarea-num">0</span>/200</div>
 				</div>
 			</div>
 			<div class="weui-cell">
@@ -36,7 +51,7 @@
 					<div class="weui-uploader">
 						<div class="weui-uploader__hd">
 							<p class="weui-uploader__title">证据截图</p>
-							<div class="weui-uploader__info">0/4</div>
+							<div class="weui-uploader__info"><span id="js-img-num">0</span>/4</div>
 						</div>
 						<div class="weui-uploader__bd">
 							<ul class="weui-uploader__files" id="uploaderFiles">
@@ -59,13 +74,81 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="weui-msg__opr-area">
 			<p class="weui-btn-area">
 				<a href="javascript:history.back();" class="weui-btn weui-btn_primary">提交</a>
 			</p>
 		</div>
-
+		<div class="weui-gallery" id="gallery">
+			<span class="weui-gallery__img" id="galleryImg"></span>
+			<div class="weui-gallery__opr">
+				<a href="javascript:" class="weui-gallery__del">
+					<i class="weui-icon-delete weui-icon_gallery-delete"></i>
+				</a>
+			</div>
+		</div>
 	</body>
+
+	<script src="js/jquery-1.11.0.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		$("#js-textarea").on("keyup", function() {
+			var num = $(this).val().length;
+			var numbox = $("#js-textarea-num");
+			numbox.text(num)
+		});
+	</script>
+	<script>
+		$(function() {
+			var timer = null;
+			$('.weui-btn_primary').on('tap', function() {
+				if($('.weui-textarea').val() != '' && $('.weui-input').val() != '') {
+					$('.m-toast').text("提交成功").fadeIn(100);
+					clearInterval(timer);
+					timer = setInterval(function() {
+						$('.m-toast').fadeOut(100)
+					}, 1500);
+				} else {
+					clearInterval(timer);
+					$('.m-toast').text("请填写完整信息").fadeIn(100);
+					timer = setInterval(function() {
+						$('.m-toast').fadeOut(100)
+					}, 2000);
+
+				}
+			});
+
+			var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',
+				$gallery = $("#gallery"),
+				$galleryImg = $("#galleryImg"),
+				$uploaderInput = $("#uploaderInput"),
+				$uploaderFiles = $("#uploaderFiles");
+
+			$uploaderInput.on("change", function(e) {
+				var src, url = window.URL || window.webkitURL || window.mozURL,
+					files = e.target.files;
+				for(var i = 0, len = files.length; i < len; ++i) {
+					var file = files[i];
+
+					if(url) {
+						src = url.createObjectURL(file);
+					} else {
+						src = e.target.result;
+					}
+
+					$uploaderFiles.append($(tmpl.replace('#url#', src)));
+					$("#js-img-num").text($uploaderFiles.find('li').length-1)
+				}
+			});
+			$uploaderFiles.on("click", "li", function() {
+				$galleryImg.attr("style", this.getAttribute("style"));
+				$gallery.fadeIn(100);
+			});
+			$gallery.on("click", function() {
+				$gallery.fadeOut(100);
+			});
+
+		})
+	</script>
 
 </html>
