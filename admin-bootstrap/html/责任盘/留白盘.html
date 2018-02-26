@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>留白盘</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--树-->
+		<link rel="stylesheet" type="text/css" href="../../plugins/ztree/metroStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<form class="form-inline pd-t10">
+				<div class="form-group">
+					<label class="sr-only" for="exampleInputtext3">楼盘名称</label>
+					<input type="text" class="form-control w300" id="exampleInputtext3" placeholder="楼盘名称" autocomplete="off">
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="exampleInputtext4">坐落</label>
+					<input type="text" class="form-control w100" id="exampleInputtext4" placeholder="坐落">
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="exampleInputtext5">单元</label>
+					<input type="text" class="form-control w100" id="exampleInputtext5" placeholder="单元">
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="exampleInputtext6">房间号</label>
+					<input type="text" class="form-control w120" id="exampleInputtext6" placeholder="房间号">
+				</div>
+				<button type="button" class="btn btn-primary">搜索</button>
+			</form>
+			<div class="tabs-container">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"> 店内留白盘</a>
+                    </li>
+                    <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false">区域留白盘</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body">
+								<table class="table table-bordered  m-t8">
+									<thead>
+										<tr>
+											<th>楼盘名称</th>
+											<th>坐落</th>
+											<th>单元</th>
+											<th>房号</th>
+											<th>楼层</th>
+											<th>出售状态</th>
+											<th>出租状态</th>
+										</tr>
+									</thead>
+									<tbody id="content">
+										<tr>
+											<td class="detail"><a href="javascript:;">锋尚民居</a></td>
+											<td>1栋</td>
+											<td>2单元</td>
+											<td>302</td>
+											<td>3/10</td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="detail"><a href="javascript:;">锋尚民居</a></td>
+											<td>1栋</td>
+											<td>2单元</td>
+											<td>302</td>
+											<td>3/10</td>
+											<td>出售</td>
+											<td>出租</td>
+										</tr>
+										<tr>
+											<td class="detail"><a href="javascript:;">锋尚民居</a></td>
+											<td>1栋</td>
+											<td>2单元</td>
+											<td>302</td>
+											<td>3/10</td>
+											<td>出售</td>
+											<td>出租</td>
+										</tr>
+										<tr>
+											<td class="detail"><a href="javascript:;">锋尚民居</a></td>
+											<td>1栋</td>
+											<td>2单元</td>
+											<td>302</td>
+											<td>3/10</td>
+											<td>出售</td>
+											<td>出租</td>
+										</tr>
+										<tr>
+											<td class="detail"><a href="javascript:;">锋尚民居</a></td>
+											<td>1栋</td>
+											<td>2单元</td>
+											<td>302</td>
+											<td>3/10</td>
+											<td>出售</td>
+											<td>出租</td>
+										</tr>
+									</tbody>
+								</table>
+                        </div>
+                    </div>
+                    <div id="tab-2" class="tab-pane">
+                        <div class="panel-body">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+			
+		</div>
+		<!--js-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+
+
+			layui.use(['form','laypage'], function() {
+				var $ = layui.jquery,
+				    laypage = layui.laypage,
+					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+				  var timer = null;
+//				$("#content").on('mouseenter','.detail',function(){
+//					clearTimeout(timer)
+//					timer = setTimeout(function(){
+//						layer.open({
+//							  type: 1,
+//							  skin: 'layui-layer-demo', //样式类名
+//							  closeBtn: 0, //不显示关闭按钮
+//							  anim: 2,
+//							  shadeClose: true, //开启遮罩关闭
+//							  area:['300px','200px'],
+//							  content: '<div style="padding:20px">这里写页面内容</div>'
+//							});
+//					},2000)
+//						
+//				})
+//				$("#content").on('mouseleave','.detail',function(){
+//					clearTimeout(timer)
+//				})
+				
+				//结尾符
+			});
+			
+		</script>
+	</body>
+
+</html>

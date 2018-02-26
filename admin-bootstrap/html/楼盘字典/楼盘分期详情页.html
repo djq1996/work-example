@@ -1,0 +1,874 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>楼盘分期详情</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/global.css" media="all">
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../../css/table.css" />
+
+	</head>
+
+	<body>
+		<div class="admin-main">
+				<fieldset class="layui-elem-field layui-field-title">
+					<legend>小区基本信息</legend>
+				</fieldset>
+				<form class="layui-form" action="">
+					<div class="layui-tab layui-tab-card  layui-tab-brief ">
+						<ul class="layui-tab-title" style="font-size: 16px;">
+							<li class="layui-this">
+								<a href="楼盘分期详情页.html"></a>小区基本信息</li>
+							<li>
+								<a href="楼盘分期详情页图片.html">楼盘图片</a>
+							</li>
+							<li>
+								<a href="楼盘分期详情页图片.html">楼盘户型图</a>
+							</li>
+							<li>
+								<a href="楼盘分期详情页图片.html">楼盘分布图</a>
+							</li>
+							<li>
+								<a href="小区树视图.html">小区树形图</a>
+							</li>
+						</ul>
+						<div class="layui-tab-content">
+							<div class="layui-tab-item layui-show">
+								<fieldset class="layui-elem-field layui-field-title">
+									<legend>基本信息</legend>
+								</fieldset>
+								<div id="">
+									<div class="layui-form-item">
+										<label class="layui-form-label w120">楼盘名称：</label>
+										<div class="layui-input-inline w300">
+											<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">坐标经度：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" lay-verify="" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">坐标纬度：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" id="" lay-verify="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">楼盘别名1：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" lay-verify="" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">楼盘别名2：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" id="" lay-verify="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label w120">楼盘别名3：</label>
+										<div class="layui-input-inline w300">
+											<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<label class="layui-form-label w120">楼盘地址：</label>
+										<div class="layui-input-block mar-l150 mar-l150">
+											<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label w120">产权地址：</label>
+										<div class="layui-input-block mar-l150 mar-l150">
+											<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">所属区域：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz1">
+													<option value="">大兴</option>
+													<option value="崇文门" selected="">崇文门</option>
+													<option value="西城区">西城区</option>
+												</select>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">所属商圈：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">贵园</option>
+													<option value="宁波" disabled="">西客站</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<label class="layui-form-label w120">开发商：</label>
+										<div class="layui-input-block mar-l150 mar-l150">
+											<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label w120">承建商：</label>
+										<div class="layui-input-block mar-l150 mar-l150">
+											<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">户型数量：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" lay-verify="" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">外墙材料：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" id="" lay-verify="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">层高：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" lay-verify="" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">净高：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" id="" lay-verify="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">拿地时间：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" lay-verify="" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">开盘时间：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" id="" lay-verify="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">入住时间：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" lay-verify="" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">开盘均价：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" id="" lay-verify="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">所属区域：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz1">
+													<option value="">大兴</option>
+													<option value="崇文门" selected="">崇文门</option>
+													<option value="西城区">西城区</option>
+												</select>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">所属商圈：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">贵园</option>
+													<option value="宁波" disabled="">西客站</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label w120">楼盘别名3：</label>
+										<div class="layui-input-inline w300">
+											<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">楼盘均价：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" lay-verify="" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">地区指导价：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" id="" lay-verify="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">计税评估价：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" lay-verify="" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">贷款评估价：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" id="" lay-verify="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">是否学区房：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz1">
+													<option value="">请选择</option>
+													<option value="是" selected="">是</option>
+													<option value="否">否</option>
+												</select>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">是否地铁房：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">请选择</option>
+													<option value="是" disabled="">是</option>
+													<option value="否">否</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">建筑类型：</label>
+											<div class="layui-input-inline w300" id="typeId">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="板楼">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="塔楼">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="板塔结合">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="其他">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">建筑年代：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" id="" lay-verify="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">建筑面积：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" lay-verify="" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">占地面积：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" id="" lay-verify="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">绿化率：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" lay-verify="" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">容积率：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" id="" lay-verify="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<label class="layui-form-label w120">土地性质：</label>
+										<div class="layui-input-inline w300">
+											<select name="quiz1">
+												<option value="">请选择</option>
+												<option value="出让" selected="">出让</option>
+												<option value="划拨">划拨</option>
+											</select>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label w120">建筑结构：</label>
+										<div class="layui-input-inline w300">
+											<select name="quiz1">
+												<option value="">请选择</option>
+												<option value="砖混" selected="">砖混</option>
+												<option value="钢混">钢混</option>
+											</select>
+										</div>
+									</div>
+									<div class="layui-form-item layui-form-text">
+										<label class="layui-form-label w120">楼盘简介：</label>
+										<div class="layui-input-block mar-l150">
+											<textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+										</div>
+									</div>
+								</div>
+								<!--基本信息结束-->
+								<fieldset class="layui-elem-field layui-field-title">
+									<legend>物业管理</legend>
+								</fieldset>
+								<div id="">
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">物业公司：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" lay-verify="" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">物业费：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" id="" lay-verify="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">物业电话：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" lay-verify="" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">物业地址：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" id="" lay-verify="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">供暖方式：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz1">
+													<option value="">请选择</option>
+													<option value="水暖">水暖</option>
+													<option value="电暖">电暖</option>
+													<option value="气暖">气暖</option>
+												</select>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">供暖来源：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz1">
+													<option value="">请选择</option>
+													<option value="自采暖" selected="">自采暖</option>
+													<option value="市政供暖">市政供暖</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">供暖费用：</label>
+											<div class="layui-input-inline w300">
+												<div class="layui-input-inline" style="width: 140px;">
+													<input type="text" name="price_min" placeholder="" autocomplete="off" class="layui-input">
+												</div>
+												<!--<div class="layui-form-mid"></div>-->
+												<div class="layui-input-inline" style="width: 150px;margin: 0;">
+													<select name="quiz2">
+														<option value="">请选择</option>
+														<option value="每平方米季">每平方米季</option>
+														<option value="字">字</option>
+														<option value="其他">其他</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">制冷方式：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">请选择</option>
+													<option value="">整栋中央空调</option>
+													<option value="">分布式中央空调</option>
+													<option value="">独立空调</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">车位配比：</label>
+											<div class="layui-input-inline w300">
+												<div class="layui-input-inline" style="width: 135px;">
+													<input type="text" name="" placeholder="" autocomplete="off" class="layui-input">
+												</div>
+												<div class="layui-form-mid">:</div>
+												<div class="layui-input-inline" style="width: 135px;margin: 0;">
+													<input type="text" name="" placeholder="" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">地上车位数：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">地下车位数：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">产权车位数目：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">使用权车位数目：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">地下车位数：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">是否人车分流：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">请选择</option>
+													<option value="">是</option>
+													<option value="">否</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">停车费：</label>
+											<div class="layui-input-inline w300">
+												<input type="text" name="" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">障碍通道：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">请选择</option>
+													<option value="">有</option>
+													<option value="">无</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">车位是否可租售：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">请选择</option>
+													<option value="">是</option>
+													<option value="">否</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">是否有业委会：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">请选择</option>
+													<option value="">是</option>
+													<option value="">否</option>
+												</select>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">物管类别：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">请选择</option>
+													<option value="">是</option>
+													<option value="">否</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-block">
+											<label class="layui-form-label w120">是否有业委会：</label>
+											<div class="layui-input-block">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="监控">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="探头">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="门禁">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="24小时保安">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="红外防入侵">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="其他">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-block">
+											<label class="layui-form-label w120">楼盘出入方式：</label>
+											<div class="layui-input-block">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="访客进入小区">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="随意进入">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="业主接">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="实名登记进入">
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--物业管理信息结束-->
+								<fieldset class="layui-elem-field layui-field-title">
+									<legend>缴费标准</legend>
+								</fieldset>
+								<div id="">
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">卫星电视费：</label>
+											<div class="layui-input-inline w300">
+												<div class="layui-input-inline">
+													<input type="text" name="price_min" placeholder="" autocomplete="off" class="layui-input">
+												</div>
+												<div class="layui-form-mid">元/年</div>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">缴费方式：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">请选择</option>
+													<option value="">先缴后用</option>
+													<option value="">先用后缴费</option>
+													<option value="">其他</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-block">
+											<label class="layui-form-label w120">续费地点：</label>
+											<div class="layui-input-block">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="物业">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="银行">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="网络">
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">卫星电视费：</label>
+											<div class="layui-input-inline w300">
+												<div class="layui-input-inline">
+													<input type="text" name="price_min" placeholder="" autocomplete="off" class="layui-input">
+												</div>
+												<div class="layui-form-mid">元/年</div>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">缴费方式：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">请选择</option>
+													<option value="">先缴后用</option>
+													<option value="">先用后缴费</option>
+													<option value="">其他</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-block">
+											<label class="layui-form-label w120">续费地点：</label>
+											<div class="layui-input-block">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="物业">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="银行">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="网络">
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">燃气费：</label>
+											<div class="layui-input-inline w300">
+												<div class="layui-input-inline">
+													<input type="text" name="price_min" placeholder="" autocomplete="off" class="layui-input">
+												</div>
+												<div class="layui-form-mid">元/㎡</div>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">缴费方式：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">请选择</option>
+													<option value="">先缴后用</option>
+													<option value="">先用后缴费</option>
+													<option value="">其他</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-block">
+											<label class="layui-form-label w120">续费地点：</label>
+											<div class="layui-input-block">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="物业">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="银行">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="网络">
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">电费：</label>
+											<div class="layui-input-inline w300">
+												<div class="layui-input-inline">
+													<input type="text" name="price_min" placeholder="" autocomplete="off" class="layui-input">
+												</div>
+												<div class="layui-form-mid">元/度</div>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">缴费方式：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">请选择</option>
+													<option value="">先缴后用</option>
+													<option value="">先用后缴费</option>
+													<option value="">其他</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-block">
+											<label class="layui-form-label w120">续费地点：</label>
+											<div class="layui-input-block">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="物业">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="银行">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="网络">
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">冷水费：</label>
+											<div class="layui-input-inline w300">
+												<div class="layui-input-inline">
+													<input type="text" name="price_min" placeholder="" autocomplete="off" class="layui-input">
+												</div>
+												<div class="layui-form-mid">元/吨</div>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">缴费方式：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">请选择</option>
+													<option value="">先缴后用</option>
+													<option value="">先用后缴费</option>
+													<option value="">其他</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-block">
+											<label class="layui-form-label w120">热水费：</label>
+											<div class="layui-input-block">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="物业">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="银行">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="网络">
+											</div>
+										</div>
+									</div>
+									<hr />
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label w120">中水费用：</label>
+											<div class="layui-input-inline w300">
+												<div class="layui-input-inline">
+													<input type="text" name="price_min" placeholder="" autocomplete="off" class="layui-input">
+												</div>
+												<div class="layui-form-mid">元/㎡</div>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label w120">缴费方式：</label>
+											<div class="layui-input-inline w300">
+												<select name="quiz2">
+													<option value="">请选择</option>
+													<option value="">先缴后用</option>
+													<option value="">先用后缴费</option>
+													<option value="">其他</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-block">
+											<label class="layui-form-label w120">续费地点：</label>
+											<div class="layui-input-block">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="物业">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="银行">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="网络">
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!--缴费标准结束-->
+								<fieldset class="layui-elem-field layui-field-title">
+									<legend>楼盘配套</legend>
+								</fieldset>
+								<div id="">
+									<div class="layui-form-item">
+										<div class="layui-block">
+											<label class="layui-form-label w120">楼盘内部配套：</label>
+											<div class="layui-input-block">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="泳池">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="影院">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="超市">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="健身房">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="瑜伽室">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="图书馆">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-block">
+											<label class="layui-form-label w120">小区其他配套：</label>
+											<div class="layui-input-block">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="监控">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="探头">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="门禁">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="24小时保安">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="红外防入侵">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="其他">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-block">
+											<label class="layui-form-label w120">楼盘特色：</label>
+											<div class="layui-input-block">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="中央吸尘">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="新风系统">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="恒温恒湿">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="温泉入户">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="小区直饮水">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="卫星电视">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="其他">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-block">
+											<label class="layui-form-label w120">危险设置：</label>
+											<div class="layui-input-block">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="垃圾站">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="加油站">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="变电站">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="发电站">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="高压电线杆">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="精神病医院">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="其他">
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--楼盘配套配套结束-->
+							</div>
+							<div class="layui-tab-item">图片</div>
+							<div class="layui-tab-item">图片</div>
+							<div class="layui-tab-item">图片</div>
+							<div class="layui-tab-item">树</div>
+						</div>
+						<!--选项卡结束-->
+
+					</div>
+					<div class="layui-form-item m-t8">
+						<div class="layui-input-block ">
+							<button class="layui-btn w120" lay-submit="" lay-filter="demo1" type="button">立即提交</button>
+						</div>
+					</div>
+					<!--表单结束-->
+				</form>
+		</div>
+		<!--js-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script>
+			var tab;
+			layui.config({
+				base: '../../js'
+				//			    version: new Date().getTime()
+			}).use(['element', 'layer', 'form', ], function() {
+				var $ = layui.jquery,
+					element = layui.element(),
+					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+
+			});
+		</script>
+	</body>
+
+</html>

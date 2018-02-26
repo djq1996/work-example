@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>添加房号</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/global.css" media="all">
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<style type="text/css">
+			.delFh{
+				position: relative;
+				right: 0;
+				float: left;
+			}
+			.delFh i{
+				position: absolute;
+				right: 12px;
+				top: 8px;
+				font-size: 20px;
+				cursor: pointer;
+			}
+			.fj-type{
+				width: 90px !important;
+				margin-left: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="admin-main" id="body">
+
+			<fieldset class="layui-elem-field">
+				<legend>楼层信息</legend>
+				<div class="layui-field-box layui-form">
+					<div class="layui-form-item m-t8">
+						<div class="layui-inline">
+							<label class="layui-form-label">所属楼盘：</label>
+							<div class="layui-input-inline line38">
+								化水岸
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">所属坐落：</label>
+							<div class="layui-input-inline line38">
+								1栋
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">所属单元：</label>
+							<div class="layui-input-inline line38">
+								1单元
+							</div>
+						</div>
+					</div>
+					<hr />
+					<div class="layui-form-item m-t8 creat-batch">
+						<div class="layui-inline">
+							<label class="layui-form-label">户数：</label>
+							<div class="layui-input-inline  w100">
+								<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">房号规则：</label>
+							<div class="layui-input-inline  w100">
+								<select name="quiz1">
+									<option value="">请选择</option>
+									<option value="101" selected="">101</option>
+									<option value="">A1</option>
+									<option value="">1A</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">所属业态：</label>
+							<div class="layui-input-inline  w100">
+								<select name="quiz1">
+									<option value="1">住宅</option>
+									<option value="3" selected="">商用</option>
+									<option value="4">写字楼</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					
+					<div class="layui-form-item m-t8">
+						<div class="layui-inline">
+							<label class="layui-form-label">楼层：</label>
+							<div class="layui-input-inline  w100">
+								<input type="number" name="" lay-verify="" autocomplete="off" class="layui-input add_start">
+							</div>
+							<div class="layui-form-mid">-</div>
+							<div class="layui-input-inline  w100">
+								<input type="number" name="" lay-verify="" autocomplete="off" class="layui-input add_end">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<button class="layui-btn layui-btn-normal layui-btn-small add_lc" type="button">生成楼层</button>
+							<button class="layui-btn layui-btn-normal layui-btn-small" type="button">保存全部</button>
+						</div>
+					</div>
+					<hr />
+					<div class="lc_cont">
+						
+					
+					</div>
+				</div>
+			</fieldset>
+			<div id="">
+				<button class="layui-btn layui-btn-normal " type="button">提交保存</button>
+				<button class="layui-btn layui-btn-normal " type="button">取消</button>
+			</div>
+
+		</div>
+		<!--模板-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			layui.use(['form', 'laypage'], function() {
+				var $ = layui.jquery,
+					laypage = layui.laypage,
+					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+					//增加楼层
+					$(".add_lc").click(function(){
+						var _add_start = $(".add_start").val();
+						var _number = $(".add_end").val()- $(".add_start").val();
+						var str='';
+						console.log(_number)
+							if((_number) >= 1){
+								for(var i = 0;i<_number;i++){
+									str +='<div class="layui-form-item">'+
+													'<label class="layui-form-label "><span class="louceng">'+(parseInt(_add_start)+i+1)+'</span></label>'+
+													'<div class="layui-input-block">'+
+														'<input type="text" name="" lay-verify="" autocomplete="off" placeholder="楼层别名" class="layui-input d-i-b w120">&nbsp;'+
+														'<button class="layui-btn layui-btn-normal layui-btn-small d-i-b add_fj" type="button">添加房间号</button>'+
+														'<button class="layui-btn layui-btn-primary layui-btn-small d-i-b del" type="button">删除</button>'+
+													'</div>'+
+													'<div class="fj_box m-t8" style="margin-left: 110px;">'+
+													'</div>'+
+												'</div>'
+								}
+							$(".lc_cont").append(str)
+							form.render();//表单初始化
+							}else{
+								layer.alert('请填写指定楼层')
+							}
+						
+						
+					})
+					//删除楼层
+					$(".lc_cont").on('click','.del',function(){
+						$(this).parents('.layui-form-item').remove()
+					})
+//					增房间
+					$(".lc_cont").on('click','.add_fj',function(){
+						$(this).parent().siblings('.fj_box').append('<div class="layui-inline">'+
+													'<span class="delFh">'+
+														'<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input w100 d-i-b">'+
+														'<i class="layui-icon del_fj">&#x1006;</i>'+
+													'</span>'+
+													'<div class="layui-input-inline fj-type">'+
+														'<select name="quiz1">'+
+															'<option value="住宅">住宅</option>'+
+															'<option value="商用" selected="">商用</option>'+
+															'<option value="写字楼">写字楼</option>'+
+														'</select>'+
+													'</div>'+
+											'</div>'
+					)
+						form.render();//表单初始化
+					});
+					//删除房间
+					$(".lc_cont").on('click','.del_fj',function(){
+						$(this).parents('.layui-inline').remove()
+					})
+					
+					 //监听生成方式
+					 form.on('radio(lei-type)', function(data){
+					 	if(data.value =='1'){
+					 		$('.creat-assign').show();
+					 		$('.creat-batch').hide()
+					 	}else{
+					 		$('.creat-batch').show()
+					 		$('.creat-assign').hide();
+					 	}
+					 }); 
+					//结尾符
+			});
+		</script>
+	</body>
+
+</html>

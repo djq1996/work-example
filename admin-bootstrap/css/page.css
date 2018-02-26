@@ -1,0 +1,35 @@
+			
+.page, #changpage {
+    display: table;
+    margin: 40px auto;
+}
+.apartHomeSort a {
+    display: inline-block;
+}
+.page a, #changpage a {
+    float: left;
+    height: 33px;
+    margin: 0 3px;
+    padding: 0px 13px;
+    font-size: 14px!important;
+    border: 1px solid #999;
+    line-height: 33px;
+}
+.page a {
+    color: #444!important;
+}
+.page a.no {
+    color: #bbb!important;
+}
+.page .page-on {
+    background: #3c8dbc;
+    color: #fff!important;
+    border: 1px solid #3c8dbc;
+}
+.page span{
+    float: left;
+    height: 33px;
+    padding: 0px 4px;
+    font-size: 14px!important;
+    line-height: 33px;
+}

@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>laydate</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--复选样式-->
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/iCheck/blue.css"/>
+	</head>
+	<body style="padding: 30px;">
+		<div style="margin: 20px;">
+			范围日期选择1：
+			<input type="text" class="form-control  d-i-b" id="startDate" name="startDate" style="width:150px;" placeholder="开始日期" />&nbsp;
+			<input type="text" class="form-control  d-i-b" id="endDate" name="endDate" style="width:150px;" placeholder="结束日期" />
+		</div>
+		<div style="margin: 20px;">
+			范围日期选择2：
+			<input type="text" class="form-control  d-i-b" id="startDate1" name="startDate" style="width:150px;" placeholder="开始日期" />&nbsp;
+			<input type="text" class="form-control  d-i-b" id="endDate1" name="endDate" style="width:150px;" placeholder="结束日期" />
+		</div>
+		<div style="margin: 20px;">
+			范围日期选择3：
+			<input type="text" class="form-control  d-i-b" id="startDate2" name="startDate" style="width:150px;" placeholder="开始日期" />&nbsp;
+			<input type="text" class="form-control  d-i-b" id="endDate2" name="endDate" style="width:150px;" placeholder="结束日期" />
+		</div>
+		<div style="margin: 20px;">
+			<span>日期选择：<input type="text" class="form-control  d-i-b" id="hello" name="" style="width:150px;" placeholder="开始日期" /></span>
+		</div>
+		<div style="margin: 20px;">
+			<span>日期选择：<input type="text" class="form-control  d-i-b" id="hello1" name="" style="width:150px;" placeholder="开始日期" /></span>
+		</div>
+		<div style="margin: 20px;">
+			<span>日期选择：<input type="text" class="form-control  d-i-b" id="hello2" name="" style="width:150px;" placeholder="开始日期" /></span>
+		</div>
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/layer/laydate/laydate.js"></script>
+		<!--范围选择日期-->
+		<script>
+			//范围选择日期函数
+			
+			rangeDate('#startDate', '#endDate');
+			rangeDate('#startDate1', '#endDate1');
+			rangeDate('#startDate2', '#endDate2');
+		</script>
+		<!--单选日期-->
+		<script>
+			
+			radioDate('#hello');
+			radioDate('#hello1');
+			radioDate('#hello2');
+		</script>
+	</body>
+
+</html>

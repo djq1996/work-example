@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>查看电话</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--复选样式-->
+		<link href="../../plugins/iCheck/blue.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		
+	</head>
+	<body>
+		<div class="container-fluid">
+				<form class="pd-t10 center-block">
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w120 text-right" >客户姓名：</label>
+							<span class="form-control-static">王五</span>
+							<label class="w120 text-right">联系人电话：</label>
+							<span class="form-control-static">13818181818</span>
+							<button type="button" class="btn btn-primary btn-sm add-people">添加</button>
+						</div>
+						
+					</div>
+					<div class="form-inline people-box">
+						
+					</div>
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w120 text-right" >客户编号：</label>
+							<span class="form-control-static">1000000</span>
+						</div>
+						<div class="form-group">
+							<label class="w120 text-right">客户级别：</label>
+							<span class="form-control-static">A级</span>
+						</div>
+					</div>
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w120 text-right" >是否看房：</label>
+							<label><input type="radio" name="a" id="" value="" data-check="true" /> 是</label> 
+							<label><input type="radio" name="a" id="" value="" data-check="false"/> 否</label> 
+							<a style="display: none;" class="btn btn-primary selHouse">选择房源</a>
+						</div>
+					</div>
+					<div class="form-inline pd-t10">
+						<div class="form-group gjfs" style="display: none;">
+							<label class="w120 text-right" >跟进方式：</label>
+							<label><input type="radio" name="b" id="" value="" /> 微信</label> 
+							<label><input type="radio" name="b" id="" value="" /> 短信</label> 
+							<label><input type="radio" name="b" id="" value="" /> 来电	</label> 
+							<label><input type="radio" name="b" id="" value="" /> 去电</label> 
+							<label><input type="radio" name="b" id="" value="" /> 来访</label> 
+							<label><input type="radio" name="b" id="" value="1" /> 陪看</label>
+						</div>
+					</div>
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w120 text-right" style="vertical-align: top;" >跟进内容：</label>
+							<textarea name="" class="form-control w400 d-i-b" rows="4"></textarea>
+						</div>
+					</div>
+					<div class="pd-t10 mar-l150">
+						<button type="button" class="btn btn-primary ">提交保存</button>
+						<button type="button" class="btn btn-primary ">取消</button>
+					</div>
+				</form>
+		</div>
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<!--复选框样式-->
+		<script src="../../plugins/iCheck/icheck.min.js"></script>
+        <script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+        <script src="../../js/common.js"></script>
+        <script type="text/javascript">
+			//修改单选复选框样式
+			$(document).ready(function(){
+			  $('input').iCheck({
+			    checkboxClass: 'icheckbox_square-blue',
+			    radioClass: 'iradio_square-blue',
+			    increaseArea: '20%' // optional
+			  });
+			});
+			/*跟进方式*/
+			$('input[name=a]').on('ifChecked', function(event){
+			 	if($(this).attr("data-check") == 'true'){
+			 		$('.selHouse').show();
+			 		$(".gjfs").hide();
+			 	}else{
+			 		$('.selHouse').hide();
+			 		$(".gjfs").show();
+			 	}
+			});
+			/*添加联系人*/
+			$(".add-people").click(function(){
+				$(".people-box").addClass('pd-t10').append('<div class="form-group m-b8">'+
+							'<label class="w120 text-right" >客户姓名：</label>'+
+							'<input type="text" class="form-control input-sm w100" name="" id="" value="" />'+
+							'<label class="w120 text-right">联系人电话：</label>'+
+							'<input type="text" class="form-control input-sm w120" name="" id="" value="" />'+
+							'<button type="button" class="btn btn-primary btn-sm m-l8" onclick="$(this).parent().remove()">删除</button>'+
+						'</div>'
+						)
+			})
+        </script>
+	</body>
+</html>

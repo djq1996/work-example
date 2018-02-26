@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>查看电话</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--复选样式-->
+		<link href="../../plugins/iCheck/blue.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		
+	</head>
+	<body>
+		<div class="container-fluid">
+				<form class="pd-t10 tel">
+					<button type="button" class="btn btn-primary add_tel">添加联系人</button>
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w100 text-right" >联系人姓名：</label>
+							<span class="form-control-static">王五</span>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right">联系人电话：</label>
+							<span class="form-control-static">13818181818</span>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right">性别：</label>
+							<span class="form-control-static">男</span>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right">产权人关系：</label>
+							<span class="form-control-static">所属人</span>
+						</div>
+						<button type="button" class="btn btn-primary btn-sm remove">删除</button>
+						<button type="button" class="btn btn-primary btn-sm">屏蔽</button>
+						
+					</div>
+					<div class="add_Box"></div>
+					
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w100 text-right" >跟进方式：</label>
+							<label><input type="radio" name="a" id="" value="" /> 微信</label> 
+							<label><input type="radio" name="a" id="" value="" /> 短信</label> 
+							<label><input type="radio" name="a" id="" value="" /> 来电	</label> 
+							<label><input type="radio" name="a" id="" value="" /> 去电</label> 
+							<label><input type="radio" name="a" id="" value="" /> 来访</label> 
+							<label><input type="radio" name="a" id="" value="1" /> 陪看</label>
+						</div>
+					</div>
+					
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w100 text-right" style="vertical-align: top;" >跟进内容：</label>
+							<textarea name="" class="form-control w400 d-i-b" rows="4"></textarea>
+						</div>
+					</div>
+					<div class="navbar-fixed-bottom m-b8">
+						<button type="button" class="btn btn-primary center-block">提交保存</button>
+					</div>
+				</form>
+		</div>
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<!--复选框样式-->
+		<script src="../../plugins/iCheck/icheck.min.js"></script>
+        <script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+        <script src="../../js/common.js"></script>
+        <script type="text/javascript">
+			//修改单选复选框样式
+			$(document).ready(function(){
+			  $('input').iCheck({
+			    checkboxClass: 'icheckbox_square-blue',
+			    radioClass: 'iradio_square-blue',
+			    increaseArea: '20%' // optional
+			  });
+			});
+			
+			/*删除*/
+			$(".tel").on("click",'.remove',function(){
+				var _this = $(this)
+				layer.confirm('are you sure?',{icon:12,offset:['50px']},function(index){
+				  //do something
+				 _this.parent().remove()
+				  layer.close(index);//关闭
+				});   
+			});
+			/*增加联系人*/
+			$(".add_tel").on("click",function(){
+				$(".add_Box").append('<div class="form-inline pd-t10">'+
+						'<div class="form-group">'+
+							'<label class="w100 text-right" >联系人：</label>'+
+							'<input type="text" class="form-control input-sm w100" name="" id="" value="" />'+
+						'</div>'+
+						'<div class="form-group">'+
+							'<label class="w50 text-right" >电话	：</label>'+
+							'<input type="text" class="form-control input-sm w120" name="" id="" value="" />'+
+						'</div>'+
+						'<div class="form-group">'+
+							'<label class="w50 text-right" >性别	：</label>'+
+							'<label><input type="radio" name="a" id="" value="" /> 男</label>'+
+							'<label><input type="radio" name="a" id="" value="" /> 女</label>'+
+						'</div>'+
+						'<div class="form-group">'+
+							'<label class="w100 text-right" >产权人关系:</label>'+
+							'<label><input type="checkbox" name="" id="" value="" /> 产权人</label>'+
+							'<label><input type="checkbox" name="" id="" value="" /> 共有权人</label>'+
+							'<label><input type="checkbox" name="" id="" value="" /> 决策人</label>'+
+							'<label><input type="checkbox" name="" id="" value="" /> 看房联系人</label>'+
+							'<label><input type="checkbox" name="" id="" value="" /> 其他</label>'+
+							' <input type="text" class="form-control input-sm w100" name="" id="" value="" />'+
+						'</div>'+
+						' <button type="button" class="btn btn-primary  btn-sm">保存</button>'+
+						' <button type="button" class="btn btn-primary  btn-sm remove">删除</button>'+
+					'</div>'
+				);
+				$('input').iCheck({
+			    checkboxClass: 'icheckbox_square-blue',
+			    radioClass: 'iradio_square-blue',
+			    increaseArea: '20%' // optional
+			  });
+			})
+        </script>
+	</body>
+</html>

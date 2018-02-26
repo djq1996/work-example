@@ -1,0 +1,674 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>楼盘树视图</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/global.css" media="all">
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../../plugins/ztree/metroStyle.css" />
+		<link rel="stylesheet" href="../../css/bootstrap.css" media="all">
+	</head>
+
+	<body>
+		<div class="admin-main">
+				<div class="layui-field-box heightjs layui-form clearfix" >
+					<div class="pull-left ">
+						
+					</div>
+					<div id="tree" class="ztree pull-left">
+	
+					</div>
+				</div>
+				<!--<button type="button" class="layui-btn layui-btn-normal addFq">添加房间号弹框</button>-->
+				<button type="button" class="layui-btn layui-btn-normal bianji w100">编辑</button>
+		</div>
+		<!--修改楼盘-->
+		<div class="edit_lp layui-form" style="display: none;">
+					<div class="layui-form-item m-t8">
+						<label class="layui-form-label w120"><b>*</b>所属区域：</label>
+						<div class="layui-input-inline">
+							<select name="quiz1">
+								<option value="">请选择</option>
+								<option value="浙江" selected="">西城区</option>
+								<option value="你的工号">东城区</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label w120">所属商圈：</label>
+						<div class="layui-input-inline">
+							<select name="quiz1">
+								<option value="">请选择</option>
+								<option value="浙江" selected="">稀客</option>
+								<option value="你的工号">莉莲</option>
+								<option value="你最喜欢的老师">六里桥	</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label w120"><b>*</b>楼盘名称：</label>
+						<div class="layui-input-inline w300">
+							<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="m-t8">
+						<label class="layui-form-label w120"></label>
+						<button class="layui-btn layui-btn-normal "  lay-filter="demo1" type="button">提交保存</button>
+						<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+					</div>
+					<!--<div class="layui-form-item">
+						<label class="layui-form-label">楼盘分期：</label>
+						<div class="layui-input-inline line38">
+							2期
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label"><b>*</b>分期：</label>
+						<div class="layui-input-inline ">
+							<input type="text" name="" lay-verify="" placeholder="一期二期三期" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					</div>-->
+		</div>
+		<!--添加分期-->
+		<div class="addFqBox" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label w120"><b>*</b>所属区域：</label>
+				<div class="layui-input-block line38">
+					西城区
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">所属商圈：</label>
+				<div class="layui-input-block line38">
+					西安站
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">楼盘名称：</label>
+				<div class="layui-input-block line38">
+					花水安
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><b>*</b>分期名称：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal "  lay-filter="demo1" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+			</div>
+		</div>
+		<!--添加坐落-->
+		<div class="addZlBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label w120"><b>*</b>坐落名称：</label>
+				<div class="layui-input-block line38">
+					西城区
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">选择业态：</label>
+				<div class="layui-input-inline">
+					<select name="quiz1">
+						<option value="住宅">住宅</option>
+						<option value="商铺" selected="">商铺</option>
+						<option value="写字楼">写字楼</option>
+						<option value="公寓">公寓</option>
+					</select>
+					
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">坐落个数：</label>
+				<div class="layui-input-block w400">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请填写数字" class="layui-input w100 d-i-b add_zl_number">
+					<button class="layui-btn layui-btn-normal layui-btn-small add_zl" type="button ">批量生成添加</button>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><span class="louceng">2</span></label>
+				<div class="layui-input-block">
+					<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">
+					<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落别名" class="layui-input d-i-b w120">
+					<div class="layui-inline w100" style="margin-bottom: 2px;">
+						<select class="d-i-b w100" name="quiz1">
+							<option value="住宅">住宅</option>
+							<option value="商铺" selected="">商铺</option>
+							<option value="写字楼">写字楼</option>
+							<option value="公寓">公寓</option>
+						</select>
+					</div>
+					<button class="layui-btn layui-btn-normal layui-btn-small d-i-b" type="button">删除</button>
+				</div>
+			</div>
+			
+			<div class="add_zl_cont">
+				
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal "  lay-filter="demo1" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+			</div>
+		</div>
+		<!--添加单元-->
+		<div class="addDyBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<div class="layui-inline">
+					<label class="layui-form-label w120">所属楼盘：</label>
+					<div class="layui-input-inline line38">
+						化水岸
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ">所属坐落：</label>
+					<div class="layui-input-inline line38">
+						1栋
+					</div>
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">选择业态：</label>
+				<div class="layui-input-inline">
+					<select name="quiz1">
+						<option value="住宅">住宅</option>
+						<option value="浙江" selected="">浙江</option>
+						<option value="你的工号">你的工号</option>
+						<option value="公寓">公寓</option>
+					</select>
+					
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">单元个数：</label>
+				<div class="layui-input-block w400">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请填写数字" class="layui-input w100 d-i-b add_dy_number">
+					<button class="layui-btn layui-btn-normal layui-btn-small add_dy" type="button">批量生成添加</button>
+				</div>
+			</div>
+			<div class="m-t8 add_dy_cont">
+				<div class="layui-form-item">
+					<label class="layui-form-label w120"><span class="louceng">1</span></label>
+					<div class="layui-input-block">
+						<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入单元名称" class="layui-input d-i-b w120">
+						<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入单元别名" class="layui-input d-i-b w120">
+						<div class="layui-inline w100" style="margin-bottom: 2px;">
+							<select class="d-i-b w100" name="quiz1">
+								<option value="住宅">住宅</option>
+								<option value="商铺" selected="">商铺</option>
+								<option value="写字楼">写字楼</option>
+								<option value="公寓">公寓</option>
+							</select>
+						</div>
+						<button class="layui-btn layui-btn-normal layui-btn-small d-i-b del_remove" type="button">删除</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal "  lay-filter="demo1" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+			</div>
+		</div>
+		<!--添加仓储-->
+		<div class="addCcBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label w120"><b>*</b>仓储名称：</label>
+				<div class="layui-input-block line38">
+					供电楼
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">仓储个数：</label>
+				<div class="layui-input-block w400">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="2" class="layui-input w100 d-i-b">
+					<button class="layui-btn layui-btn-normal layui-btn-small" type="button">批量生成添加</button>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><span class="louceng">2</span></label>
+				<div class="layui-input-block">
+					<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入仓储名称" class="layui-input d-i-b w120">
+					
+					<button class="layui-btn layui-btn-normal layui-btn-small d-i-b" type="button">删除</button>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><span class="louceng">1</span></label>
+				<div class="layui-input-block">
+					<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入仓储名称" class="layui-input d-i-b w120">
+					<button class="layui-btn layui-btn-normal layui-btn-small d-i-b" type="button">删除</button>
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal "  lay-filter="demo1" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+			</div>
+		</div>
+		<!--添加仓储单元-->
+		<div class="addCcdyBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<div class="layui-inline">
+					<label class="layui-form-label w120">所属楼盘：</label>
+					<div class="layui-input-inline line38">
+						化水岸
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ">所属坐落：</label>
+					<div class="layui-input-inline line38">
+						1栋
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">单元个数：</label>
+				<div class="layui-input-block w400">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="2" class="layui-input w100 d-i-b">
+					<button class="layui-btn layui-btn-normal layui-btn-small" type="button">批量生成添加</button>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><span class="louceng">2</span></label>
+				<div class="layui-input-block">
+					<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入单元名称" class="layui-input d-i-b w120">
+					
+					<button class="layui-btn layui-btn-normal layui-btn-small d-i-b" type="button">删除</button>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><span class="louceng">1</span></label>
+				<div class="layui-input-block">
+					<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入单元名称" class="layui-input d-i-b w120">
+					<button class="layui-btn layui-btn-normal layui-btn-small d-i-b" type="button">删除</button>
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal "  lay-filter="demo1" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+			</div>
+		</div>
+		<!--添加车库-->
+		<div class="addCkBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label w120"><b>*</b>车库名称：</label>
+				<div class="layui-input-block line38">
+					化水岸
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">车库个数：</label>
+				<div class="layui-input-block w400">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请填写数字" class="layui-input w100 d-i-b add_cw_number">
+					<button class="layui-btn layui-btn-normal layui-btn-small add_cw" type="button">批量生成添加</button>
+				</div>
+			</div>
+			<div class="add_cw_cont">
+				<div class="layui-form-item">
+					<label class="layui-form-label w120"><span class="louceng">2</span></label>
+					<div class="layui-input-inline w400">
+						<input type="text" name="" lay-verify="" autocomplete="off" placeholder="车库名称" class="layui-input d-i-b w300">
+						<button class="layui-btn layui-btn-normal layui-btn-small d-i-b del_remove" type="button">删除</button>
+					</div>
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal "  lay-filter="demo1" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+			</div>
+		</div>
+		<!--添加分区-->
+		<div class="addFquBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label w120"><b>*</b>分区名称：</label>
+				<div class="layui-input-block line38">
+					化水岸
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">分区个数：</label>
+				<div class="layui-input-block w400">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请填写数字" class="layui-input w100 d-i-b add_cw_number">
+					<button class="layui-btn layui-btn-normal layui-btn-small add_cw" type="button">批量生成添加</button>
+				</div>
+			</div>
+			<div class="add_cw_cont">
+				<div class="layui-form-item">
+					<label class="layui-form-label w120"><span class="louceng">2</span></label>
+					<div class="layui-input-inline w400">
+						<input type="text" name="" lay-verify="" autocomplete="off" placeholder="车库名称" class="layui-input d-i-b w300">
+						<button class="layui-btn layui-btn-normal layui-btn-small d-i-b del_remove" type="button">删除</button>
+					</div>
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal "  lay-filter="demo1" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+			</div>
+		</div>
+		<!--修改坐落-->
+		<div class="editZlBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label w120"><b>*</b>所属楼盘：</label>
+				<div class="layui-input-block line38">
+					供电楼
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">楼盘名称：</label>
+				<div class="layui-input-block line38">
+					花水安
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><b>*</b>坐落名称：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">坐落别名：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">所属业态：</label>
+				<div class="layui-input-inline">
+					<select name="quiz1">
+						<option value="">请选择</option>
+						<option value="住宅">住宅</option>
+						<option value="商用" selected="">商用</option>
+						<option value="写字楼">写字楼</option>
+					</select>
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal addFq"  lay-filter="" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="" type="button">取消</button>
+			</div>
+		</div>
+		<!--修改单元-->
+		<div class="editDyBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<div class="layui-inline">
+					<label class="layui-form-label w120">所属楼盘：</label>
+					<div class="layui-input-inline line38">
+						化水岸
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ">所属坐落：</label>
+					<div class="layui-input-inline line38">
+						1栋
+					</div>
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><b>*</b>单元名称：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="1单元" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">单元别名：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="好单元" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><b>*</b>所属业态：</label>
+				<div class="layui-input-inline">
+					<select name="quiz1">
+						<option value="">请选择</option>
+						<option value="住宅">住宅</option>
+						<option value="商用" selected="">商用</option>
+						<option value="写字楼">写字楼</option>
+					</select>
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal addFq"  lay-filter="" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="" type="button">取消</button>
+			</div>
+		</div>
+		<!--修改仓储-->
+		<div class="editCcZlBox layui-form" style="display: none;">
+			
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label w120"><b>*</b>所属楼盘：</label>
+				<div class="layui-input-block line38">
+					供电楼
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><b>*</b>仓储名称：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal addFq"  lay-filter="" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="" type="button">取消</button>
+			</div>
+		</div>
+		<!--修改车库-->
+		<div class="editCkBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+					<label class="layui-form-label w120">所属楼盘：</label>
+					<div class="layui-input-inline line38">
+						化水岸
+					</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><b>*</b>车库名称：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">车库别名：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal addFq"  lay-filter="" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="" type="button">取消</button>
+			</div>
+		</div>
+		<!--修改分区-->
+		<div class="editFquBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<div class="layui-inline">
+					<label class="layui-form-label w120">所属楼盘：</label>
+					<div class="layui-input-inline line38">
+						化水岸
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ">所属车库：</label>
+					<div class="layui-input-inline line38">
+						1栋
+					</div>
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><b>*</b>分区名称：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="1单元" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">分区别名：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="好单元" class="layui-input">
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal addFq"  lay-filter="" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="" type="button">取消</button>
+			</div>
+		</div>
+		<!--修改单元-->
+		<div class="editCchBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<div class="layui-inline">
+					<label class="layui-form-label w120">所属楼盘：</label>
+					<div class="layui-input-inline line38">
+						化水岸
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ">所属坐落：</label>
+					<div class="layui-input-inline line38">
+						1栋
+					</div>
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><b>*</b>单元名称：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="1单元" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">单元别名：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="好单元" class="layui-input">
+				</div>
+			</div>
+			
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal addFq"  lay-filter="" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="" type="button">取消</button>
+			</div>
+		</div>
+		
+		<!--js-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<!--公用的js-->
+		<script src="../../js/common.js"></script>
+		<!--树-->
+		<script src="../../plugins/ztree/jquery.ztree.core.min.js"></script>
+		<script src="../../plugins/ztree/jquery.ztree.exedit.min.js"></script>
+		<!--ztree按钮和数据-->
+		<script src="../../js/lp.js"></script>
+		<!--layui-->
+		<script type="text/javascript">
+			/*layui*/
+			layui.use(['layer', 'form','element'], function() {
+				var $ = layui.jquery,
+					element = layui.element(),
+					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+	 
+				//坐落
+				$('.add_zl').click(function(){
+				var str = '';
+						var _length = parseInt($(".add_zl_number").val());
+						for(var i = 0;i<=_length-1;i++){
+							str+='<div class="layui-form-item">'+
+										'<label class="layui-form-label w120"><span class="louceng">'+(i+1)+'</span></label>'+
+										'<div class="layui-input-block">'+
+											'<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">&nbsp;'+
+											'<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">&nbsp;'+
+											'<div class="layui-inline w100" style="margin-bottom: 2px;">'+
+												'<select class="d-i-b w100" name="quiz1">'+
+													'<option value="住宅">住宅</option>'+
+													'<option value="商铺" selected="">商铺</option>'+
+													'<option value="写字楼">写字楼</option>'+
+													'<option value="公寓">公寓</option>'+
+												'</select>'+
+											'</div>'+
+											'<button class="layui-btn layui-btn-normal layui-btn-small d-i-b del_remove" type="button">删除</button>'+
+										'</div>'+
+								  '</div>'	
+						}
+							$(".add_zl_cont").append(str)
+							form.render();//表单初始化
+				})
+				$(".add_zl_cont").on('click','.del_remove',function(){
+					$(this).parent().parent().remove()
+				})
+				//单元
+				$('.add_dy').click(function(){
+				var str = '';
+						var _length = parseInt($(".add_dy_number").val());
+						for(var i = 0;i<=_length-1;i++){
+							str+='<div class="layui-form-item">'+
+										'<label class="layui-form-label w120"><span class="louceng">'+(i+1)+'</span></label>'+
+										'<div class="layui-input-block">'+
+											'<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">&nbsp;'+
+											'<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">&nbsp;'+
+											'<div class="layui-inline w100" style="margin-bottom: 2px;">'+
+												'<select class="d-i-b w100" name="quiz1">'+
+													'<option value="住宅">住宅</option>'+
+													'<option value="商铺" selected="">商铺</option>'+
+													'<option value="写字楼">写字楼</option>'+
+													'<option value="公寓">公寓</option>'+
+												'</select>'+
+											'</div>'+
+											'<button class="layui-btn layui-btn-normal layui-btn-small d-i-b del_remove" type="button">删除</button>'+
+										'</div>'+
+									'</div>'	
+						}
+						$(".add_dy_cont").append(str)
+						form.render();//表单初始化
+				})
+				$(".add_dy_cont").on('click','.del_remove',function(){
+					$(this).parent().parent().remove()
+				})
+				//车位
+				$('.add_cw').click(function(){
+				var str = '';
+						var _length = parseInt($(".add_cw_number").val());
+						for(var i = 0;i<=_length-1;i++){
+							str+='<div class="layui-form-item">'+
+										'<label class="layui-form-label w120"><b>*</b>车库：</label>'+
+										'<div class="layui-input-inline w400">'+
+											'<input type="text" name="" lay-verify="" autocomplete="off" placeholder="车库1" class="layui-input d-i-b w300">&nbsp;'+
+											'<button class="layui-btn layui-btn-normal layui-btn-small d-i-b del_remove" type="button">删除</button>'+
+										'</div>'+
+									'</div>'	
+						}
+					$(".add_cw_cont").append(str)
+				})
+				$(".add_cw_cont").on('click','.del_remove',function(){
+					$(this).parent().parent().remove()
+				})
+				$(".closeUp").on('click',function(){
+					closeAllT()
+				})
+			});
+			
+//			$(".heightjs").css("height",$(".ztree").height())
+			console.log($(".heightjs").height())
+		</script>
+	</body>
+
+
+</html>

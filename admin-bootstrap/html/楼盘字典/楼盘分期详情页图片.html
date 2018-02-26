@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>楼盘图片</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/global.css" media="all">
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--轮播-->
+		<link rel="stylesheet" href="../../css/houseBanner.css">
+		
+	</head>
+
+	<body>
+		
+		
+		<div class="admin-main">
+				<fieldset class="layui-elem-field layui-field-title">
+					<legend>商圈列表</legend>
+				</fieldset>
+				<form class="layui-form" action="">
+					<div class="layui-tab layui-tab-card  layui-tab-brief">
+						<ul class="layui-tab-title" style="font-size: 16px;">
+							<li>
+								<a href="楼盘分期详情页.html">小区基本信息</a>
+							</li>
+							<li class="layui-this">
+								<a href="楼盘分期详情页图片.html">楼盘图片</a>
+							</li>
+							<li>
+								<a href="楼盘分期详情页图片.html">楼盘户型图</a>
+							</li>
+							<li>
+								<a href="楼盘分期详情页图片.html">楼盘分布图</a>
+							</li>
+							<li>
+								<a href="小区树视图.html">小区树形图</a>
+							</li>
+						</ul>
+						<div class="layui-tab-content">
+							<div class="layui-tab-item"></div>
+							<div class="layui-tab-item layui-show">
+								<!--图片上传轮播开始-->
+											<div class="mybanner layui-clear">
+												<div class="type">
+													<a class="active" href="">一居室</a>
+													<a href="">二居室</a>
+													<a href="">三居室</a>
+													<a href="">四居室</a>
+													<a href="">五居室以上</a>
+												</div>
+												<div class="si-banner">
+													<div class="si-banner-btn">
+														<a href="javascript:void(0);" class="l"></a>
+														<a href="javascript:void(0);" class="r"></a>
+													</div>
+													<div class="si-banner-b">
+														<ul style="width:100000px;">
+															<li>
+																<a href="#">
+																	<span class="img actShowImg" actData="0"><img src="../../images/bannerHouse.jpg" /></span>
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	<span class="img actShowImg" actData="1"><img src="../../images/bannerHouse.jpg" /></span>
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	<span class="img actShowImg" actData="2"><img src="../../images/bannerHouse.jpg" /></span>
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	<span class="img actShowImg" actData="3"><img src="../../images/bannerHouse.jpg" /></span>
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	<span class="img actShowImg" actData="4"><img src="../../images/bannerHouse.jpg" /></span>
+																</a>
+															</li>
+															<li>
+																<a href="#">
+																	<span class="img actShowImg" actData="5"><img src="../../images/bannerHouse.jpg" /></span>
+																</a>
+															</li>
+
+														</ul>
+													</div>
+													<div class="si-banner-s">
+														<div class="si-banner-slst del">
+															<ul style="width:10000px">
+																<li>
+																	<a href="#">
+																		<span class="img" actData="0"><img src="../../images/bannerLsHouse.jpg" /></span>
+																	</a>
+																	<div class="delbg">
+																		<span class="remove"></span>
+																		<span class="set"></span>
+																	</div>
+																</li>
+																<li>
+																	<a href="#">
+																		<span class="img " actData="1"><img src="../../images/bannerLsHouse.jpg" /></span>
+																	</a>
+																	<div class="delbg">
+																		<span class="remove"></span>
+																		<span class="set"></span>
+																	</div>
+																</li>
+																<li>
+																	<a href="#">
+																		<span class="img " actData="2"><img src="../../images/bannerLsHouse.jpg" /></span>
+																	</a>
+																	<div class="delbg">
+																		<span class="remove"></span>
+																		<span class="set"></span>
+																	</div>
+																</li>
+																<li>
+																	<a href="#">
+																		<span class="img " actData="3"><img src="../../images/bannerLsHouse.jpg" /></span>
+																	</a>
+																	<div class="delbg">
+																		<span class="remove"></span>
+																		<span class="set"></span>
+																	</div>
+																</li>
+																<li>
+																	<a href="#">
+																		<span class="img " actData="4"><img src="../../images/bannerLsHouse.jpg" /></span>
+																	</a>
+																	<div class="delbg">
+																		<span class="remove"></span>
+																		<span class="set"></span>
+																	</div>
+																</li>
+																<li>
+																	<a href="#">
+																		<span class="img " actData="5"><img src="../../images/bannerLsHouse.jpg" /></span>
+																	</a>
+																	<div class="delbg">
+																		<span class="remove"></span>
+																		<span class="set"></span>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div  class="m-t8">
+														<button id="update" class="layui-btn layui-btn-normal " lay-filter="" type="button">上传图片</button>
+														<div class="layui-input-inline w100">
+															<select name="quiz1">
+																<option value="">请选择户型</option>
+																<option value="一居室">一居室</option>
+																<option value="二居室" selected="">二居室</option>
+																<option value="西城区">三居室</option>
+																<option value="西城区">四居室</option>
+																<option value="西城区">五居以上</option>
+															</select>
+														</div>
+													</div>
+													
+												</div>
+												
+											</div>
+											
+								<!--图片上传轮播结束-->
+							</div>
+							<div class="layui-tab-item">树</div>
+							<div class="layui-tab-item">树</div>
+							<div class="layui-tab-item">树</div>
+						</div>
+						<!--选项卡结束-->
+
+					</div>
+					<div class="layui-form-item m-t8">
+						<div class="layui-input-block ">
+							<button class="layui-btn layui-btn-normal w120" lay-submit="" lay-filter="demo1" type="button">立即提交</button>
+						</div>
+					</div>
+					<!--表单结束-->
+				</form>
+		</div>
+		<!--上传图片-->
+		<div class="layui-form" id="updata_box">
+			<p>注：可上传【10】张图片，每张小于10M，建议尺寸大于400x300像素，最佳尺寸为500x375像素。</p>
+			<div class="imgBox">
+				
+			</div>
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label" style="width: 50px;">备注：</label>
+				<div class="layui-input-block" style="margin-left: 80px;">
+					<input type="text" name="" lay-verify="" autocomplete="off" placeholder="非必填字段" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item ">
+				<label class="layui-form-label" style="width: 50px;">居室：</label>
+				<div class="layui-input-inline w100">
+					<select name="quiz1">
+						<option value="">请选择户型</option>
+						<option value="一居室">一居室</option>
+						<option value="二居室" selected="">二居室</option>
+						<option value="西城区">三居室</option>
+						<option value="西城区">四居室</option>
+						<option value="西城区">五居以上</option>
+					</select>
+				</div>
+			</div>
+			<div class="m-t8">
+				<input type="file" name="file" class="layui-upload-file"> 
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+			</div>
+		</div>
+		<!--js-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<!--轮播-->
+		<script src="../../js/houseBanner.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script>
+			layui.use(['element', 'layer', 'form','upload' ], function() {
+				var $ = layui.jquery,
+					element = layui.element(),
+					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+					$("#update").on("click",function(){
+						
+						layer.open({
+								  type: 1,
+								  title:'上传图片',
+								  skin: 'layui-layer-demo', //样式类名
+								  closeBtn: 0, //不显示关闭按钮
+								  anim: 2,
+								  btn:['开始上传','取消'],
+								  closeBtn:1,
+//								   shade: 0.8,
+								  area: ['670px', '500px'],
+								  shadeClose: true, //开启遮罩关闭
+								  content: $("#updata_box")
+						});
+					})
+					$(".closeUp").on("click",function(){
+						layer.closeAll()
+					})
+					/*上传图片*/
+					 layui.upload({
+					    url: 'http:localtion:9999' //上传接口
+					    ,before: function(input){
+						    //返回的参数item，即为当前的input DOM对象
+						    console.log('文件上传中');
+						 },success: function(res){ //上传成功后的回调
+//					      console.log(res)
+							layer.alert(1)
+					   }
+					    
+					  });
+
+			});
+			
+		</script>
+	</body>
+
+</html>

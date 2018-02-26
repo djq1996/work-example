@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>录入客源</title>
+		<link rel="stylesheet" href="../../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--复选样式-->
+		<link href="../../../plugins/iCheck/blue.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css" />
+		
+	</head>
+	<body>
+		<div class="container-fluid">
+				<form class="pd-t10">
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="" >客户来源：</label>
+							<select name="" class="form-control">
+								<option value="">请选择</option>
+								<option value="">安居客</option>
+								<option value="">爱屋及乌</option>
+								<option value="">新浪</option>
+								<option value="">...</option>
+							</select>
+						</div>
+					</div>
+				</form>
+				<div  class="skin-square pd-t10">
+					<h4 class="bg-primary" style="padding: 15px 20px;margin: 0;">客户信息</h4>
+				</div>
+				<!--main-->
+				<div class="border" style="padding: 10px 15px;">
+					<div class="form-inline">
+						<div class="form-group">
+							<label class="w100 text-right" ><b>*</b>客户姓名：</label>
+							<input type="text"  class="form-control w120"  placeholder="">
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" ><b>*</b>电话：</label>
+							<input type="text"  class="form-control w120"  placeholder="">
+							<!--<button type="button" class="btn btn-warning see-phone">查</button>-->
+						</div>
+						<div class="form-group">
+							<label class="sr-only" >性别：</label>
+							<select name="" class="form-control">
+								<option value="">性别</option>
+								<option value="">男</option>
+								<option value="">女</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >身份证号：</label>
+							<input type="text"  class="form-control"  placeholder="">
+						</div>
+					</div>
+					<div class="form-inline pd-t10">
+						<label class="w100 text-right" ></label>
+						<div class="form-group">
+							<label class="sr-only" >地址：</label>
+							<select name="" class="form-control">
+								<option value="">中国</option>
+								<option value="">。。。</option>
+							</select>
+							<input type="text"  class="form-control w120"  placeholder="现住地址">
+						</div>
+						<div class="form-group">
+							<label class="sr-only" >户籍地址：</label>
+							<input type="text"  class="form-control w400"  placeholder="户籍地址">
+						</div>
+					</div>
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w100 text-right" >邮箱：</label>
+							<input type="text"  class="form-control w120"  placeholder="">
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >微信：</label>
+							<input type="text"  class="form-control w120"  placeholder="">
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >QQ：</label>
+							<input type="text"  class="form-control w120"  placeholder="">
+						</div>
+					</div>
+					<div class="form-inline pd-t10">
+						<label class="w100 text-right" ></label>
+						<div class="form-group">
+							<label class="sr-only" >客户意向：</label>
+							<select name="" class="form-control">
+								<option value="">客户意向</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" >客户职业：</label>
+							<select name="" class="form-control">
+								<option value="">客户职业</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" >客户现住情况：</label>
+							<select name="" class="form-control">
+								<option value="">客户现住情况</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" >购买目的：</label>
+							<select name="" class="form-control">
+								<option value="">购买目的</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-inline pd-t10">
+						<label class="w100 text-right" ></label>
+						<button type="button" class="btn btn-primary add-phone">添加联系人</button>
+					</div>
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w100 text-right" ><b>*</b>备注：</label>
+							<textarea name="" rows="" cols="100" class="form-control"></textarea>
+						</div>
+					</div>
+				</div>
+				<div  class="skin-square pd-t10">
+					<h4 class="bg-primary" style="padding: 15px 20px;margin: 0;">求购信息</h4>
+				</div>
+				<div class="border" style="padding: 10px 15px;">
+					<div class="form-inline  pd-t10">
+						<div class="form-group">
+							<label class="w100 text-right" ><b>*</b>用途：</label>
+							<select name="" class="form-control w120">
+								<option value="">住宅</option>
+								<option value="">商业</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >居室：</label>
+							<select name="" class="form-control">
+								<option value="">1</option>
+								<option value="">2</option>
+								<option value="">3</option>
+							</select>
+							<span> - </span>
+							<select name="" class="form-control">
+								<option value="">1</option>
+								<option value="">2</option>
+								<option value="">3</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >面积：</label>
+							<select name="" class="form-control">
+								<option value="">50平米以下</option>
+								<option value="">50-100平米</option>
+								<option value="">100-200平米</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >价格：</label>
+							<select name="" class="form-control">
+								<option value="">50万以下</option>
+								<option value="">50-100万</option>
+								<option value="">100-200万</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-inline  pd-t10">
+						<div class="form-group">
+							<label class="w100 text-right" >楼层：</label>
+							<input type="text" name="" id="" value="" class="w50 form-control" />
+							<span> - </span>
+							<input type="text" name="" id="" value="" class="w50 form-control" />
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >朝向：</label>
+							<select name="" class="form-control">
+								<option value="">请选择</option>
+								<option value="">东</option>
+								<option value="">西</option>
+								<option value="">南</option>
+								<option value="">北</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >装修：</label>
+							<select name="" class="form-control">
+								<option value="">请选择</option>
+								<option value="">毛坯</option>
+								<option value="">简装</option>
+								<option value="">精装</option>
+								<option value="">豪装</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="w50 " ></label>
+							<label><input type="checkbox" name="a" id="" value="" />非一层</label>
+							<label><input type="checkbox" name="a" id="" value="" />非顶层</label>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right">付款方式：</label>
+							<select name="" class="form-control">
+								<option value="">请选择</option>
+								<option value="">全款</option>
+								<option value="">商贷</option>
+								<option value="">公积金</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w100 text-right" ><b>*</b>备注：</label>
+							<textarea name="" rows="" cols="100" class="form-control"></textarea>
+						</div>
+					</div>
+				</div>
+				<div style="padding: 10px 15px;">
+						<button type="button" class="btn btn-primary">提交保存</button>
+					</div>
+		</div>
+		<!--查-->
+		<div class="see-phoneBox" style="padding: 10px 15px;display: none;">
+				<h4>交易记录</h4>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>类型</th>
+							<th>角色</th>
+							<th>物业地址</th>
+							<th>日期(报单日期)</th>
+						</tr>
+					</thead>
+					<tbody id="content">
+						<tr>
+							<td>买卖</td>
+							<td>甲方</td>
+							<td>四川省-翠微清波-翠微清波-一期-2期6栋-1-0602</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>租赁</td>
+							<td>乙方</td>
+							<td>四川省-翠微清波-翠微清波-一期-2期6栋-1-0602</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+				<h4>房产信息</h4>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>类型</th>
+							<th>物业地址</th>
+							<th>责任人</th>
+							<th>所属门店</th>
+							<th>电话</th>
+						</tr>
+					</thead>
+					<tbody id="content">
+						<tr>
+							<td>住宅</td>
+							<td>四川省-翠微清波-翠微清波-一期-2期6栋-1-0602</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>车位</td>
+							<td>四川省-翠微清波-翠微清波-一期-2期6栋-1-0602</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="">
+					'+
+				</div>
+		</div>
+		<script src="../../../plugins/jquery.min.js"></script>
+		<script src="../../../plugins/bootstrap.min.js"></script>
+		<!--复选框样式-->
+		<script src="../../../plugins/iCheck/icheck.min.js"></script>
+        <script type="text/javascript" src="../../../plugins/layui/layui.js"></script>
+        <script src="../../../js/common.js"></script>
+        <script type="text/javascript">
+			//修改单选复选框样式
+				//修改单选复选框样式
+			$(document).ready(function(){
+			  $('input').iCheck({
+			    checkboxClass: 'icheckbox_square-blue',
+			    radioClass: 'iradio_square-blue',
+			    increaseArea: '20%' // optional
+			  });
+			});
+			/*电话查看*/
+			$(".see-phone").on('click',function(){
+				layerContent('信息',$(".see-phoneBox"),'600','400')
+			})
+			//关闭弹框
+			$(".closeUp").click(function(){
+				closeAllT()
+			})
+			//添加联系人
+			$(".add-phone").click(function(){
+				$(this).parent().after('<div class="form-inline pd-t10">'+
+											'<div class="form-group">'+
+												'<label class="w100 text-right" ><b>*</b>联系人：</label>'+
+												' <input type="text"  class="form-control w120"  placeholder="">'+
+												'<span> ㎡ </span>'+
+											'</div>'+
+											'<div class="form-group">'+
+												' <label class="w100 text-right" ><b>*</b>电话： </label>'+
+												' <input type="text"  class="form-control w120"  placeholder="">'+
+											'</div>'+
+											'<button type="button" class="btn btn-default pd-l10" onclick="$(this).parent().remove()">删除</button>'+
+										'</div>'
+				)
+			})
+        </script>
+	</body>
+</html>

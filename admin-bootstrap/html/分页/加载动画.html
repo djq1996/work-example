@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>加载中</title>
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--树-->
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body style="padding:0 20px;">
+		<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+		<h3>显示加载动画(默认3秒自动关闭)</h3>
+		<button type="button" class="btn btn-primary " id="a">加载</button>
+		<h3>显示加载动画(不自动关闭，刷新页面吧，或者用指令关闭)</h3>
+		<button type="button" class="btn btn-primary " id="b">加载</button>
+		<!--模板-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<script src="../../plugins/layer/layer.min.js"></script>
+		<!--<script src="../../js/common.js"></script>-->
+		<script>
+			$("#a").click(function() {
+				var index = parent.layer.msg('加载中', {
+					icon: 16,
+					shade: .2
+				}); //time:0加参数设置不关闭
+			});
+			var index;
+			$("#b").click(function() {
+				index = parent.layer.msg('加载中', {
+					icon: 16,
+					shade: .2,
+					time: 0
+				}); //time:0加参数设置不关闭
+			})
+
+			/*设定时间关闭*/
+			//      	var index = parent.layer.msg('加载中', {icon: 16,shade:.2,time:10*1000}); //十秒关闭
+			setTimeout(function(){
+				parent.layer.close(index);
+			},2000)
+		</script>
+	</body>
+
+</html>

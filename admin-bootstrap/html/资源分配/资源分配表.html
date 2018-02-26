@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>资源分配表</title>
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--复选样式-->
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/iCheck/blue.css"/>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid ">
+				<div class="tabs-container pd-t10">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"> 租赁房源</a>
+                        </li>
+                        <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false">买卖房源</a>
+                        </li>
+                         <li class=""><a data-toggle="tab" href="#tab-3" aria-expanded="false">租赁客源</a>
+                        </li>
+                         <li class=""><a data-toggle="tab" href="#tab-4" aria-expanded="false">买卖客源</a>
+                        </li>
+                        
+                    </ul>
+                    <div class="tab-content">
+                         <div id="tab-1" class="tab-pane active">
+                            <div class="panel-body">
+                            	<div class="form-inline pd-t10">
+										<div class="form-group">
+											<label class="" >门店：</label>
+											<select name="" class="form-control">
+												<option value="">请选择</option>
+												<option value="">门店A</option>
+												<option value="">门店B</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label class="w100 text-right" >店内成员：</label>
+											<select name="" class="form-control">
+												<option value="">请选择</option>
+												<option value="">张三</option>
+												<option value="">李三</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label class="w50 text-right" >角色：</label>
+											<select name="" class="form-control">
+												<option value="">请选择</option>
+												<option value="">角色人</option>
+												<option value="">维护人</option>
+												<option value="">独家委托</option>
+											</select>
+										</div>
+										<div class="form-group w100">
+											<button type="button" class="btn btn-primary">搜索</button>
+										</div>
+                            	</div>
+                            	<div class="form-inline pd-t10">
+                            		<button type="button" class="btn btn-primary zhiding">指定分配</button>
+                            		<button type="button" class="btn btn-primary fpiliang">批量分配</button>
+                            	</div>
+                            	<div class="pd-t10">
+                            		<table class="table border pd-t10">
+					                    <thead>
+					                        <tr>
+					                        	<th><input type="checkbox" name="all" id="" value="" /></th>
+					                            <th>房源主图</th>
+					                            <th>楼盘名称</th>
+					                            <th>户型</th>
+					                            <th>套内面积</th>
+					                            <th>面积</th>
+					                            <th>总价/单价</th>
+					                            <th>楼层</th>
+					                            <th>朝向</th>
+					                            <th>带看次数</th>
+					                            <th>最后跟进时间</th>
+					                            <th style="width: 10%;">开盘时间</th>
+					                            <th>维护人</th>
+					                        </tr>
+					                    </thead>
+					                    <tbody >
+					                    	<tr>
+					                    		<td><input type="checkbox" name="a" id="" value="" /></td>
+					                    		<td><img src="" onerror="this.onerror=null; this.src='../../images/photo.png'"/></td>
+					                    		<td>
+					                    			<strong><a href="javascript:;">锋尚名居  1栋/2单元/302</a></strong>
+					                    			<p>100000010</p>
+					                    			<p class="img_25">
+					                    				<a href="javascript:;" title="钥匙"><img src="../../images/yaoshi.png"/></a>
+					                    				<a href="javascript:;" title="独家委托"><img src="../../images/dujia.png"/></a>
+					                    				<a href="javascript:;" title="实勘图"><img src="../../images/kan.png" style="width: 30px;"/></a>
+					                    				<a href="javascript:;" title="书面委托"><img src="../../images/shumwt.png"/></a>
+					                    				<a href="javascript:;" title="限时委托"><img src="../../images/timewt.png"/></a>
+					                    				<a href="javascript:;" title="车位"><img src="../../images/car.png"/></a>
+					                    			</p>
+					                    		</td>
+					                    		<td>2</td>
+					                    		<td>82平</td>
+					                    		<td>89.2平</td>
+					                    		<td>
+					                    			<p>400万 <i class="fa fa-long-arrow-up" style="color: #01AAED;"></i></p>
+					                    			<p>13223元/平</p>
+					                    		</td>
+					                    		<td>4/6</td>
+					                    		<td>南</td>
+					                    		<td>12</td>
+					                    		<td>2017/6/17/15:29:38</td>
+	                    						<td>2017/6/17/</td>
+					                    		<td>张美</td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td><input type="checkbox" name="a" id="" value="" /></td>
+					                    		<td><img src="" onerror="this.onerror=null; this.src='../../images/photo.png'"/></td>
+					                    		<td>
+					                    			<strong><a href="javascript:;">锋尚名居  1栋/2单元/302</a></strong>
+					                    			<p>100000010</p>
+					                    			<p class="img_25">
+					                    				<a href="javascript:;" title="钥匙"><img src="../../images/yaoshis.png"/></a>
+					                    				<a href="javascript:;" title="独家委托"><img src="../../images/dujias.png"/></a>
+					                    				<a href="javascript:;" title="实勘图"><img src="../../images/kan.png" style="width: 30px;"/></a>
+					                    				<a href="javascript:;" title="书面委托"><img src="../../images/shumwts.png"/></a>
+					                    				<a href="javascript:;" title="限时委托"><img src="../../images/timewts.png"/></a>
+					                    				<a href="javascript:;" title="车位"><img src="../../images/cars.png"/></a>
+					                    			</p>
+					                    		</td>
+					                    		<td>2</td>
+					                    		<td>82平</td>
+					                    		<td>89.2平</td>
+					                    		<td>
+					                    			<p>400万 <i class="fa fa-long-arrow-down" style="color: #01AAED;"></i></p>
+					                    			<p>13223元/平</p>
+					                    		</td>
+					                    		<td>4/6</td>
+					                    		<td>南</td>
+					                    		<td>12</td>
+					                    		<td>2017/6/17/15:29:38</td>
+	                    						<td>2017/6/17/</td>
+					                    		<td><a href="javascript:;">申请维护人</a></td>
+					                    	</tr>
+					                    </tbody>
+					                </table>
+                            	</div>
+                            </div>
+                        </div>
+                    	 <div id="tab-2" class="tab-pane">
+                            <div class="panel-body">
+                            	<div class="form-inline pd-t10">
+										<div class="form-group">
+											<label class="" >门店：</label>
+											<select name="" class="form-control">
+												<option value="">请选择</option>
+												<option value="">门店A</option>
+												<option value="">门店B</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label class="w100 text-right" >店内成员：</label>
+											<select name="" class="form-control">
+												<option value="">请选择</option>
+												<option value="">张三</option>
+												<option value="">李三</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label class="w50 text-right" >角色：</label>
+											<select name="" class="form-control">
+												<option value="">请选择</option>
+												<option value="">角色人</option>
+												<option value="">维护人</option>
+												<option value="">独家委托</option>
+											</select>
+										</div>
+										<div class="form-group w100">
+											<button type="button" class="btn btn-primary">搜索</button>
+										</div>
+                            	</div>
+                            	<div class="form-inline pd-t10">
+                            		<button type="button" class="btn btn-primary zhiding">指定分配</button>
+                            		<button type="button" class="btn btn-primary fpiliang">批量分配</button>
+                            	</div>
+                            	<div class="pd-t10">
+                            		<table class="table border pd-t10">
+					                    <thead>
+					                        <tr>
+					                            <th>房源主图</th>
+					                            <th>楼盘名称</th>
+					                            <th>户型</th>
+					                            <th>套内面积</th>
+					                            <th>面积</th>
+					                            <th>总价/单价</th>
+					                            <th>楼层</th>
+					                            <th>朝向</th>
+					                            <th>带看次数</th>
+					                            <th style="width: 10%;">最后跟进时间</th>
+					                            <th>开盘时间</th>
+					                            <th>维护人</th>
+					                        </tr>
+					                    </thead>
+					                    <tbody >
+					                    	<tr>
+					                    		<td><img src="" onerror="this.onerror=null; this.src='../../images/photo.png'"/></td>
+					                    		<td>
+					                    			<strong><a href="javascript:;">锋尚名居  1栋/2单元/302</a></strong>
+					                    			<p>100000010</p>
+					                    			<p class="img_25">
+					                    				<a href="javascript:;" title="钥匙"><img src="../../images/yaoshi.png"/></a>
+					                    				<a href="javascript:;" title="独家委托"><img src="../../images/dujia.png"/></a>
+					                    				<a href="javascript:;" title="实勘图"><img src="../../images/kan.png" style="width: 30px;"/></a>
+					                    				<a href="javascript:;" title="书面委托"><img src="../../images/shumwt.png"/></a>
+					                    				<a href="javascript:;" title="限时委托"><img src="../../images/timewt.png"/></a>
+					                    				<a href="javascript:;" title="车位"><img src="../../images/car.png"/></a>
+					                    			</p>
+					                    		</td>
+					                    		<td>2</td>
+					                    		<td>82平</td>
+					                    		<td>89.2平</td>
+					                    		<td>
+					                    			<p>400万</p>
+					                    			<p>13223元/平</p>
+					                    		</td>
+					                    		<td>4/6</td>
+					                    		<td>南</td>
+					                    		<td>12</td>
+					                    		<td>2017/6/17/15:29:38</td>
+	                    						<td>2017/6/17/</td>
+					                    		<td>张美</td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td><img src="" onerror="this.onerror=null; this.src='../../images/photo.png'"/></td>
+					                    		<td>
+					                    			<strong><a href="javascript:;">锋尚名居  1栋/2单元/302</a></strong>
+					                    			<p>100000010</p>
+					                    			<p class="img_25">
+					                    				<a href="javascript:;" title="钥匙"><img src="../../images/yaoshis.png"/></a>
+					                    				<a href="javascript:;" title="独家委托"><img src="../../images/dujias.png"/></a>
+					                    				<a href="javascript:;" title="实勘图"><img src="../../images/kans.png" style="width: 35px;"/></a>
+					                    				<a href="javascript:;" title="书面委托"><img src="../../images/shumwts.png"/></a>
+					                    				<a href="javascript:;" title="限时委托"><img src="../../images/timewts.png"/></a>
+					                    				<a href="javascript:;" title="车位"><img src="../../images/cars.png"/></a>
+					                    			</p>
+					                    		</td>
+					                    		<td>2</td>
+					                    		<td>82平</td>
+					                    		<td>89.2平</td>
+					                    		<td>
+					                    			<p>400万</p>
+					                    			<p>13223元/平</p>
+					                    		</td>
+					                    		<td>4/6</td>
+					                    		<td>南</td>
+					                    		<td>12</td>
+					                    		<td>2017/6/17/15:29:38</td>
+	                    						<td>2017/6/17/</td>
+					                    		<td><a href="javascript:;">申请维护人</a></td>
+					                    	</tr>
+					                    </tbody>
+					                </table>
+                            	</div>
+                            </div>
+                        </div>
+                   		 <div id="tab-3" class="tab-pane ">
+                            <div class="panel-body">
+                            	<div class="form-inline pd-t10">
+										<div class="form-group">
+											<label class="" >门店：</label>
+											<select name="" class="form-control">
+												<option value="">请选择</option>
+												<option value="">门店A</option>
+												<option value="">门店B</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label class="w100 text-right" >店内成员：</label>
+											<select name="" class="form-control">
+												<option value="">请选择</option>
+												<option value="">张三</option>
+												<option value="">李三</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label class="w50 text-right" >角色：</label>
+											<select name="" class="form-control">
+												<option value="">请选择</option>
+												<option value="">角色人</option>
+												<option value="">维护人</option>
+												<option value="">独家委托</option>
+											</select>
+										</div>
+										<div class="form-group w100">
+											<button type="button" class="btn btn-primary">搜索</button>
+										</div>
+                            	</div>
+                            	<div class="form-inline pd-t10">
+                            		<button type="button" class="btn btn-primary zhiding">指定分配</button>
+                            		<button type="button" class="btn btn-primary kpiliang">批量分配</button>
+                            	</div>
+                            	<div class="pd-t10">
+                            		<table class="table border pd-t10">
+					                    <thead>
+					                        <tr>
+					                            <th>客户名称</th>
+					                            <th>居室</th>
+					                            <th>面积</th>
+					                            <th>价格</th>
+					                            <th>朝向</th>
+					                            <th>开发时间</th>
+					                            <th>掉淘宝倒计时(天)</th>
+					                        </tr>
+					                    </thead>
+					                    <tbody >
+					                    	<tr>
+					                    		<td><strong>王先生 </strong>A级</td>
+					                    		<td>2-3居</td>
+					                    		<td>80-120㎡</td>
+					                    		<td>500-1000万</td>
+					                    		<td>南</td>
+					                    		<td>2017-06-17</td>
+					                    		<td>1天</td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td><strong>王先生 </strong>A级</td>
+					                    		<td>2-3居</td>
+					                    		<td>80-120㎡</td>
+					                    		<td>500-1000万</td>
+					                    		<td>南</td>
+					                    		<td>2017-06-17</td>
+					                    		<td>1天</td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td><strong>王先生 </strong>A级</td>
+					                    		<td>2-3居</td>
+					                    		<td>80-120㎡</td>
+					                    		<td>500-1000万</td>
+					                    		<td>南</td>
+					                    		<td>2017-06-17</td>
+					                    		<td>1天</td>
+					                    	</tr>
+					                    </tbody>
+					                </table>
+                            	</div>
+                            </div>
+                        </div>
+                   		 <div id="tab-4" class="tab-pane">
+                            <div class="panel-body">
+                            	<div class="form-inline pd-t10">
+										<div class="form-group">
+											<label class="" >门店：</label>
+											<select name="" class="form-control">
+												<option value="">请选择</option>
+												<option value="">门店A</option>
+												<option value="">门店B</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label class="w100 text-right" >店内成员：</label>
+											<select name="" class="form-control">
+												<option value="">请选择</option>
+												<option value="">张三</option>
+												<option value="">李三</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label class="w50 text-right" >角色：</label>
+											<select name="" class="form-control">
+												<option value="">请选择</option>
+												<option value="">角色人</option>
+												<option value="">维护人</option>
+												<option value="">独家委托</option>
+											</select>
+										</div>
+										<div class="form-group w100">
+											<button type="button" class="btn btn-primary">搜索</button>
+										</div>
+                            	</div>
+                            	<div class="form-inline pd-t10">
+                            		<button type="button" class="btn btn-primary zhiding">指定分配</button>
+                            		<button type="button" class="btn btn-primary kpiliang">批量分配</button>
+                            	</div>
+                            	<div class="pd-t10">
+                            		<table class="table border pd-t10">
+					                    <thead>
+					                        <tr>
+					                            <th>客户名称</th>
+					                            <th>居室</th>
+					                            <th>面积</th>
+					                            <th>价格</th>
+					                            <th>朝向</th>
+					                            <th>开发时间</th>
+					                            <th>掉淘宝倒计时(天)</th>
+					                        </tr>
+					                    </thead>
+					                    <tbody >
+					                    	<tr>
+					                    		<td><strong>王先生 </strong>A级</td>
+					                    		<td>2-3居</td>
+					                    		<td>80-120㎡</td>
+					                    		<td>500-1000万</td>
+					                    		<td>南</td>
+					                    		<td>2017-06-17</td>
+					                    		<td>1天</td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td><strong>王先生 </strong>A级</td>
+					                    		<td>2-3居</td>
+					                    		<td>80-120㎡</td>
+					                    		<td>500-1000万</td>
+					                    		<td>南</td>
+					                    		<td>2017-06-17</td>
+					                    		<td>1天</td>
+					                    	</tr>
+					                    	<tr>
+					                    		<td><strong>王先生 </strong>A级</td>
+					                    		<td>2-3居</td>
+					                    		<td>80-120㎡</td>
+					                    		<td>500-1000万</td>
+					                    		<td>南</td>
+					                    		<td>2017-06-17</td>
+					                    		<td>1天</td>
+					                    	</tr>
+					                    </tbody>
+					                </table>
+                            	</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+		</div>
+		<!--指定分配-->
+		<div class="zhidingBox" style="padding: 20px;display: none;">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-md-3 text-right">店内人员：</label>
+					<div class="col-md-6">
+						<select name="" class="form-control">
+							<option value="">全部</option>
+							<option value="">张三</option>
+							<option value="">李四</option>
+							<option value="">王五</option>
+							<option value="">赵六</option>
+						</select>
+					</div>
+				</div>
+				<div class="navbar-fixed-bottom m-b8">
+					<button type="button" class="btn btn-primary w100 mar-l150">确定</button>
+					<button type="button" class="btn btn-primary w100 closeUp">取消</button>
+				</div>
+			</div>
+		</div>
+		<!--房批量分批-->
+		<div class="FpiliangBox" style="padding: 20px;display: none;">
+			<button type="button" class="btn btn-primary pd-t10">全部平均分配</button>
+			<div class="pd-t10">
+				<table class="table border">
+                <thead>
+                    <tr>
+                    	<th>类别</th>
+                    	<th>数量</th>
+                    	<th>分配原则</th>
+                    </tr>
+                </thead>
+                <tbody >
+                	<tr>
+                		<td>开盘人</td>
+                		<td>50</td>
+                		<td>
+                			<a href="javascript:;">平均分配</a>
+                			<a class="gexing"  href="javascript:;">个性化分配</a>
+                		</td>
+                	</tr>
+                	<tr>
+                		<td>钥匙人</td>
+                		<td>50</td>
+                		<td>
+                			<a href="javascript:;">平均分配</a>
+                			<a class="gexing"  href="javascript:;">个性化分配</a>
+                		</td>
+                	</tr>
+                	<tr>
+                		<td>独家人</td>
+                		<td>50</td>
+                		<td>
+                			<a href="javascript:;">平均分配</a>
+                			<a class="gexing"  href="javascript:;">个性化分配</a>
+                		</td>
+                	</tr>
+                </tbody>
+            </table>
+			</div>
+		</div>
+		<!--客批量分批-->
+		<div class="KpiliangBox" style="padding: 20px;display: none;">
+			<!--<button type="button" class="btn btn-info pd-t10"></button>-->
+			<div class="pd-t10">
+				<table class="table border ">
+                <thead>
+                    <tr>
+                    	<th>类别</th>
+                    	<th>数量</th>
+                    	<th>分配原则</th>
+                    </tr>
+                </thead>
+                <tbody >
+                	<tr>
+                		<td>维护人</td>
+                		<td>50</td>
+                		<td>
+                			<a href="javascript:;">平均分配</a>
+                			<a class="gexing" href="javascript:;">个性化分配</a>
+                		</td>
+                	</tr>
+                </tbody>
+            </table>
+			</div>
+		</div>
+		<!--个性化分配-->
+		<div class="gexingBox" style="padding: 20px;display: none;">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-md-3 text-right">可分配数量：</label>
+					<div class="col-md-6 ">
+						<p class="form-control-static">50</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-3 text-right">李四：</label>
+					<div class="col-md-6">
+						<input type="text" class="form-control" name="" id="" value="" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-3 text-right">张三：</label>
+					<div class="col-md-6">
+						<input type="text" class="form-control" name="" id="" value="" />
+					</div>
+				</div>
+				<div class="navbar-fixed-bottom m-b8">
+					<button type="button" class="btn btn-primary w100 mar-l150">确定</button>
+					<button type="button" class="btn btn-primary w100 closeUp">取消</button>
+				</div>
+			</div>
+		</div>
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<!--复选框样式-->
+		<script src="../../plugins/iCheck/icheck.min.js"></script>
+		<script src="../../plugins/layer/layer.min.js"></script>
+        <script src="../../js/common.js"></script>
+        <script type="text/javascript">
+			//修改单选复选框样式
+			$(document).ready(function(){
+			  $('input').iCheck({
+			    checkboxClass: 'icheckbox_square-blue',
+			    radioClass: 'iradio_square-blue',
+			    increaseArea: '20%' // optional
+			  });
+			});
+			//指定分配
+			$(".zhiding").click(function(){
+					layerContent('指定分配',$(".zhidingBox"),600,260);
+			})
+			//房批量分配
+			$(".fpiliang").click(function(){
+				layerContent('房批量分配',$(".FpiliangBox"),600,400);
+			})
+			//客批量分配
+			$(".kpiliang").click(function(){
+				layerContent('客批量分配',$(".KpiliangBox"),600,400);
+			})
+			//个性化分配
+			$(".gexing").click(function(){
+				layerContent('个性化分配',$(".gexingBox"),500,400);
+			})
+			//关闭弹窗
+			$(".closeUp").click(function(){
+				closeAllT()
+			})
+			/*checkbox全选*/
+			function AllCheckbox(obj,obj1){
+				$('input[name='+obj+']').on('ifChecked',function(){
+					$('input[name='+obj1+']').iCheck('check');
+
+				})
+				$('input[name='+obj+']').on('ifUnchecked',function(){
+					$('input[name='+obj1+']').iCheck('uncheck');
+				})
+			}
+			AllCheckbox('all','a')
+		</script>
+	</body>
+</html>

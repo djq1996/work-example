@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>转换审核</title>
+		<link rel="stylesheet" href="../../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css" />
+	</head>
+	<!---->
+
+	<body>
+
+		<div class="container-fluid">
+			<form class="form-inline pd-t10">
+				<div class="form-group">
+					<label class="sr-only">楼盘名称</label>
+					<input type="text" class="form-control think w300" id="" placeholder="楼盘名称" autocomplete="off">
+				</div>
+				<button type="button" class="btn btn-primary">搜索</button>
+			</form>
+			<div class="tabs-container pd-t10">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a data-toggle="tab" href="#tab-1" aria-expanded="true"> 未处理</a>
+					</li>
+					<li class="">
+						<a data-toggle="tab" href="#tab-2" aria-expanded="false">已处理</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div id="tab-1" class="tab-pane active">
+						<div class="panel-body">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>客户编号</th>
+										<th>客户姓名</th>
+										<th>提交人</th>
+										<th>备注</th>
+										<th>操作时间</th>
+										<th>状态</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="content">
+									<tr>
+										<td>10000000</td>
+										<td>王先生</td>
+										<td>张美</td>
+										<td>张美</td>
+										<td>2016/04/21 12:11:20</td>
+										<td>未处理</td>
+										<td>
+											<a href="javascript:;" class="shenhe">审核</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div id="tab-2" class="tab-pane">
+						<div class="panel-body">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>客户编号</th>
+										<th>客户姓名</th>
+										<th>提交人</th>
+										<th>备注</th>
+										<th>操作时间</th>
+										<th>状态</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="content">
+									<tr>
+										<td>10000000</td>
+										<td>王先生</td>
+										<td>张美</td>
+										<td>张美</td>
+										<td>2016/04/21 12:11:20</td>
+										<td>未处理</td>
+										<td>
+											<a href="javascript:;">审核</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="pd-t10">
+
+			</div>
+
+		</div>
+		<!--模糊提示-->
+		<div id="message" style="">
+			<ul>
+				<li>111</li>
+				<li>222</li>
+				<li>333</li>
+				<li>444</li>
+			</ul>
+		</div>
+		<!--js-->
+		<script src="../../../plugins/jquery.min.js"></script>
+		<script src="../../../plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../../plugins/layui/layui.js"></script>
+		<script src="../../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			/*联想模糊填充*/
+			$(".think").on('focus keyup', function() {
+				_this = $(this);
+				$("#message").css({
+					"width": _this.innerWidth(),
+					"left": _this.offset().left + 1,
+					"top": _this.offset().top + _this.innerHeight() + 3
+				}).show()
+			}).blur(function() {
+				$("#message").hide("fast")
+			})
+			//			$("#message li").on('click',function(){
+			//				$(this).addClass('active').siblings().removeClass()
+			//				var txt = $("#message .active").text();
+			//				if(txt){
+			//					
+			//				}
+			//			})
+
+			layui.use(['form', 'laypage'], function() {
+				var $ = layui.jquery,
+					laypage = layui.laypage,
+					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+
+				//结尾符
+			});
+			$("#content").on('click','.shenhe',function(){
+				layerContent('审核','审核.html','600','300',2)
+			});
+		</script>
+	</body>
+
+</html>

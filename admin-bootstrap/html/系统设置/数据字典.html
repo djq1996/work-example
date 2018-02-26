@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数据字典</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--树-->
+		<link rel="stylesheet" type="text/css" href="../../plugins/ztree/metroStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		<style type="text/css">
+			.menu-list li{
+				text-align: center;
+				padding: 8px 0;
+			}
+			.menu-list li:hover{
+				transition: all .5s;
+				background: #0078AD;
+				color: #fff;
+			}
+			.menu-list li:hover a,.menu-list .active a{
+				color: #fff;
+				text-decoration:none
+			}
+			.menu-list .active{
+				background: #0078AD;
+			}
+	    </style>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="">
+				<h4>字段名称</h4>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<ul class="menu-list ">
+						<li class="active"><a href="javascript:;">结构类型</a></li>
+						<li><a href="javascript:;">房源来源</a></li>
+						<li><a href="javascript:;">朝向</a></li>
+						<li><a href="javascript:;">装修情况</a></li>
+						<li><a href="javascript:;">跟进方式</a></li>
+						<li><a href="javascript:;">租赁跟进方式</a></li>
+						<li><a href="javascript:;">钥匙来源</a></li>
+						<li><a href="javascript:;">房/客源来源</a></li>
+						<li><a href="javascript:;">客户意向</a></li>
+						<li><a href="javascript:;">客户职业</a></li>
+						<li><a href="javascript:;">客户现居住情况</a></li>
+						<li><a href="javascript:;">购买目的</a></li>
+						<li><a href="javascript:;">求租意向</a></li>
+						<li><a href="javascript:;">求购意向</a></li>
+					</ul>
+				</div>
+				<div class="col-md-10">
+					<div class="" style="position: fixed;width: 81%;">
+						<div class="">
+						<button type="button" class="btn btn-primary add">添加</button>
+					</div>
+					<div class="pd-t10">
+						 <table class="table table-bordered pd-t10">
+			                    <thead>
+			                        <tr>
+			                            <th>选项名称</th>
+			                            <th>值</th>
+			                            <th>操作</th>
+			                        </tr>
+			                    </thead>
+			                    <tbody id="content">
+			                        <tr>
+			                            <td>塔楼</td>
+			                            <td>1</td>
+			                            <td>
+			                                <a href="javascript:;" class="">已启用</a>
+			                                <a href="javascript:;" class="">禁用</a>
+			                                <a href="javascript:;" class="">编辑</a>
+			                                <a href="javascript:;" class="remove">删除</a>
+			                            </td>
+			                        </tr>
+			                         <tr>
+			                            <td>塔楼</td>
+			                            <td>1</td>
+			                            <td>
+			                                <a href="javascript:;" class="">已启用</a>
+			                                <a href="javascript:;" class="">禁用</a>
+			                                <a href="javascript:;" class="">编辑</a>
+			                                <a href="javascript:;" class="remove">删除</a>
+			                            </td>
+			                        </tr>
+			                         <tr>
+			                            <td>塔楼</td>
+			                            <td>1</td>
+			                            <td>
+			                                <a href="javascript:;" class="">已启用</a>
+			                                <a href="javascript:;" class="">禁用</a>
+			                                <a href="javascript:;" class="">编辑</a>
+			                                <a href="javascript:;" class="remove">删除</a>
+			                            </td>
+			                        </tr>
+			                    </tbody>
+			                </table>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+        <script src="../../js/common.js"></script>
+        <script type="text/javascript">
+        	$(".add").on('click',function(){
+        		$("#content").append('<tr>'+
+			                            '<td>塔楼</td>'+
+			                            '<td>1</td>'+
+			                            '<td>'+
+			                                '<a href="javascript:;" class="">已启用</a> '+
+			                                '<a href="javascript:;" class="">禁用</a> '+
+			                                '<a href="javascript:;" class="">编辑</a> '+
+			                                '<a href="javascript:;" class="remove">删除</a>'+
+			                            '</td>'+
+			                        '</tr>'
+        		)
+            });
+        	$("#content").on('click','.remove',function(){
+        		//询问框
+					layer.confirm('确定删除？', {
+					  btn: ['确定','取消'] //按钮
+					}, function(){
+						$(this).parents('tr').remove()
+					    layer.msg('删除成功', {icon: 1});
+					}, function(){
+						//取消
+					});
+        	})
+        </script>
+	</body>
+</html>

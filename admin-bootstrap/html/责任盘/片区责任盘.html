@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>片区责任盘</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--树-->
+		<link rel="stylesheet" type="text/css" href="../../plugins/ztree/metroStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+	</head>
+
+	<body>
+		<!--模糊提示-->
+		<div id="message" style="">
+			<ul>
+				<li>111</li>
+				<li>222</li>
+				<li>333</li>
+				<li>444</li>
+			</ul>
+		</div>
+		<div class="container-fluid">
+			<form class="form-inline pd-t10">
+				<div class="form-group">
+					<label class="sr-only" for="exampleInputtext3">楼盘名称</label>
+					<input type="text" class="form-control w300 think" id="exampleInputtext3" placeholder="楼盘名称" autocomplete="off">
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="exampleInputtext4">坐落</label>
+					<input type="text" class="form-control w100 think" id="exampleInputtext4" placeholder="坐落">
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="exampleInputtext5">单元</label>
+					<input type="text" class="form-control w100 think"  id="exampleInputtext5" placeholder="单元">
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="exampleInputtext6">房间号</label>
+					<input type="text" class="form-control w120 think" id="exampleInputtext6" placeholder="房间号">
+				</div>
+				<button type="button" class="btn btn-primary">搜索</button>
+			</form>
+			<div class="layui-form pd-t10">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>楼盘名称</th>
+							<th>坐落</th>
+							<th>单元</th>
+							<th>房号</th>
+							<th>楼层</th>
+							<th>出售状态</th>
+							<th>出租状态</th>
+						</tr>
+					</thead>
+					<tbody id="content">
+						<tr>
+							<td>锋尚民居</td>
+							<td>1栋</td>
+							<td>2单元</td>
+							<td>302</td>
+							<td>3/10</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>锋尚民居</td>
+							<td>1栋</td>
+							<td>2单元</td>
+							<td>302</td>
+							<td>3/10</td>
+							<td>出售</td>
+							<td>出租</td>
+						</tr>
+						<tr>
+							<td>锋尚民居</td>
+							<td>1栋</td>
+							<td>2单元</td>
+							<td>302</td>
+							<td>3/10</td>
+							<td>出售</td>
+							<td>出租</td>
+						</tr>
+						<tr>
+							<td>锋尚民居</td>
+							<td>1栋</td>
+							<td>2单元</td>
+							<td>302</td>
+							<td>3/10</td>
+							<td>出售</td>
+							<td>出租</td>
+						</tr>
+						<tr>
+							<td>锋尚民居</td>
+							<td>1栋</td>
+							<td>2单元</td>
+							<td>302</td>
+							<td>3/10</td>
+							<td>出售</td>
+							<td>出租</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			
+		</div>
+		<!--js-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			/*联想模糊填充*/
+			$(".think").on('focus keyup',function(){
+				_this = $(this);
+				$("#message").css({"width":_this.innerWidth(),"left":_this.offset().left+1,"top":_this.offset().top+_this.innerHeight()+3}).show()
+			}).blur(function(){
+				$("#message").hide("fast")
+			})
+
+			layui.use(['form','laypage'], function() {
+				var $ = layui.jquery,
+				    laypage = layui.laypage,
+					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+
+				//结尾符
+			});
+			
+		</script>
+	</body>
+
+</html>

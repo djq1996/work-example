@@ -1,0 +1,797 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>查看详情_我的责任盘</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--树-->
+		<link rel="stylesheet" type="text/css" href="../../plugins/ztree/metroStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		<style type="text/css">
+			 .head_tip {
+				position: relative;
+				padding: 28px;
+				border: 1px solid #ddd;
+				margin-top:10px
+			}
+			
+			.head_tip i {
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: block;
+				width: 40px;
+				height: 25px;
+				border-radius: 80%;
+				border: 1px solid #ddd;
+				text-align: center;
+				line-height: 25px
+			}
+			
+			 .head_tip span {
+				font-weight: 600;
+				padding-right: 20px
+			}
+			
+			#message label {
+				padding-left: 0 !important;
+				padding-right: 5px !important
+			}
+			
+			#message .layui-input-inline {
+				width: 140px
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="head_tip">
+				<i>锁</i>
+				<span>贵园小区南里 &nbsp;1栋/1单元/301</span>
+				<button class="layui-btn layui-btn-small" type="button">转出租</button>
+				<button class="layui-btn  layui-btn-small" type="button">转出售</button>
+			</div>
+			<div class="tabs-container pd-t10">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a data-toggle="tab" href="#tab-1" aria-expanded="true"> 基本信息</a>
+					</li>
+					<li class="">
+						<a data-toggle="tab" href="#tab-2" aria-expanded="false">业主信息</a>
+					</li>
+					<li class="">
+						<a data-toggle="tab" href="#tab-2" aria-expanded="false">电话信息</a>
+					</li>
+					<li class="">
+						<a data-toggle="tab" href="#tab-2" aria-expanded="false">原值电话信息</a>
+					</li>
+					<li class="">
+						<a data-toggle="tab" href="#tab-2" aria-expanded="false">跟进信息</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div id="tab-1" class="tab-pane active">
+						<div class="panel-body">
+							<!--基本信息-->
+								<div class="clearfix">
+									<button type="button" class="btn btn-default pull-right">修改资料</button>
+								</div>
+								<div class="form-inline">
+									<div class="form-group">
+										<label class="">建筑面积：</label>
+										<input type="text" class="form-control w120" placeholder="">
+										<span>㎡</span>
+									</div>
+									<div class="form-group">
+										<label class="">套内面积：</label>
+										<input type="text" class="form-control w120" placeholder="">
+										<span>㎡</span>
+									</div>
+									<div class="form-group">
+										<label class="">得房率：</label>
+										<input type="text" class="form-control w120" placeholder="">
+										<span>%</span>
+									</div>
+									<div class="form-group">
+										<label class="">赠送面积：</label>
+										<input type="text" class="form-control w120" placeholder="">
+										<span>㎡</span>
+									</div>
+								</div>
+
+								<div class="form-inline">
+									<div class="form-group">
+											<label class="">朝向-居室：</label>
+											<input type="text" class="form-control w50" placeholder="">
+											<span class="">室</span>
+											<input type="text" class="form-control w50" placeholder="">
+											<span class="">厅</span>
+											<input type="text" class="form-control w50" placeholder="">
+											<span class="">卫</span>
+											<input type="text" class="form-control w50" placeholder="">
+											<span class="">厅</span>
+											<input type="text" class="form-control w50" placeholder="">
+											<span class="">阳台</span>
+									</div>
+									<div class="form-group">
+										<label class="layui-form-label w50">朝向：</label>
+										<div class="layui-input-inline w100">
+											<select name=" ">
+												<option value="东">东</option>
+												<option value="西">西</option>
+												<option value="南">南</option>
+												<option value="东北">东北</option>
+												<option value="西南">西南</option>
+											</select>
+										</div>
+										<div class="">㎡</div>
+									</div>
+									<div class="form-group">
+										<label class="layui-form-label">格局变动：</label>
+										<div class="layui-input-inline w100">
+											<select name=" ">
+												<option value="1">是</option>
+												<option value="0">否</option>
+											</select>
+										</div>
+										<div class="">%</div>
+									</div>
+								</div>
+
+								<div class="form-inline">
+									<div class="form-group">
+										<label class="layui-form-label">装修保养：</label>
+										<div class="layui-input-inline w100">
+											<select name=" ">
+												<option value="0">毛坯</option>
+												<option value="1">简装</option>
+												<option value="2">精装</option>
+												<option value="3">豪装</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="layui-form-label" style="padding-left: 0;">居住现状：</label>
+										<div class="layui-input-inline w100">
+											<select name="today_type">
+												<option value="0">自住</option>
+												<option value="1">有租客</option>
+												<option value="2">闲置</option>
+												<option value="3">其他</option>
+											</select>
+										</div>
+										<div class="layui-input-inline ">
+											<input type="text" name="" lay-verify="" autocomplete="off" placeholder="其他说明" class="layui-input">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="layui-form-label" style="padding-left: 0;">看房方式：</label>
+										<div class="layui-input-inline w100">
+											<select name=" ">
+												<option value="0">我司钥匙</option>
+												<option value="1">他死钥匙</option>
+												<option value="2">业主自住</option>
+												<option value="3">租客开门</option>
+												<option value="4">预约代理人</option>
+												<option value="5">预约亲友</option>
+												<option value="6">我司业主</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="layui-form-label" style="padding-left: 0;">物业钥匙：</label>
+										<div class="layui-input-inline" style="width: 115px;">
+											<input type="radio" name="sex" value="是" title="是">
+											<input type="radio" name="sex" value="否" title="否" checked="">
+										</div>
+									</div>
+								</div>
+
+								<div class="form-inline">
+									<div class="form-group">
+										<label class="layui-form-label">房屋权属：</label>
+										<div class="layui-input-inline w100">
+											<select name=" ">
+												<option value="0">请选择</option>
+												<option value="1">全产权</option>
+												<option value="2">按揭</option>
+												<option value="3">抵押</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="layui-form-label">产权性质：</label>
+										<div class="layui-input-inline w100">
+											<select name=" ">
+												<option value="">请选择</option>
+												<option value="0">自有产权</option>
+												<option value="1">公司产权</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="layui-form-label w100" style="padding-left: 0;">房产证时间：</label>
+										<div class="layui-input-inline w120">
+											<input type="text" name="" lay-verify="" id="HomeDate" autocomplete="off" placeholder="" class="layui-input" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD'})">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="layui-form-label w100" style="padding-left: 0;">产权证编号：</label>
+										<div class="layui-input-inline">
+											<input type="text" name="" lay-verify="" autocomplete="off" placeholder="" class="layui-input">
+										</div>
+									</div>
+
+								</div>
+								<div class="form-inline">
+									<div class="form-group">
+										<label class="layui-form-label">花园：</label>
+										<div class="layui-input-inline" style="width: 115px;">
+											<input type="radio" name="sex" value="是" title="是">
+											<input type="radio" name="sex" value="否" title="否" checked="">
+										</div>
+										<div class="layui-input-inline w120">
+											<input type="text" name="" lay-verify="" autocomplete="off" placeholder="面积" class="layui-input">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="layui-form-label w50">露台：</label>
+										<div class="layui-input-inline" style="width: 115px;">
+											<input type="radio" name="sex" value="是" title="是">
+											<input type="radio" name="" value="否" title="否" checked="">
+										</div>
+										<div class="layui-input-inline w120">
+											<input type="text" name="" lay-verify="" autocomplete="off" placeholder="面积" class="layui-input">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="layui-form-label w50">阁楼：</label>
+										<div class="layui-input-inline" style="width: 115px;">
+											<input type="radio" name="" value="是" title="是">
+											<input type="radio" name="" value="否" title="否" checked="">
+										</div>
+										<div class="layui-input-inline w120">
+											<input type="text" name="" lay-verify="" autocomplete="off" placeholder="面积" class="layui-input">
+										</div>
+									</div>
+
+								</div>
+								<div class="form-inline">
+									<div class="form-group">
+										<label class="layui-form-label">地下室：</label>
+										<div class="layui-input-inline" style="width: 115px;">
+											<input type="radio" name="sex" value="是" title="是">
+											<input type="radio" name="sex" value="否" title="否" checked="">
+										</div>
+										<div class="layui-input-inline w120">
+											<input type="text" name="" lay-verify="" autocomplete="off" placeholder="面积" class="layui-input">
+										</div>
+										<div class="layui-input-inline" style="width: 154px;">
+											<input type="radio" name="sex" value="是" title="上证">
+											<input type="radio" name="" value="否" title="未上证" checked="">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="layui-form-label w50">梯户：</label>
+										<div class="layui-input-inline w50">
+											<input type="text" name="" lay-verify="" autocomplete="off" placeholder="" class="layui-input">
+										</div>
+										<div class="">梯</div>
+										<div class="layui-input-inline w50">
+											<input type="text" name="" lay-verify="" autocomplete="off" placeholder="" class="layui-input">
+										</div>
+										<div class="">户</div>
+
+									</div>
+								</div>
+								<div class="form-inline">
+									<label class="layui-form-label w50"></label>
+									<button class="layui-btn layui-btn-normal " type="button">保存</button>
+								</div>
+						</div>
+						</div>
+						<div id="tab-2" class="tab-pane">
+							<div class="panel-body">
+
+							</div>
+						</div>
+						<div id="tab-3" class="tab-pane">
+							<div class="panel-body">
+
+							</div>
+						</div>
+						<div id="tab-4" class="tab-pane">
+							<div class="panel-body">
+
+							</div>
+						</div>
+						<div id="tab-5" class="tab-pane">
+							<div class="panel-body">
+
+							</div>
+						</div>
+					
+
+				</div>
+			</div>
+		</div>
+		<div class="admin-main" id="body">
+
+			<!--选项卡-->
+			<div class="layui-tab layui-tab-card">
+				<ul class="layui-tab-title">
+					<li>基本信息</li>
+					<li>业主信息</li>
+					<li class="layui-this">电话信息</li>
+					<li>原值电话信息</li>
+					<li>跟进信息</li>
+				</ul>
+
+				<div class="layui-tab-content layui-form">
+
+					<!--基本信息-->
+					<div class="layui-tab-item">
+						<div class="clearfix">
+							<button type="button" class="btn btn-default pull-right">修改资料</button>
+						</div>
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="">建筑面积：</label>
+
+								<input type="text" class="form-control w120" placeholder="">
+							</div>
+						</div>
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="layui-form-label">建筑面积：</label>
+								<div class="layui-input-inline w120">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+								<div class="">㎡</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label">套内面积：</label>
+								<div class="layui-input-inline w120">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+								<div class="">㎡</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label">得房率：</label>
+								<div class="layui-input-inline w100">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+								<div class="">%</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label">赠送面积：</label>
+								<div class="layui-input-inline w100">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+								<div class="">㎡</div>
+							</div>
+						</div>
+
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="layui-form-label">朝向-居室：</label>
+								<div class="layui-input-inline w50">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+								<div class="">室</div>
+								<div class="layui-input-inline w50">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+								<div class="">厅</div>
+								<div class="layui-input-inline w50">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+								<div class="">卫</div>
+								<div class="">厅</div>
+								<div class="layui-input-inline w50">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+								<div class="">阳台</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w50">朝向：</label>
+								<div class="layui-input-inline w100">
+									<select name=" ">
+										<option value="东">东</option>
+										<option value="西">西</option>
+										<option value="南">南</option>
+										<option value="东北">东北</option>
+										<option value="西南">西南</option>
+									</select>
+								</div>
+								<div class="">㎡</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label">格局变动：</label>
+								<div class="layui-input-inline w100">
+									<select name=" ">
+										<option value="1">是</option>
+										<option value="0">否</option>
+									</select>
+								</div>
+								<div class="">%</div>
+							</div>
+						</div>
+
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="layui-form-label">装修保养：</label>
+								<div class="layui-input-inline w100">
+									<select name=" ">
+										<option value="0">毛坯</option>
+										<option value="1">简装</option>
+										<option value="2">精装</option>
+										<option value="3">豪装</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label" style="padding-left: 0;">居住现状：</label>
+								<div class="layui-input-inline w100">
+									<select name="today_type">
+										<option value="0">自住</option>
+										<option value="1">有租客</option>
+										<option value="2">闲置</option>
+										<option value="3">其他</option>
+									</select>
+								</div>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" placeholder="其他说明" class="layui-input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label" style="padding-left: 0;">看房方式：</label>
+								<div class="layui-input-inline w100">
+									<select name=" ">
+										<option value="0">我司钥匙</option>
+										<option value="1">他死钥匙</option>
+										<option value="2">业主自住</option>
+										<option value="3">租客开门</option>
+										<option value="4">预约代理人</option>
+										<option value="5">预约亲友</option>
+										<option value="6">我司业主</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label" style="padding-left: 0;">物业钥匙：</label>
+								<div class="layui-input-inline" style="width: 115px;">
+									<input type="radio" name="sex" value="是" title="是">
+									<input type="radio" name="sex" value="否" title="否" checked="">
+								</div>
+							</div>
+						</div>
+
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="layui-form-label">房屋权属：</label>
+								<div class="layui-input-inline w100">
+									<select name=" ">
+										<option value="0">请选择</option>
+										<option value="1">全产权</option>
+										<option value="2">按揭</option>
+										<option value="3">抵押</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label">产权性质：</label>
+								<div class="layui-input-inline w100">
+									<select name=" ">
+										<option value="">请选择</option>
+										<option value="0">自有产权</option>
+										<option value="1">公司产权</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100" style="padding-left: 0;">房产证时间：</label>
+								<div class="layui-input-inline w120">
+									<input type="text" name="" lay-verify="" id="HomeDate" autocomplete="off" placeholder="" class="layui-input" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD'})">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100" style="padding-left: 0;">产权证编号：</label>
+								<div class="layui-input-inline">
+									<input type="text" name="" lay-verify="" autocomplete="off" placeholder="" class="layui-input">
+								</div>
+							</div>
+
+						</div>
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="layui-form-label">花园：</label>
+								<div class="layui-input-inline" style="width: 115px;">
+									<input type="radio" name="sex" value="是" title="是">
+									<input type="radio" name="sex" value="否" title="否" checked="">
+								</div>
+								<div class="layui-input-inline w120">
+									<input type="text" name="" lay-verify="" autocomplete="off" placeholder="面积" class="layui-input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w50">露台：</label>
+								<div class="layui-input-inline" style="width: 115px;">
+									<input type="radio" name="sex" value="是" title="是">
+									<input type="radio" name="" value="否" title="否" checked="">
+								</div>
+								<div class="layui-input-inline w120">
+									<input type="text" name="" lay-verify="" autocomplete="off" placeholder="面积" class="layui-input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w50">阁楼：</label>
+								<div class="layui-input-inline" style="width: 115px;">
+									<input type="radio" name="" value="是" title="是">
+									<input type="radio" name="" value="否" title="否" checked="">
+								</div>
+								<div class="layui-input-inline w120">
+									<input type="text" name="" lay-verify="" autocomplete="off" placeholder="面积" class="layui-input">
+								</div>
+							</div>
+
+						</div>
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="layui-form-label">地下室：</label>
+								<div class="layui-input-inline" style="width: 115px;">
+									<input type="radio" name="sex" value="是" title="是">
+									<input type="radio" name="sex" value="否" title="否" checked="">
+								</div>
+								<div class="layui-input-inline w120">
+									<input type="text" name="" lay-verify="" autocomplete="off" placeholder="面积" class="layui-input">
+								</div>
+								<div class="layui-input-inline" style="width: 154px;">
+									<input type="radio" name="sex" value="是" title="上证">
+									<input type="radio" name="" value="否" title="未上证" checked="">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w50">梯户：</label>
+								<div class="layui-input-inline w50">
+									<input type="text" name="" lay-verify="" autocomplete="off" placeholder="" class="layui-input">
+								</div>
+								<div class="">梯</div>
+								<div class="layui-input-inline w50">
+									<input type="text" name="" lay-verify="" autocomplete="off" placeholder="" class="layui-input">
+								</div>
+								<div class="">户</div>
+
+							</div>
+						</div>
+						<div class="form-inline">
+							<label class="layui-form-label w50"></label>
+							<button class="layui-btn layui-btn-normal " type="button">保存</button>
+						</div>
+					</div>
+					<!--业主信息-->
+					<div class="layui-tab-item " id="message">
+						<div class="form-inline">
+							<button class="layui-btn layui-btn-primary layui-btn-small" style="float:right" type="button">修改资料</button>
+						</div>
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="layui-form-label w100">微信：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+								<!--<div class="">㎡</div>-->
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">QQ：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">微博：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">年龄：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+						</div>
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="layui-form-label w100">生日：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+								<!--<div class="">㎡</div>-->
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">婚姻状况：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">户籍所在地：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">常住地址：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+						</div>
+
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="layui-form-label w100">身份证号：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+								<!--<div class="">㎡</div>-->
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">职业：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">学历：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">星座：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+						</div>
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="layui-form-label w100">性别：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+								<!--<div class="">㎡</div>-->
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">性格：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">血型：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">毕业学校：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+						</div>
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="layui-form-label w100">对公司认可度：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+								<!--<div class="">㎡</div>-->
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">爱好：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">是否老业主：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">信誉：</label>
+								<div class="layui-input-inline ">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--电话信息-->
+					<div class="layui-tab-item layui-show">
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="layui-form-label">联系人：</label>
+								<div class="layui-input-inline w100">
+									王先生
+								</div>
+								<!--<div class="">㎡</div>-->
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w50">电话：</label>
+								<div class="layui-input-inline w100">
+									13834389438
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w50">性别：</label>
+								<div class="layui-input-inline w50">
+									男
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="layui-form-label w100">产权人关系：</label>
+								<div class="layui-input-inline w100">
+									<input type="checkbox" name="like1[write]" lay-skin="primary" title="产权人">
+								</div>
+							</div>
+							<button type="button" class="layui-btn layui-btn-small">跟进</button>
+							<button type="button" class="layui-btn layui-btn-small">屏蔽电话</button>
+							<button type="button" class="layui-btn layui-btn-small">删除</button>
+							<button type="button" class="layui-btn layui-btn-small">添加联系人</button>
+
+						</div>
+					</div>
+					<!--原始电话信息-->
+					<div class="layui-tab-item">4</div>
+					<!--跟进信息-->
+					<div class="layui-tab-item">5</div>
+				</div>
+			</div>
+
+			<div class="layui-form">
+
+			</div>
+
+		</div>
+		<!--模板-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			layui.use(['form', 'laydate', 'element', 'layer'], function() {
+				var $ = layui.jquery,
+					laydate = layui.laydate,
+					element = layui.element(),
+					//					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象	
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+
+				//				$("#content").on('click', '.detal', function() {
+				//					addTab('', '', '公司责任盘')
+				//				})
+
+				//					laydate({
+				//					  elem: '#HomeDate',
+				//					  format: 'YYYY/MM', // 分隔符可以任意定义，该例子表示只显示年月
+				//					  festival: true, //显示节日
+				//					  choose: function(datas){ //选择日期完毕的回调
+				//					    alert('得到：'+datas);
+				//					  }
+				//					});
+
+				//结尾符
+			});
+		</script>
+	</body>
+
+</html>

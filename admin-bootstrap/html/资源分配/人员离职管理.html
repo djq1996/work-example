@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>人员离职管理</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+	</head>
+	<!---->
+	<body>
+		<!--模糊提示-->
+		<div id="message" style="">
+			<ul>
+				<li>111</li>
+				<li>222</li>
+				<li>333</li>
+				<li>444</li>
+			</ul>
+		</div>
+		<div class="container-fluid">
+			<form class="form-inline pd-t10">
+				<div class="form-group">
+					<label class="sr-only" for="exampleInputtext3">姓名：</label>
+					<input type="text" list="browsers" class="form-control think w300" id="exampleInputtext3" placeholder="请输入姓名">
+				</div>
+				<button type="button" class="btn btn-primary">搜索</button>
+			</form>
+			<div class="pd-t10">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>姓名</th>
+							<th>所属门店</th>
+							<th>离职/调动时间</th>
+							<th>资源状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody id="content">
+						<tr>
+							<td>张三</td>
+							<td>A门店</td>
+							<td>2017/6/19</td>
+							<td>已分配</td>
+							<td><a href="javascript:;">确认离职</a></td>
+						</tr>
+						<tr>
+							<td>张三</td>
+							<td>A门店</td>
+							<td>2017/6/19</td>
+							<td>已分配</td>
+							<td><a href="javascript:;">确认离职</a></td>
+						</tr>
+						<tr>
+							<td>张三</td>
+							<td>A门店</td>
+							<td>2017/6/19</td>
+							<td>已分配</td>
+							<td><a href="javascript:;">确认离职</a></td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+			
+			
+		</div>
+		<!--js-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			/*联想模糊填充*/
+			$(".think").on('focus keyup',function(){
+				_this = $(this);
+				$("#message").css({"width":_this.innerWidth(),"left":_this.offset().left+1,"top":_this.offset().top+_this.innerHeight()+3}).show()
+			}).blur(function(){
+				$("#message").hide("fast")
+			})
+//			$("#message li").on('click',function(){
+//				$(this).addClass('active').siblings().removeClass()
+//				var txt = $("#message .active").text();
+//				if(txt){
+//					
+//				}
+//			})
+			
+			layui.use(['form','laypage'], function() {
+				var $ = layui.jquery,
+				    laypage = layui.laypage,
+					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+
+				//结尾符
+			});
+			
+		</script>
+	</body>
+
+</html>

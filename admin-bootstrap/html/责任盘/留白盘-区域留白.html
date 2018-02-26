@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>留白盘</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--树-->
+		<link rel="stylesheet" type="text/css" href="../../plugins/ztree/metroStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="tabs-container">
+                <div class="tab-content">
+                    <div id="tab-2" class="tab-pane">
+                        <div class="panel-body">
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<!--js-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+
+
+			layui.use(['form','laypage'], function() {
+				var $ = layui.jquery,
+				    laypage = layui.laypage,
+					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+				  var timer = null;
+//				$("#content").on('mouseenter','.detail',function(){
+//					clearTimeout(timer)
+//					timer = setTimeout(function(){
+//						layer.open({
+//							  type: 1,
+//							  skin: 'layui-layer-demo', //样式类名
+//							  closeBtn: 0, //不显示关闭按钮
+//							  anim: 2,
+//							  shadeClose: true, //开启遮罩关闭
+//							  area:['300px','200px'],
+//							  content: '<div style="padding:20px">这里写页面内容</div>'
+//							});
+//					},2000)
+//						
+//				})
+//				$("#content").on('mouseleave','.detail',function(){
+//					clearTimeout(timer)
+//				})
+				
+				//结尾符
+			});
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>收藏列表</title>
+		<link rel="stylesheet" href="../../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--复选样式-->
+		<link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../../plugins/iCheck/blue.css"/>
+	</head>
+	<body>
+		<div class="container-fluid ">
+				<form class="form-inline pd-t10">
+					<div class="form-group">
+						<label class="sr-only" >楼盘名称</label>
+						<input type="email"  class="form-control think w300"  placeholder="楼盘名称" autocomplete="off">
+						
+					</div>
+					<div class="form-group">
+						<label class="sr-only" >坐落</label>
+						<input type="email" class="form-control w100 think" id="" placeholder="坐落">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" >单元</label>
+						<input type="email" class="form-control w100 think" id="" placeholder="单元">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" >房间号</label>
+						<input type="email" class="form-control w120 think" id="" placeholder="房间号">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" >物业编号</label>
+						<input type="email" class="form-control w120 think" id="" placeholder="物业编号">
+					</div>
+					<button type="button" class="btn btn-primary">搜索</button>
+					<button type="button" class="btn btn-primary">新增开盘</button>
+				</form>
+				<div class="form-inline pd-t10">
+					<div class="form-group pd-t10">
+						<label>收藏等级：</label>
+						<label><a href="javascript:;">不限</a></label>
+						<label><input type="checkbox" name="" id="" value="" /> 高</label>
+						<label><input type="checkbox" name="" id="" value="" /> 中</label>
+						<label><input type="checkbox" name="" id="" value="" /> 低</label>
+					</div>
+					<div class="form-group pd-t10">
+						<label class="w100 text-right">收藏时间：</label>
+						<input type="text" class="form-control input-sm w100" name="" id="" value="" />
+						-
+						<input type="text" class="form-control input-sm w100" name="" id="" value="" />
+					</div>
+				</div>
+				<!--main-->
+				<div class="pd-t10">
+					<table class="table border" id="table-content">
+	                    <thead>
+	                        <tr>
+	                            <th>房源主图</th>
+	                            <th>楼盘名称</th>
+	                            <th>级别</th>
+	                            <th>居室</th>
+	                            <th>套内面积</th>
+	                            <th>面积</th>
+	                            <th>总价/单价</th>
+	                            <th>楼层</th>
+	                            <th>朝向</th>
+	                            <th>带看次数</th>
+	                            <th>最后跟进时间</th>
+	                            <th style="width: 10%;">开盘时间</th>
+	                            <th>维护人</th>
+	                        </tr>
+	                    </thead>
+	                    <tbody >
+	                    	<tr>
+	                    		<td><img src="" onerror="this.onerror=null; this.src='../../../images/photo.png'"/></td>
+	                    		<td>
+	                    			<p><a href="javascript:;">锋尚名居  1栋/2单元/302</a></p>
+	                    			<p class="img_25">
+	                    				<a href="javascript:;" title="钥匙"><img src="../../../images/yaoshi.png"/></a>
+	                    				<a href="javascript:;" title="独家委托"><img src="../../../images/dujia.png"/></a>
+	                    				<a href="javascript:;" title="实勘图"><img src="../../../images/kan.png" style="width: 30px;"/></a>
+	                    				<a href="javascript:;" title="书面委托"><img src="../../../images/shumwt.png"/></a>
+	                    				<a href="javascript:;" title="限时委托"><img src="../../../images/timewt.png"/></a>
+	                    				<a href="javascript:;" title="车位"><img src="../../../images/car.png"/></a>
+	                    			</p>
+	                    		</td>
+	                    		<td>
+	                    			<select name="" class="form-control">
+										<option value="">A</option>
+										<option value="">B</option>
+										<option value="">C</option>
+									</select>
+	                    		</td>
+	                    		<td>2</td>
+	                    		<td>82平</td>
+	                    		<td>89.2平</td>
+	                    		<td>
+	                    			<p>400万 <i class="fa fa-long-arrow-up" style="color: #01AAED;"></i></p>
+	                    			<p>13223元/平</p>
+	                    		</td>
+	                    		<td>4/6</td>
+	                    		<td>南</td>
+	                    		<td>12</td>
+	                    		<td>2017/6/17/15:29:38</td>
+	                    		<td>2017/6/17</td>
+	                    		<td>张美</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td style="border: none;">100000010</td>
+	                    		<td colspan="12" style="border: none;">
+	                    			<p class="operation invisible ">
+	                    				<a href="javascript:;" class="genjin">跟进</a>
+	                    				<a href="javascript:;" class="see-genjin">查看跟进</a>
+	                    				<a href="javascript:;" class="conversion">状态转换</a>
+	                    				<a href="javascript:;" class="collect">取消收藏</a>
+	                    			</p>
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td><img src="" onerror="this.onerror=null; this.src='../../../images/photo.png'"/></td>
+	                    		<td >
+	                    			<h5><a href="javascript:;">锋尚名居  1栋/2单元/302</a></h5>
+	                    			<p class="img_25">
+	                    				<a href="javascript:;" title="钥匙"><img src="../../../images/yaoshis.png"/></a>
+	                    				<a href="javascript:;" title="独家委托"><img src="../../../images/dujias.png"/></a>
+	                    				<a href="javascript:;" title="实勘图"><img src="../../../images/kans.png" style="width: 30px;"/></a>
+	                    				<a href="javascript:;" title="书面委托"><img src="../../../images/shumwts.png"/></a>
+	                    				<a href="javascript:;" title="限时委托"><img src="../../../images/timewts.png"/></a>
+	                    				<a href="javascript:;" title="车位"><img src="../../../images/cars.png"/></a>
+	                    			</p>
+	                    		</td>
+	                    		<td>
+	                    			<select name="" class="form-control">
+										<option value="">A</option>
+										<option value="">B</option>
+										<option value="">C</option>
+									</select>
+	                    		</td>
+	                    		<td>2</td>
+	                    		<td>82平</td>
+	                    		<td>89.2平</td>
+	                    		<td>
+	                    			<p>400万 <i class="fa fa-long-arrow-down" style="color: #01AAED;"></i></p>
+	                    			<p>13223元/平</p>
+	                    		</td>
+	                    		<td>4/6</td>
+	                    		<td>南</td>
+	                    		<td>12</td>
+	                    		<td>2017/6/17/15:29:38</td>
+	                    		<td>2017/6/17</td>
+	                    		<td><a href="javascript:;">申请维护人</a></td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td style="border: none;">100000010</td>
+	                    		<td colspan="12" style="border: none;">
+	                    			<p class="operation invisible ">
+	                    				<a href="javascript:;" class="genjin">跟进</a>
+	                    				<a href="javascript:;" class="see-genjin">查看跟进</a>
+	                    				<a href="javascript:;" class="conversion">状态转换</a>
+	                    				<a href="javascript:;" class="collect">取消收藏</a>
+	                    			</p>
+	                    		</td>
+	                    	</tr>
+	                    </tbody>
+	                </table>
+				</div>
+		</div>
+		<!--模糊提示-->
+		<div id="message" style="">
+			<ul>
+				<li>111</li>
+				<li>222</li>
+				<li>333</li>
+				<li>444</li>
+			</ul>
+		</div>
+		<script src="../../../plugins/jquery.min.js"></script>
+		<script src="../../../plugins/bootstrap.min.js"></script>
+		<!--复选框样式-->
+		<script src="../../../plugins/iCheck/icheck.min.js"></script>
+        <script type="text/javascript" src="../../../plugins/layui/layui.js"></script>
+        <script src="../../../js/common.js"></script>
+        <script type="text/javascript">
+        	/*联想模糊填充*/
+			$(".think").on('focus keyup',function(){
+				_this = $(this);
+				$("#message").css({"width":_this.innerWidth(),"left":_this.offset().left+1,"top":_this.offset().top+_this.innerHeight()+3}).show()
+			}).blur(function(){
+				$("#message").hide("fast")
+			})
+			//修改单选复选框样式
+			$(document).ready(function(){
+			  $('input').iCheck({
+			    checkboxClass: 'icheckbox_square-blue',
+			    radioClass: 'iradio_square-blue',
+			    increaseArea: '20%' // optional
+			  });
+			});
+			/*排序箭头的方向*/
+			var a = false;
+			$(".sort a").click(function(){
+				$(this).addClass('active').siblings().removeClass();
+				if(a){
+					console.log(1)
+					$(this).find('i').removeClass('fa-long-arrow-down').addClass('fa-long-arrow-up')
+					a = false
+				}else{
+						console.log(2)
+					$(this).find('i').removeClass('fa-long-arrow-up').addClass('fa-long-arrow-down')
+					a = true
+				}
+			})
+			/*操作的显示和隐藏*/
+			$("#table-content tr").hover(function(){
+				$(this).find('.operation').css('visibility','initial');
+			},function(){
+				$(this).find('.operation').css('visibility','hidden');
+			})
+		</script>
+	</body>
+</html>

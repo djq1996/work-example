@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>房源详情</title>
+		<link rel="stylesheet" href="../../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--复选样式-->
+		<link href="../../../plugins/iCheck/blue.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css" />
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid">
+				<iframe src="房源详情_head.html" style="border: 0;height: 180px;width: 100%;"></iframe>
+				<div class="tabs-container">
+                   <ul class="nav nav-tabs">
+                        <li>
+                        	<a  href="房源详情_基本信息.html" >基本信息</a>
+                        </li>
+                        <li>
+                        	<a  href="房源详情_查看跟进.html">查看跟进</a>
+                        </li>
+                         <li >
+                         	<a  href="房源详情_电话痕迹.html" >电话痕迹</a>
+                        </li>
+                         <li>
+                         	<a  href="房源详情_历史成交.html">历史成交</a>
+                        </li>
+                         <li  class="active">
+                         	<a  href="房源详情_转换记录.html">转换记录</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane active">
+                        	
+                        </div>
+                        <div id="tab-2" class="tab-pane">
+                            <div class="panel-body">
+                            	
+                            </div>
+                        </div>
+                        <div id="tab-3" class="tab-pane">
+                            <div class="panel-body">
+                            	
+                            </div>
+                        </div>
+                        <div id="tab-4" class="tab-pane">
+                            <div class="panel-body">
+                            	
+                            </div>
+                        </div>
+                        <div id="tab-5" class="tab-pane active">
+                            <div class="panel-body">
+                            		<table class="table border m-t8" id="">
+				                    <thead>
+				                        <tr>
+				                            <th>内容</th>
+				                            <th>部门</th>
+				                            <th>人员</th>
+				                            <th>转换记录</th>
+				                        </tr>
+				                    </thead>
+				                    <tbody >
+				                    	<tr>
+				                    		<td>不售转出售</td>
+				                    		<td>西客站/A组</td>
+				                    		<td>王可可</td>
+				                    		<td>2017/6/20 15:44:46</td>
+				                    	</tr>
+				                    	<tr>
+				                    		<td>不售转出售</td>
+				                    		<td>西客站店/A店</td>
+				                    		<td>王可可</td>
+				                    		<td>2017/6/20 15:44:46</td>
+				                    	</tr>
+				                    	<tr>
+				                    		<td>不售转出售</td>
+				                    		<td>西客站店/A店</td>
+				                    		<td>王可可</td>
+				                    		<td>2017/6/20 15:44:46</td>
+				                    	</tr>
+				                    </tbody>
+				                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+		</div>
+		<script src="../../../plugins/jquery.min.js"></script>
+		<script src="../../../plugins/bootstrap.min.js"></script>
+		<!--复选框样式-->
+		<script src="../../../plugins/iCheck/icheck.min.js"></script>
+        <script type="text/javascript" src="../../../plugins/layui/layui.js"></script>
+        <script src="../../../js/common.js"></script>
+        <script type="text/javascript">
+			//修改单选复选框样式
+			$(document).ready(function(){
+			  $('input').iCheck({
+			    checkboxClass: 'icheckbox_square-blue',
+			    radioClass: 'iradio_square-blue',
+			    increaseArea: '20%' // optional
+			  });
+			});
+        </script>
+	</body>
+</html>

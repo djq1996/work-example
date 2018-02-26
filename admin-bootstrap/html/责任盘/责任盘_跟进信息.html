@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>查看详情_我的责任盘</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--树-->
+		<link rel="stylesheet" type="text/css" href="../../plugins/ztree/metroStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		<style type="text/css">
+		</style>
+	</head>
+
+	<body>
+			<div class="tabs-container m-t8">
+				<div class="tab-content">
+					<!--跟进信息-->						
+						<div class="panel-body">
+									<table class="table table-bordered m-t8">
+										<thead>
+											<tr>
+												<th>跟进人</th>
+												<th>所属门店</th>
+												<th>来源</th>
+												<th>操作时间</th>
+												<th>跟进内容</th>
+											</tr>
+										</thead>
+										<tbody id="content">
+											<tr>
+												<td>王娜</td>
+												<td></td>
+												<td>责任盘</td>
+												<td>2017/03/27 12：23：33</td>
+												<td>业主没在家</td>
+											</tr>
+											<tr>
+												<td>王娜</td>
+												<td></td>
+												<td>责任盘</td>
+												<td>2017/03/27 12：23：33</td>
+												<td>业主没在家</td>
+											</tr>
+											<tr>
+												<td>王娜</td>
+												<td></td>
+												<td>责任盘</td>
+												<td>2017/03/27 12：23：33</td>
+												<td>业主没在家</td>
+											</tr>
+										</tbody>
+									</table>
+							</div>
+						</div>
+			</div>
+		<!--跟进box-->
+		<div class="genjinBox" style="display: none;padding: 10px 20px;">
+			<form class="pd-t10">
+				<div class="form-inline">
+					<div class="form-group">
+						<label class="w100 text-right" >本号接通状态：</label>
+						<label><input type="radio" name="a"  value="" /> 正常</label> 
+						<label><input type="radio" name="a"  value="" /> 电话错误</label> 
+						<label><input type="radio" name="a"  value="" /> 无法接通	</label> 
+						<label><input type="radio" name="a"  value="" /> 关机</label> 
+						<label><input type="radio" name="a"  value="" /> 停机</label> 
+						<label><input type="radio" name="a"  value="1" /> 空号</label>
+					</div>
+				</div>
+				<div class="form-inline pd-t10">
+					<div class="form-group">
+						<label class="w100 text-right" style="vertical-align: top;" >跟进内容：</label>
+						<textarea name="" class="form-control w400 d-i-b" rows="5"></textarea>
+					</div>
+				</div>
+				<div class="mar-l150 m-t8">
+					<button type="button" class="btn btn-primary w100">提交保存</button>
+				</div>
+			</form>
+		</div>
+		<!--屏蔽-->
+		<div class="pingbiBox"  style="display: none;padding: 10px 20px;">
+			<form class="pd-t10 ">
+				<div class="form-inline">
+					<div class="form-group">
+						<label class="w100 text-right" style="vertical-align: top;" >屏蔽原因：</label>
+						<textarea name="" class="form-control w400 d-i-b" rows="5"></textarea>
+					</div>
+				</div>
+				<div class="mar-l150 m-t8">
+					<button type="button" class="btn btn-primary w100">提交保存</button>
+					<button type="button" class="btn btn-primary w100 closeUp">返回</button>
+				</div>
+			</form>
+		</div>
+		<!--js-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			layui.use(['form', 'laydate', 'element', 'layer'], function() {
+				var $ = layui.jquery,
+					laydate = layui.laydate,
+					element = layui.element(),
+					//					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象	
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+
+				//				$("#content").on('click', '.detal', function() {
+				//					addTab('', '', '公司责任盘')
+				//				})
+
+				//					laydate({
+				//					  elem: '#HomeDate',
+				//					  format: 'YYYY/MM', // 分隔符可以任意定义，该例子表示只显示年月
+				//					  festival: true, //显示节日
+				//					  choose: function(datas){ //选择日期完毕的回调
+				//					    alert('得到：'+datas);
+				//					  }
+				//					});
+
+				//结尾符
+			});
+			/*跟进*/
+			$("#contact").on("click",".genjin",function(){
+				layerContent("跟进",$(".genjinBox"),600,300)
+			});
+			/*屏蔽*/
+			$("#contact").on("click",".pingbi",function(){
+				layerContent("屏蔽",$(".pingbiBox"),600,300)
+			})
+			/*删除*/
+			$("#contact").on("click",".remove",function(){
+				layer.confirm('are you sure？', {
+//						 skin: 'layui-layer-lan', //样式类名
+				}, function(){
+				  $(this).parent().parent().remove();
+				  layer.msg('success', {icon: 1});
+				}, function(){
+				  layer.msg('你怂了', {
+				    time: 1000 //20s后自动关闭
+				  });
+				});
+			})
+			/*添加联系人*/
+			$("#contact").on("click",".addContact",function(){
+				$("#contact").append('<div class="form-inline clearfix">'+
+									'<div class="form-group">'+
+										'<label class=" text-right w100">联系人：</label>'+
+										'<input type="text" class="form-control w100" name=""  value="" />'+
+									'</div>'+
+									'<div class="form-group">'+
+										'<label class=" text-right w50">电话：</label>'+
+										'<input type="text" class="form-control w120" name=""  value="" />'+
+									'</div>'+
+									'<div class="form-group">'+
+										'<label class=" text-right w50">性别：</label>'+
+										'<label><input type="radio" class="form-control" name="a"  value="" /> 男</label>&nbsp;'+
+										'<label><input type="radio" class="form-control" name="a"  value="" /> 女</label>'+
+									'</div>'+
+									'<div class="form-group">'+
+									 	'<label class=" text-right w120">与产权人关系：</label>'+
+									 	'<label><input type="radio" class="form-control" name="b"  value="" /> 产权人</label>'+
+									 	'<label><input type="radio" class="form-control" name="b"  value="" /> 共有权人</label>'+
+									 	'<label><input type="radio" class="form-control" name="b"  value="" /> 决策人</label>'+
+									 	'<label><input type="radio" class="form-control" name="b"  value="" /> 看房联系</label>'+
+									 	'<label><input type="radio" class="form-control" name="b"  value="" /> 其他</label>'+
+									 	'<input type="text" class="form-control w100" name=""  value="" />'+
+								    '</div>'+
+									'<button type="button" class="btn btn-primary btn-sm save" style="margin: 3px 0 0 10px ;">保存</button>'+
+								'</div>'
+								)
+			})
+		</script>
+	</body>
+
+</html>

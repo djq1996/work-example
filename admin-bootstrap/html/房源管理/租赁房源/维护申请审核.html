@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>维护申请审核</title>
+		<link rel="stylesheet" href="../../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css" />
+	</head>
+	<!---->
+
+	<body>
+
+		<div class="container-fluid">
+			<ul class="nav-list">
+				<li class="active">
+					<a href="维护申请审核.html">维护申请审核</a>
+				</li>
+				<li >
+					<a href="实勘审核.html">实勘审核</a>
+				</li>
+				<li>
+					<a href="独家审核.html">独家审核</a>
+				</li>
+				<li>
+					<a href="钥匙审核.html">钥匙审核</a>
+				</li>
+				<li>
+					<a href="转换审核.html">转换审核</a>
+				</li>
+				<li>
+					<a href="授权审核.html">授权审核</a>
+				</li>
+				<li>
+					<a href="限时委托审核.html">限时委托审核</a>
+				</li>
+			</ul>
+			<form class="form-inline pd-t10">
+				<div class="form-group">
+					<label class="sr-only">楼盘名称</label>
+					<input type="text" class="form-control think w300" id="" placeholder="楼盘名称" autocomplete="off">
+				</div>
+				<div class="form-group">
+					<label class="sr-only">坐落</label>
+					<input type="text" class="form-control w100 think" id="" placeholder="坐落" autocomplete="off">
+				</div>
+				<div class="form-group">
+					<label class="sr-only">单元</label>
+					<input type="text" class="form-control w100 think" id="" placeholder="单元" autocomplete="off">
+				</div>
+				<div class="form-group">
+					<label class="sr-only">房间号</label>
+					<input type="text" class="form-control w120 think" id="" placeholder="房间号" autocomplete="off">
+				</div>
+				<button type="button" class="btn btn-default">搜索</button>
+				<select name="" class="form-control">
+					<option value="">全部时间</option>
+					<option value="">最近三天</option>
+					<option value="">最近七天</option>
+					<option value="">最近半个月</option>
+					<option value="">最近一个月</option>
+					<option value="">最近半年</option>
+				</select>
+			</form>
+			<div class="tabs-container">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a data-toggle="tab" href="#tab-1" aria-expanded="true"> 未处理</a>
+					</li>
+					<li>
+						<a data-toggle="tab" href="#tab-2" aria-expanded="false">已处理</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div id="tab-1" class="tab-pane active">
+						<div class="panel-body">
+							<table class="table table-bordered m-t8" id="Exclusive_audit">
+								<thead>
+									<tr>
+										<th>楼盘名称</th>
+										<th>坐落</th>
+										<th>单元</th>
+										<th>房号</th>
+										<th>提交人</th>
+										<th>操作时间</th>
+										<th>状态</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="content">
+									<tr>
+										<td><a href="房源详情.html">贵园南里</a></td>
+										<td>一号楼</td>
+										<td>一单元</td>
+										<td>1003</td>
+										<td>王娜</td>
+										<td>2017/6/21 16:43:05</td>
+										<td>未处理</td>
+										<td>
+											<a href="javascript:;" class="shenhe">审核</a>
+										</td>
+									</tr>
+									<tr>
+										<td><a href="房源详情.html">贵园南里</a></td>
+										<td>一号楼</td>
+										<td>一单元</td>
+										<td>1003</td>
+										<td>王娜</td>
+										<td>2017/6/21 16:43:05</td>
+										<td>未处理</td>
+										<td>
+											<a href="javascript:;" class="shenhe">审核</a>
+										</td>
+									</tr>
+									<tr>
+										<td><a href="房源详情.html">贵园南里</a></td>
+										<td>一号楼</td>
+										<td>一单元</td>
+										<td>1003</td>
+										<td>王娜</td>
+										<td>2017/6/21 16:43:05</td>
+										<td>未处理</td>
+										<td>
+											<a href="javascript:;" class="shenhe">审核</a>
+										</td>
+									</tr>
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div id="tab-2" class="tab-pane">
+						<div class="panel-body">
+							<table class="table table-bordered m-t8">
+								<thead>
+									<tr>
+										<th>楼盘名称</th>
+										<th>坐落</th>
+										<th>单元</th>
+										<th>房号</th>
+										<th>提交人</th>
+										<th>申请类型</th>
+										<th>操作时间</th>
+										<th>状态</th>
+										<th>审批意见</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="content">
+									<tr>
+										<td><a href="房源详情.html">贵园南里</a></td>
+										<td>一号楼</td>
+										<td>一单元</td>
+										<td>1003</td>
+										<td>王娜</td>
+										<td>新增</td>
+										<td>2017/6/20 18:07:46</td>
+										<td>通过</td>
+										<td>哈哈哈哈哈哈哈</td>
+										<td>
+											<a href="javascript:;">取消</a>
+										</td>
+									</tr>
+									<tr>
+										<td><a href="房源详情.html">贵园南里</a></td>
+										<td>一号楼</td>
+										<td>一单元</td>
+										<td>1003</td>
+										<td>王娜</td>
+										<td>新增</td>
+										<td>2017/6/20 18:07:46</td>
+										<td>未处理</td>
+										<td>哈哈哈哈哈哈哈</td>
+										<td>
+											<a href="javascript:;">取消</a>
+										</td>
+									</tr>
+									<tr>
+										<td><a href="房源详情.html">贵园南里</a></td>
+										<td>一号楼</td>
+										<td>一单元</td>
+										<td>1003</td>
+										<td>王娜</td>
+										<td>新增</td>
+										<td>2017/6/20 18:07:46</td>
+										<td>未处理</td>
+										<td>哈哈哈哈哈哈哈</td>
+										<td>
+											<a href="javascript:;">取消</a>
+										</td>
+									</tr>
+									<tr>
+										<td><a href="房源详情.html">贵园南里</a></td>
+										<td>一号楼</td>
+										<td>一单元</td>
+										<td>1003</td>
+										<td>王娜</td>
+										<td>新增</td>
+										<td>2017/6/20 18:07:46</td>
+										<td>未处理</td>
+										<td>哈哈哈哈哈哈哈</td>
+										<td>
+											<a href="javascript:;">取消</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="pd-t10">
+
+			</div>
+
+		</div>
+		<!--模糊提示-->
+		<div id="message" style="">
+			<ul>
+				<li name="djq">111</li>
+				<li>222</li>
+				<li>333</li>
+				<li>444</li>
+			</ul>
+		</div>
+		<!--js-->
+		<script src="../../../plugins/jquery.min.js"></script>
+		<script src="../../../plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../../plugins/layui/layui.js"></script>
+		<script src="../../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			/*联想模糊填充*/
+			$(".think").on('focus keyup', function() {
+				_this = $(this);
+				$("#message").css({
+					"width": _this.innerWidth(),
+					"left": _this.offset().left + 1,
+					"top": _this.offset().top + _this.innerHeight() + 3
+				}).show()
+			}).blur(function() {
+				$("#message").hide("fast")
+			});
+			/*审批*/
+			$("#Exclusive_audit").on('click','.shenhe',function(){
+				layerContent('审核','审批页面.html',600,300,2)
+			});
+			/*查看*/
+			$("#Exclusive_audit").on('click','.see',function(){
+					parent.layer.open({
+							  type: 2,
+							  title:false,
+							  skin: 'layui-layer-lan', //样式类名
+							  anim: 2,
+							  offset:['20px'],
+							//shade: 0.8,
+							  area: ['90%','550px'],
+							  shadeClose: true, //开启遮罩关闭
+							  content: 'html/房源管理/banner.html',
+							  closeBtn:1
+						});
+//				layerContent('首图','banner.html',1000,600,2)
+			})
+		</script>
+	</body>
+
+</html>

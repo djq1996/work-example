@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>电话屏蔽管理</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--树-->
+		<link rel="stylesheet" type="text/css" href="../../plugins/ztree/metroStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<form class="form-inline pd-t10">
+				<div class="form-group">
+					<label class="sr-only" >楼盘名称</label>
+					<input type="text"  class="form-control think w300" id="" placeholder="楼盘名称" autocomplete="off">
+				</div>
+				<div class="form-group">
+					<label class="sr-only" >坐落</label>
+					<input type="text" class="form-control w100 think" id="" placeholder="坐落" autocomplete="off">
+				</div>
+				<div class="form-group">
+					<label class="sr-only" >单元</label>
+					<input type="text" class="form-control w100 think" id="" placeholder="单元" autocomplete="off">
+				</div>
+				<div class="form-group">
+					<label class="sr-only" >房间号</label>
+					<input type="text" class="form-control w120 think" id="" placeholder="房间号" autocomplete="off">
+				</div>
+				<button type="button" class="btn btn-primary">搜索</button>
+			</form>
+			<div class="tabs-container">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"> 未处理</a>
+                    </li>
+                    <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false">已处理</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body">
+								<table class="table table-bordered m-t8">
+									<thead>
+										<tr>
+											<th>楼盘名称</th>
+											<th>坐落</th>
+											<th>单元</th>
+											<th>房间号</th>
+											<th>申请人</th>
+											<th>操作时间</th>
+											<th>原因</th>
+											<th>状态</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody id="content">
+										<tr>
+											<td>像素小区</td>
+											<td>北区</td>
+											<td>八号楼</td>
+											<td>401</td>
+											<td>张梅</td>
+											<td>2017/6/15/ 17:19:22</td>
+											<td></td>
+											<td>未处理</td>
+											<td><a href="javascript:;">审核</a></td>
+										</tr>
+										<tr>
+											<td>像素小区</td>
+											<td>北区</td>
+											<td>八号楼</td>
+											<td>401</td>
+											<td>张梅</td>
+											<td>2017/6/15/ 17:19:22</td>
+											<td></td>
+											<td>未处理</td>
+											<td><a href="javascript:;">审核</a></td>
+										</tr>
+										<tr>
+											<td>像素小区</td>
+											<td>北区</td>
+											<td>八号楼</td>
+											<td>401</td>
+											<td>张梅</td>
+											<td>2017/6/15/ 17:19:22</td>
+											<td></td>
+											<td>未处理</td>
+											<td><a href="javascript:;">审核</a></td>
+										</tr>
+										<tr>
+											<td>像素小区</td>
+											<td>北区</td>
+											<td>八号楼</td>
+											<td>401</td>
+											<td>张梅</td>
+											<td>2017/6/15/ 17:19:22</td>
+											<td></td>
+											<td>未处理</td>
+											<td><a href="javascript:;">审核</a></td>
+										</tr>
+									</tbody>
+								</table>
+                        </div>
+                    </div>
+                    <div id="tab-2" class="tab-pane">
+                        <div class="panel-body">
+                        	<table class="table table-bordered  m-t8">
+									<thead>
+										<tr>
+											<th>楼盘名称</th>
+											<th>坐落</th>
+											<th>单元</th>
+											<th>房间号</th>
+											<th>申请人</th>
+											<th>操作时间</th>
+											<th>原因</th>
+											<th>状态</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody id="contents">
+										<tr>
+											<td>像素小区</td>
+											<td>北区</td>
+											<td>八号楼</td>
+											<td>401</td>
+											<td>张梅</td>
+											<td>2017/6/15/ 17:19:22</td>
+											<td></td>
+											<td>已处理</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>像素小区</td>
+											<td>北区</td>
+											<td>八号楼</td>
+											<td>401</td>
+											<td>张梅</td>
+											<td>2017/6/15/ 17:19:22</td>
+											<td></td>
+											<td>已处理</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>像素小区</td>
+											<td>北区</td>
+											<td>八号楼</td>
+											<td>401</td>
+											<td>张梅</td>
+											<td>2017/6/15/ 17:19:22</td>
+											<td></td>
+											<td>已处理</td>
+											<td></td>
+										</tr>
+										
+										
+										
+									</tbody>
+								</table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+			
+		</div>
+		<!--js-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+
+
+			layui.use(['form','laypage'], function() {
+				var $ = layui.jquery,
+				    laypage = layui.laypage,
+					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+				  var timer = null;
+//				$("#content").on('mouseenter','.detail',function(){
+//					clearTimeout(timer)
+//					timer = setTimeout(function(){
+//						layer.open({
+//							  type: 1,
+//							  skin: 'layui-layer-demo', //样式类名
+//							  closeBtn: 0, //不显示关闭按钮
+//							  anim: 2,
+//							  shadeClose: true, //开启遮罩关闭
+//							  area:['300px','200px'],
+//							  content: '<div style="padding:20px">这里写页面内容</div>'
+//							});
+//					},2000)
+//						
+//				})
+//				$("#content").on('mouseleave','.detail',function(){
+//					clearTimeout(timer)
+//				})
+				
+				//结尾符
+			});
+			
+		</script>
+	</body>
+
+</html>

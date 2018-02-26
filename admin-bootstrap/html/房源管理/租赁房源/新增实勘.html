@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>新增实勘</title>
+		<link rel="stylesheet" href="../../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--复选样式-->
+		<link href="../../../plugins/iCheck/blue.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css" />
+		<style type="text/css">
+			.imgBox{
+				
+				padding:5px 15px;
+				background: #DDDDDD;
+			}
+			.imgBox-list{
+				display: inline-block;
+			}
+			.imgBox-list img{
+				width:160px;
+				display: block;
+				margin-bottom: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid">
+				<p>1.可上传【10】张图片，每张小于10M，建议尺寸大于400x300像素，最佳尺寸为500*375像素。</p>
+				<p>2. 增加勘察归属人必须先上传照片</p>
+				<p>
+					<button type="button" class="btn btn-primary">上传图片</button>
+				</p>
+				<div class="pd-t10 imgBox">
+					<div class="imgBox-list">
+						<img src="" onerror="this.onerror=null; this.src='../../../images/photo.png'"/>
+						<p>
+							<select name="" class="form-control w100 d-i-b">
+								<option value="">客厅</option>
+								<option value="">卧室</option>
+								<option value="">厨房</option>
+							</select>
+							<input type="checkbox" name="" id="" value=""/><label for="">首图</label>
+						</p>
+					</div>
+					<div class="imgBox-list">
+						<img src="" onerror="this.onerror=null; this.src='../../../images/photo.png'"/>
+						<p>
+							<select name="" class="form-control w100 d-i-b">
+								<option value="">客厅</option>
+								<option value="">卧室</option>
+								<option value="">厨房</option>
+							</select>
+							<input type="checkbox" name="" id="" value=""/><label for="">首图</label>
+						</p>
+					</div>
+				</div>
+				<div class="navbar-fixed-bottom m-b8">
+						<button type="button" class="btn btn-primary ">提交保存</button><button type="button" class="btn btn-primary ">取消</button>
+				</div>
+		</div>
+		<script src="../../../plugins/jquery.min.js"></script>
+		<script src="../../../plugins/bootstrap.min.js"></script>
+		<!--复选框样式-->
+		<script src="../../../plugins/iCheck/icheck.min.js"></script>
+        <script type="text/javascript" src="../../../plugins/layui/layui.js"></script>
+        <script src="../../../js/common.js"></script>
+        <script type="text/javascript">
+			//修改单选复选框样式
+			$(document).ready(function(){
+			  $('input').iCheck({
+			    checkboxClass: 'icheckbox_square-blue',
+			    radioClass: 'iradio_square-blue',
+			    increaseArea: '20%' // optional
+			  });
+			});
+			/*跟进方式*/
+			$('input[name=a]').on('ifChecked', function(event){
+				 	if($(this).val() == '1'){
+				 		$('.text-detail').show()
+				 	}else{
+				 		$('.text-detail').hide()
+				 	}
+			});
+        </script>
+	</body>
+</html>

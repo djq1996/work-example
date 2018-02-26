@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>房源详情-head</title>
+		<link rel="stylesheet" href="../../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--复选样式-->
+		<link href="../../../plugins/iCheck/blue.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css" />
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid" style="padding: 0;">
+				<div class="clearfix border m-t8" style="padding: 20px;">
+					<div class="home-img pull-left"><img src="../../../images/photo.png"/><span><i class="fa file-image-o"></i>2张</span></div>
+					<div class="home-detail pull-left">
+						<h4><a href="javascript:;">贵园小区南里&nbsp;1栋/一单元/302</a> <i>3/12层</i></h4>
+						<p>3室2厅1卫2阳台 | 正南 |精装 200万|0.99万</p>
+						<p>
+							<span><i class="btn-primary"> # </i>100000100</span>
+							<span class="img_25">
+								<img src="../../../images/yaoshi.png"/>
+								<img src="../../../images/dujia.png"/>
+								<img src="../../../images/kan.png" style="width: 29px;"/>
+								<img src="../../../images/shumwt.png"/>
+								<img src="../../../images/timewt.png"/>
+							</span>
+						</p>
+						<button type="button" class="btn btn-primary w120 see-detail-phone">查看电话</button>
+					</div>
+					<div class="home-money pull-left">
+						<h3>360万<i>1.97万/㎡</i></h3>
+					</div>
+				</div>
+		</div>
+		<script src="../../../plugins/jquery.min.js"></script>
+		<script src="../../../plugins/bootstrap.min.js"></script>
+		<!--复选框样式-->
+        <script type="text/javascript" src="../../../plugins/layui/layui.js"></script>
+        <script src="../../../js/common.js"></script>
+        <script type="text/javascript">
+			/*查看电话*/
+			$(".see-detail-phone").click(function(){
+				addTab('html/房源管理/查看电话.html','','查看电话')
+			})
+        </script>
+	</body>
+</html>

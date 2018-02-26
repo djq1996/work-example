@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>公司维护盘划分</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--树-->
+		<link rel="stylesheet" type="text/css" href="../../plugins/ztree/metroStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css"/>
+		<style type="text/css">
+		</style>
+	</head>
+
+	<body>
+		 <div class="container-fluid">
+		 	<div class="row pd-t10">
+				<div class="col-md-3" >
+					<div id="tree-menu" class="ztree border" style="min-height: 500px;">
+						<!--左侧树-->
+					</div>
+				</div>
+				<div class="col-md-9 pd-t10 border" style="min-height: 500px;">
+					<form class="form-inline">
+					  <div class="form-group">
+					    <label class="sr-only" for="exampleInputtext3">楼盘名称</label>
+					    <input type="text" class="form-control w300 think" id="exampleInputtext3" placeholder="楼盘名称" autocomplete="off">
+					  </div>
+					  <button type="submit" class="btn btn-primary">搜索</button>
+					</form>
+					<div class="pd-t10">
+							<table class="table table-bordered" >
+								<thead>
+									<tr>
+										<th>楼盘分期名称</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="content">
+									<tr>
+										<td>扑满山A</td>
+										<td>
+											<a href="javascript:;"  class="distribution">分配</a>
+										</td>
+									</tr>
+									<tr>
+										<td>扑满山B</td>
+										<td>
+											<a href="javascript:;"  >取消分配</a>
+										</td>
+									</tr>
+									<tr>
+										<td>扑满山C</td>
+										<td>
+											<a href="javascript:;"  class="distribution">分配</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+					</div>
+				</div>
+		 </div>
+		<div class="admin-main" id="body">
+			
+			</div>
+			
+			<div class="admin-table-page">
+				<div id="pageId" class="page">
+				</div>
+			</div>
+		</div>
+		<!--模糊提示-->
+		<div id="message" style="">
+			<ul>
+				<li>111</li>
+				<li>222</li>
+				<li>333</li>
+				<li>444</li>
+			</ul>
+		</div>
+		<!--js-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<!--公用的js-->
+		<script src="../../js/common.js"></script>
+		<!--树-->
+		<script src="../../plugins/ztree/jquery.ztree.core.min.js"></script>
+		<!--layui-->
+		<script type="text/javascript">
+			/*联想模糊填充*/
+			$(".think").on('focus keyup',function(){
+				_this = $(this);
+				$("#message").css({"width":_this.innerWidth(),"left":_this.offset().left+1,"top":_this.offset().top+_this.innerHeight()+3}).show()
+			}).blur(function(){
+				$("#message").hide("fast")
+			})
+			/*layui*/
+			layui.use(['layer', 'form','element'], function() {
+				var $ = layui.jquery,
+					element = layui.element(),
+					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+			})			
+				/*左栏的ztree*/
+				var setting = {
+					view: {
+						addDiyDom: addDiyDom,
+						//					removeHoverDom: removeHoverDom,
+						//					selectedMulti: false,
+						showLine: true //是否显示线
+					},
+					edit: {
+						//					enable: true, //是否可以编辑
+						//					editNameSelectAll: true,
+						//					showRemoveBtn: showRemoveBtn,
+						//					removeTitle :'删除',
+						//					showRenameBtn: showRenameBtn,
+						//					renameTitle : '修改'
+					},
+					data: {
+						simpleData: {
+							enable: true //是否采用简单数据模式 (Array)
+							//不需要用户再把数据库中取出的 List 强行转换为复杂的 JSON 嵌套格式
+						}
+					},
+					callback: {
+						//					beforeDrag: beforeDrag, //是否允许拖拽
+						//					beforeEditName: beforeEditName, //是否可以编辑名称
+						//					beforeRemove: beforeRemove, //是否删除
+						//					beforeRename: beforeRename, //结束编辑后根据返回值决定是否可以编辑
+						//					onRemove: onRemove, //删除之后的回调
+						//					onRename: onRename //编辑名称之后的回调
+					}
+				};
+				
+				var arr = [{
+							name: "北京公司",
+							open: true,
+							type: 'zl',
+							 nocheck:true,
+							children:[{name:'天通苑区',open:true,children:[{
+								name:'门店A'
+							},{
+								name:'门店B'
+							},{
+								name:'门店C'
+							}]},{name:'西站区'},{name:'右安门区'}]
+						}];
+				var log, className = "dark";
+				//添加修改删除按钮
+				function addDiyDom(treeId, treeNode) {
+				};
+				
+				$(document).ready(function() {
+					$.fn.zTree.init($("#tree-menu"), setting, arr);
+				});
+				/*分配不分配*/
+				$("#content").on('click','.distribution',function(){
+					layer.confirm('确认为无效？', {
+//						 skin: 'layui-layer-lan', //样式类名
+						}, function(){
+						  layer.msg('操作成功', {icon: 1});
+						}, function(){
+						  layer.msg('你怂了', {
+						    time: 20000, //20s后自动关闭
+						    btn: ['是', '不是']
+						  });
+						});
+				})
+				
+
+		</script>
+	</body>
+
+</html>

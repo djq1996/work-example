@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>修改房源(申请维护)</title>
+		<link rel="stylesheet" href="../../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--复选样式-->
+		<link href="../../../plugins/iCheck/blue.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css" />
+	</head>
+	<body>
+		<div class="container-fluid skin-square">
+				<div class="form-inline pd-t10">
+					<div class="form-group">
+						<label class="" >房源来源：</label>
+						<select name="" class="form-control">
+							<option value="">请选择</option>
+							<option value="">公司分配</option>
+							<option value="">上门</option>
+							<option value="">自找</option>
+							<option value="">...</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="w100 text-right" >所属业态：</label>
+						<p class="form-control-static">住宅</p>
+					</div>
+					<div class="form-group">
+						<label class="" >房源用途：</label>
+						<select name="" class="form-control">
+							<option value="">请选择</option>
+							<option value="">住宅</option>
+							<option value="">商业</option>
+							<option value="">写字楼</option>
+							<option value="">...</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="" >住宅类别：</label>
+						<select name="" class="form-control">
+							<option value="">请选择</option>
+							<option value="">高层</option>
+							<option value="">洋房</option>
+							<option value="">别墅</option>
+						</select>
+						<select name="" class="form-control">
+							<option value="">请选择</option>
+							<option value="">联排</option>
+							<option value="">独栋</option>
+						</select>
+					</div>
+				</div>
+				<div id="" class="pd-t10">
+					<h4 class="bg-primary" style="padding: 15px 20px;margin: 0;">房源基本信息</h4>
+				</div>
+				<!--main-->
+				<div class="border" style="padding: 10px 15px;">
+					<div class="form-inline">
+						<div class="form-group">
+							<label class="w100 text-right" >建筑面积：</label>
+							<input type="text"  class="form-control w100" id="" placeholder="">
+							<span>㎡</span>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >套内面积：</label>
+							<input type="text"  class="form-control w100" id="" placeholder="">
+							<span>㎡</span>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >得房率：</label>
+							<span class=""></span>
+							<span>%</span>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >赠送面积：</label>
+							<input type="text"  class="form-control w100" id="" placeholder="">
+							<span>㎡</span>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >楼层：</label>
+							<input type="text"  class="form-control w100" id="" placeholder="">
+						</div>
+					</div>
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w100 text-right" >朝向 - 居室：</label>
+							<input type="text"  class="form-control w50" id="" placeholder="" value="2">
+							<span>室</span>
+							<input type="text"  class="form-control w50" id="" placeholder="" value="1">
+							<span>厅</span>
+							<input type="text"  class="form-control w50" id="" placeholder="" value="1">
+							<span>卫</span>
+							<input type="text"  class="form-control w50" id="" placeholder="" value="1">
+							<span>阳台</span>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >朝向：</label>
+							<select name="" class="form-control">
+								<option value="">请选择</option>
+								<option value="">东</option>
+								<option value="">西</option>
+								<option value="">南</option>
+								<option value="">北</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >格局变动：</label>
+							<select name="" class="form-control">
+								<option value="">否</option>
+								<option value="">是</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w100 text-right" >装修保养：</label>
+							<select name="" class="form-control">
+								<option value="">请选择</option>
+								<option value="">毛坯</option>
+								<option value="">简装</option>
+								<option value="">精装</option>
+								<option value="">豪装</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >居住现状：</label>
+							<select name="aa" class="form-control">
+								<option value="">请选择</option>
+								<option value="">自住</option>
+								<option value="">有闲客</option>
+								<option value="">闲置</option>
+								<option value="0">其他</option>
+							</select>
+							<input type="text"  class="form-control d-n" id="" placeholder="其他说明" value="">
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >看房方式：</label>
+							<select name="" class="form-control">
+								<option value="">请选择</option>
+								<option value="">我司钥匙</option>
+								<option value="">他司钥匙</option>
+								<option value="">业主自住</option>
+								<option value="">其他</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >物业钥匙：</label>
+							<label><input type="radio" name="" id="" value="" /> 是</label> /
+							<label><input type="radio" name="" id="" value="" checked=""/> 否</label>
+						</div>
+					</div>
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w100 text-right" >产权证编号：</label>
+							<input type="text" class="form-control w120" name="" id="" value="" />
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >房产证时间：</label>
+							<input type="text" class="form-control w120" name="" id="" value="" />
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >房屋权属：</label>
+							<select name="" class="form-control">
+								<option value="">请选择</option>
+								<option value="">全产权</option>
+								<option value="">按揭</option>
+								<option value="">抵制</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >产权性质：</label>
+							<select name="" class="form-control">
+								<option value="">请选择</option>
+								<option value="">自由产权</option>
+								<option value="">公司产权</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w100 text-right" >其他：</label>
+						</div>
+						<div class="form-group">
+							<label><input type="checkbox" name="a" id="" value="" />花园</label> 
+							<label><input type="checkbox" name="a" id="" value="" />露台</label> 
+							<label><input type="checkbox" name="a" id="" value="" />阁楼</label> 
+							<label><input type="checkbox" name="a" id="" value="" />地下室</label> 
+							<label><input type="radio" name="f" id="" value="" /> 上证</label> /
+							<label><input type="radio" name="f" id="" value="" checked=""/> 不上证	</label>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >梯户：</label>
+							<input type="text" class="form-control w50 " id="" value="" placeholder=""/>
+							<span>梯</span>
+							<input type="text" class="form-control w50 " id="" value="" placeholder=""/>
+							<span>户</span>
+						</div>
+					</div>
+				</div>
+				<div id="" class="pd-t10">
+					<h4 class="bg-primary" style="padding: 15px 20px;margin: 0;">出租信息</h4>
+				</div>
+				<!--main-->
+				<div class="border" style="padding: 10px 15px;">
+					<div class="form-inline">
+						<div class="form-group">
+							<label class="w100 text-right" >租金：</label>
+							<input type="text"  class="form-control w100" id="" placeholder="">
+							<span>元/月</span>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >付款方式：</label>
+							<select name="" class="form-control">
+								<option value="">数据字典配置</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w100 text-right" >家具：</label>
+							<label><input type="radio" name="v" id="" value="1" /> 带</label> /
+							<label><input type="radio" name="v" id="" value="" checked=""/> 不带</label>
+							<input type="text" class="form-control  d-n" id="" value="" placeholder="其他说明"/>
+						</div>
+						<div class="form-group">
+							<label class="w100 text-right" >家电：</label>
+							<label><input type="radio" name="j" id="" value="1" /> 带</label> /
+							<label><input type="radio" name="j" id="" value="" checked=""/> 不带</label>
+							<input type="text" class="form-control  d-n " id="" value="" placeholder="其他说明"/>
+						</div>
+						<div class="form-group">
+							<label class="w200 text-right" >是否带车位出租：</label>
+							<label><input type="radio" name="i" id="" value="1" /> 带</label> /
+							<label><input type="radio" name="i" id="" value="" checked=""/> 不带</label>
+							<input type="text" class="form-control  d-n" id="" value="" placeholder="其他说明"/>
+						</div>
+					</div>
+					<div class="form-inline pd-t10" style="margin-left: -20px;">
+						<div class="form-group">
+							<label class="w120 text-right" >水电费是否自付：</label>
+							<label><input type="radio" name="m" id="" value="" /> 是</label> /
+							<label><input type="radio" name="m" id="" value="" checked=""/> 否</label>
+						</div>
+						<div class="form-group">
+							<label class="w120 text-right" >燃气费是否自付：</label>
+							<label><input type="radio" name="n" id="" value="" /> 是</label> /
+							<label><input type="radio" name="n" id="" value="" checked=""/> 否</label>
+						</div>
+						<div class="form-group">
+							<label class="w120 text-right" >物业费是否自付：</label>
+							<label><input type="radio" name="k" id="" value="" /> 是</label> /
+							<label><input type="radio" name="k" id="" value="" checked=""/> 否</label>
+						</div>
+					</div>
+					<div class="form-inline pd-t10">
+						<div class="form-group">
+							<label class="w100 text-right" >出租优势：</label>
+							<textarea class="form-control" name="" rows="3" cols="100"></textarea>
+						</div>
+					</div>
+				</div>
+				<div style="padding: 10px 15px;">
+					<button type="button" class="btn btn-primary">提交保存</button>
+					<button type="button" class="btn btn-primary">提交并申请为维护人</button>
+				</div>
+		</div>
+		<!--模糊提示-->
+		<div id="message" style="">
+			<ul>
+				<li>111</li>
+				<li>222</li>
+				<li>333</li>
+				<li>444</li>
+			</ul>
+		</div>
+		<script src="../../../plugins/jquery.min.js"></script>
+		<script src="../../../plugins/bootstrap.min.js"></script>
+		<!--复选框样式-->
+		<script src="../../../plugins/iCheck/icheck.min.js"></script>
+        <script type="text/javascript" src="../../../plugins/layui/layui.js"></script>
+        <script src="../../../js/common.js"></script>
+        <script type="text/javascript">
+        	/*联想模糊填充*/
+			$(".think").on('focus keyup',function(){
+				_this = $(this);
+				$("#message").css({"width":_this.innerWidth(),"left":_this.offset().left+1,"top":_this.offset().top+_this.innerHeight()+3}).show()
+			}).blur(function(){
+				$("#message").hide("fast")
+			})
+			//修改单选复选框样式
+			$(document).ready(function(){
+			  $('input').iCheck({
+			    checkboxClass: 'icheckbox_square-blue',
+			    radioClass: 'iradio_square-blue',
+			    increaseArea: '20%' // optional
+			  });
+			}); 
+			/*花园 露台 阁楼 梯户 地下室 有无input框的显示与隐藏*/
+			function isDisplayNone(a){
+				$('input[name='+a+']').on('ifChecked', function(event){
+				 	if($(this).val() == '1'){
+				 		$(this).parents('label').siblings('input').show()
+				 	}else{
+				 		$(this).parents('label').siblings('input').hide()
+				 	}
+				});
+			}
+			isDisplayNone('v');
+			isDisplayNone('j');
+			
+			/*居住现状其他说明显示隐藏*/
+			$("select[name=aa]").on("change",function(){
+				if($(this).val() == '0'){
+					$(this).siblings('input').show()
+				}else{
+					$(this).siblings('input').hide()
+				}
+			})
+        </script>
+	</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>选房源</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--复选样式-->
+		<link href="../../plugins/iCheck/blue.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		
+	</head>
+	<body>
+		
+		<div class="container-fluid">
+				<form class="form-inline pd-t10">
+					<div class="form-group">
+						<label class="sr-only" for="exampleInputEmail3">楼盘名称</label>
+						<input type="email" list="browsers" class="form-control think w300" id="exampleInputEmail3" placeholder="楼盘名称">
+						<datalist id="browsers">
+						  <option value="Internet Explorer">
+						  <option value="Firefox">
+						  <option value="Chrome">
+						  <option value="Opera">
+						  <option value="Safari">
+						</datalist>
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="exampleInputEmail4">坐落</label>
+						<input type="email" class="form-control w100 think" id="exampleInputEmail4" placeholder="坐落">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="exampleInputEmail5">房源编号</label>
+						<input type="email" class="form-control w100 think" id="exampleInputEmail5" placeholder="房源编号">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="exampleInputEmail6">维护人</label>
+						<input type="email" class="form-control w120 think" id="exampleInputEmail6" placeholder="维护人">
+					</div>
+					<button type="button" class="btn btn-primary">搜索</button>
+					<div class="pd-t10">
+					<table class="table border" id="table-content">
+	                    <thead>
+	                        <tr>
+	                            <th>房源编号</th>
+	                            <th>楼盘</th>
+	                            <th>坐落</th>
+	                            <th>单元</th>
+	                            <th>房号</th>
+	                            <th>房型</th>
+	                            <th>面积（平米）</th>
+	                            <th>价格</th>
+	                            <th style="border-right: 1px solid #ddd;">维护人</th>
+	                        </tr>
+	                    </thead>
+	                    <tbody >
+	                    	<tr>
+	                    		<td>
+	                    			<label><input type="radio" name="" id="" value="" />1000000</label>
+	                    		</td>
+	                    		<td>贵园南里</td>
+	                    		<td>1栋</td>
+	                    		<td>1单元</td>
+	                    		<td>2068</td>
+	                    		<td>1-1-1-0</td>
+	                    		<td>52.32</td>
+	                    		<td>321万</td>
+	                    		<td>王明明</td>
+	                    	</tr>
+	                    </tbody>
+	                </table>
+				</div>
+				
+					<div class=" m-b8">
+						<button type="button" class="btn btn-primary center-block">提交保存</button>
+					</div>
+				</form>
+		</div>
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<!--复选框样式-->
+		<script src="../../plugins/iCheck/icheck.min.js"></script>
+        <script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+        <script src="../../js/common.js"></script>
+        <script type="text/javascript">
+			//修改单选复选框样式
+			$(document).ready(function(){
+			  $('input').iCheck({
+			    checkboxClass: 'icheckbox_square-blue',
+			    radioClass: 'iradio_square-blue',
+			    increaseArea: '20%' // optional
+			  });
+			});
+			
+        </script>
+	</body>
+</html>

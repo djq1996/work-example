@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>查看详情_我的责任盘</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--树-->
+		<link rel="stylesheet" type="text/css" href="../../plugins/ztree/metroStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		<style type="text/css">
+			.home-detail{
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="head_tip">
+				<!--<i>状态正常</i>-->
+				<h3>贵园小区南里 &nbsp;1栋/1单元/301 <i>状态正常</i></h3>
+				<p class="pd-t10">
+					<button type="button" class="btn btn-primary w100">转出租</button>
+					<button type="button" class="btn btn-primary w100">转出售</button>
+				</p>
+			</div>
+			<div class="tabs-container pd-t10">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a date-href="责任盘_基本信息.html"> 基本信息</a>
+					</li>
+					<li class="">
+						<a date-href="责任盘_业主信息.html">业主信息</a>
+					</li>
+					<li class="">
+						<a date-href="责任盘_电话信息.html">电话信息</a>
+					</li>
+					<li class="">
+						<a date-href="责任盘_原值电话信息.html">原值电话信息</a>
+					</li>
+					<li class="">
+						<a date-href="责任盘_跟进信息.html">跟进信息</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<!--基本-->
+					<div class="home-detail" style="display: block;">
+						<div class="form-inline clearfix">
+							<div class="form-group ">
+								<label class="w100  text-right">用途：</label>
+								<input type="text" class="form-control w120" placeholder="">
+							</div>
+							<div class="form-group ">
+								<label class="w120  text-right">所属业态：</label>
+								<input type="text" class="form-control w120" placeholder="">
+							</div>
+							<div class="form-group  ">
+								<label class="w120  text-right">住宅类别：</label>
+								<input type="text" class="form-control w120" placeholder="">
+							</div>
+							<div class="form-group ">
+								<label class="w120  text-right">居住现状：</label>
+								<input type="text" class="form-control w120" placeholder="">
+							</div>
+							<div class="form-group ">
+								<label class="w100  text-right">建筑面积：</label>
+								<input type="text" class="form-control w120" placeholder="">
+								<span>㎡</span>
+							</div>
+							<div class="form-group ">
+								<label class="w100  text-right">套内面积：</label>
+								<input type="text" class="form-control w120" placeholder="">
+								<span>㎡</span>
+							</div>
+							<div class="form-group ">
+								<label class="w100  text-right">得房率：</label>
+								<input type="text" class="form-control w120" placeholder="">
+								<span>%</span>
+							</div>
+							<div class="form-group ">
+								<label class="w100  text-right">赠送面积：</label>
+								<input type="text" class="form-control w120" placeholder="">
+								<span>㎡</span>
+							</div>
+		
+							<div class="form-group ">
+								<label class="w100  text-right">产权证编号：</label>
+								<input type="text" class="form-control w120" placeholder="">
+							</div>
+							<div class="form-group ">
+								<label class="w120  text-right">房产证时间：</label>
+								<input type="text" class="form-control w120" placeholder="">
+							</div>
+							<div class="form-group ">
+								<label class="w120  text-right">房屋权属：</label>
+								<input type="text" class="form-control w120" placeholder="">
+							</div>
+							<div class="form-group ">
+								<label class="w120  text-right">产权性质：</label>
+								<input type="text" class="form-control w120" placeholder="">
+							</div>
+							<div class="form-group ">
+								<label class="w100  text-right">学区：</label>
+								<input type="text" class="form-control w120" placeholder="">
+							</div>
+							<div class="form-group ">
+								<label class="w120  text-right">花园：</label>
+								<input type="text" class="form-control w120" placeholder="">
+							</div>
+							<div class="form-group ">
+								<label class="w120  text-right">地下室：</label>
+								<input type="text" class="form-control w120" placeholder="">
+							</div>
+							<div class="form-group ">
+								<label class="w120  text-right">梯户：</label>
+								<input type="text" class="form-control w120" placeholder="">
+							</div>
+							<div class="form-group ">
+								<label class="w100  text-right">阁楼：</label>
+								<input type="text" class="form-control w120" placeholder="">
+							</div>
+						</div>
+					</div>
+					<!--业主-->
+					<div class="home-detail">
+						<iframe id="home-detail" src="" style="border: 0;height: 1000px;width: 100%;"></iframe>
+					</div>
+					<!--电话-->
+					<div class="home-detail">
+						<iframe id="home-detail" src="" style="border: 0;height: 1000px;width: 100%;"></iframe>
+					</div>
+					<!--原值电话-->
+					<div class="home-detail">
+						<iframe id="home-detail" src="" style="border: 0;height: 1000px;width: 100%;"></iframe>
+					</div>
+					<!--跟进-->
+					<div class="home-detail">
+						<iframe id="home-detail" src="" style="border: 0;height: 1000px;width: 100%;"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--js-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			layui.use(['form', 'element', 'layer'], function() {
+				var $ = layui.jquery,
+					laydate = layui.laydate,
+					element = layui.element(),
+					//layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象	
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+
+				//结尾符
+			});
+			
+			/*动态切换iframe地址*/
+			$(".nav-tabs li").click(function(){
+				var _index = $(this).index();
+				$(this).addClass('active').siblings().removeClass('active');
+				if(_index !=0&&$(".home-detail").eq(_index).find("iframe").attr('src') ==''){
+					console.log('董建强')
+					$(".home-detail").eq(_index).find("iframe").prop('src',$(this).find('a').attr("date-href"))
+				}
+				
+				$(".home-detail").eq(_index).show().siblings().hide()
+				
+				
+			})
+			
+		</script>
+	</body>
+
+</html>

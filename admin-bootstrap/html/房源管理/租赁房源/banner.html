@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>banner 轮播</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="../../../plugins/swiper/css/swiper.css">
+	<!--  Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css" />
+    <!-- Demo styles -->
+    <style>
+    html,body{
+    	height: 100%;
+    }
+    .bg-box{
+    	/*display: none;*/
+    	position: relative;
+        height: 100%;
+        background: rgba(0,0,0,.8);
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .swiper-slide {
+        color: #fff;
+        position: relative;
+    }
+    .swiper-slide img{
+    	height: 100%;
+    	
+   	}
+   	 .swiper-slide p{
+   	 	position: absolute;
+   	 	bottom: 0;
+   	 	left:45%;
+   	 	font-size: 16px;
+   	 }
+    .gallery-top {
+        height: 80%;
+        width: 100%;
+    }
+    .gallery-thumbs {
+        height: 20%;
+        box-sizing: border-box;
+        padding: 10px 0;
+    }
+    .gallery-thumbs .swiper-slide {
+    	width: 100px;
+        height: 100%;
+        opacity: 0.4;
+        cursor: pointer;
+    }
+    .gallery-thumbs .swiper-slide-active {
+        opacity: 1;
+    }
+    
+    </style>
+</head>
+<body>
+    <!-- Swiper -->
+   <div class="bg-box">
+   		 <div class="swiper-container gallery-top">
+	        <div class="swiper-wrapper">
+	            <div class="swiper-slide" >
+	            	<p>卧室-首图</p>
+	            	<img class="center-block" src="http://lorempixel.com/1200/1200/nature/1"/>
+	            </div>
+	            <div class="swiper-slide" ><img class="center-block" src="http://lorempixel.com/1200/1200/nature/2"/></div>
+	        </div>
+	        <!-- Add Arrows -->
+	        <div class="swiper-button-next swiper-button-white"></div>
+	        <div class="swiper-button-prev swiper-button-white"></div>
+	    </div>
+	    <div class="swiper-container gallery-thumbs">
+	        <div class="swiper-wrapper">
+	        	<div class="swiper-slide" ><img class="center-block" src="http://lorempixel.com/1200/1200/nature/1"/></div>
+	            <div class="swiper-slide" ><img class="center-block" src="http://lorempixel.com/1200/1200/nature/2"/></div>
+	           
+	        </div>
+	    </div>
+   </div>
+
+    <!-- Swiper JS -->
+    <script src="../../../plugins/jquery.min.js"></script>
+    <script src="../../../plugins/swiper/js/swiper.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var galleryTop = new Swiper('.gallery-top', {
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 10,//间距
+        loop:true,//无限轮播
+        loopedSlides: 5, //looped slides should be the same     
+    });
+    var _length = $(".gallery-thumbs .swiper-slide").length;
+    _length > 6?_length = 6:_length =_length;
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+        spaceBetween: 10,//间距
+        slidesPerView: _length,//一栏显示slider个数
+        touchRatio: 0.2,//触摸距离与slide滑动距离的比率。
+        loop:true,
+        loopedSlides: 5, //looped slides should be the same
+        slideToClickedSlide: true//设置为true则点击slide会过渡到这个slide。居中
+    });
+    galleryTop.params.control = galleryThumbs;
+    galleryThumbs.params.control = galleryTop;
+    
+    </script>
+</body>
+</html>

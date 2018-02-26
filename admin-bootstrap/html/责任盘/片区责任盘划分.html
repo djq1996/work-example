@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>片区责任盘划分</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--树-->
+		<link rel="stylesheet" type="text/css" href="../../plugins/ztree/metroStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../plugins/iCheck/blue.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/page.css"/>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row pd-t10">
+				<div class="col-md-3">
+					<div id="tree-menu" class="ztree border" style="min-height: 500px;">
+						<!--左侧树-->
+					</div>
+				</div>
+				<div class="col-md-9  border" style="min-height: 500px;">
+					<div class="tabs-container">
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a data-toggle="tab" href="#tab-1" aria-expanded="true">未划分</a>
+							</li>
+							<li class="">
+								<a data-toggle="tab" href="#tab-2" aria-expanded="false">已划分</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div id="tab-1" class="tab-pane active">
+								<div class="panel-body">
+									<form class="form-inline">
+										<div class="form-group">
+											<label class="sr-only" for="exampleInputtext3">楼盘名称</label>
+											<input type="text" class="form-control w300 think" id="exampleInputtext3" placeholder="楼盘名称" autocomplete="off">
+											<input type="hidden" name="" id="" value="" />
+											<button type="button" class="btn btn-primary">搜索</button>
+											<button type="button" class="btn btn-primary">确定划分</button>
+										</div>
+									</form>
+									<div id="tree-page" class="ztree pd-t10" style="display: none;">
+
+									</div>
+									<div class="pd-t10" style="width: 98%;" >
+										<div class="clearfix buildingNames">
+											<h4 class="text-center" >楼盘坐落名称</h4>
+											<ul>
+												<li>
+													<input type="checkbox" name="" id="" value="" />
+													<span>锋尚二期16号楼 共600户</span>
+												</li>
+												<li>
+													<input type="checkbox" name="" id="" value="" />
+													<span>锋尚二期16号楼 共600户</span>
+												</li>
+												<li>
+													<input type="checkbox" name="" id="" value="" />
+													<span>锋尚二期16号楼 共600户</span>
+												</li>
+												<li>
+													<input type="checkbox" name="" id="" value="" />
+													<span>锋尚二期16号楼 共600户</span>
+												</li>
+												<li>
+													<input type="checkbox" name="" id="" value="" />
+													<span>锋尚二期16号楼 共600户</span>
+												</li>
+											</ul>
+										</div>
+										<div class="page">
+											<a href="" class="page-head">首页</a>
+											<a href="javascript:;" class="no">上一页</a>
+											<a href="javascript:;" class="page-on">1</a>
+											<a href="javascript:;" class="">2</a>
+											<a href="" class="num">下一页</a>
+											<span>总计2页</span>
+											<span>到第 <input type="text" style="width:50px;display: inline;" class="form-control input-sm"> 页</span>
+											<span>
+						                        <button type="button" class="btn btn-primary btn-sm">确定</button>
+						                    </span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="tab-2" class="tab-pane">
+								<div class="panel-body">
+									<form class="form-inline">
+										<div class="form-group">
+											<label class="sr-only" for="exampleInputtext3">楼盘名称</label>
+											<input type="text" class="form-control w300 thinks" id="exampleInputtext3" placeholder="楼盘名称" autocomplete="off">
+											<input type="hidden" name="" id="" value="" />
+											<button type="button" class="btn btn-primary">搜索</button>
+											<button type="button" class="btn btn-primary">取消划分</button>
+											<button type="button" class="btn btn-primary">清空已划分</button>
+										</div>
+									</form>
+									<div class="pd-t10" style="width: 98%;">
+										<table class="table table-bordered">
+											<thead>
+												<tr>
+													<th><input type="checkbox" name="all" id="" value="" /></th>
+													<th>楼盘分期名称</th>
+													<th>楼栋号</th>
+													<th>户数</th>
+													<th>所属门店</th>
+												</tr>
+											</thead>
+											<tbody id="content">
+												<tr>
+													<td><input type="checkbox" name="a" id="" value="" /></td>
+													<td>扑满山</td>
+													<td>1</td>
+													<td>1000</td>
+													<td>店1</td>
+												</tr>
+												<tr>
+													<td><input type="checkbox" name="a" id="" value="" /></td>
+													<td>扑满山</td>
+													<td>1</td>
+													<td>1000</td>
+													<td>店2</td>
+												</tr>
+												<tr>
+													<td><input type="checkbox" name="a" id="" value="" /></td>
+													<td>扑满山</td>
+													<td>1</td>
+													<td>1000</td>
+													<td>店3</td>
+												</tr>
+												<tr>
+													<td><input type="checkbox" name="a" id="" value="" /></td>
+													<td>扑满山</td>
+													<td>1</td>
+													<td>1000</td>
+													<td>店4</td>
+												</tr>
+
+											</tbody>
+										</table>
+										<div class="page">
+											<a href="" class="page-head">首页</a>
+											<a href="javascript:;" class="no">上一页</a>
+											<a href="javascript:;" class="page-on">1</a>
+											<a href="javascript:;" class="">2</a>
+											<a href="" class="num">下一页</a>
+											<span>总计2页</span>
+											<span>到第 <input type="text" style="width:50px;display: inline;" class="form-control input-sm"> 页</span>
+											<span>
+						                        <button type="button" class="btn btn-primary btn-sm">确定</button>
+						                    </span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--模糊提示-->
+		<div  class="message mohu" style="">
+			<ul>
+				<li data="a">111a</li>
+				<li data="b">222b</li>
+				<li data="c">333c</li>
+				<li data="d">444d</li>
+			</ul>
+		</div>
+		<div  class="message mohus" style="">
+			<ul>
+				<li data="1">111</li>
+				<li data="2">222</li>
+				<li data="3">333</li>
+				<li data="4">444</li>
+			</ul>
+		</div>
+		<!--js-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<!--公用的js-->
+		<script src="../../js/common.js"></script>
+		<!--树-->
+		<script src="../../plugins/ztree/jquery.ztree.core.min.js"></script>
+		<!--树是否编辑-->
+		<!--<script src="../../plugins/ztree/jquery.ztree.exedit.min.js"></script>-->
+		<!--树的勾选-->
+		<script src="../../plugins/ztree/jquery.ztree.excheck.min.js"></script>
+		<script src="../../plugins/iCheck/icheck.min.js"></script>
+		<!--layui-->
+		<script type="text/javascript">
+			/*layui*/
+			layui.use(['layer', 'form', 'element'], function() {
+				var $ = layui.jquery,
+					element = layui.element(),
+					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+			})
+			//修改单选复选框样式
+			$(document).ready(function(){
+			  $('input').iCheck({
+			    checkboxClass: 'icheckbox_square-blue',
+			    radioClass: 'iradio_square-blue',
+			    increaseArea: '20%' // optional
+			  });
+			});
+			/*联想模糊填充*/
+			/*未划分*/
+			var txt ='',txts='';
+			$(".mohu li").each(function(){
+					$(this).click(function(){
+						txt = $(this).text()
+						$("input[name=djq]").val(txt).attr("name",'').siblings('input').prop('value',$(this).attr('data'));
+						$(this).parents("div").hide()
+					})
+			})
+			$(".think").on('focus keyup',function(){
+				_this = $(this);
+				$(this).attr('name',"djq")
+				$(".mohu").css({"width":_this.innerWidth(),"left":_this.offset().left+1,"top":_this.offset().top+_this.innerHeight()+3}).show()
+			})
+			/*已划分*/
+			$(".thinks").on('focus keyup',function(){
+				_this = $(this);
+				$(this).attr('name',"djq")
+				$(".mohus").css({"width":_this.innerWidth(),"left":_this.offset().left+1,"top":_this.offset().top+_this.innerHeight()+3}).show()
+			})
+			$(".mohus li").each(function(){
+					$(this).click(function(){
+						txt = $(this).text()
+						$("input[name=djq]").val(txt).attr("name",'').siblings('input').prop('value',$(this).attr('data'));
+						$(this).parents("div").hide()
+					})
+			})
+			$(document).on('click', function(e) {  
+                var e = e || window.event; //浏览器兼容性   
+                var elem = e.target || e.srcElement;
+                if(elem.className.indexOf('think') > 0){
+                	return
+                }
+                while (elem) { //循环判断至跟节点，防止点击的是div子元素   
+                    if (elem.className && elem.className.indexOf('message')>0) {
+                        return;  
+                    }  
+                    elem = elem.parentNode;  
+                }
+                $('.message').css('display', 'none').siblings(); //点击的不是div或其子元素   
+            });  
+			/*左栏的ztree*/
+			var setting = {
+				view: {
+					showLine: true //是否显示线
+				},
+				data: {
+					simpleData: {
+						enable: true //是否采用简单数据模式 (Array)
+						//不需要用户再把数据库中取出的 List 强行转换为复杂的 JSON 嵌套格式
+					}
+				}
+			};
+			var arr = [{
+				name: "天通苑区",
+				open: true,
+				type: 'zl',
+				nocheck: true,
+				children: [{
+					name: '店1'
+				}, {
+					name: '店2'
+				}, {
+					name: '店3'
+				}]
+			}];
+			var log, className = "dark";
+			//添加修改删除按钮
+			$(document).ready(function() {
+				$.fn.zTree.init($("#tree-menu"), setting, arr);
+			});
+			//已划分复选框树
+			var settinga = {
+				check: {
+					enable: true
+				},
+				data: {
+					simpleData: {
+						enable: true
+					}
+				}
+			};
+			var zNodea = [ { id: 12, pId: 1, name: "锋尚民居一期 共600户", open: true }, { id: 121, pId: 12, name: "1栋 共120户" }, { id: 123, pId: 12, name: "2栋 共120户" }, { id: 124, pId: 12, name: "3栋 共120户" }, { id: 125, pId: 12, name: "4栋 共120户" }, { id: 126, pId: 12, name: "5栋 共120户" }, ];
+
+
+			$(document).ready(function() {
+				$.fn.zTree.init($("#tree-page"), settinga, zNodea);
+			});
+			/*checkbox全选*/
+			function AllCheckbox(obj,obj1){
+				/*原始的checkbox*/
+				$("input[name="+obj+"]").on('change',function(){
+					if(this.checked){
+						$("input[name="+obj1+"]").prop('checked','true')
+					}else{
+						$("input[name="+obj1+"]").prop('checked','')
+					}
+				});
+				/*icheck版全选*/
+				$('input[name='+obj+']').on('ifChecked',function(){
+					$('input[name='+obj1+']').iCheck('check');
+
+				})
+				$('input[name='+obj+']').on('ifUnchecked',function(){
+					$('input[name='+obj1+']').iCheck('uncheck');
+				})
+			}
+			AllCheckbox('all','a')
+		</script>
+	</body>
+
+</html>

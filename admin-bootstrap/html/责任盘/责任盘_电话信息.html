@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>查看详情_我的责任盘</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--树-->
+		<link rel="stylesheet" type="text/css" href="../../plugins/ztree/metroStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<div class="tabs-container m-t8">
+			<div class="tab-content" id="contact">
+				<div class="pd-t10 m-t8">
+					<button type="button" class="btn btn-primary btn-sm addContact" style="margin-left: 30px;">添加联系人</button>
+				</div>
+				<div class="form-inline  clearfix">
+					<div class="form-group">
+						<label class="w100 text-right">联系人：</label>
+						<p class="form-control-static">王先生</p>
+					</div>
+					<div class="form-group">
+						<label class="w100 text-right">电话：</label>
+						<p class="form-control-static">13818181818</p>
+					</div>
+					<div class="form-group">
+						<label class="w100 text-right">性别：</label>
+						<p class="form-control-static">男</p>
+					</div>
+					<div class="form-group">
+						<label class="w120 text-right">与产权人关系：</label>
+						<label class="form-control-static">
+								       		 <input type="checkbox"> 产权人
+								     		 </label>
+					</div>
+					<div class="form-group" style="margin-left: 20px;">
+						<button type="button" class="btn btn-primary btn-sm genjin">跟进</button>
+						<button type="button" class="btn btn-primary btn-sm pingbi">屏蔽电话</button>
+						<button type="button" class="btn btn-primary btn-sm remove" onclick="$(this).parent().parent().remove()">删除</button>
+					</div>
+				</div>
+				<div class="form-inline clearfix">
+					<div class="form-group">
+						<label class="w100 text-right">联系人：</label>
+						<p class="form-control-static">王先生</p>
+					</div>
+					<div class="form-group">
+						<label class="w100 text-right">电话：</label>
+						<p class="form-control-static">13818181818</p>
+					</div>
+					<div class="form-group">
+						<label class="w100 text-right">性别：</label>
+						<p class="form-control-static">男</p>
+					</div>
+					<div class="form-group">
+						<label class="w120 text-right">与产权人关系：</label>
+						<label class="form-control-static">
+								       		 <input type="checkbox"> 产权人
+								     		 </label>
+					</div>
+					<div class="form-group" style="margin-left: 20px;">
+						<button type="button" class="btn btn-primary btn-sm genjin">跟进</button>
+						<button type="button" class="btn btn-primary btn-sm pingbi">屏蔽电话</button>
+						<button type="button" class="btn btn-primary btn-sm remove" onclick="$(this).parent().parent().remove()">删除</button>
+					</div>
+				</div>
+				<div class="form-inline clearfix">
+					<div class="form-group">
+						<label class="w100 text-right">联系人：</label>
+						<p class="form-control-static">王先生</p>
+					</div>
+					<div class="form-group">
+						<label class="w100 text-right">电话：</label>
+						<p class="form-control-static">13818181818</p>
+					</div>
+					<div class="form-group">
+						<label class="w100 text-right">性别：</label>
+						<p class="form-control-static">男</p>
+					</div>
+					<div class="form-group">
+						<label class="w120 text-right">与产权人关系：</label>
+						<label class="form-control-static">
+								       		 <input type="checkbox"> 产权人
+								     		 </label>
+					</div>
+					<div class="form-group" style="margin-left: 20px;">
+						<button type="button" class="btn btn-primary btn-sm genjin">跟进</button>
+						<button type="button" class="btn btn-primary btn-sm pingbi">屏蔽电话</button>
+						<button type="button" class="btn btn-primary btn-sm remove" onclick="$(this).parent().parent().remove()">删除</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<!--js-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			layui.use(['form', 'element', 'layer'], function() {
+				var $ = layui.jquery,
+					laydate = layui.laydate,
+					element = layui.element(),
+					//					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象	
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+
+				//结尾符
+			});
+			/*跟进*/
+			$("#contact").on("click", ".genjin", function() {
+				parent.layer.open({
+					  type: 2,
+					  title:'跟进',
+					  skin: 'layui-layer-lan', //样式类名
+					  anim: 2,
+					  offset:['50px'],
+					  area: ['600px','300px'],
+					  shadeClose: true, //开启遮罩关闭
+					  content: '跟进.html',
+					  closeBtn:1
+				});
+			});
+			/*屏蔽*/
+			$("#contact").on("click", ".pingbi", function() {
+				parent.layer.open({
+					  type: 2,
+					  title:'屏蔽',
+					  skin: 'layui-layer-lan', //样式类名
+					  anim: 2,
+					  offset:['50px'],
+					  area: ['600px','300px'],
+					  shadeClose: true, //开启遮罩关闭
+					  content: '屏蔽电话.html',
+					  closeBtn:1
+				});
+			})
+			/*删除*/
+			$("#contact").on("click", ".remove", function() {
+				layer.confirm('are you sure？', {
+					//						 skin: 'layui-layer-lan', //样式类名
+				}, function() {
+					$(this).parent().parent().remove();
+					layer.msg('success', {
+						icon: 1
+					});
+				}, function() {
+					layer.msg('你怂了', {
+						time: 1000 //20s后自动关闭
+					});
+				});
+			})
+			/*添加联系人*/
+			$("#contact").on("click", ".addContact", function() {
+				$("#contact").append('<div class="form-inline clearfix">' +
+					'<div class="form-group">' +
+					'<label class=" text-right w100">联系人：</label>' +
+					'<input type="text" class="form-control w100" name=""  value="" />' +
+					'</div>' +
+					'<div class="form-group">' +
+					'<label class=" text-right w50">电话：</label>' +
+					'<input type="text" class="form-control w120" name=""  value="" />' +
+					'</div>' +
+					'<div class="form-group">' +
+					'<label class=" text-right w50">性别：</label>' +
+					'<label><input type="radio" class="form-control" name="a"  value="" /> 男</label>&nbsp;' +
+					'<label><input type="radio" class="form-control" name="a"  value="" /> 女</label>' +
+					'</div>' +
+					'<div class="form-group">' +
+					'<label class=" text-right w120">与产权人关系：</label>' +
+					'<label><input type="radio" class="form-control" name="b"  value="" /> 产权人</label>' +
+					'<label><input type="radio" class="form-control" name="b"  value="" /> 共有权人</label>' +
+					'<label><input type="radio" class="form-control" name="b"  value="" /> 决策人</label>' +
+					'<label><input type="radio" class="form-control" name="b"  value="" /> 看房联系</label>' +
+					'<label><input type="radio" class="form-control" name="b"  value="" /> 其他</label>' +
+					'<input type="text" class="form-control w100" name=""  value="" />' +
+					'</div>' +
+					'<button type="button" class="btn btn-primary btn-sm save" style="margin: 3px 0 0 10px ;">保存</button>' +
+					'</div>'
+				)
+			})
+		</script>
+	</body>
+
+</html>

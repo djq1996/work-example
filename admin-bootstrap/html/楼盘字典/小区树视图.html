@@ -1,0 +1,751 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>小区树视图</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../css/global.css" media="all">
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../../plugins/ztree/metroStyle.css" />
+		<style type="text/css">
+			.ztree li span.button.add {
+				width:100px ;
+				line-height: 15px;
+				text-indent: 20px;
+				/*margin-left: 50px;*/
+				margin-right: -1px;
+				background-position: -144px 0;
+				vertical-align: top;
+				*vertical-align: middle
+			}
+			.ztree li span.button.edit {
+				line-height: 15px;
+				text-indent: 20px;
+				margin: 0 60px 0 2px;
+				background-position: -110px -49px;
+				
+				vertical-align: top;
+				*vertical-align: middle
+			}
+			.ztree li span.button.remove {
+				line-height: 15px;
+				text-indent: 20px;
+				margin: 0 60px 0 2px;
+				background-position: -110px -49px;
+				
+				vertical-align: top;
+				*vertical-align: middle
+			}
+			.ztree .editor ,.ztree .detail{
+				margin-left: 50px;
+				display: inline-block;
+			}
+			.ztree .editor{
+				display: none;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		
+		<div class="admin-main">
+			
+			
+				<fieldset class="layui-elem-field layui-field-title">
+					<legend>楼盘树视图</legend>
+				</fieldset>
+				<div class="layui-tab layui-tab-card  layui-tab-brief">
+						<ul class="layui-tab-title" style="font-size: 16px;">
+							<li>
+								<a href="楼盘分期详情页.html">小区基本信息</a>
+							</li>
+							<li>
+								<a href="楼盘分期详情页图片.html">楼盘图片</a>
+							</li>
+							<li>
+								<a href="楼盘分期详情页图片.html">楼盘户型图</a>
+							</li>
+							<li>
+								<a href="楼盘分期详情页图片.html">楼盘分布图</a>
+							</li>
+							<li class="layui-this">
+								<a href="小区树视图.html">小区树形图</a>
+							</li>
+						</ul>
+						<div class="layui-tab-content">
+							<div class="layui-tab-item"></div>
+							<div class="layui-tab-item"></div>
+							<div class="layui-tab-item"></div>
+							<div class="layui-tab-item"></div>
+							<div class="layui-tab-item layui-show">
+								<div class="layui-field-box layui-form">
+									<div id="tree" class="ztree">
+					
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--选项卡结束-->
+				
+				<button type="button" class="layui-btn layui-btn-normal addFq">添加房间号弹框</button>
+				<button type="button" class="layui-btn layui-btn-normal bianji">编辑</button>
+			
+		</div>
+		<!--添加分期-->
+		<div class="addFqBox" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label w120"><b>*</b>所属区域：</label>
+				<div class="layui-input-block line38">
+					西城区
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">所属商圈：</label>
+				<div class="layui-input-block line38">
+					西安站
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">楼盘名称：</label>
+				<div class="layui-input-block line38">
+					花水安
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><b>*</b>所属区域：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal "  lay-filter="demo1" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+			</div>
+		</div>
+		<!--添加坐落-->
+		<div class="addZlBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label w120"><b>*</b>分期名称：</label>
+				<div class="layui-input-block line38">
+					西城区
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">选择业态：</label>
+				<div class="layui-input-inline">
+					<select name="quiz1">
+						<option value="住宅">住宅</option>
+						<option value="商铺" selected="">商铺</option>
+						<option value="写字楼">写字楼</option>
+						<option value="公寓">公寓</option>
+					</select>
+					
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">坐落个数：</label>
+				<div class="layui-input-block w400">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请填写数字" class="layui-input w100 d-i-b add_zl_number">
+					<button class="layui-btn layui-btn-normal layui-btn-small add_zl" type="button ">批量生成添加</button>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><span class="louceng">2</span></label>
+				<div class="layui-input-block">
+					<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">
+					<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">
+					<div class="layui-inline w100" style="margin-bottom: 2px;">
+						<select class="d-i-b w100" name="quiz1">
+							<option value="住宅">住宅</option>
+							<option value="商铺" selected="">商铺</option>
+							<option value="写字楼">写字楼</option>
+							<option value="公寓">公寓</option>
+						</select>
+					</div>
+					<button class="layui-btn layui-btn-normal layui-btn-small d-i-b" type="button">删除</button>
+				</div>
+			</div>
+			
+			<div class="add_zl_cont">
+				
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal "  lay-filter="demo1" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+			</div>
+		</div>
+		<!--添加单元-->
+		<div class="addDyBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<div class="layui-inline">
+					<label class="layui-form-label w120">所属楼盘：</label>
+					<div class="layui-input-inline line38">
+						化水岸
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ">所属坐落：</label>
+					<div class="layui-input-inline line38">
+						1栋
+					</div>
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">选择业态：</label>
+				<div class="layui-input-inline">
+					<select name="quiz1">
+						<option value="住宅">住宅</option>
+						<option value="浙江" selected="">浙江</option>
+						<option value="你的工号">你的工号</option>
+						<option value="公寓">公寓</option>
+					</select>
+					
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">坐落个数：</label>
+				<div class="layui-input-block w400">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请填写数字" class="layui-input w100 d-i-b add_dy_number">
+					<button class="layui-btn layui-btn-normal layui-btn-small add_dy" type="button">批量生成添加</button>
+				</div>
+			</div>
+			<div class="m-t8 add_dy_cont">
+				<div class="layui-form-item">
+					<label class="layui-form-label w120"><span class="louceng">1</span></label>
+					<div class="layui-input-block">
+						<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">
+						<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">
+						<div class="layui-inline w100" style="margin-bottom: 2px;">
+							<select class="d-i-b w100" name="quiz1">
+								<option value="住宅">住宅</option>
+								<option value="商铺" selected="">商铺</option>
+								<option value="写字楼">写字楼</option>
+								<option value="公寓">公寓</option>
+							</select>
+						</div>
+						<button class="layui-btn layui-btn-normal layui-btn-small d-i-b del_remove" type="button">删除</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal "  lay-filter="demo1" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+			</div>
+		</div>
+		<!--添加仓储-->
+		<div class="addCcBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label w120"><b>*</b>分期名称：</label>
+				<div class="layui-input-block line38">
+					供电楼
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">个数：</label>
+				<div class="layui-input-block w400">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="2" class="layui-input w100 d-i-b">
+					<button class="layui-btn layui-btn-normal layui-btn-small" type="button">批量生成添加</button>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><span class="louceng">2</span></label>
+				<div class="layui-input-block">
+					<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">
+					
+					<button class="layui-btn layui-btn-normal layui-btn-small d-i-b" type="button">删除</button>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><span class="louceng">1</span></label>
+				<div class="layui-input-block">
+					<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">
+					<button class="layui-btn layui-btn-normal layui-btn-small d-i-b" type="button">删除</button>
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal "  lay-filter="demo1" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+			</div>
+		</div>
+		<!--添加仓储单元-->
+		<div class="addCcdyBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<div class="layui-inline">
+					<label class="layui-form-label w120">所属楼盘：</label>
+					<div class="layui-input-inline line38">
+						化水岸
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ">所属坐落：</label>
+					<div class="layui-input-inline line38">
+						1栋
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">个数：</label>
+				<div class="layui-input-block w400">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="2" class="layui-input w100 d-i-b">
+					<button class="layui-btn layui-btn-normal layui-btn-small" type="button">批量生成添加</button>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><span class="louceng">2</span></label>
+				<div class="layui-input-block">
+					<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">
+					
+					<button class="layui-btn layui-btn-normal layui-btn-small d-i-b" type="button">删除</button>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><span class="louceng">1</span></label>
+				<div class="layui-input-block">
+					<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">
+					<button class="layui-btn layui-btn-normal layui-btn-small d-i-b" type="button">删除</button>
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal "  lay-filter="demo1" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+			</div>
+		</div>
+		<!--添加车库-->
+		<div class="addCkBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label w120"><b>*</b>分期名称：</label>
+				<div class="layui-input-block line38">
+					化水岸
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">车库个数：</label>
+				<div class="layui-input-block w400">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请填写数字" class="layui-input w100 d-i-b add_cw_number">
+					<button class="layui-btn layui-btn-normal layui-btn-small add_cw" type="button">批量生成添加</button>
+				</div>
+			</div>
+			<div class="add_cw_cont">
+				<div class="layui-form-item">
+					<label class="layui-form-label w120"><b>*车库</b>：</label>
+					<div class="layui-input-inline w400">
+						<input type="text" name="" lay-verify="" autocomplete="off" placeholder="车库1" class="layui-input d-i-b w300">
+						<button class="layui-btn layui-btn-normal layui-btn-small d-i-b del_remove" type="button">删除</button>
+					</div>
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal "  lay-filter="demo1" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="demo1" type="button">取消</button>
+			</div>
+		</div>
+		
+		<!--js-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<!--公用的js-->
+		<script src="../../js/common.js"></script>
+		<!--树-->
+		<script src="../../plugins/ztree/jquery.ztree.core.min.js"></script>
+		<script src="../../plugins/ztree/jquery.ztree.exedit.min.js"></script>
+		<!--layui-->
+		<script type="text/javascript">
+			/*layui*/
+			layui.use(['layer', 'form','element'], function() {
+				var $ = layui.jquery,
+					element = layui.element(),
+					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+	 
+				//坐落
+				$('.add_zl').click(function(){
+				var str = '';
+						var _length = parseInt($(".add_zl_number").val());
+						for(var i = 0;i<=_length-1;i++){
+							str+='<div class="layui-form-item">'+
+										'<label class="layui-form-label w120"><span class="louceng">'+(i+1)+'</span></label>'+
+										'<div class="layui-input-block">'+
+											'<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">&nbsp;'+
+											'<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">&nbsp;'+
+											'<div class="layui-inline w100" style="margin-bottom: 2px;">'+
+												'<select class="d-i-b w100" name="quiz1">'+
+													'<option value="住宅">住宅</option>'+
+													'<option value="商铺" selected="">商铺</option>'+
+													'<option value="写字楼">写字楼</option>'+
+													'<option value="公寓">公寓</option>'+
+												'</select>'+
+											'</div>'+
+											'<button class="layui-btn layui-btn-normal layui-btn-small d-i-b del_remove" type="button">删除</button>'+
+										'</div>'+
+								  '</div>'	
+						}
+							$(".add_zl_cont").append(str)
+							form.render();//表单初始化
+				})
+				$(".add_zl_cont").on('click','.del_remove',function(){
+					$(this).parent().parent().remove()
+				})
+				//单元
+				$('.add_dy').click(function(){
+				var str = '';
+						var _length = parseInt($(".add_dy_number").val());
+						for(var i = 0;i<=_length-1;i++){
+							str+='<div class="layui-form-item">'+
+										'<label class="layui-form-label w120"><span class="louceng">'+(i+1)+'</span></label>'+
+										'<div class="layui-input-block">'+
+											'<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">&nbsp;'+
+											'<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入坐落名称" class="layui-input d-i-b w120">&nbsp;'+
+											'<div class="layui-inline w100" style="margin-bottom: 2px;">'+
+												'<select class="d-i-b w100" name="quiz1">'+
+													'<option value="住宅">住宅</option>'+
+													'<option value="商铺" selected="">商铺</option>'+
+													'<option value="写字楼">写字楼</option>'+
+													'<option value="公寓">公寓</option>'+
+												'</select>'+
+											'</div>'+
+											'<button class="layui-btn layui-btn-normal layui-btn-small d-i-b del_remove" type="button">删除</button>'+
+										'</div>'+
+									'</div>'	
+						}
+						$(".add_dy_cont").append(str)
+						form.render();//表单初始化
+				})
+				$(".add_dy_cont").on('click','.del_remove',function(){
+					$(this).parent().parent().remove()
+				})
+				//车位
+				$('.add_cw').click(function(){
+				var str = '';
+						var _length = parseInt($(".add_cw_number").val());
+						for(var i = 0;i<=_length-1;i++){
+							str+='<div class="layui-form-item">'+
+										'<label class="layui-form-label w120"><b>*车库</b>：</label>'+
+										'<div class="layui-input-inline w400">'+
+											'<input type="text" name="" lay-verify="" autocomplete="off" placeholder="车库1" class="layui-input d-i-b w300">&nbsp;'+
+											'<button class="layui-btn layui-btn-normal layui-btn-small d-i-b del_remove" type="button">删除</button>'+
+										'</div>'+
+									'</div>'	
+						}
+					$(".add_cw_cont").append(str)
+				})
+				$(".add_cw_cont").on('click','.del_remove',function(){
+					$(this).parent().parent().remove()
+				})
+			});
+			
+							
+				/*ztree*/
+				var setting = {
+					view: {
+						addDiyDom: addDiyDom,
+						//					removeHoverDom: removeHoverDom,
+						//					selectedMulti: false,
+						showLine: true //是否显示线
+					},
+					edit: {
+						//					enable: true, //是否可以编辑
+						//					editNameSelectAll: true,
+						//					showRemoveBtn: showRemoveBtn,
+						//					removeTitle :'删除',
+						//					showRenameBtn: showRenameBtn,
+						//					renameTitle : '修改'
+					},
+					data: {
+						simpleData: {
+							enable: true //是否采用简单数据模式 (Array)
+							//不需要用户再把数据库中取出的 List 强行转换为复杂的 JSON 嵌套格式
+						}
+					},
+					callback: {
+						//					beforeDrag: beforeDrag, //是否允许拖拽
+						//					beforeEditName: beforeEditName, //是否可以编辑名称
+						//					beforeRemove: beforeRemove, //是否删除
+						//					beforeRename: beforeRename, //结束编辑后根据返回值决定是否可以编辑
+						//					onRemove: onRemove, //删除之后的回调
+						//					onRename: onRename //编辑名称之后的回调
+					}
+				};
+				
+				var arr = [{
+							name: "扑满山一期",
+							open: true,
+							type: 'zl',
+							children: [{
+									name: "扑满山1号楼",
+									type: 'dy',
+									open: true,
+									children: [{
+											name: "1单元",
+											open: true,
+											type: 'fj'
+										},
+										{
+											name: "2单元",
+											open: true,
+											type: 'fj'
+										}
+									]
+								},
+								{
+									name: "扑满山2号楼",
+									open: true,
+									type: 'dy',
+									children: [{
+										name: "1单元",
+										type: 'fj',
+										open: true
+									}]
+								},
+								{
+									name: "扑满山一期车库",
+									open: true,
+									type: 'fq',
+									children: [{
+											name: "A区",
+											type: 'cw',
+											open: true
+										},
+										{
+											name: "B区",
+											type: 'cw',
+											open: true
+										}
+									]
+								},
+								{
+									name: "扑满山一期仓储",
+									open: true,
+									type: 'dy',
+									children: [{
+											name: "1单元",
+											type: 'cch',
+											open: true
+										},
+										{
+											name: "2单元",
+											type: 'cch',
+											open: true
+										}
+									]
+								}
+							]
+				}];
+				var log, className = "dark";
+				//添加修改删除按钮
+				function addDiyDom(treeId, treeNode) {
+					var sObj = $("#" + treeNode.tId + "_span");
+					if(treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
+					var addfq = "<div class='detail'>2个分期（区）、2栋楼、3600户，包含住宅3500户、商铺100户、仓储100户、车库100个</div>" +
+						"<div class='editor'>" +
+						"<span class='button add' id='fqAddBtn_" + treeNode.tId +
+						"' title='添加分期' onfocus='this.blur();'>添加分期</span>" +
+						"<span class='button edit' id='fqEditBtn_" + treeNode.tId +
+						"' title='修改' onfocus='this.blur();'>修改</span>" +
+						"<span class='button remove' id='fqRemoveBtn_" + treeNode.tId +
+						"' title='删除' onfocus='this.blur();'>删除</span>" +
+						"</div>";
+				
+					var addzl = "<div class='detail'>2栋楼、3600户，包含住宅2500户、商铺60户、仓储100户、车库100个</div>" +
+						"<div class='editor'>" +
+						"<span class='button add' id='zlAddBtn_" + treeNode.tId +
+						"' title='添加坐落' onfocus='this.blur();'>添加坐落</span>" +
+						"<span class='button edit' id='zlEditBtn_" + treeNode.tId +
+						"' title='修改' onfocus='this.blur();'>修改</span>" +
+						"<span class='button remove' id='zlRemoveBtn_" + treeNode.tId +
+						"' title='删除' onfocus='this.blur();'>删除</span>" +
+						"</div>";
+					var adddy = "<div class='detail'>2个单元、2400户，包含住宅2300户、商铺100户</div><div class='editor'>" +
+						"<span class='button add' id='dyAddBtn_" + treeNode.tId +
+						"' title='添加单元' onfocus='this.blur();'>添加单元</span>" +
+						"<span class='button edit' id='dyEditBtn_" + treeNode.tId +
+						"' title='修改' onfocus='this.blur();'>修改</span>" +
+						"<span class='button remove' id='dyRemoveBtn_" + treeNode.tId +
+						"' title='删除' onfocus='this.blur();'>删除</span>" +
+						"</div>";
+					var addcch = "<div class='detail'>仓储数量500</div><div class='editor'>" +
+						"<span class='button add' id='cchAddBtn_" + treeNode.tId +
+						"' title='添加仓储号' onfocus='this.blur();'>添加仓储号</span>" +
+						"<span class='button edit' id='cchEditBtn_" + treeNode.tId +
+						"' title='修改' onfocus='this.blur();'>修改</span>" +
+						"<span class='button remove' id='cchRemoveBtn_" + treeNode.tId +
+						"' title='删除' onfocus='this.blur();'>删除</span>" +
+						"</div>";
+					/*车位*/		
+					var addcw = "<div class='detail'>车库数量2000</div><div class='editor'>" +
+						"<span class='button add' id='cwAddBtn_" + treeNode.tId +
+						"' title='添加车位' onfocus='this.blur();'>添加车位</span>" +
+						"<span class='button edit' id='cwEditBtn_" + treeNode.tId +
+						"' title='修改' onfocus='this.blur();'>修改</span>" +
+						"<span class='button remove' id='cwRemoveBtn_" + treeNode.tId +
+						"' title='删除' onfocus='this.blur();'>删除</span>" +
+						"</div>";
+					/*房间*/
+					var addfj = "<div class='detail'>1200户，包含住宅1150户、商铺50户、仓储100户</div><div class='editor'>" +
+						"<span class='button add fjAddBtn' id='fjAddBtn_" + treeNode.tId +
+						"' title='添加房间' onfocus='this.blur();'>添加房间</span>" +
+						"<span class='button edit fjEditBtn' id='fjEditBtn_" + treeNode.tId +
+						"' title='修改' onfocus='this.blur();'>修改</span>" +
+						"<span class='button remove' id='fjRemoveBtn_" + treeNode.tId +
+						"' title='删除' onfocus='this.blur();'>删除</span>" +
+						"</div>";
+				
+					switch(treeNode.type) {
+						case 'fq':
+							sObj.append(addfq);
+							break;
+						case 'zl':
+							sObj.append(addzl);
+							break;
+						case 'dy':
+							sObj.append(adddy);
+							break;
+						case 'cch':
+							sObj.append(addcch);
+							break;
+						case 'cw':
+							sObj.append(addcw);
+							break;
+						case 'fj':
+							sObj.append(addfj);
+							break;
+				
+					}
+					//分期弹框
+					var fqAddBtn = $("#fqAddBtn_" + treeNode.tId);
+					var fqEditBtn = $("#fqEditBtn_" + treeNode.tId);
+					var fqRemoveBtn = $("#fqRemoveBtn_" + treeNode.tId);
+					fqAddBtn.on("click", function() {
+						layerContent('添加分期', $(".addFqBox"), 600, 400)
+						return false;
+					});
+					fqEditBtn.on("click", function() {
+						layerContent('修改分期', $(".addFqBox"), 600, 400)
+						return false;
+					});
+					fqRemoveBtn.on("click", function() {
+						layAlert("切，你点了也没用，我也删不了")
+						return false;
+					});
+					//坐落弹框
+					var zlAddBtn = $("#zlAddBtn_" + treeNode.tId);
+					var zlEditBtn = $("#zlEditBtn_" + treeNode.tId);
+					var zlRemoveBtn = $("#zlRemoveBtn_" + treeNode.tId);
+					zlAddBtn.on("click", function() {
+						layerContent('添加坐落', $(".addZlBox"), 700, 400)
+						return false;
+					});
+					zlEditBtn.on("click", function() {
+						layerContent('修改坐落', $(".addZlBox"), 700, 400)
+						return false;
+					});
+					zlRemoveBtn.on("click", function() {
+						layAlert("切，你点了也没用，我也删不了")
+						return false;
+					});
+				
+					//单元弹框
+					var dyAddBtn = $("#dyAddBtn_" + treeNode.tId);
+					var dyEditBtn = $("#dyEditBtn_" + treeNode.tId);
+					var dyRemoveBtn = $("#dyRemoveBtn_" + treeNode.tId);
+					dyAddBtn.on("click", function() {
+						layerContent('添加单元', $(".addDyBox"), 700, 450)
+						return false;
+					});
+					dyEditBtn.on("click", function() {
+						layerContent('添加单元', $(".addDyBox"), 700, 450)
+						return false;
+					});
+					dyRemoveBtn.on("click", function() {
+						layAlert("切，你点了也没用，我也删不了")
+						return false;
+					});
+				
+					//房间弹框
+					var fjAddBtn = $("#fjAddBtn_" + treeNode.tId);
+					var fjEditBtn = $("#fjEditBtn_" + treeNode.tId);
+					var fjRemoveBtn = $("#fjRemoveBtn_" + treeNode.tId);
+					fjAddBtn.on("click", function() {
+						addTab('html/楼盘字典/添加房间号.html','','添加房间')
+						
+						return false;
+					});
+					fjEditBtn.on("click", function() {
+						
+						addTab('html/楼盘字典/添加房间号.html','','添加房间')
+						return false;
+					});
+					fjRemoveBtn.on("click", function() {
+						layAlert("切，你点了也没用，我也删不了")
+						return false;
+					});
+					//仓储弹框
+					var cchAddBtn = $("#cchAddBtn_" + treeNode.tId);
+					var cchEditBtn = $("#cchEditBtn_" + treeNode.tId);
+					var cchRemoveBtn = $("#cchRemoveBtn_" + treeNode.tId);
+					cchAddBtn.on("click", function() {
+						addTab('html/楼盘字典/添加仓储.html','','添加仓储')
+						return false;
+					});
+					cchEditBtn.on("click", function() {
+						addTab('html/楼盘字典/添加仓储.html','','修改仓储')
+						layerContent('修改仓储', $(".addCcBox"), 700, 400)
+						return false;
+					});
+					cchRemoveBtn.on("click", function() {
+						layAlert("切，你点了也没用，我也删不了")
+						return false;
+					});
+					//车库弹框
+					var cwAddBtn = $("#cwAddBtn_" + treeNode.tId);
+					var cwEditBtn = $("#cwEditBtn_" + treeNode.tId);
+					var cwRemoveBtn = $("#cwRemoveBtn_" + treeNode.tId);
+					cwAddBtn.on("click", function() {
+						layerContent('添加车库', $(".addCkBox"), 600, 400)
+						return false;
+					});
+					cwEditBtn.on("click", function() {
+						layerContent('修改车库', $(".addCkBox"), 600, 400)
+						return false;
+					});
+					cwRemoveBtn.on("click", function() {
+						layAlert("切，你点了也没用，我也删不了")
+						return false;
+					});
+				
+				};
+				//编辑状态
+				$('.bianji').click(function() {
+					if($(".detail").css('display') == 'inline-block') {
+						$(this).text('详情')
+						$(".detail").css("display", 'none');
+						$(".editor").css("display", 'inline-block');
+					} else {
+						$(this).text('编辑')
+						$(".detail").css("display", 'inline-block');
+						$(".editor").css("display", 'none');
+					}
+				
+				})
+				
+				$(document).ready(function() {
+					$.fn.zTree.init($("#tree"), setting, arr);
+				});
+			
+
+		</script>
+	</body>
+
+
+</html>

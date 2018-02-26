@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>规则设置</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<!--图表icon-->
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<!--树-->
+		<link rel="stylesheet" type="text/css" href="../../plugins/ztree/metroStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css" />
+		<style type="text/css">
+			.menu-list li {
+				text-align: center;
+				padding: 8px 12px;
+			}
+			
+			.menu-list li:hover {
+				transition: all .5s;
+				background: #0078AD;
+				color: #fff;
+			}
+			
+			.menu-list li:hover a,
+			.menu-list .active a {
+				color: #fff;
+				text-decoration: none
+			}
+			
+			.menu-list .active {
+				background: #0078AD;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="">
+				<h4>规则设置</h4>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<ul class="menu-list ">
+						<li class="active">
+							<a href="javascript:;">出售房源维护上限</a>
+						</li>
+						<li>
+							<a href="javascript:;">出售客源维护上限</a>
+						</li>
+						<li>
+							<a href="javascript:;">出租房源维护上限</a>
+						</li>
+						<li>
+							<a href="javascript:;">出租客源维护上限</a>
+						</li>
+						<li>
+							<a href="javascript:;">转让房源维护频率(住宅、写字楼、公寓、车库)</a>
+						</li>
+						<li>
+							<a href="javascript:;">租赁房源维护频率(住宅、写字楼、公寓、车库)</a>
+						</li>
+						<li>
+							<a href="javascript:;">转让房源维护频率</a>
+						</li>
+						<li>
+							<a href="javascript:;">租赁客源维护频率</a>
+						</li>
+						<li>
+							<a href="javascript:;">转让客源门店淘宝保护器</a>
+						</li>
+						<li>
+							<a href="javascript:;">租赁客源门店淘宝保护器</a>
+						</li>
+						<li>
+							<a href="javascript:;">转让客源片区淘宝保护器</a>
+						</li>
+						<li>
+							<a href="javascript:;">租赁客源片区淘宝保护器</a>
+						</li>
+						<li>
+							<a href="javascript:;">责任盘电话查看次数</a>
+						</li>
+						<li>
+							<a href="javascript:;">买卖房源电话查看次数</a>
+						</li>
+						<li>
+							<a href="javascript:;">租赁房源电话查看次数</a>
+						</li>
+						<li>
+							<a href="javascript:;">买卖房源跟进次数</a>
+						</li>
+						<li>
+							<a href="javascript:;">租赁房源跟进次数</a>
+						</li>
+						<li>
+							<a href="javascript:;">买卖客源跟进次数</a>
+						</li>
+						<li>
+							<a href="javascript:;">租赁客源跟进次数</a>
+						</li>
+						<li>
+							<a href="javascript:;">维护盘查看次数</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-10">
+					<div class="" style="position: fixed;width: 81%;">
+						<div class="">
+							<button type="button" class="btn btn-primary add">添加</button>
+						</div>
+						<div class="pd-t10">
+							<table class="table table-bordered pd-t10">
+								<thead>
+									<tr>
+										<th>城市</th>
+										<th>岗位</th>
+										<th>房源上限数量</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="content">
+									<tr>
+										<td>
+											<select name="" class="form-control">
+												<option value="">北京</option>
+											</select>
+										</td>
+										<td>
+											<select name="" class="form-control">
+												<option value="">职业顾问</option>
+												<option value="">店长</option>
+											</select>
+										</td>
+										<td>10</td>
+										<td>
+											<a href="javascript:;" class="">已启用</a>
+											<a href="javascript:;" class="">禁用</a>
+											<a href="javascript:;" class="">编辑</a>
+											<a href="javascript:;" class="remove">删除</a>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<select name="" class="form-control">
+												<option value="">北京</option>
+											</select>
+										</td>
+										<td>
+											<select name="" class="form-control">
+												<option value="">店长</option>
+												<option value="">店长</option>
+											</select>
+										</td>
+										<td>10</td>
+										<td>
+											<a href="javascript:;" class="">已启用</a>
+											<a href="javascript:;" class="">禁用</a>
+											<a href="javascript:;" class="">编辑</a>
+											<a href="javascript:;" class="remove">删除</a>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<select name="" class="form-control">
+												<option value="">北京</option>
+											</select>
+										</td>
+										<td></td>
+										<td>10</td>
+										<td>
+											<a href="javascript:;" class="">已启用</a>
+											<a href="javascript:;" class="">禁用</a>
+											<a href="javascript:;" class="">编辑</a>
+											<a href="javascript:;" class="remove">删除</a>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<select name="" class="form-control">
+												<option value="">北京</option>
+											</select>
+										</td>
+										<td></td>
+										<td>10</td>
+										<td>
+											<a href="javascript:;" class="">已启用</a>
+											<a href="javascript:;" class="">禁用</a>
+											<a href="javascript:;" class="">编辑</a>
+											<a href="javascript:;" class="remove">删除</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../plugins/jquery.min.js"></script>
+		<script src="../../plugins/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script src="../../js/common.js"></script>
+		<script type="text/javascript">
+        	$(".add").on('click',function(){
+        		$("#content").append('<tr>'+
+			                            '<td>'+
+			                           		 '<select name="" class="form-control">'+
+												'<option value="">北京</option>'+
+											 '</select>'+
+			                            '</td>'+
+			                            '<td>1</td>'+
+			                            '<td>'+
+			                                '<a href="javascript:;" class="">已启用</a> '+
+			                                '<a href="javascript:;" class="">禁用</a> '+
+			                                '<a href="javascript:;" class="">编辑</a> '+
+			                                '<a href="javascript:;" class="remove">删除</a>'+
+			                            '</td>'+
+			                        '</tr>'
+        		)
+            });
+        	$("#content").on('click','.remove',function(){
+        		//询问框
+					layer.confirm('确定删除？', {
+					  btn: ['确定','取消'] //按钮
+					}, function(){
+						$(this).parents('tr').remove()
+					  layer.msg('删除成功', {icon: 1});
+					}, function(){
+						//取消
+					});
+        	})
+        </script>
+	</body>
+
+</html>

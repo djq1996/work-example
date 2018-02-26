@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>修改楼盘基本信息</title>
+		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../../css/bootstrap.css" media="all">	
+	</head>
+
+	<body>
+		<div class="container-fluid" id="body">
+
+					<div class="form-inline pd-t10">
+							<label class="w100 text-right"><b>*</b>所属区域：</label>
+							<select name="" class="form-control">
+								<option value="">请选择</option>
+								<option value="浙江" selected="">西城区</option>
+								<option value="你的工号">东城区</option>
+							</select>
+					</div>
+					<div class="form-inline pd-t10">
+							<label class="w100 text-right">所属商圈：</label>
+							<select name="" class="form-control">
+								<option value="">请选择</option>
+								<option value="浙江" selected="">稀客</option>
+								<option value="你的工号">莉莲</option>
+								<option value="你最喜欢的老师">六里桥	</option>
+							</select>
+					</div>
+					
+					<div class="form-inline pd-t10">
+						<label class="w100 text-right"><b>*</b>楼盘名称：</label>
+						<input type="text" name="" lay-verify="" autocomplete="off" class="form-control">
+					</div>
+					
+					<div class="pd-t10 m-t8">
+						<label class="w100 text-right"></label>
+						<button class="btn btn-primary addFq" type="button">提交保存</button>
+						<button class="btn btn-primary" type="button">取消</button>
+					</div>
+
+		</div>
+		<!--修改分期-->
+		<div class="addFqBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label w120"><b>*</b>所属区域：</label>
+				<div class="layui-input-block line38">
+					西城区
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">所属商圈：</label>
+				<div class="layui-input-block line38">
+					西安站
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">楼盘名称：</label>
+				<div class="layui-input-block line38">
+					花水安
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><b>*</b>分期名称：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="aaa" class="layui-input">
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal addFq"  lay-filter="" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="" type="button">取消</button>
+			</div>
+		</div>
+		<!--添加坐落-->
+		<div class="addZlBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label w120"><b>*</b>序号：</label>
+				<div class="layui-input-block line38">
+					1
+				</div>
+			</div>
+			<div class="layui-form-item m-t8">
+				<label class="layui-form-label w120"><b>*</b>所属楼盘：</label>
+				<div class="layui-input-block line38">
+					供电楼
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">楼盘名称：</label>
+				<div class="layui-input-block line38">
+					花水安
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><b>*</b>坐落名称：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="aaa" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><b>*</b>坐落别名：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="aaa" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">所属业态：</label>
+				<div class="layui-input-inline">
+					<select name="quiz1">
+						<option value="">请选择</option>
+						<option value="住宅">住宅</option>
+						<option value="商用" selected="">商用</option>
+						<option value="写字楼">写字楼</option>
+					</select>
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal addFq"  lay-filter="" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="" type="button">取消</button>
+			</div>
+		</div>
+		<!--修改单元-->
+		<div class="addDyBox layui-form" style="display: none;">
+			<div class="layui-form-item m-t8">
+				<div class="layui-inline">
+					<label class="layui-form-label w120">所属楼盘：</label>
+					<div class="layui-input-inline line38">
+						化水岸
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label ">所属坐落：</label>
+					<div class="layui-input-inline line38">
+						1栋
+					</div>
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><b>*</b>单元名称：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="1单元" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120">单元别名：</label>
+				<div class="layui-input-inline w300">
+					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="好单元" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label w120"><b>*</b>所属业态：</label>
+				<div class="layui-input-inline">
+					<select name="quiz1">
+						<option value="">请选择</option>
+						<option value="住宅">住宅</option>
+						<option value="商用" selected="">商用</option>
+						<option value="写字楼">写字楼</option>
+					</select>
+				</div>
+			</div>
+			<div class="m-t8">
+				<label class="layui-form-label w120"></label>
+				<button class="layui-btn layui-btn-normal addFq"  lay-filter="" type="button">提交保存</button>
+				<button  class="layui-btn layui-btn-normal closeUp"  lay-filter="" type="button">取消</button>
+			</div>
+		</div>
+		
+		<!--模板-->
+		<script src="../../plugins/jquery.min.js"></script>
+		<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			layui.use(['form', 'laypage'], function() {
+				var $ = layui.jquery,
+					laypage = layui.laypage,
+					layerTips = parent.layer === undefined ? layui.layer : parent.layer, //获取父窗口的layer对象
+					layer = layui.layer, //获取当前窗口的layer对象
+					form = layui.form();
+					
+					$('.addFq').on('click',function(){
+						layer.alert('我这里有修改的几个弹框，详情查看页面')
+//						layerContent('修改分期',$(".addFqBox"),600,400)
+//						layerContent('修改坐落',$(".addZlBox"),800,500)
+//						layerContent('修改单元',$(".addDyBox"),800,500)
+					})
+				//layui结尾
+			});
+		</script>
+	</body>
+
+</html>
