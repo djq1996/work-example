@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>电话搜索</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" href="../../css/personalCenter/serach.css" />
+	</head>
+
+	<body class="">
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">
+				电话搜索
+			</h1>
+		</header>
+		<div class="mui-content">
+			<div class="search_middle">
+				<a href="#search" class="mui-input-row" style="color: #555;">
+			    	<input type="search" placeholder="请输入姓名">
+	      		</a>
+	    		<a class="mui-icon mui-icon-search"></a>
+	      	</div>
+			<div class="">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+							<!--<li class="mui-table-view-cell mui-media ">
+								<a href="tel:10086121" class="mui-row">
+									<div class="mui-col-xs-10">
+									<img class="mui-media-object  mui-pull-left" src="../../img/index/agent.png">
+									<div class="mui-media-body">
+										高小团-总经理
+										<p class='mui-ellipsis'>185***8989</p>
+									</div>
+									</div>
+									<div class="mui-col-xs-2">
+										<i class="mui-icon mui-icon-phone  mui-pull-right" tel="1008611"></i>
+									</div>
+								</a>
+							</li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../../js/jquery-1.11.0.js"></script>
+	<script src="../../js/mui.min.js "></script>
+	<script src="../../js/common.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true
+		});
+		mui('.mui-scroll-wrapper').scroll({
+			deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+		});
+		var depId = localStorage.getItem('depId');
+		//电话搜索
+		$('.search_middle .mui-input-row input[type=search]').focus(function(){
+			$(this).val('')
+		})
+		$('.search_middle .mui-input-row input[type=search]').blur(function(){
+			var searchVal = $(this).val();
+			mui.ajax(baseUrl+'API_PersonInfo/ContactUser?deptid='+depId+'&username='+searchVal,{
+				"dataType": "json",
+				"type": "post",
+				success:function(data){
+					var _html = '';
+					for(var i=0; i<data.results.UserList.length; i++){
+						if(data.results.UserList[i].MobilePhone == ""){
+							data.results.UserList[i].MobilePhone = '暂无电话'
+						}
+						_html += '<li class="mui-table-view-cell mui-media ">'+
+										'<div class="mui-row"  onclick="callPhone('+data.results.UserList[i].MobilePhone+')">'+
+											'<div class="mui-col-xs-10">'+
+											'<div class="telHead"><img class="mui-media-object  mui-pull-left" src="'+data.results.UserList[i].HeadeImage+'" onerror = "src = \'../../img/head.png\' "></div>'+
+											'<div class="mui-media-body">'+
+												''+data.results.UserList[i].UserName+'-'+data.results.UserList[i].PositionName+''+
+												'<p class="mui-ellipsis">'+data.results.UserList[i].MobilePhone+'</p>'+
+											'</div>'+
+											'</div>'+
+											'<div class="mui-col-xs-2">'+
+												'<a class="mui-icon mui-icon-phone mui-pull-right"></a>'+
+											'</div>'+
+										'</div>'+
+									'</li>'
+					}
+					$('.mui-table-view').empty();
+					$('.mui-table-view').append(_html);
+				}
+			})
+		})
+		function callPhone(mobilePhone) {
+			if(mobilePhone == null){
+				mui.alert('暂无电话','提示信息','确定');
+			}else{
+		  		window.location.href = "tel:" + mobilePhone;	
+			}
+		  	
+		}; 
+	</script>
+
+</html>

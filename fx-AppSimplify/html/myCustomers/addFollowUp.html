@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>写跟进</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/customers/addFollowUp.css"/>
+		<!--App自定义的css-->
+		<style>
+			
+		</style>
+		
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">
+				新增跟进
+			</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<button type="button" class="mui-btn mui-badge-light-blue mui-btn-block" id="save">提交保存</button>
+		</nav>
+		<div class="mui-content">
+			<div class="follow-up">
+				<form id="saveData">
+				<div class="mui-row">
+						<input type="hidden"  name="customerId" id="" value="" />
+						<label>客户姓名：</label>
+						<span id="customerName">董建强</span>
+				</div>
+				<div class="mui-row">
+						<label>客户级别：</label>
+						<span id="customerLevel">A</span>
+				</div>
+				<div class="mui-row follow-up-way">
+					<label>跟进方式：</label>
+					<div class="follow-up-type">
+					</div>
+				</div>
+				<div class="mui-input-row">
+					<textarea id="remark"  name="remark" rows="" cols="" placeholder="请填写跟进详情"></textarea>
+				</div>
+				</form>
+			</div>
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<!--common-->
+		<script type="text/javascript" src="../../js/common.js" ></script>
+		<script>
+			var AddCustomerFollw = {
+					PromotionType:2,
+					AddPerID:localStorage.getItem('userId'),
+					Operator:localStorage.getItem('userName')
+				},
+				self=null;
+			mui.init({
+				swipeBack:true
+			});
+			mui.plusReady(function () {
+			   self = plus.webview.currentWebview();
+			   AddCustomerFollw.BuyOrRent = self.BuyOrRent;
+			   AddCustomerFollw.CustomerId = self.CustomerId;
+			   $("#customerName").text(self.CustomerName);
+			   $("#customerLevel").text(self.Customerlevel); 
+//			   console.log('传值'+self.CustomerId+self.CustomerName+self.Customerlevel)
+			});
+			/*获取跟进类型ajax*/
+			mui.ajax(baseUrl + 'API_Dictionary/PublicDic?dicType=JGType', {
+				type: 'post',
+				success: function(data, type, status) {
+					if(data.succ) {
+						/*console.log(JSON.stringify(data.results))*/
+						//mui.toast('数据字典')
+						/*获取列表信息*/
+						var i = 0,
+							JGTypeHtml = '';
+							for(i = 0; i < data.results.length; i++) {
+								JGTypeHtml += '<div class="mui-radio">'+
+													'<label>'+data.results[i].DisplayName+'</label>'+
+													'<input type="radio" value='+data.results[i].DisplayValue+' name="followType" id="" />'+
+												'</div>'
+							};
+							document.querySelector('.follow-up-type').innerHTML = JGTypeHtml;
+							/*提交*/
+							$('#save').on('tap',function(){
+								$(this).attr({"disabled":"disabled"});
+				//				mui.confirm('确定提交审核吗？', '', ['确定','取消'], function(e) {
+									//0代表确定，1代表点击了取消
+				//					if (e.index == 0) {
+					 					AddCustomerFollw.Remark = $("#remark").val();
+					 					AddCustomerFollw.PromotionFunction = parseInt($('input[name=followType]:checked').val());
+					 					console.log('跟进字段'+JSON.stringify(AddCustomerFollw));
+										mui.ajax(baseUrl + 'API_Customer/AddCustomerFollw', {
+											type:'post',
+											data:AddCustomerFollw,
+											success:function(data){
+												$('#save').removeAttr("disabled");
+												if(data.succ){
+													mui.toast(data.msg);
+													/*刷新详情页*/
+													
+													mui.fire(self.opener(), "shuaxin");
+													mui.fire(plus.webview.getWebviewById('_www/nav'), "shuaxin");
+													mui.back()
+												}else{
+													mui.toast(data.msg);
+												}
+											},error:function(){
+												mui.toast(跟进+'保存失败')
+											}
+										});
+				//					} else {
+				//						mui.toast('点击了取消')
+				//					}
+				//				})
+							
+							});
+							//console.log('数据字典' + JSON.stringify(vm.$data.allDic.BuyStatusType)
+					} else {
+						mui.toast(data.msg.replace(/[a-zA-Z\(\)]/g, ''))
+					}
+				},
+				error: function(xht, type, cont) {
+					mui.toast(console.log('数据字典' + type + '--' + cont))
+				}
+			});
+			
+		</script>
+	</body>
+
+</html>

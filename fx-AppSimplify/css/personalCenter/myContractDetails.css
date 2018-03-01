@@ -1,0 +1,58 @@
+.mui-scroll-wrapper{
+	top: 3.2rem;
+	background: #fff;
+}
+.ask-to-buy .topMessage{
+	height: auto;
+}
+.ask-to-buy{
+	margin: 0;
+	padding:.4rem 0.5rem;
+	/*background: rgba(228, 231, 234, 0.28);;*/
+}
+.mui-scroll-wrapper{
+	background: rgba(228, 231, 234, 0.58);;
+}
+.ask-to-buy .mui-row label{
+	width: 3.8rem;
+	color: #8f8f94;
+}
+.mui-bar button{
+	width: 96%;
+	margin: 0 auto;
+}
+.mui-bar .mui-btn{
+	display: block;
+}
+.bg{
+    position: fixed;
+    z-index: 14;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    top: 0;
+    display: none;
+}
+.bg .content {
+    margin: 8rem 1rem;
+    background: #fff;
+    border-radius: .3rem;
+    padding: .3rem;
+}
+.bg .content textarea{
+	border-color: #ddd;
+	margin-bottom: 0;
+	height: 250px;
+	font-size: .65rem;
+}
+.bg .content button{
+	display: block;
+	margin: 0 auto;
+	border: none;
+	color: #fff;
+	width: 100px;
+}
+#slider{
+	height: 220px;
+	overflow: hidden;
+}

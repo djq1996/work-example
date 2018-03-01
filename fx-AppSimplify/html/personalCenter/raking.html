@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>排名</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css" />
+		<link rel="stylesheet" href="../../css/personalCenter/raking.css" />
+		<!--App自定义的css-->
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">
+				排名
+				<!--<a class="mui-icon mui-icon-extra mui-icon-extra-arrowleftcricle"></a>
+					2017-10-14
+				<a class="mui-icon mui-icon-extra mui-icon-extra-arrowrightcricle"></a>--> 
+			</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+					<div class="mui-scroll" >
+						<div id="item1" class="mui-control-content mui-active">
+							<ul class="mui-table-view">
+								<!--<li class="mui-table-view-cell mui-media">
+									<a href="javascript:;">
+										<div class="mui-row">
+											<div class="mui-col-xs-1 rakingNumber first"></div>
+											<div class="mui-col-xs-11">
+												<div class="rakHead">
+													<img class="mui-media-object mui-pull-left" src="http://120.27.11.53:8091/File/HeadImg/4f72b23de61f4d058bb38e20ffb756fb.jpg">
+												</div>
+												<div class="mui-media-body">
+													<div class="mui-row rakingName">
+														<div class="mui-col-xs-4">
+															董阿强
+														</div>
+														<div class="mui-col-xs-8">
+															北京-A片区-a门店
+														</div>
+													</div>
+													<div class="mui-row">
+														<div class="mui-col-xs-4">
+															1500000元
+														</div>
+														<div class="mui-col-xs-8">
+															总单量：<span class="dan">20单</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</li>-->
+							</ul>
+							<div class="noinfo">没有更多数据了</div>
+							<div class="noinfoImg"></div>
+						</div>
+					</div>
+				</div>
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/common.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true, //启用右滑关闭功能
+				//				statusBarBackground: '#f7f7f7'
+			});
+			//初始化单页的区域滚动
+			mui('.mui-scroll-wrapper').scroll();
+			var pageIindex = 1;
+			var PageSize = 10;
+			rakingNum();
+			function rakingNum(){
+				mui.ajax(baseUrl+'API_Home/StatisticResult?PageIndex='+pageIindex+'&PageSize='+PageSize,{
+					"dataType": "json",
+					"type": "post",
+					success: function(data){
+						var _html = '';
+						if(data.succ && data.results != null){
+							for(var i=0; i<data.results.length; i++){
+								_html += 
+									'<li class="mui-table-view-cell mui-media">'+
+										'<a href="javascript:;">'+
+											'<div class="mui-row">'+
+												'<div class="mui-col-xs-1 rakingNumber" id="headNum">'+data.results[i].num+'</div>'+
+												'<div class="mui-col-xs-11">'+
+													'<div class="rakHead"><img class="mui-media-object mui-pull-left" src="'+data.results[i].HeadeImage+'" onerror="src=\'../../img/head.png\' "></div>'+
+													'<div class="mui-media-body">'+
+														'<div class="mui-row rakingName">'+
+															'<div class="mui-col-xs-4">'+data.results[i].UserName+'</div>'+
+															'<div class="mui-col-xs-8">'+data.results[i].DepShopName+'</div>'+
+														'</div>'+
+														'<div class="mui-row">'+
+															'<div class="mui-col-xs-4">'+data.results[i].allResults+'元</div>'+
+															'<div class="mui-col-xs-8">总单量：<span class="dan">'+(data.results[i].housecount + data.results[i].custcount)+'单</span></div>'+
+														'</div>'+
+													'</div>'+
+												'</div>'+
+											'</div>'+
+										'</a>'+
+									'</li>'
+							}
+							$('.noinfo').hide();
+							$('.noinfoImg').hide();
+							$('#item1 .mui-table-view').append(_html);
+							$('.mui-media:eq(0)').find('.mui-col-xs-1').text("").addClass('first');
+							$('.mui-media:eq(1)').find('.mui-col-xs-1').text("").addClass('second');
+							$('.mui-media:eq(2)').find('.mui-col-xs-1').text("").addClass('third');
+						}else{
+							if(data.count === 0){
+								$('.noinfo').hide();
+								$('.noinfoImg').show();
+							}else if(data.count != 0){
+								$('.noinfoImg').hide();
+								$('.noinfo').show();
+								setTimeout(function(){ $('.noinfo').fadeOut(); },1500);
+							}
+						}
+					}
+				})
+			}
+			mui('.mui-scroll-wrapper').pullRefresh({
+				down: {
+					callback: function() {
+						mui('.mui-scroll-wrapper').pullRefresh().endPulldownToRefresh();
+					}
+				},
+				up: {
+					contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+					contentnomore: '没有更多数据了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+					callback: function() {
+						pageIindex++;
+						setTimeout(function() {
+							rakingNum();
+							mui('.mui-scroll-wrapper').pullRefresh().endPullupToRefresh();
+						}, 1500);
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>

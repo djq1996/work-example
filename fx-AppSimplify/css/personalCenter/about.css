@@ -1,0 +1,12 @@
+#degree .header {
+    background: #fff;
+    padding: .4rem;
+    margin: .4rem 0;
+}
+#degree .header img{
+	/*width: 3.875rem;
+	height: 3.875rem;*/
+	display: block;
+	margin: 30px auto;
+	/*border-radius: 50%;*/
+}

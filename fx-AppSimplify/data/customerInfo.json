@@ -1,0 +1,40 @@
+{
+  "code": 200,
+  "message": "",
+  "data": {
+   	"customer": {
+      "customerId": "1",
+      "customerName": "半仙董",
+      "customerSource": "我的客源",
+      "customerSex": "男",
+      "customerIntention": "急迫",
+      "houseUse": "住宅",
+      "floorMin": 2,
+      "floorMax": 6,
+      "toward": "南北",
+      "isTopFloor": 0,
+      "isBottomFloor": 0,
+      "decorate": "精装",
+      "payMethod": "全款",
+      "bedroomMin": 2,
+      "bedroomMax": 3,
+      "area": "120",
+      "price": "1000-1500",
+      "remark": "我想要楼中楼！"
+    },
+    "customerContactsList": {
+    	"contactId":"1",
+			"contactsName":"董小姐",
+			"contractsPhone":"15735155056",
+			"createDate":"2017-8-20",
+			"createPersonId":"1",
+			"customerId":"1",
+			"del":"0",
+			"updatePersonId":"1",
+			"updateTime":"2017-8-22"
+    },
+    "collect": false
+  },
+  "toast": "OK",
+  "response": ""
+}

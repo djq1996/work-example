@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>房源写跟进</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/customers/addFollowUp.css"/>
+		<!--App自定义的css-->
+		<style>
+			
+		</style>
+		
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">
+				跟进
+			</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<button type="button" class="mui-btn mui-badge-light-blue mui-btn-block" id="save">提交保存</button>
+		</nav>
+		<div class="mui-content">
+			<div class="follow-up">
+				<form id="saveData">
+				<div class="mui-row">
+						<label>楼盘名称：</label>
+						<span id="houseName">董建强</span>
+				</div>
+				<div class="mui-input-row">
+					<textarea id="remark"  name="remark" rows="" cols="" placeholder="请填写跟进详情"></textarea>
+				</div>
+				</form>
+			</div>
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<!--common-->
+		<script type="text/javascript" src="../../js/common.js" ></script>
+		<script>
+			var BuyOrRent,
+				AddCustomerFollw = {
+				AddPerID:localStorage.getItem('userId'),
+				Operator:localStorage.getItem('userName')
+			},
+			self = null;
+			mui.init({
+				swipeBack:true
+			});
+			mui.plusReady(function () {
+			   self = plus.webview.currentWebview();
+			   AddCustomerFollw.RoomId = self.RoomID;
+			   BuyOrRent = self.BuyOrRent;
+			   $("#houseName").text(self._housename);
+			   console.log('传值'+ AddCustomerFollw.RoomId+BuyOrRent)
+			});
+			/*提交*/
+			mui('.mui-bar').on('tap','#save',function(){
+//				mui.confirm('确定提交审核吗？', '', ['确定','取消'], function(e) {
+					//0代表确定，1代表点击了取消
+//					if (e.index == 0) {
+	 					AddCustomerFollw.Remark = $("#remark").val();
+	 					console.log('跟进字段'+JSON.stringify(AddCustomerFollw));
+						mui.ajax(baseUrl + 'API_House/HouseFllow', {
+							type:'post',
+							data:AddCustomerFollw,
+							success:function(data){
+								if(data.succ){
+									mui.toast(data.msg);
+									/*刷新详情页*/
+									mui.fire(self.opener(), "shuaxin");
+									mui.back()
+								}else{
+									mui.toast(data.msg);
+								}
+								
+							},error:function(){
+								mui.toast('房源跟进保存失败')
+							}
+						});
+//					} else {
+//						mui.toast('点击了取消')
+//					}
+//				})
+			},false);
+			
+			
+		</script>
+	</body>
+
+</html>

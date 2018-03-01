@@ -1,0 +1,176 @@
+{
+  "code": 200,
+  "message": "",
+  "data": {
+    "areaDict": [
+      {
+        "dictName": "50㎡以下",
+        "dictValue": "1"
+      },
+      {
+        "dictName": "50-70",
+        "dictValue": "2"
+      },{
+        "dictName": "70-90",
+        "dictValue": "3"
+      },{
+        "dictName": "90-110",
+        "dictValue": "4"
+      },{
+        "dictName": "110-130",
+        "dictValue": "5"
+      },{
+        "dictName": "130-150",
+        "dictValue": "6"
+      },{
+        "dictName": "150-200",
+        "dictValue": "7"
+      },{
+        "dictName": "200㎡以上",
+        "dictValue": "8"
+      }
+    ],
+    "buildingAge": [
+      {
+        "dictName": "string",
+        "dictValue": "1"
+      }
+    ],
+    "buildingSource": [
+      {
+        "dictName": "我的客源",
+        "dictValue": "1"
+      },{
+        "dictName": "我的收藏",
+        "dictValue": "2"
+      },{
+        "dictName": "店淘宝池",
+        "dictValue": "3"
+      },{
+        "dictName": "片区内淘宝池",
+        "dictValue": "4"
+      }
+    ],
+    "businessType": [
+      {
+        "dictName": "string",
+        "dictValue": "string"
+      }
+    ],
+    "collectLevel": [
+      {
+        "dictName": "A",
+        "dictValue": "1"
+      },
+       {
+        "dictName": "B",
+        "dictValue": "2"
+      }, {
+        "dictName": "C",
+        "dictValue": "3"
+      }, {
+        "dictName": "D",
+        "dictValue": "4"
+      }
+    ],
+    "decorateDict": [
+      {
+        "dictName": "string",
+        "dictValue": "string"
+      }
+    ],
+    "lookBuildingWay": [
+      {
+        "dictName": "string",
+        "dictValue": "string"
+      }
+    ],
+    "needFloor": [
+      {
+        "dictName": "string",
+        "dictValue": "string"
+      }
+    ],
+    "orderBy": [
+      {
+        "dictName": "string",
+        "dictValue": "string"
+      }
+    ],
+    "other": [
+      {
+        "dictName": "string",
+        "dictValue": "string"
+      }
+    ],
+    "rentAreaDict": [
+      {
+        "dictName": "string",
+        "dictValue": "string"
+      }
+    ],
+    "rentDelegation": [
+      {
+        "dictName": "string",
+        "dictValue": "string"
+      }
+    ],
+    "rentPriceDict": [
+    	{
+        "dictName": "不限",
+        "dictValue": "0"
+      },
+      {
+        "dictName": "50万以下",
+        "dictValue": "1"
+      },
+      {
+        "dictName": "50-100万",
+        "dictValue": "2"
+      },{
+        "dictName": "100-150万",
+        "dictValue": "3"
+      }
+    ],
+    "roomDict": [
+     {
+        "dictName": "不限",
+        "dictValue": "0"
+      },
+      {
+        "dictName": "1室",
+        "dictValue": "1"
+      },
+      {
+        "dictName": "2室",
+        "dictValue": "2"
+      },{
+        "dictName": "3室",
+        "dictValue": "3"
+      },{
+        "dictName": "4室",
+        "dictValue": "4"
+      }
+    ],
+    "saleDelegation": [
+      {
+        "dictName": "string",
+        "dictValue": "string"
+      }
+    ],
+    "salePriceDic": [
+      {
+        "dictName": "string",
+        "dictValue": "string"
+      }
+    ],
+    "towardDict": [
+      {
+        "dictName": "string",
+        "dictValue": "string"
+      }
+    ]
+  },
+  "toast": "",
+  "response": ""
+}

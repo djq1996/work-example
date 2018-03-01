@@ -1,0 +1,42 @@
+.mui-content{
+				font-size: .65rem;
+				color: #777;
+			}
+			.mui-content h4{
+				font-size: .7rem;
+				font-weight: 400;
+				line-height: 1rem;
+			}
+			.performanceMoney{
+				background: #fff;
+				margin: 0;
+				padding:.6rem;
+			}
+			.performanceMoney b:last-child{
+				font-size:20px;
+				float: right;
+			}
+			.statement { 
+				background: #fff;
+				/*padding-bottom: 1rem;*/
+				font-size: .65rem;
+			}
+			.mui-scroll-wrapper{
+				top: 16.1rem;
+				padding-bottom: 60px;
+			}
+			.performanceEcharts{
+				position: relative;
+			}
+			.performanceEcharts .echartsText{
+				position: absolute;
+				right: 0;
+				bottom: 0;
+			}
+			.performanceEcharts .echartsText p{
+				margin-bottom: 0;
+				text-align: center;
+			}
+			.performanceEcharts .echartsText p b{
+				font-size: 1rem;
+			}

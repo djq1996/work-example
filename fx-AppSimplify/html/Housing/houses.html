@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="../../css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/icons-extra.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/houses/hoses.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/singleView.css"/>
+    <style type="text/css">
+    	
+    </style>
+    <script src="../../js/jquery-1.11.0.js"></script>
+    <script src="../../js/mui.min.js"></script>
+    <script src="../../js/mui.view.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/common.js"></script>
+</head>
+<body class="mui-fullscreen">
+	<div id="app" class="mui-views">
+		<div class="mui-view">
+			<div class="mui-navbar">
+			</div>
+			<div class="mui-pages">
+			</div>
+		</div>
+	</div>
+	<div id="default" class="mui-page">
+		<div class="mui-navbar-inner mui-bar mui-bar-nav mui-badge-light-blue">
+			<button type="button" class="mui-left mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+				<span class="mui-icon mui-icon-left-nav"></span>
+			</button>
+			<h1 class="mui-title rent-purchase">
+	      		<a class="active transfer">楼盘列表</a>
+		    </h1>
+		</div>
+		<div class="mui-page-content contBox">
+			<div class="search_middle">
+				<a href="#search" class="mui-input-row searchI">
+					请输入分期名称
+	      		</a>
+	    		<a class="mui-icon mui-icon-search mui-pull-right"></a>
+	      	</div>
+	      	 <div class="mui-scroll-wrapper">
+            	<div class="mui-scroll">
+            		<ul class="mui-table-view">
+					</ul>
+					<div style="text-align:center;font-size: 14px;margin:20px auto;color: #333;display: none;" class="nohouseList">没有数据了...</div>
+            	</div>
+            </div>
+		</div>
+	</div>
+	<div id="search" class="mui-page">
+		<div class="mui-navbar-inner mui-bar mui-bar-nav mui-badge-light-blue">
+			<button type="button" class="mui-left mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+				<span class="mui-icon mui-icon-left-nav"></span>
+			</button>
+			<h1 class="mui-title rent-purchase">
+	      		搜索
+		    </h1>
+		</div>
+		<div class="mui-page-content">
+			<div class="search_middle">
+	      		<div class="mui-input-row">
+				    <input id="searchInput" class="focusInput" type="search" placeholder="请输入分期名称"><a class="mui-icon mui-icon-search mui-pull-right"></a>
+				</div>
+	      	</div>
+	      	<div class="historyBox" >
+	      		<div class="historyTitle">
+		      		<h3>历史选择记录</h3>
+		      	</div>
+		      	<div class="mui-scroll-wrapper" style="top: 3.5rem;">
+		      		<div class="mui-scroll">
+		      			<ul class="mui-table-view">
+		      			</ul>
+		      		</div>
+		      	</div>
+	      	</div>
+	      	<div class="resultBox" style="display: block;">
+	      		<div class="mui-scroll-wrapper" style="top: 1.9rem;">
+		      		<div class="mui-scroll">
+		      			<ul class="mui-table-view">
+		      			</ul>
+		      		</div>
+		      	</div>
+	      	</div>
+	    </div>
+	</div>
+		<script src="../../js/common.js"></script>
+        <script type="text/javascript">
+           window.onload=function(){
+	        	var ids = localStorage.getItem('userId');
+	        	var SeeLevel = localStorage.getItem('SeeLevel');
+	        	var depId = localStorage.getItem('depId');
+	        	var page = 1,
+	        		size = 10,
+	        		wating;
+	        	mui.init({
+					swipeBack:true
+				});
+				mui('.mui-scroll-wrapper').scroll({
+					deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+				});
+				mui.plusReady(function(){
+					wating = plus.nativeUI.showWaiting('加载中...')
+				});
+				//加载时渲染数据GET
+				housesList();
+				function housesList(){
+					mui.ajax(baseUrl+'API_Responsible/GetGardenStageData?userid='+ids+'&dataType='+SeeLevel+'&deptId='+depId+'&PageIndex='+page+'&PageSize='+size,{
+						"dataType": 'json', 
+						"type": 'get',
+						success:function(data){
+							if(data.succ && data.results != null){
+								var str = '';
+								for(var i=0;i<data.results.length;i++){
+									str += '<li class="mui-table-view-cell" id="tolou">'+
+												'<a class="mui-navigate-right">'+
+												'<span class="name" data-id='+data.results[i].GardenSID+'>'+data.results[i].StageName+'</span>'+
+												'<span class="mui-badge mui-badge-inverted num">总共<i>'+data.results[i].con+'</i>户</span>'+
+												'</a></li>'
+								}
+								$('.nohouseList').hide();
+								$('#default .mui-table-view').append(str);
+							}else{
+								$('.nohouseList').show();
+							};
+							/*关闭加载*/
+							plus.nativeUI.closeWaiting(wating);
+						},
+						error:function(xhr,error,b){
+							console.log(error)
+						}
+					});
+				}
+				//列表上拉加载，下拉刷新
+				mui('.contBox .mui-scroll-wrapper').pullRefresh({
+					down: {
+						callback: function() {
+							setTimeout(function() {
+								mui('.contBox .mui-scroll-wrapper').pullRefresh().endPulldownToRefresh();
+								$('#default .mui-table-view').empty();
+								housesList();
+								mui.toast("刷新成功");
+							}, 1500);
+						}
+					},
+					up: {
+						contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+						contentnomore: '没有更多数据了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+						callback: function() {
+							setTimeout(function() {
+								page++;
+								housesList();
+								mui('.contBox .mui-scroll-wrapper').pullRefresh().endPullupToRefresh();
+							}, 1500);
+						}
+					}
+				});
+	        	//点击搜索进入页面让里面的搜索框获得焦点
+			    $('.search_middle').on('tap','a[href="#search"]',function(){
+					setTimeout(function(){
+						$('.search_middle input[type=search]').focus();
+					},100);
+	        	});
+	        	mui('body').on('tap', '#tolou', function() {
+					$('#default input[type=search]').val('');
+					var houses=mui.openWindow({
+						url: '_www/html/Housing/housesLou.html',
+						id: '_www/html/Housing/housesLou',
+						show: {
+							aniShow: 'pop-in', //页面显示动画，默认为”slide-in-right“；
+							duration: '300' //页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+						},
+						styles: {
+							popGesture:"close"
+						},
+						extras:{
+							name:$(this).find('.name').text(),
+							gardenSID: $(this).find('.name').attr('data-id')
+						}
+					});
+				});
+				//初始化单页view
+				var viewApi = mui('#app').view({
+					defaultPage: '#default'
+				});
+				var view = viewApi.view;
+				(function($) {
+					//处理view的后退与webview后退
+					var oldBack = $.back;
+					$.back = function() {
+						if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+							viewApi.back();
+						} else { //执行webview后退
+							oldBack();
+						}
+					};
+					//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+					//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+					view.addEventListener('pageBeforeShow', function(e) {
+						//				console.log(e.detail.page.id + ' beforeShow');
+					});
+					view.addEventListener('pageShow', function(e) {
+						//				console.log(e.detail.page.id + ' show');
+					});
+					view.addEventListener('pageBeforeBack', function(e) {
+						//				console.log(e.detail.page.id + ' beforeBack');
+					});
+					view.addEventListener('pageBack', function(e) {
+						//				console.log(e.detail.page.id + ' back');
+					});
+				})(mui);
+				//搜索历史纪录
+				var houses_history=[];
+				$('.resultBox').on("tap",'.mui-table-view-cell a',function(){
+					var _txt = $(this).text().trim();
+					$(".searchI").text(_txt);
+					$('#search input[type=search]').val('');
+					houses_history.push({
+						text:_txt
+					});
+					localStorage.setItem('houses_history',JSON.stringify(houses_history));
+					//删除子节点
+	                $('.historyBox .mui-table-view .mui-table-view-cell').remove();
+					for(var i=0;i<JSON.parse(localStorage.getItem('houses_history')).length;i++){
+						var historyStr='<li class="mui-table-view-cell">';
+						historyStr+='<a class="mui-navigate-right">'+JSON.parse(localStorage.getItem('houses_history'))[i].text+'</a></li>';
+						mui('.historyBox .mui-table-view')[0].insertAdjacentHTML('beforeend', historyStr);
+					}
+					setTimeout(function(){
+						viewApi.back();
+					},250)
+				});
+				$('.historyBox').on("tap",' .mui-table-view-cell a',function(){
+					var _txt = $(this).text().trim();
+					$('#search input[type=search]').val('');
+					$(".searchI").text(_txt);
+
+					setTimeout(function(){
+						viewApi.back();
+					},250)
+				});
+				//页面跳转时清空搜索条件
+				$('.search_middle').on('tap','a[href="#search"]',function(){
+					if($('#search input[type=search]').val()==""){
+						$('#search .historyBox').show();
+						$('#search .resultBox').hide();
+					}else{
+						$('#search .historyBox').hide();
+						$('#search .resultBox').show();
+					}
+					var table = document.body.querySelector('.resultBox .mui-table-view');
+	                while(table.hasChildNodes()) //当table下还存在子节点时 循环继续
+	                {
+	                    table.removeChild(table.firstChild);
+	                }
+				});
+				//搜索页输入时
+				$('#search input[type=search]').on('blur',function(){
+					if($(this).val()==""){
+						$('#search .historyBox').show();
+						$('#search .resultBox').hide();
+					}else{
+						$('#search .historyBox').hide();
+						$('#search .resultBox').show();
+					}
+					$('.resultBox .mui-table-view .mui-table-view-cell').remove();
+					var searchtext = $(this).val();
+					mui.ajax(baseUrl+'API_Responsible/GetGardenStageData?userId='+ids+'&dataType='+positionId+'&deptId='+depId+'&PageIndex='+page+'&PageSize='+size+'&GsName='+searchtext,{
+						dataType: 'json',
+						type: 'get',
+						//timeout: 10000,
+						success:function(data){
+							for(var i=0;i<data.results.length;i++){
+								var str='<li class="mui-table-view-cell">';
+								str+='<a class="mui-navigate-right">'+data.results[i].StageName+'</a></li>';
+								mui('.resultBox .mui-table-view')[0].insertAdjacentHTML('beforeend', str);
+							}
+						}
+					});
+				});
+				//点击搜索结果清空列表数据
+				$('.resultBox').on('tap','.mui-table-view-cell',function(){
+					var searchResult = $(this).text();
+					$('.contBox .mui-table-view').empty();
+					mui.ajax(baseUrl+'API_Responsible/GetGardenStageData?userId='+ids+'&dataType='+positionId+'&deptId='+depId+'&PageIndex='+page+'&PageSize='+size+'&GsName='+searchResult,{
+						dataType: 'json', 
+						type: 'get',
+						//timeout: 10000,
+						success:function(data){
+							for(var i=0;i<data.results.length;i++){
+								var str='<li class="mui-table-view-cell" id="tolou" data>';
+						    	str+='<a class="mui-navigate-right">';
+						    	str+='<span class="name" data-id='+data.results[i].GardenSID+'>'+data.results[i].StageName+'</span>';
+						    	str+='<span class="mui-badge mui-badge-inverted num">总共<i>'+data.results[i].con+'</i>户</span>';
+						    	str+='</a></li>';
+						    	
+							    mui('#default .mui-table-view')[0].insertAdjacentHTML('beforeend', str);
+							}
+						},
+						error:function(xhr,error,b){
+							console.log(error)
+						}
+					});
+				})
+	        };
+	      
+	      
+	    
+	      
+	    </script>
+</body>
+</html>

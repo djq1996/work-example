@@ -1,0 +1,140 @@
+.title {
+	margin: 8px 15px 7px;
+	color: #6d6d72;
+	font-size: .75rem;
+}
+
+.d-i-b {
+	display: inline-block !important;
+}
+
+.mui-content,
+.mui-content button {
+	font-size: .65rem;
+	/*background: #FFFFFF;*/
+}
+
+.mui-row .mui-btn {
+	padding: 3px 6px;
+}
+.mui-bar-tab button{
+	width: 56%;
+	margin: 0 auto;
+	border: none;
+}
+.mui-row {
+	line-height: 1.5rem;
+	padding: .3rem;
+}
+
+.mui-row label {
+	color: #858585;
+}
+
+.mui-row:not(:last-child) {
+	border-bottom: 1px solid #eaeaea;
+	background: #fff;
+}
+
+.mui-input-row textarea {
+	/*width: 94%;*/
+	height: 6rem;
+	font-size: .7rem;
+	margin: .4rem 0;
+	border: none;
+	color: #333;
+}
+
+.follow-up {
+	/*margin: .4rem .4rem;*/
+	/*background: #FFFFff;*/
+	border-radius: .3rem;
+}
+
+.mui-bar-tab {
+	padding: 0 .4rem;
+}
+
+ 
+/*.mui-bar .mui-btn-block {
+				border:0;
+			}*/
+
+.mui-popup-title {
+	font-size: .75rem;
+}
+
+.follow-up .mui-radio {
+	width: 45%;
+	display: inline-block;
+}
+
+.follow-up .mui-radio label {
+	padding-left: 25px;
+	padding-right: 0;
+	color: #333;
+}
+
+.follow-up .mui-radio input[type='radio'] {
+	left: 0;
+	top: 7px;
+	right: inherit;
+}
+
+.follow-up-way>label {
+	float: left;
+}
+
+.follow-up-way .follow-up-type {
+	margin-left: 65px;
+}
+
+.follow-up-way .mui-radio input[type='radio']:checked:before {
+	color: #65b3ea;
+}
+
+.follow-up-way .mui-radio input[type='radio']:before {
+	font-size: 20px;
+}
+
+
+/*改版的房源跟进*/
+
+.TelName{
+	margin-right: 20px;
+}
+.follow-up  #telMess .mui-radio{
+	width: 8%;
+}
+.follow-up  #telMess .mui-radio input[type='radio']:before{
+	font-size: 20px;
+	color: #65b3ea;
+}
+.follow-up #telMess .mui-radio input[type='radio']{
+	left: 4px;
+	top: 9px;
+}
+.follow-up  #telMess label{
+	width: 26%;
+}
+.mui-col-xs-11 span{
+	display: inline-block;
+	margin-top: 3px;
+}
+#telMess .mui-row{
+	padding-left:10px;
+}
+
+.follow-up-way{
+	margin-top: 8px;
+}
+.follow-up-way .mui-radio input[type='radio']{
+	top: 4px;
+}
+.follow-up .mui-radio {
+	width: 46%;
+	display: inline-block;
+}
+.phoneStyle{
+	padding: 0;
+}

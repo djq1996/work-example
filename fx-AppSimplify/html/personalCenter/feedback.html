@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>问题反馈</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" href="../../css/personalCenter/feedback.css" />
+		<style type="text/css"></style>
+	</head>
+	<body class="">
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">
+				问题反馈
+			</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<button type="button" class="mui-btn mui-badge-light-blue mui-btn-block" id="save">提交</button>
+		</nav>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<h4>请选择您要反馈的问题</h4>
+				<form name="fileForm" id="updata" action="" method="post" enctype="multipart/form-data">
+					<div>
+						<p class="selectBtn">
+							<button type="button" name="problemType" data-type='1' class="mui-btn mui-btn-outlined selectOption selectOption">房源录入</button>
+							<button type="button" name="problemType" data-type='2' class="mui-btn mui-btn-outlined selectOption selectOption">添加客户</button>
+							<button type="button" name="problemType" data-type='3' class="mui-btn mui-btn-outlined selectOption selectOption">写带看/写跟进</button>
+							<button type="button" name="problemType" data-type='4' class="mui-btn mui-btn-outlined selectOption selectOption">报表</button>
+							<button type="button" name="problemType" data-type='5' class="mui-btn mui-btn-outlined selectOption selectOption">功能建议</button>
+							<button type="button" name="problemType" data-type='6' class="mui-btn mui-btn-outlined selectOption selectOption">其他</button>
+						</p>
+						<textarea name="" placeholder="您好，请描述您的问题..." style="height: 200px;"></textarea>
+						<!--<p class="issueImg">上传问题图片？</p>-->
+					</div>	
+				</form>
+			</div>
+		</div>
+	</body>
+	<script src="../../js/jquery-1.11.0.js"></script>
+	<script type="text/javascript" src="../../js/ajaxupload/jquery-form.js" ></script>
+	<script src="../../js/mui.min.js "></script>
+	<script src="../../js/common.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true
+		});
+		var userid = localStorage.getItem('userId');
+		var userName = localStorage.getItem('userName');
+		var Areatext = $('textarea').val();
+		
+		var UploadFeed = {
+			Describe: Areatext,
+			CreateId: userid,
+			CreateName: userName,
+			QuesType: null
+		}
+		$('body').on('tap','.selectOption',function(){
+			$(this).addClass('mui-btn-blue').siblings().removeClass('mui-btn-blue');
+			UploadFeed.QuesType = parseInt($(this).attr('data-type'));
+		})
+		$('#save').click(function(){
+			var form = $("form[name=fileForm]");
+			var options = {
+				url: baseUrl+'API_PersonInfo/AddOrUpdateQueryFeedback',
+				type: 'post',
+				data:UploadFeed,
+				success: function(data,status){
+					console.log(JSON.stringify(data))
+					if( $('textarea').val() != ''){
+						if(data.succ){
+							$('textarea').val('');
+						}else{
+							mui.toast(data.msg);
+						}
+					}else{
+						mui.toast('反馈描述不能为空');
+					}
+				},error: function(error){
+					console.log(error);
+				}
+			};
+			form.ajaxSubmit(options);
+		})
+	</script>
+
+</html>

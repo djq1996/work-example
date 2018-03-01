@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>房源写跟进</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/customers/addFollowUp.css"/>
+		<!--App自定义的css-->
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div id="vue-app">
+		
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">
+				写跟进
+			</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<button type="button" class="mui-btn mui-badge-light-blue mui-btn-block" id="save">提交保存</button>
+		</nav>
+		<div class="mui-content">
+			<div class="follow-up">
+				<form id="saveData">
+					<div class="mui-row">
+						<label>房源名称：</label>
+						<span id="houseName">锋尚名居1栋/1单元/2010</span>
+					</div>
+					<div class="mui-row" id="telMess">
+						<div v-for="info in detail" style="border-bottom: 1px solid #eaeaea;">
+							<div>
+								<label>联系人：</label>
+								<span class="TelName" v-text="info.ContactUser">彭姐</span>
+								<label>产权人类别：</label>
+								<span v-text="info.IsLookUser">产权人</span>
+							</div>
+							<div v-for="item in info.OwnerPhone">
+								<div class="mui-row mui-input-row phoneStyle">
+									<div class="mui-col-xs-1 mui-input-row mui-radio">
+										<label></label>
+										<input type="radio" name="telRadio"  @click="abc(item)"/>
+									</div>
+									<div class="mui-col-xs-11">
+										<label>电话：</label>
+										<span v-text="item.Phone">15893565225</span>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					
+					<div class="mui-row follow-up-way">
+						<label>接通状态：</label>
+						<div class="follow-up-type">
+							<!--<div class="mui-radio">
+								<label>去电</label>
+								<input type="radio" value="1" name="AnswerStatus" id="" />
+							</div>-->
+							<div class="mui-radio">
+								<label>已接</label>
+								<input type="radio" value="1" @click="AnswerStatus(1)"  name="AnswerStatus" id="" />
+							</div>
+							<div class="mui-radio">
+								<label>未接</label>
+								<input type="radio" value="2" @click="AnswerStatus(2)" name="AnswerStatus" id="" />
+							</div>
+							<div class="mui-radio">
+								<label>未接+国际长途</label>
+								<input type="radio" value="3" @click="AnswerStatus(3)" name="AnswerStatus" id="" />
+							</div>
+							<div class="mui-radio">
+								<label>拒接</label>
+								<input type="radio" value="4" @click="AnswerStatus(4)" name="AnswerStatus" id="" />
+							</div>
+							<div class="mui-radio">
+								<label>关机</label>
+								<input type="radio"  value="5" @click="AnswerStatus(5)" name="AnswerStatus" id="" />
+							</div>
+							<div class="mui-radio">
+								<label>停机</label>
+								<input type="radio"  value="6" @click="AnswerStatus(6)" name="AnswerStatus" id="" />
+							</div>
+							<div class="mui-radio">
+								<label>空号</label>
+								<input type="radio"  value="7" @click="AnswerStatus(7)" name="AnswerStatus" id="" />
+							</div>
+							<div class="mui-radio">
+								<label>无法接通</label>
+								<input type="radio"  value="8" @click="AnswerStatus(8)" name="AnswerStatus" id="" />
+							</div>
+							<div class="mui-radio">
+								<label>已换机主</label>
+								<input type="radio" value="9" @click="AnswerStatus(9)" name="AnswerStatus" id="" />
+							</div>
+							<div class="mui-radio">
+								<label>态度恶劣</label>
+								<input type="radio" value="10" @click="AnswerStatus(10)" name="AnswerStatus" id="" />
+							</div>
+							<div class="mui-radio">
+								<label>多次确认无效</label>
+								<input type="radio"  value="11" @click="AnswerStatus(11)" name="AnswerStatus" id="" />
+							</div>
+						</div>
+					</div>
+					<div class="mui-input-row">
+						<textarea id="remark" v-model="AddCustomerFollw.Remark" name="nav" rows="" cols="" placeholder="请填写跟进详情"></textarea>
+					</div>
+				</form>
+			</div>
+		</div>
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../lib/vue.js"></script>
+		<!--common-->
+		<script type="text/javascript" src="../../js/common.js" ></script>
+		<script>
+//			var mask = mui.createMask();//callback为用户点击蒙版时自动执行的回调；
+//			mask.show();//显示遮罩
+			//
+			//var BuyOrRent,
+			//	isCollectInit = 0,
+			//	BuyOrRentUrl = 'API_House';
+			var self;
+			var vm = new Vue({
+				el: '#vue-app',
+				data: {
+					AddCustomerFollw:{
+						AddPerID:parseInt(localStorage.getItem('userId')),
+						Operator:localStorage.getItem('userName'),
+					},
+					detail:[],
+				},
+				methods: {
+					getInfo(){
+						mui.ajax(baseUrl + 'API_House/GetContactsPhones?HouseId='+vm.$data.AddCustomerFollw.HouseID, {
+							type:'post',
+							success:function(data){
+								$('#save').removeAttr("disabled");
+								console.log(JSON.stringify(data));
+								if(data.succ&& JSON.stringify(data.results) != '[]'){
+									vm.$data.detail = data.results;
+//									mui.toast(data.msg);
+								}else{
+									$('#save').attr({"disabled":"disabled"});
+									mui.toast('当前房子没有电话信息');
+								}
+								
+							},error:function(type,a,en){
+								mui.toast('获取跟进电话信息失败');
+								console.log('error'+type+en)
+							}
+						});
+					},
+					abc(data){
+						console.log(JSON.stringify(data));
+						vm.$data.AddCustomerFollw.PhoneNumber = data.Phone;
+						vm.$data.AddCustomerFollw.RoomID = data.RoomID;
+						vm.$data.AddCustomerFollw.OwnerId = data.OwnerId;
+						vm.$data.AddCustomerFollw.Operator = data.Operator;
+						vm.$data.AddCustomerFollw.PhoneId = data.OwnerPId;
+					},
+					AnswerStatus(data){
+						vm.$data.AddCustomerFollw.AnswerStatus = data;
+					},
+				},
+				mounted: function() {
+			//		this.getInfo();
+				}
+			});
+			mui.init({
+				swipeBack:true
+			});
+			mui.plusReady(function () {
+			   self = plus.webview.currentWebview();
+			   vm.$data.AddCustomerFollw.HouseID = self.HouseID;
+			   vm.$data.AddCustomerFollw.RoomId = self.RoomID;
+			   vm.$data.BuyOrRent = self.BuyOrRent;
+			   vm.getInfo();
+			   $("#houseName").text(self._housename);
+//			   console.log('传值'+ AddCustomerFollw.RoomId+AddCustomerFollw.HouseID+BuyOrRent)
+			});
+			/*提交跟进*/ 
+			$('#save').on('tap',function(){
+				$(this).attr({"disabled":"disabled"});
+//				mui.confirm('确定提交审核吗？', '', ['确定','取消'], function(e) {
+					//0代表确定，1代表点击了取消
+//					if (e.index == 0) {
+	 					console.log('跟进字段'+JSON.stringify(vm.$data.AddCustomerFollw));
+						mui.ajax(baseUrl + 'API_House/HouseFllow', {
+							type:'post',
+							data:vm.$data.AddCustomerFollw,
+							success:function(data){
+								$('#save').removeAttr("disabled");
+								if(data.succ){
+									mui.toast(data.msg);
+									/*刷新详情页*/
+									mui.fire(self.opener(), "shuaxin");
+									mui.back()
+								}else{
+									mui.toast(data.msg);
+								}
+								
+							},error:function(){
+								mui.toast('房源跟进保存失败')
+							}
+						});
+//					} else {
+//						mui.toast('点击了取消')
+//					}
+//				})
+			});
+			
+			
+		</script>
+	</body>
+
+</html>

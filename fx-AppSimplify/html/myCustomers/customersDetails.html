@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>客户详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/customers/customersDetail.css" />
+		<!--App自定义的css-->
+		<style>
+
+		</style>
+	</head>
+
+	<body>
+		<div id="vue-app">
+
+			<header id="header" class="mui-bar mui-bar-nav mui-badge-light-blue">
+				<button class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span><span class="customerName"  v-text="detail.CustomerName"></span>
+				</button>
+				<!--<a href="#popover" id="openPopover" class="mui-icon mui-icon-bars mui-pull-right"></a>-->
+				<a class="mui-icon mui-icon-extra mui-icon-extra-arrowrightcricle mui-pull-right" id="nextPage"></a>
+				<a class="mui-icon mui-icon-extra mui-icon-extra-arrowleftcricle  mui-pull-right" id="upPage"></a>
+				<!--<a class="mui-action-back mui-icon mui-icon-extra mui-icon-extra-heart mui-pull-right"></a>-->
+			</header>
+			<!--其他列表详情需要收藏 -->
+			<nav class="mui-bar mui-bar-tab">
+				<button type="button" class="mui-btn mui-badge-light-blue " id="love">
+					收藏
+		  		 </button>
+				<button type="button" class="mui-btn mui-badge-light-blue " id="Look"> 
+					带看
+		  		 </button>
+				<button type="button" class="mui-btn mui-badge-light-blue" id="AddFollow"> 
+					写跟进
+		   		 </button>
+			</nav>
+			<div class="mui-content">
+				<div class="mui-scroll-wrapper" style="top:65px;bottom: 55px;">
+					<div class="mui-scroll">
+						<!--客户信息-->
+						<h4 class="title">
+							求购信息
+						</h4>
+						<div class="customerDetail">
+							<div class="message" style="">
+								<ul class="mui-row">
+									<li class="mui-col-xs-6"><label>姓名：</label>
+										<div v-text="detail.CustomerName"></div>
+									</li>
+									<li class="mui-col-xs-6"><label>性别：</label>
+										<div v-text="detail.Sex"></div>
+									</li>
+									<li class="mui-col-xs-6"><label>用途：</label>
+										<div v-text="shaixuan(detail.UseChannel,'UseChannel')"></div>
+									</li>
+									<!--判断租赁买卖   1是购  2是租-->
+									<li class="mui-col-xs-6" v-if="detail.BuyOrRent==1"><label>等级：</label>
+										<div v-text="shaixuan(detail.BuyLevel,'LevelText')"></div> 
+									</li>
+									<li class="mui-col-xs-6" v-if="detail.BuyOrRent==2"><label>等级：</label>
+										<div v-text="shaixuan(detail.RentLevel,'LevelText')"></div> 
+									</li>
+									<li class="mui-col-xs-6"><label>电话：</label>
+										<div v-text="firstPhone"></div> 
+									</li>
+									<li class="mui-col-xs-6" id="telPhone"> 
+										<a href="javascript:;"  class="mui-icon mui-icon-phone mui-pull-right"></a>
+									</li>
+									<li class="mui-col-xs-6"><label>楼层：</label>
+										<div v-text="detail.FloorNStart +'-'+detail.FloorNEnd"></div>
+									</li>
+									<li class="mui-col-xs-6"><label>面积：</label>
+										<div v-text="detail.HouseAreaStart +'-'+detail.HouseAreaEnd+'㎡'"></div>
+									</li>
+									<!--<li class="mui-col-xs-6"><label>付款方式：</label>
+										<div v-text="shaixuan(detail.PayFunction,'PayStatusType')"></div>
+									</li>-->
+									<li class="mui-col-xs-6"><label>装修：</label>
+										<div v-text="shaixuan(detail.DegreeLevel,'DegreeLevelType')"></div>
+									</li>
+									<li class="mui-col-xs-6"><label>朝向：</label>
+										<div v-text="shaixuan(detail.HouseForward,'HouseForwardType')">
+											<div>南</div>
+									</li>
+									<!--判断租赁买卖   1是购  2是租-->
+									<li class="mui-col-xs-6" v-if="detail.BuyOrRent==1"><label>价格：</label>
+										<div v-text="detail.PriceStart +'-'+detail.PriceEnd+'万'"></div>
+									</li>
+									<li class="mui-col-xs-6"v-if="detail.BuyOrRent==2"><label>价格：</label>
+										<div v-text="detail.RentPriceStart +'-'+detail.RentPriceEnd+'元'"></div>
+									</li>
+									<!--判断租赁买卖   1是购  2是租-->
+									<li class="mui-col-xs-12"  v-if="detail.BuyOrRent==1" style="margin: 0;"><label>备注：</label>
+										<div v-text="detail.Remark"></div>
+									</li>
+									<li class="mui-col-xs-12"  v-if="detail.BuyOrRent==2"style="margin: 0;"><label>备注：</label>
+										<div v-text="detail.Remark2"></div>
+									</li>
+								</ul>
+								</div>
+								<!--<div class="showHide"><span>收起</span><i class="mui-icon mui-icon-arrowdown"></i></div>-->
+							</div>
+							<!--跟进-->
+							<h4 class="title">
+								跟进信息
+							</h4>
+							<div class="GJType" >
+								<div class="show-hidden" >
+									<ul class="takeLookAt">
+										<li v-for="(info,j) in CustomerFollw"  class="mui-row">
+											<div class="mui-col-xs-3 date">
+												<p><b v-text="orderby(j)"></b></p>
+												<p class="sj" v-text="fmtDate(info.UpdateTime)">2017-8-31</p>
+											</div>
+											<div class="mui-col-xs-9  homeName">
+												<p class="mui-ellipsis" v-text="info.Remark">客户不满意！</p>
+												<p v-text="info.Operator+' - '+shaixuan(info.PromotionFunction,'JGType')">张三 — 电话</p>
+											</div>
+										</li>
+									</ul>
+									<!--<div class="mui-row mui-text-center down"  v-if="CustomerFollw != null||CustomerFollw.length >= 3" >
+										<span class="mui-icon mui-icon-arrowdown"></span>
+									</div>-->
+								</div>
+								<div class="mui-text-center noinfo" style="display: block;" v-if="CustomerFollw == null">
+									暂无跟进
+								</div>
+							</div>
+							<!--带看-->
+							<h4 class="title">
+								带看信息
+							</h4>
+							<div>
+								<div class="show-hidden">
+									<ul class="takeLookAt">
+										<li  v-for="(info,i) in CustomerLookFollw" class="mui-row" id="homeDetail">
+											<div class="mui-col-xs-3 date">
+												<p><b v-text="orderbys(i)"></b></p>
+												<p class="sj" v-text="fmtDate(info.UpdateTime)">2017-8-31</p>
+											</div>
+											<div class="mui-col-xs-8 homeName">
+												<p class="mui-ellipsis" v-text="info.FollwHouse.Housename+' '+info.FollwHouse.Builder+'#'+info.FollwHouse.Unit+'单元#'+info.FollwHouse.fang">宣海家园1期 2栋#4单元#1502</p>
+												<p v-text="info.Operator+' - '+info.Remark">王五 — 客户不满意<span></span></p>
+											</div>
+										</li>
+									</ul>
+									<!--<div class="mui-row mui-text-center down" v-if="CustomerLookFollw != null||CustomerLookFollw.length >= 3">
+										<span class="mui-icon mui-icon-arrowdown"></span>
+									</div>-->
+								</div>
+								<div class="mui-text-center noinfo" style="display: block;"  v-if="CustomerLookFollw == null">
+									暂无带看
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/common.js"></script>
+		<script type="text/javascript" src="../../lib/vue.js"></script>
+		<!--common-->
+		<script type="text/javascript" src="../../js/customers/customerDetail.js" ></script>
+	</body>
+
+</html>

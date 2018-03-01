@@ -1,0 +1,74 @@
+<!doctype html
+>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>上传图片</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/imageviewer.css" />
+		<link rel="stylesheet" href="../../css/hosing/addPic.css" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		
+			<header class="mui-bar mui-bar-nav mui-badge-light-blue" id="header">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">上传图片</h1>
+				<a class="mui-pull-right" id="delete" style="display: none;">删除</a>
+			</header>
+
+			<nav class="mui-bar mui-bar-tab">
+				<button type="button" class="mui-btn mui-badge-light-blue mui-btn-block" id="savePic">提交</button>
+			</nav>
+			<div class="mui-content  mui-row mui-fullscreen">
+				<div class="mui-col-xs-3">
+					<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+						<a class="mui-control-item mui-active" href="javascript:;">卧室</a>
+						<a class="mui-control-item" href="javascript:;">客厅</a>
+						<a class="mui-control-item" href="javascript:;">厨房</a>
+						<a class="mui-control-item" href="javascript:;">卫生间</a>
+						<a class="mui-control-item" href="javascript:;">储物间</a>
+						<a class="mui-control-item" href="javascript:;">户型图</a>
+					</div>
+				</div>
+				<div id="segmentedControlContents" class="mui-col-xs-9" style="">
+					<!--卧室-->
+					<div id="bedroom" class="mui-control-content mui-active">
+						<div class="upBox mui-row">
+							<div class="imgCount">
+								<h5>已经上传</h5>
+								<div class="mui-clearfix uploadedBox">
+									<!--<input type="hidden" name="room" />-->
+								</div>
+							</div>
+							<h5>上传</h5>
+							<div class="imgBox" data-group="ws">
+								
+							</div>
+							<div class="upBtn">
+								<a class="add"></a>
+								<form name="fileForm" id="updata" action="" method="post" enctype="multipart/form-data">
+									<input type="file" name="form-data" value="" id="inputs" accept="image/*" multiple="" />
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</body>
+	<script src="../../js/jquery-1.11.0.js"></script>
+	<script src="../../js/ajaxupload/jquery-form.js" ></script>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/mui.zoom.js"></script>
+	<script src="../../js/mui.previewimage.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/HousingResources/addPic.js"></script>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" href="../../css/personalCenter/geoponicsWarn.css" />
+		<title>精耕提醒</title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue" id="header">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">精耕提醒 </h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="../../img/personalCenter/home.png">
+					            <div class="mui-media-body">
+					      			<p class="mui-ellipsis">房源跟进提醒：发起时间：<span>2017.7.21</span></p>
+					                <p class='mui-ellipsis content'>房源信息：楼盘名称—坐落—单元—房号。</p>
+					            </div>
+					        </a>
+					    </li>
+					    <li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					            <img class="mui-media-object mui-pull-left" src="../../img/personalCenter/kehu.png">
+					            <div class="mui-media-body">
+		                			<p class="mui-ellipsis">客户跟进提醒：发起时间：<span>2017.7.21</span></p>
+					                <p class='mui-ellipsis content'>客户姓名：<span>李良</span></p>
+					            </div>
+					        </a>
+					    </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../../js/jquery-1.11.0.js"></script>
+    <script src="../../js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui('.mui-scroll-wrapper').scroll({
+			deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+		});
+	</script>
+</html>

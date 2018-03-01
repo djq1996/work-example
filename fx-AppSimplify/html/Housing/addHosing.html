@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>新增房源</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.picker.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.poppicker.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/mobileSelect/mobileSelect.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/hosing/addHosing.css" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body class="">
+		<div id="vue-app">
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">新增房源</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<button type="button" id="subBtn" class="mui-btn mui-badge-light-blue mui-btn-block">提交保存</button>
+		</nav>
+		<div class="mui-content">
+			<div class="">
+				<div class="">
+					<div class="customers-message customers-buy-message">
+						<form id="addRent">
+							<ul class="mui-table-view" style="margin: 0;">
+								<li class="mui-table-view-cell ">
+									<a class="mui-navigate-right mui-input-row" href="javascript:;" id="selectHouse">
+										<label class="import">楼盘：</label>
+										<input type="text" placeholder="请选择" name="intention" readonly="readonly" />
+									</a>
+								</li>
+								<li class="mui-table-view-cell ">
+									<a class=" mui-input-row" href="javascript:;" id="houseType">
+										<!--id="realEstate"-->
+										<label class="import">房源类型：</label>
+										<div class="houseTypeBtn">
+											<div class="mui-checkbox ">
+												<label for="sellBtn">出售</label>
+												<input type="checkbox"  id="sellBtn"  v-model="AddHouseinfo.IsSell" v-bind:true-value="1" v-bind:false-value="0"/>
+											</div>
+											<div class="mui-checkbox">
+												<label for="IsRent">出租</label>
+												<input type="checkbox"  id="IsRent"  v-model="AddHouseinfo.IsRent" v-bind:true-value="1" v-bind:false-value="0"/>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li id="SaleType" class="mui-table-view-cell " v-show="AddHouseinfo.IsSell==1">
+									<a class="mui-navigate-right mui-input-row" href="javascript:;" id="">
+										<label class="import">出售房源状态：</label>
+										<input type="text" name="SaleType" placeholder="请选择" readonly="readonly" />
+									</a>
+								</li>
+								<li id="SaleLevel" class="mui-table-view-cell " v-show="AddHouseinfo.IsSell==1">
+									<a class="mui-navigate-right mui-input-row" href="javascript:;" id="">
+										<label class="import">出售房源等级：</label>
+										<input type="text" name="SaleLevel"  placeholder="请选择" readonly="readonly" />
+									</a>
+								</li>
+								<li id="RentType" class="mui-table-view-cell " v-show="AddHouseinfo.IsRent==1">
+									<a class="mui-navigate-right mui-input-row" href="javascript:;" id="">
+										<label class="import">出租房源状态：</label>
+										<input type="text" name="RentType"  placeholder="请选择" readonly="readonly" />
+									</a>
+								</li>
+								<li id="RentLevel" class="mui-table-view-cell " v-show="AddHouseinfo.IsRent==1">
+									<a class="mui-navigate-right mui-input-row" href="javascript:;" id="cz-houseGrade">
+										<label class="import">出租房源等级：</label>
+										<input type="text" name="RentLevel"  placeholder="请选择" readonly="readonly" />
+									</a>
+								</li>
+								<li id="UseChannel" class="mui-table-view-cell" >
+									<a class="mui-navigate-right mui-input-row" href="javascript:;" id="houseUse">
+										<label>房源用途：</label>
+										<input type="text" placeholder="请选择" value="住宅"  name="UseChannel" readonly="readonly" />
+									</a>
+								</li>
+							</ul>
+							<div class="turnTit">
+								<h4>基本信息</h4>
+							</div>
+							<ul class="mui-table-view" style="margin: 0;">
+								<li class="mui-table-view-cell">
+									<a class="mui-navigate-right mui-input-row area" href="javascript:;">
+										<label class="import">建筑面积：</label>
+										<input type="number" name="" v-model="AddHouseinfo.Area_of_Structure"/><span class="pfm">㎡</span>
+									</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a class="mui-navigate-right mui-input-row area" href="javascript:;">
+										<label>套内面积：</label>
+										<input type="number" name="" v-model="AddHouseinfo.Indoor_Area" /><span class="pfm">㎡</span>
+									</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a class="mui-navigate-right mui-input-row area" href="javascript:;">
+										<label>得房率：</label>
+										<input type="number" name="" v-model="AddHouseinfo.Construction_Ratio"  /><span class="pfm">%</span>
+									</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a class="mui-navigate-right mui-input-row" href="javascript:;" id="">
+										<label for="fangxing" class="import">居室：</label>
+										<input type="text" placeholder="请选择" value="" id="fangxing"  readonly="readonly" />
+									</a>
+								</li>
+								<li id="OrienTation" class="mui-table-view-cell " >
+									<a class="mui-navigate-right mui-input-row" href="javascript:;" id="">
+										<label for="OrienTation" class="import">朝向：</label>
+										<input type="text" placeholder="请选择" name="OrienTation" readonly="readonly" />
+									</a>
+								</li>
+							</ul>
+							<ul class="mui-table-view importLink">
+								
+								<li class="mui-table-view-cell" v-if="linkMan ==null">
+									<a class="mui-navigate-right mui-input-row area" href="javascript:;">
+										<label class="import">联系人：</label>
+										<input type="text" name="phoneListName" placeholder="请输入" name=""  value=""/>
+									</a>
+									<a class="mui-navigate-right mui-input-row IsLookUser" href="javascript:;" id="relation">
+										<label class="import">产权人关系：</label>
+										<input type="text" placeholder="请选择" class="" name="IsLookUser" readonly="readonly" value="产权人" />
+									</a>
+									<a class="mui-navigate-right mui-input-row area" href="javascript:;">
+										<label class="import">联系人电话：</label>
+										<input type="tel" placeholder="请输入" name="phoneListTel" value="" />
+										<!--<span class="mui-icon mui-icon-plusempty jia" id="addContactsTel"></span>-->
+									</a>
+								</li>
+								<li class="mui-table-view-cell" v-for="info in linkMan">
+									<a class="mui-navigate-right mui-input-row area" href="javascript:;">
+										<label>联系人：</label>
+										<input type="text" name="phoneListName" v-model="info.ContactUser" v-bind:dataId="info.OwnerId" placeholder="请输入" name=""  value=""/>
+									</a>
+									<a class="mui-navigate-right mui-input-row IsLookUser" href="javascript:;" id="relation">
+										<label>产权人关系：</label>
+										<input type="text" placeholder="请选择" class="" v-model="info.IsLookUser"  name="IsLookUser" readonly="readonly" value="" />
+									</a>
+									<a class="mui-navigate-right mui-input-row area" href="javascript:;" v-for="tiem in info.OwnerPhone">
+										<label>联系人电话：</label>
+										<input type="tel" placeholder="请输入" name="phoneListTel"  v-model="tiem.Phone" v-bind:dataId="tiem.OwnerId" v-bind:dataPId="tiem.OwnerPId" value="" />
+										<!--<span class="mui-icon mui-icon-plusempty jia" id="addContactsTel"></span>-->
+									</a> 
+								</li>
+								<li class="mui-table-view-cell">
+									<a class="mui-navigate-right mui-input-row area add-linkman" href="javascript:;">
+										<label class="add">添加联系人</label>
+										<label class="remove">删除</label>
+									</a>
+								</li>
+							</ul>
+							<div class="sell_turnTit"  v-show="AddHouseinfo.IsSell==1">
+								<h4>出售信息</h4>
+								<ul class="mui-table-view" style="margin: 0;">
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right mui-input-row area" href="javascript:;">
+											<label for="" class="import">报价：</label>
+											<input type="text" name="" v-model="AddHouseinfo.QuotePrice"  /><span class="pfm">万</span>
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right mui-input-row area" href="javascript:;">
+											<label>底价：</label>
+											<input type="text" name="" v-model="AddHouseinfo.LowPrice"  /><span class="pfm">万</span>
+										</a>
+									</li>
+									<li id="PaymentMethod" class="mui-table-view-cell ">
+										<a class="mui-navigate-right mui-input-row" href="javascript:;" id="payment">
+											<label>付款要求：</label>
+											<input type="text" placeholder="请选择" name="PaymentMethod"  readonly="readonly" />
+										</a>
+									</li>
+									<li class="mui-table-view-cell ">
+										<a class="mui-navigate-right mui-input-row area" href="javascript:;" id="advantage">
+											<label>出售优势：</label>
+											<!--<input type="text" name="advantage"/>-->
+											<textarea name="" rows="" v-model="AddHouseinfo.BuyBright" cols=""></textarea>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="rent_turnTit"  v-show="AddHouseinfo.IsRent==1">
+								<h4>出租信息</h4>
+								<ul class="mui-table-view" style="margin: 0;">
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right mui-input-row area" href="javascript:;">
+											<label class="import">报价：</label>
+											<input type="text" name="" v-model="AddHouseinfo.RentQuotePrice"  style="padding-right: 1.8rem;"/>
+											<span class="pfm">元/月</span>
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right mui-input-row area range-style" href="javascript:;">
+											<label class="">条件：</label>
+											<span>押</span>
+											<input type="number" name="" v-model="AddHouseinfo.Depositmo" id="" value="" placeholder="1" />
+											<span>付</span>
+											<input type="number" name="" v-model="AddHouseinfo.Paymo" id="Paymo" value="1" readonly="readonly" placeholder="" />
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right mui-input-row area" href="javascript:;">
+											<label class="">低价：</label>
+											<input type="text" name="" v-model="AddHouseinfo.RentLowPrice" style="padding-right: 1.8rem;"/>
+											<span class="pfm">元/月</span>
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right mui-input-row area range-style" href="javascript:;">
+											<label class="">条件：</label>
+											<span>押</span>
+											<input type="number" name="" v-model="AddHouseinfo.Depositmo2" id="" value="" placeholder="1" />
+											<span>付</span>
+											<input type="number" name="" v-model="AddHouseinfo.Paymo2" id="Paymo2" value="1" readonly="readonly" placeholder="" />
+										</a>
+									</li>
+									<li class="mui-table-view-cell" id="RentPayType">
+										<a class="mui-navigate-right mui-input-row" href="javascript:;" id="" >
+											<label>付款方式：</label>
+											<input type="text" placeholder="请选择"  name="RentPayType" readonly="readonly" />
+										</a>
+									</li>
+									<li class="mui-table-view-cell " id="RentPayType">
+										<a class="mui-navigate-right mui-input-row area" href="javascript:;" id="advantage">
+											<label>出租优势：</label>
+											<!--<input type="text" name="advantage"/>-->
+											<textarea name="" rows="3" v-model="AddHouseinfo.RentBright" cols="3"></textarea>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+	<script src="../../js/jquery-1.11.0.js"></script>
+	<script src="../../js/mui.min.js "></script>
+	<script src="../../js/mui.picker.min.js"></script>
+	<script src="../../js/mui.poppicker.js"></script>
+	<script src="../../js/mobileSelect/mobileSelect.min.js"></script>
+	<script src="../../lib/vue.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/HousingResources/addhosing.js"></script>
+
+</html>

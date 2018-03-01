@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>业绩详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css" />
+		<link rel="stylesheet" href="../../css/personalCenter/perFormance.css" />
+		<!--App自定义的css-->
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">
+				业绩详情
+			</h1>
+		</header>
+		<div class="mui-content">
+			<h4 class="performanceMoney">
+				本月总业绩量：
+				<b class="mui-badge-danger mui-badge-inverted">1590000</b>
+				<b class="mui-badge-danger mui-badge-inverted mui-text-center">80</b>
+			</h4>
+			<div class="mui-content-padded performanceEcharts">
+				<div class="chart" id="pieChart" style="height: 150px;"></div>
+				<div class="echartsText">
+					<p>
+						<!--<span class="mui-badge-green mui-badge-inverted"><i class="mui-icon mui-icon-arrowthindown"></i>20</span>-->
+					</p>
+					<!--<p>全国排名已被20人超越</p>-->
+				</div>
+			</div>
+			<div class="statement">
+				<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary">
+					<a class="mui-control-item mui-active" href="#item1">租赁业绩</a>
+					<a class="mui-control-item" href="#item2">出售业绩</a>
+				</div>
+			</div>
+			<div class="mui-scroll-wrapper">
+					<div class="mui-scroll" >
+						<div id="item1" class="mui-control-content mui-active">
+							<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+						        <li class="mui-table-view-cell">
+						            <div class="mui-table">
+						                <div class="mui-table-cell">
+						                    <h4 class="">宣海家园1期，4单元4号楼15层1502室</h4>
+						                    <div class="mui-row">
+						                    	<div class="mui-col-xs-6">
+						                    		佣金：<b class="mui-badge-danger mui-badge-inverted">3000元</b>
+						                    	</div>
+						                    	<div class="mui-col-xs-6">
+						                    		签约时间：2017-8-4
+						                    	</div>
+						                    </div>
+						                </div>
+						            </div>
+						        </li>
+						        <li class="mui-table-view-cell">
+						            <div class="mui-table">
+						                <div class="mui-table-cell">
+						                    <h4 class="">宣海家园1期，4单元4号楼15层1502室15层1502室4单元4号楼15层1502室15层1502室</h4>
+						                    <div class="mui-row">
+						                    	<div class="mui-col-xs-6">
+						                    		佣金：<b class="mui-badge-danger mui-badge-inverted">3000元</b>
+						                    	</div>
+						                    	<div class="mui-col-xs-6">
+						                    		签约时间：2017-8-4
+						                    	</div>
+						                    </div>
+						                </div>
+						            </div>
+						        </li>
+						        <li class="mui-table-view-cell">
+						            <div class="mui-table">
+						                <div class="mui-table-cell">
+						                    <h4 class="mui-ellipsis">宣海家园1期，4单元4号楼15层1502室15层1502室15层1502室15层1502室</h4>
+						                    <div class="mui-row">
+						                    	<div class="mui-col-xs-6">
+						                    		佣金：<b class="mui-badge-danger mui-badge-inverted">3000元</b>
+						                    	</div>
+						                    	<div class="mui-col-xs-6">
+						                    		签约时间：2017-8-4
+						                    	</div>
+						                    </div>
+						                </div>
+						            </div>
+						        </li>
+						        <li class="mui-table-view-cell">
+						            <div class="mui-table">
+						                <div class="mui-table-cell">
+						                    <h4 class="mui-ellipsis">宣海家园1期，4单元4号楼15层1502室15层1502室15层1502室15层1502室</h4>
+						                    <div class="mui-row">
+						                    	<div class="mui-col-xs-6">
+						                    		佣金：<b class="mui-badge-danger mui-badge-inverted">3000元</b>
+						                    	</div>
+						                    	<div class="mui-col-xs-6">
+						                    		签约时间：2017-8-4
+						                    	</div>
+						                    </div>
+						                </div>
+						            </div>
+						        </li>
+						        <li class="mui-table-view-cell">
+						            <div class="mui-table">
+						                <div class="mui-table-cell">
+						                    <h4 class="mui-ellipsis">宣海家园1期，4单元4号楼15层1502室15层1502室15层1502室15层1502室</h4>
+						                    <div class="mui-row">
+						                    	<div class="mui-col-xs-6">
+						                    		佣金：<b class="mui-badge-danger mui-badge-inverted">3000元</b>
+						                    	</div>
+						                    	<div class="mui-col-xs-6">
+						                    		签约时间：2017-8-4
+						                    	</div>
+						                    </div>
+						                </div>
+						            </div>
+						        </li>
+						        <li class="mui-table-view-cell">
+						            <div class="mui-table">
+						                <div class="mui-table-cell">
+						                    <h4 class="mui-ellipsis">宣海家园1期，4单元4号楼15层1502室15层1502室15层1502室15层1502室</h4>
+						                    <div class="mui-row">
+						                    	<div class="mui-col-xs-6">
+						                    		佣金：<b class="mui-badge-danger mui-badge-inverted">3000元</b>
+						                    	</div>
+						                    	<div class="mui-col-xs-6">
+						                    		签约时间：2017-8-4
+						                    	</div>
+						                    </div>
+						                </div>
+						            </div>
+						        </li>
+						        <li class="mui-table-view-cell">
+						            <div class="mui-table">
+						                <div class="mui-table-cell">
+						                    <h4 class="mui-ellipsis">宣海家园1期，4单元4号楼15层1502室15层1502室15层1502室15层1502室</h4>
+						                    <div class="mui-row">
+						                    	<div class="mui-col-xs-6">
+						                    		佣金：<b class="mui-badge-danger mui-badge-inverted">3000元</b>
+						                    	</div>
+						                    	<div class="mui-col-xs-6">
+						                    		签约时间：2017-8-4
+						                    	</div>
+						                    </div>
+						                </div>
+						            </div>
+						        </li>
+						    </ul>
+						</div>
+						<div id="item2" class="mui-control-content">
+							<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+						        <li class="mui-table-view-cell">
+						            <div class="mui-table">
+						                <div class="mui-table-cell">
+						                    <h4 class="">宣海家园1期，4单元4号楼15层1502室</h4>
+						                    <div class="mui-row">
+						                    	<div class="mui-col-xs-6">
+						                    		佣金：<b class="mui-badge-danger mui-badge-inverted">40000元</b>
+						                    	</div>
+						                    	<div class="mui-col-xs-6">
+						                    		签约时间：2017-8-4
+						                    	</div>
+						                    </div>
+						                </div>
+						            </div>
+						        </li>
+						        <li class="mui-table-view-cell">
+						            <div class="mui-table">
+						                <div class="mui-table-cell">
+						                    <h4 class="">宣海家园1期，4单元4号楼15层1502室15层1502室</h4>
+						                    <div class="mui-row">
+						                    	<div class="mui-col-xs-6">
+						                    		佣金：<b class="mui-badge-danger mui-badge-inverted">50000元</b>
+						                    	</div>
+						                    	<div class="mui-col-xs-6">
+						                    		签约时间：2017-8-4
+						                    	</div>
+						                    </div>
+						                </div>
+						            </div>
+						        </li>
+						        <li class="mui-table-view-cell">
+						            <div class="mui-table">
+						                <div class="mui-table-cell">
+						                    <h4 class="mui-ellipsis">宣海家园1期，4单元4号楼15层1502室15层1502室15层1502室15层1502室</h4>
+						                    <div class="mui-row">
+						                    	<div class="mui-col-xs-6">
+						                    		佣金：<b class="mui-badge-danger mui-badge-inverted">10000元</b>
+						                    	</div>
+						                    	<div class="mui-col-xs-6">
+						                    		签约时间：2017-8-4
+						                    	</div>
+						                    </div>
+						                </div>
+						            </div>
+						        </li>
+						    </ul>
+						</div>
+					</div>
+				</div>
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/common.js"></script>
+		<script src="../../lib/echarts-all.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true, //启用右滑关闭功能
+				//statusBarBackground: '#f7f7f7'
+			});
+			//初始化单页的区域滚动
+			mui('.mui-scroll-wrapper').scroll();
+			/*饼状图表*/
+			$(function(){
+				var getOption = function(chartType) {
+				var chartOption ={
+					calculable: false,
+					series: [{
+						name: '访问来源',
+						type: 'pie',
+						radius: '65%',
+						center: ['50%', '50%'],
+						data: [{
+							value: 335,
+							name: '租赁业绩'
+						}, {
+							value: 1200,
+							name: '出售业绩'
+						}]
+					}]
+				};
+				return chartOption;
+			};
+			var byId = function(id) {
+				return document.getElementById(id);
+			};
+			var pieChart = echarts.init(byId('pieChart'));
+			pieChart.setOption(getOption('pie'));
+			})
+		</script>
+	</body>
+
+</html>

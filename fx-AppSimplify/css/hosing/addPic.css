@@ -1,0 +1,118 @@
+header .mui-title{
+	color: #fff;
+}
+header .mui-icon{
+	color: #fff;
+}
+header #delete{
+	line-height: 44px;
+	color: #fff;
+}
+.upBox{
+	background: #fff;
+	padding:0.5rem;
+	font-size: 0;
+	margin-bottom:0.2rem;
+}
+.upBox label{
+	font-size: 0.55rem;
+	vertical-align: middle;
+    line-height: 2.75rem;
+	display: block;
+}
+.upBtn{
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 0.25rem;
+	position: relative;
+}
+.upBtn input{
+	width: 2.75rem;
+	height: 2.75rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+.upBox .upBtn .add{
+	display: block;
+	width: 2.75rem;
+	height: 2.75rem;
+	background: url(../../img/hosing/add.png) no-repeat;
+	background-size: 100% 100%;
+}
+.upBox .imgBox{
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 0;
+}
+.upBox .imgBox > div{
+	width: 2.75rem;
+	height: 2.75rem;
+	display: inline-block;
+	vertical-align: bottom;
+	border: 1px solid #ddd;
+	margin-right: 0.25rem;
+	margin-bottom: 0.25rem;
+	overflow: hidden;
+	box-shadow: 0 0 10px #ddd;
+}
+.upBox .imgBox div img{
+	width: 100%;
+}
+.mui-bar .mui-btn-block{
+	width:56%;
+	margin:0 auto;
+	border: none;
+}
+.sub{color: #fff;}
+.picscroll{
+    white-space: nowrap;
+	overflow-x: scroll;
+	
+}
+.picscroll::-webkit-scrollbar {display:none}
+
+.mui-row.mui-fullscreen>[class*="mui-col-"] {
+	height: 100%;
+}
+.mui-col-xs-3,
+.mui-control-content {
+	overflow-y: auto;
+	height: 100%;
+}
+.mui-segmented-control .mui-control-item {
+	line-height: 50px;
+	width: 100%;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+	background-color: #fff;
+}
+.mui-bar-nav ~ .mui-content{
+	background: #fff;
+}
+#segmentedControls a{
+   /*border-right: 1px solid #c8c7cc;*/	
+   border-bottom: 1px solid #EEEEEE;
+       
+}
+/*.mui-active{
+	box-shadow: 0px 1px 1px #ccc;
+}*/
+#segmentedControlContents{
+	border-left: 1px solid #eee;
+}
+.uploadedBox div{
+	width: 2.75rem;
+	height: 2.75rem;
+	display: inline-block;
+	vertical-align: bottom;
+	border: 1px solid #ddd;
+	margin-right: 0.25rem;
+	margin-bottom: 0.25rem;
+	overflow: hidden;
+	box-shadow: 0 0 10px #ddd;
+}
+.uploadedBox div img{
+	width: 100%;
+}

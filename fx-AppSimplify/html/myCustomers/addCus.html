@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>添加客源</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.picker.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.poppicker.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/mobileSelect/mobileSelect.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/customers/addCustomers.css" />
+	</head>
+
+	<body class="mui-fullscreen">
+		<div id="vue-app">
+
+			<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">新增客源</h1>
+			</header>
+			<nav class="mui-bar mui-bar-tab">
+				<button type="button" class="mui-btn mui-badge-light-blue mui-btn-block" id="save">提交保存</button>
+			</nav>
+			<div class="mui-content">
+				<div class="mui-scroll-wrapper" style="padding:65px 0 60px 0;">
+					<div class="mui-scroll">
+						<form id="addCus">
+							<input type="hidden" class="" name="organId" value="1">
+							<h4 class="title">客户信息</h4>
+							<div class="customers-message">
+								<div  id="FromSource" class="mui-input-row select-option" >
+									<label class="import">客户来源：</label>
+									<input type="text" name=""  placeholder="请选择" readonly="">
+								</div>
+								<!--判断显示那个等级-->
+								<!--租赁等级-->
+								<div  id="RentLevel"  class="mui-input-row select-option" v-show="AddCustomer.BuyOrRent==2">
+									<label class="import">客户等级：</label>
+									<input type="text" name=""placeholder="请选择" readonly="">
+								</div>
+								<!--买卖等级-->
+								<div id="BuyLevel" class="mui-input-row select-option" v-show="AddCustomer.BuyOrRent==1">
+									<label class="import">客户等级：</label>
+									<input type="text" name="" placeholder="请选择" readonly="">
+								</div>
+								<div class="mui-input-row">
+									<label class="import">姓名：</label>
+									<input type="text" v-model="AddCustomer.CustomerName" name="custName" placeholder="请输入姓名"/>
+								</div>
+								<div class="mui-input-row phonebox">
+									<div class="mui-clearfix">
+										<label class="import">手机：</label>
+										<input type="tel" v-model="AddCustomer.Phone" class="mui-text-right" style="padding-right: 1rem;"  name="" placeholder="请输入电话号码">
+									</div>
+								</div>
+								<div class="mui-input-row sex-option">
+									<label class="import">性别：</label>
+									<div class="sex-radio">
+										<div class="mui-radio" @click="selectOption('男')">
+											<label>男</label>
+											<input type="radio" name="sex" checked id="" value="" />
+										</div>
+										<div class="mui-radio" @click="selectOption('女')">
+											<label>女</label>
+											<input type="radio" name="sex" id="" value="" />
+										</div>
+									</div>
+								</div>
+								<!--<div class="mui-input-row">
+									<label>备注：</label>
+									<input type="text" name="" placeholder="请输入">
+								</div>-->
+								<div class="mui-input-row">
+									<a class="mui-badge mui-badge-primary mui-badge-inverted add-linkman">添加联系人</a>
+								</div>
+								<div class="linkmanBox">
+									<!--linkman info-->
+								</div>
+							</div>
+							<h4 class="title sellorrentInfo">求租信息</h4>
+							<div class="customers-message customers-buy-message">
+								<ul class="mui-table-view" style="border-bottom-left-radius: .3rem;border-bottom-right-radius: .3rem;">
+									<li class="mui-table-view-cell ">
+										<a id="UseChannel" class="mui-navigate-right mui-input-row" href="javascript:;">
+											<label class="import">用途：</label>
+											<input type="text" name=""  placeholder="请选择" readonly="">
+										</a>
+									</li>
+									<li class="mui-table-view-cell " >
+										<a  class="mui-navigate-right mui-input-row" href="javascript:;">
+											<label for="fangxing"  class="import">房型：</label>
+											<input type="text" id="fangxing" name=""  placeholder="请选择" readonly="">
+										</a>
+									</li>
+									
+									<li class="mui-table-view-cell ">
+										<a id="HouseForward" class="mui-navigate-right mui-input-row" href="javascript:;">
+											<label class="import">朝向：</label>
+											<input type="text"  v-model="AddCustomer.FromSource" name="" placeholder="请选择" readonly="">
+										</a>
+									</li>
+									<li class="mui-table-view-cell ">
+										<a id="DegreeLevel" class="mui-navigate-right mui-input-row" href="javascript:;">
+											<label  class="import">装修：</label>
+											<input type="text"  v-model="AddCustomer.FromSource" name="" placeholder="请选择" readonly="">
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right mui-input-row noafter range-style" href="javascript:;">
+											<label class="import">面积：</label>
+											<input type="number" name="" v-model="AddCustomer.HouseAreaStart" id="" value="0" placeholder="0" />
+											<span>－</span>
+											<input type="number" name="" v-model="AddCustomer.HouseAreaEnd" id="" value="0" placeholder="0" />
+											<span>㎡</span>
+										</a>
+									</li>
+									<li class="mui-table-view-cell" v-if="AddCustomer.BuyOrRent==2">
+										<a class="mui-navigate-right mui-input-row noafter range-style" href="javascript:;">
+											<label class="import">租金：</label>
+											<input type="number" name="" v-model="AddCustomer.RentPriceStart" id="" value="0" placeholder="￥0" />
+											<span>－</span>
+											<input type="number" name="" v-model="AddCustomer.RentPriceEnd" id="" value="0" placeholder="￥0" />
+											<span>元/月</span>
+										</a>
+									</li>
+									<li class="mui-table-view-cell" v-if="AddCustomer.BuyOrRent==1">
+										<a class="mui-navigate-right mui-input-row noafter range-style" href="javascript:;">
+											<label class="import">售金：</label>
+											<input type="number" name="" v-model="AddCustomer.PriceStart" id="" value="0" placeholder="￥0" />
+											<span>－</span>
+											<input type="number" name="" v-model="AddCustomer.PriceEnd" id="" value="0" placeholder="￥0" />
+											<span>万</span>
+										</a>
+									</li>
+									<li class="mui-table-view-cell ">
+										<a class="mui-navigate-right mui-input-row noafter range-style" href="javascript:;">
+											<label>楼层：</label>
+											<input type="number" v-model="AddCustomer.FloorNStart"  name="" id="" value="" placeholder="0" />
+											<span>－</span>
+											<input type="number" v-model="AddCustomer.FloorNEnd"  name="" id="" value="" placeholder="0" />
+											<span>层</span>
+										</a>
+									</li>
+									<!--<li class="mui-table-view-cell ">
+										<a class="mui-navigate-right mui-input-row noafter" href="javascript:;">
+											<label>城区：</label>
+											<input type="text" placeholder="请输入" class="toward" />
+											<input type="hidden" name="toward">
+										</a>
+									</li>
+									<li class="mui-table-view-cell ">
+										<a class="mui-navigate-right mui-input-row noafter" href="javascript:;">
+											<label>楼盘名称：</label>
+											<input type="text" placeholder="请输入" class="decorate" />
+											<input type="hidden" name="decorate">
+										</a>
+									</li>
+									<li class="mui-table-view-cell ">
+										<a class="mui-navigate-right mui-input-row noafter" href="javascript:;">
+											<label>学校：</label>
+											<input type="text" placeholder="请输入" class="payMethod" />
+											<input type="hidden" name="payMethod">
+										</a>
+									</li>-->
+									<li class="mui-table-view-cell beizhu"  v-if="AddCustomer.BuyOrRent==2">
+										<!--<a class="mui-navigate-right mui-input-row" href="javascript:;">-->
+										<label>备注：</label>
+										<textarea class="mui-ellipsis" v-model="AddCustomer.Remark2" type="text" placeholder="请填写备注" name="remark"></textarea>
+										<!--</a>-->
+									</li>
+									<li class="mui-table-view-cell beizhu"  v-if="AddCustomer.BuyOrRent==1">
+										<!--<a class="mui-navigate-right mui-input-row" href="javascript:;">-->
+										<label>备注：</label>
+										<textarea class="mui-ellipsis" v-model="AddCustomer.Remark" type="text" placeholder="请填写备注" name="remark"></textarea>
+										<!--</a>-->
+									</li>
+								</ul>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../../js/jquery-1.11.0.js"></script>
+	<script src="../../js/mui.min.js "></script>
+	<script src="../../lib/vue.js"></script>
+	<script src="../../js/mui.picker.min.js"></script>
+	<script src="../../js/mui.poppicker.js"></script>
+	<script src="../../js/mobileSelect/mobileSelect.min.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/customers/addCustomers.js"></script>
+	<script>
+		
+	</script>
+</html>

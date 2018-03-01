@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>上传钥匙委托</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.picker.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/imageviewer.css"/>
+		<link rel="stylesheet" href="../../css/hosing/addKeyEntrust.css" />
+		<style type="text/css">
+			
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue" id="header">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">上传钥匙委托 </h1>
+		    <a class="mui-pull-right" id="delete" style="display: none;">删除</a>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<button type="button" class="mui-btn mui-btn-block mui-badge-light-blue sub" id="savePic">确定</button>
+		</nav>
+		<div class="mui-content">
+			<div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action ">
+			    <!-- 可选择菜单 -->
+			    <ul class="mui-table-view">
+			       <li class="mui-table-view-cell">
+			        <a href="#" id="camera">拍照</a>
+			      </li>
+			      <li class="mui-table-view-cell">
+			        <a href="#" id="photo">从手机相册中选择</a>
+			      </li>
+			    </ul>
+			    <!-- 取消菜单 -->
+			    <ul class="mui-table-view">
+			      <li class="mui-table-view-cell">
+			        <a href="#sheet1"><b>取消</b></a>
+			      </li>
+			    </ul>
+			</div>
+			<form  name="fileForm" id="form"  action="" method="post" enctype="multipart/form-data">
+				<div class="upBox">
+					<div class="imgCount" style="display: none;">
+						<h5>已经上传</h5>
+						<div class="mui-clearfix uploadedBox">
+							<!--<input type="hidden" name="room" />-->
+						</div>
+					</div>
+					<h5>上传</h5>
+					<div class="imgBox" data-group="ws">
+						<!--<input type="hidden" name="room" />-->
+					</div>
+					<div class="upBtn">
+						<a class="add"></a>
+						<form name="fileForm" id="updata" action="" method="post" enctype="multipart/form-data">
+							<input type="file" name="form-data" value="" id="inputs" accept="image/*" multiple="" />
+						</form>
+					</div>
+				</div>
+			</form>	
+				<ul class="mui-table-view">
+				     <li class="mui-table-view-cell" id="startTime" data-options='{"type":"date"}' >
+				    	<label>开始时间：</label>
+				    	<input class="starttext" name="starttime" placeholder="请选择时间">
+				    </li>
+				    <li class="mui-table-view-cell" id="endTime" data-options='{"type":"date"}'>
+				    	<label class="endtime">结束时间：</label>
+				    	<input class="endtext" name="endttime" placeholder="请选择时间">
+				    </li>
+				</ul>
+			
+		</div>
+	</body>
+	<script src="../../js/jquery-1.11.0.js"></script>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/mui.picker.min.js"></script>
+	<script src="../../js/mui.zoom.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/mui.previewimage.js"></script>
+	<script type="text/javascript" src="../../js/ajaxupload/jquery-form.js" ></script>
+	<script type="text/javascript">
+		mui.init({
+				swipeBack:true
+		});
+		
+		var UploadHousePic = {
+			operatorID:localStorage.getItem('userId'),
+			operatorName:localStorage.getItem('userName'),
+			firstType: 2,
+			secondType:0,
+		};
+		var obj = {
+			FirstType: 2,
+			SecondType: 0,
+			
+		};
+		/*获取到页面之间的传值*/
+		mui.plusReady(function() {
+			var self = plus.webview.currentWebview();
+			UploadHousePic.roomId = self.roomId;
+			UploadHousePic.HouseID = self.HouseID;
+			obj.HouseId = self.HouseID;
+			/*把已经上传的图片显示*/
+			uploadPic();
+			/*检测数量限制  能否上传*/
+//			UploadTopCheck();
+//			console.log(baseUrl + 'API_House/UploadTopCheck?HouseId='+UploadHousePic.HouseID+'&ImgType=2&UserId='+parseInt(localStorage.getItem('userId')));
+			
+		});
+		$(document).ready(function() {
+			$("#inputs").change(function() {
+				console.log('检测到了变化');
+				var fil = this.files;
+				if(fil.length>5){
+					mui.toast('每次最多十张图片哦亲');
+					/*清空input*/
+					(function() {
+						var files = document.getElementById("inputs");
+						$(".imgBox").empty();
+						files.value = "";
+					})();
+				}else{
+					for(var i = 0; i < fil.length; i++) {
+						reads(fil[i]);
+					};
+				};
+			});
+		});
+		function reads(fil) {
+			var reader = new FileReader();
+			reader.readAsDataURL(fil);
+			reader.onload = function() {
+				document.querySelector(".imgBox").innerHTML += "<div><img src='" + reader.result + "'></div>";
+			};
+		}
+		
+		/*提交图片*/
+		$("#savePic").click(function() {
+			/*判断是否有图片*/
+			var files = document.querySelector('#inputs').files.length
+			if(files == 0) {
+				mui.alert('选择几张图片吧');
+				return false
+			};
+			console.log(JSON.stringify(UploadHousePic));
+			/*限制重复点击*/
+			$("#savePic").attr('disabled', 'disabled');
+			/*进行提交图片*/
+			var form = $("form[name=fileForm]");
+			var options = {
+				url: baseUrl + 'API_House/UploadHousePic', //上传文件的路径  
+				type: 'post',
+				data: UploadHousePic,
+				success: function(data, status) {
+					$("#savePic").removeAttr('disabled');
+					console.log(JSON.stringify(data));
+					if(data.succ) {
+						mui.toast('上传成功');
+						console.log(status);
+						/*预览上传图片*/
+						uploadPic();
+						/*检测是否超出十张*/
+//						UploadTopCheck();
+						(function() {
+							var files = document.getElementById("inputs");
+							$(".imgBox").empty();
+							files.value = "";
+						})();
+						//....       //异步上传成功之后的操作
+					}else{
+						mui.toast(data.msg);
+					}
+				},
+				error: function(a, b, c) {
+					console.log('error' + a + c)
+					mui.toast(a + c)
+				}
+			};
+			form.ajaxSubmit(options);
+			
+		});
+		/*预览上传图片*/
+		function uploadPic() {
+			mui.ajax(baseUrl + 'API_House/GetHousePic?HouseId='+obj.HouseId+'&FirstType='+obj.FirstType+'&SecondType='+obj.SecondType, {
+				type: 'post',
+				success: function(data, type, status) {
+					var html='';
+					if(data.succ && data.results.length != 0) {
+						document.querySelector('.imgCount').style.display = 'block';
+						for(var i=0;i<data.results.length;i++){
+							html += '<div class="mui-pull-left"><img src="' + data.results[i].PicUrl + '" onerror="this.src=\'../../img/hosing/home.jpg\' "></div>';
+						};
+						document.querySelector('.uploadedBox').innerHTML = html;
+						//<div><img src='" + reader.result + "'></div>
+					} else {
+					
+						document.querySelector('.imgCount').style.display = 'none';
+						console.log('没有已经上传的图片');
+					}
+				},
+				error: function(xht, type, cont) {
+					console.log('获取已经上传图片' + type + '--' + cont);
+					mui.toast(type + '--' + cont);
+				}
+			})
+		};
+		/*检测是否超过十张*/
+		function UploadTopCheck(){
+			mui.ajax(baseUrl + 'API_House/UploadTopCheck?HouseId='+UploadHousePic.HouseID+'&ImgType=2&UserId='+parseInt(localStorage.getItem('userId')), {
+				type: 'post',
+				success: function(data) {
+					console.log(JSON.stringify(data));
+					if(data.succ&&data.results){
+						$("#inputs").show();
+						$("#savePic").removeAttr('disabled');
+					}else{
+						$("#savePic").attr('disabled', 'disabled');
+						$("#inputs").hide();
+						$('.add').click(function(){
+							mui.toast(data.msg)
+						});
+					}
+				},
+				error: function(xhr, type, errorThrown) {
+					mui.toast('检测是否有权限上传图片' + type + '-' + errorThrown)
+				}
+			});
+		};
+		//时间控件
+		(function($) {
+			$.init();
+			var startText = $('.starttext')[0];
+			var startTime = $('#startTime');
+			var endText=$('.endtext')[0]; 
+			var endTime=$('#endTime');
+			startTime.each(function(i, btn) {
+				btn.addEventListener('tap', function() {
+					var optionsJson = this.getAttribute('data-options') || '{}';
+					var options = JSON.parse(optionsJson);
+					var id = this.getAttribute('id');
+					var picker = new $.DtPicker(options);
+					picker.show(function(rs) {
+						startText.value =rs.text;
+						UploadHousePic.startDeate = rs.text;
+						picker.dispose();
+					});
+				}, false);
+			});
+			endTime.each(function(i, btn) {
+				btn.addEventListener('tap', function() {
+					var optionsJson = this.getAttribute('data-options') || '{}';
+					var options = JSON.parse(optionsJson);
+					var id = this.getAttribute('id');
+					var picker = new $.DtPicker(options);
+					picker.show(function(rs) {
+						endText.value =rs.text;
+						UploadHousePic.enddate = rs.text;
+						picker.dispose();
+					});
+				}, false);
+			});
+		})(mui);
+			
+		//图片预览
+//		mui.previewImage();
+//		mui(".upBtn").on('tap',".add",function(){
+//			$('.imgBox').removeClass('isclick');
+//			$(this).parent().siblings('.imgBox').addClass('isclick');
+////			mui('#sheet1').popover('toggle');
+//			$(this).next().click()
+//		});
+//		mui('.imgBox').on('tap','img',function(){
+//			document.getElementById('header').style.zIndex=21;
+//			document.getElementById('delete').style.display='block';
+//		});
+//		mui('body').on('tap','#__MUI_PREVIEWIMAGE',function(){
+//			document.getElementById('header').style.zIndex=10;
+//			document.getElementById('delete').style.display='none';
+//		});
+	</script>
+</html>

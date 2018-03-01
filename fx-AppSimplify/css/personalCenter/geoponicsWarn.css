@@ -1,0 +1,9 @@
+.mui-scroll-wrapper{
+				top: 65px;
+			}
+			.mui-table-view-cell:after{
+				left: 0;
+			}
+			.mui-media-body p.content{
+				color: #555;
+			}

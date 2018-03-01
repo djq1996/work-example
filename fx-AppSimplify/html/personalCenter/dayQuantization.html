@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数据报表</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/personalCenter/daQuantization.css"/>
+		<style>
+			.mui-bar{
+				z-index:999;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue" id="header">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">数据报表 </h1>
+		</header>
+		<div class="mui-content">
+			<div class="fix">
+				<div id="segmentedControl" style="background: #fff;" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary">
+					<a class="mui-control-item mui-active" href="#item1" id="week">本周</a>
+					<a class="mui-control-item" href="#item2" class="mon">本月</a>
+				</div>
+				
+				<div class="search_box">
+					
+				</div>
+			</div>
+      		<div class="bg"></div>
+      		<div id="item1" class="mui-control-content mui-active">
+				<div class="mui-clearfix">
+					<div class="q_table_nav mui-pull-left">
+						<ul>
+							<li class="convert" style="background: #eaeaea;"><span>出售</span> <i class="mui-icon mui-icon-loop"></i> </li>
+						</ul>
+  						<ul class="listBox"></ul>
+	      			</div>
+	      			<div class="q_table_content mui-pull-left">
+	      				<div class="table_header">
+	      					<ul>
+		      					<li>新增房
+		      						<svg class="icon" aria-hidden="true">
+									  <use xlink:href="#icon-paixu_up"></use>
+									</svg>
+		      					</li>
+		      					<li>新增客
+		      						<svg class="icon" aria-hidden="true">
+									  <use xlink:href="#icon-paixu_up"></use>
+									</svg>
+		      					</li>
+		      					<li>房源跟进
+		      						<svg class="icon" aria-hidden="true">
+									  <use xlink:href="#icon-paixu_up"></use>
+									</svg>
+		      					</li>
+		      					<li>客源跟进
+		      						<svg class="icon" aria-hidden="true">
+									  <use xlink:href="#icon-paixu_up"></use>
+									</svg>
+		      					</li>
+		      					<li>客户带看量
+		      						<svg class="icon" aria-hidden="true">
+									  <use xlink:href="#icon-paixu_up"></use>
+									</svg>
+		      					</li>
+		      					<li>独家量
+		      						<svg class="icon" aria-hidden="true">
+									  <use xlink:href="#icon-paixu_up"></use>
+									</svg>
+		      					</li>
+		      					<li>钥匙量
+		      						<svg class="icon" aria-hidden="true">
+									  <use xlink:href="#icon-paixu_up"></use>
+									</svg>
+		      					</li>
+		      					<li>实勘量
+		      						<svg class="icon" aria-hidden="true">
+									  <use xlink:href="#icon-paixu_up"></use>
+									</svg>
+		      					</li>
+		      				</ul>
+	      				</div>
+	      				<div class="table_content">
+		      				<!--<ul>
+		      					<li>40</li>
+		      					<li>100</li>
+		      					<li>530</li>
+		      					<li>522</li>
+		      					<li>19</li>
+		      					<li>20</li>
+		      					<li>30</li>
+		      					<li>100</li>
+		      				</ul>-->
+	      				</div>
+	      			</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../../js/jquery-1.11.0.js"></script>
+	<script src="../../js/iconfont.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/common.js"></script>
+	<script type="text/javascript">
+		//点击转换
+		
+			var typeList = '',
+			 	shopId = localStorage.getItem('depId'),
+				weekorMon = 1,
+				buyorRent = 1,
+				Rentkaiguan = true,
+				weekkaiguan = true;
+				loadlist()
+			$('.q_table_nav').on('tap','.convert',function(){
+				if(Rentkaiguan){
+					$(this).find('span').text("出租");
+					buyorRent = 2;
+					Rentkaiguan = false;
+				}else{
+					$(this).find('span').text("出售");
+					buyorRent = 1;
+					Rentkaiguan = true;
+				}
+				loadlist()
+			});
+			
+			$('#segmentedControl a').on('tap',function(){
+				if(weekkaiguan){
+					weekorMon = 2;
+					weekkaiguan = false;
+				}else{
+					weekorMon = 1;
+					weekkaiguan = true;
+				}
+				loadlist()
+			})
+			
+			function loadlist(){
+				mui.ajax(baseUrl+'/API_Account/PerStatement?shopid='+shopId+'&weekOrMonth='+weekorMon+'&BuyOrRent='+buyorRent,{
+					"dataType": "json",
+					"type": "get",
+					success: function(data){
+						var typeList = '',
+							typeResult = '';
+						$('.q_table_nav .listBox').empty();
+						$('.table_content').empty();
+						for(var i=0; i<data.results.length; i++){
+							typeList += 	'<li>'+data.results[i].username+'</li>';
+							typeResult += 	'<ul>'+
+						      					'<li>'+data.results[i].AddHouse+'</li>'+
+						      					'<li>'+data.results[i].AddCust+'</li>'+
+						      					'<li>'+data.results[i].houseGJ+'</li>'+
+						      					'<li>'+data.results[i].CustGJ+'</li>'+
+						      					'<li>'+data.results[i].HouseLook+'</li>'+
+						      					'<li>'+data.results[i].HouseDuJia+'</li>'+
+						      					'<li>'+data.results[i].HouseKey+'</li>'+
+						      					'<li>'+data.results[i].Houseimg+'</li>'+
+						      				'</ul>'
+						}
+						$('.q_table_nav .listBox').append(typeList);
+						$('.table_content').append(typeResult);
+					}
+				})
+			}
+	</script>
+</html>

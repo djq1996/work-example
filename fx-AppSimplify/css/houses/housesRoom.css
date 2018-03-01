@@ -1,0 +1,148 @@
+li{list-style: none;}
+    	.search_middle{
+    		position: relative;
+    		padding: .2rem .4rem;
+    	}
+    	.search_middle input[type=search]{
+    		width: 90%;
+    		background: #fff;
+    		font-size: 14px;
+    		border: 1px solid #ddd;
+    		margin-bottom: 0;
+    		height: 30px;
+    	}
+    	#search .search_middle input[type=search]{
+    		padding: 0;
+    		padding-left: 4rem;
+    	}
+    	.mui-table-view-cell{
+    		padding: 11px 5px;
+    	}
+    	.mui-table-view-cell button{
+    		background: #35b5e9;
+    		color: #fff;
+    		border:0;
+    	}
+    	.mui-table-view-cell p{
+    		width: 15%;
+    		display: inline-block;
+		    vertical-align: middle;
+		    text-align: center;
+		    color: #666;
+    	}
+    	.mui-table-view-cell span.time{
+    		width: 23%;
+    		display: inline-block;
+		    vertical-align: middle;
+		    text-align: center;
+		    color: #666;
+    	}
+    	.mui-bar .mui-btn-nav.mui-pull-left .mui-icon-left-nav{
+    		color: #fff;
+    	}
+    	.mui-scroll-wrapper{
+			top: 1.9rem;
+		}
+		#search .mui-table-view-cell{
+			padding: 0;
+		}
+		.historyTitle{
+			padding-top: .5rem;
+		}
+		.historyTitle h3{
+			margin: 0;
+			padding: 0 0.2rem;
+			font-size: .7rem;
+			font-weight: normal;
+			color: #555;
+		}
+		.historyBox .mui-table-view-cell a,.resultBox .mui-table-view-cell a{
+			font-size: .65rem;
+		}
+		.select{
+			width: 4rem;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.select span{
+		    text-align: center;
+		    width: 100%;
+			vertical-align: middle;
+		    display: block;
+		    line-height: 30px;
+		    font-size: .65rem;
+		    position: relative;
+		}
+		.select span:after{
+			content: "";
+			display: block;
+		    position: absolute;
+		    width: .4rem;
+		    height: .3rem;
+		    background: url(../../img/houses/icon-bottom.jpg) no-repeat;
+		    background-size: contain;
+		    right: .4rem;
+		    top: 50%;
+			margin-top: -.15rem;
+			margin-left: -.2rem;
+		    -webkit-transition: all .3s;
+		    transition: all .3s;
+		}
+		.select .active:after{
+		    -webkit-transform: rotate(180deg);
+			transform: rotate(180deg);
+		}
+		.s_secondul{
+			position: absolute;
+		    top: 30px;
+		    margin: 0;
+		    padding: 0;
+		    z-index: 3;
+		    background: #fff;
+		    width: 4rem;
+		    text-align: center;
+		    font-size: .65rem;
+		    border: 1px solid #ddd;
+		    max-height: 200px;
+		    overflow-y: auto;
+		}
+		.s_secondul li{
+			padding: 0.2rem 0;
+		}
+		#search .mui-input-row{
+			overflow: initial;
+		}
+		#default .mui-icon-search{
+		    position: absolute;
+		    top: 30%;
+		    /*transform: translateY(-50%);*/
+		    right: .4rem;
+		}
+		#search .mui-icon-search{
+		    position: absolute;
+		    top: 10%;
+		    right: 0rem;
+		}
+		.searchI{
+		    color: #888;
+		    width: 90%;
+		    background: #fff;
+		    font-size: 14px;
+		    border: 1px solid #ddd;
+		    margin-bottom: 0;
+		    height: 30px;
+		    display: block;
+		    border-radius: 6px;
+		    text-align: center;
+		    line-height: 30px;
+		}
+		.searchI:active{
+			color: #888;
+		}
+		#toHouseDetails p{
+			width:18%;
+		}
+		#toHouseDetails p:last-child{
+			width:19%;
+		}

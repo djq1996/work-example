@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>通讯录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/personalCenter/addressbook.css" />
+		<!--App自定义的css-->
+		<style>
+			.mui-icon-phone{
+				font-size:34px;
+				margin-top: 3px;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">
+				通讯录
+			</h1>
+		</header>
+		<div class="mui-content">
+			<div class="search_middle" id="addressSerach">
+				<a href="#search" class="mui-input-row" style="color: #555;">
+			    	<input type="search" placeholder="点击搜索" readonly="readonly">
+	      		</a>
+	    		<a class="mui-icon mui-icon-search"></a>
+	      	</div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll" >
+					<div class="mui-col-xs-12">
+						<div class="page-tab page-tab-active" id="fx">
+							<ul class="mui-table-view">
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/common.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true, //启用右滑关闭功能
+				//				statusBarBackground: '#f7f7f7'
+			});
+			//初始化单页的区域滚动
+			mui('.mui-scroll-wrapper').scroll();
+			/*去搜索*/
+			openNewPage({
+				btn: '#addressSerach',
+				url: '_www/html/personalCenter/serach.html',
+				data:{}
+			});
+		var depId = localStorage.getItem('depId');
+		/*通讯录ajax*/
+		mui.ajax(baseUrl+'API_PersonInfo/ContactUser?deptid='+depId,{
+			"dataType": "json",
+			"type": "post",
+			success:function(data){
+				var userlist = data.results.UserList
+				for(var i=0; i<userlist.length; i++){
+					if(userlist[i].MobilePhone == ""){
+						userlist[i].MobilePhone = '暂无电话'
+					}
+					var _html = '<li class="mui-table-view-cell mui-media ">'+
+									'<div class="mui-row" id="toTel"  onclick="callPhone('+userlist[i].MobilePhone+')">'+
+										'<div class="mui-col-xs-10">'+
+										'<div class="telHead"><img class="mui-media-object  mui-pull-left headImg" src="'+userlist[i].HeadeImage+'" onerror = "src = \'../../img/head.png\' "></div>'+
+										'<div class="mui-media-body">'+
+											''+userlist[i].UserName+'-'+userlist[i].PositionName+''+
+											'<p class="mui-ellipsis">'+userlist[i].MobilePhone+'</p>'+
+										'</div>'+
+										'</div>'+
+										'<div class="mui-col-xs-2">'+
+											'<a class="mui-icon mui-icon-phone mui-pull-right"></a>'+
+										'</div>'+
+									'</div>'+
+								'</li>'
+					mui('#fx .mui-table-view')[0].insertAdjacentHTML('beforeend',_html);
+				}
+			}
+		})
+		function callPhone(mobilePhone) {
+			if(mobilePhone == null){
+				mui.alert('暂无电话','提示信息','确定');
+			}else{
+		  		window.location.href = "tel:" + mobilePhone;	
+			}
+		}; 
+		</script>
+	</body>
+</html>

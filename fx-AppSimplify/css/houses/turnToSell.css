@@ -1,0 +1,52 @@
+.area:after{
+				content: none;
+			}
+			.mui-table-view-cell > a > .mui-switch{
+				top: 37%;
+				margin-right: -.8rem;
+			}
+			.calculation:before {
+				content: '月';
+			}
+			.calculation.mui-active:before {
+				content: '日';
+			}
+			.whether:before {
+				content: '否';
+			}
+			.whether.mui-active:before {
+			content: '是';
+			}
+			.search_middle{
+    		padding: .2rem .4rem;
+    	}
+    	.search_middle input[type=search]{
+    		width: 90%;
+    		background: #fff;
+    		font-size: 14px;
+    		border: 1px solid #ddd;
+    		margin-bottom: 0;
+    		height: 30px;
+    	}
+    	.mui-table-view-cell button{
+    		background: #35b5e9;
+    		color: #fff;
+    		border:0;
+    	}
+    	.mui-table-view-cell p{
+    		width: 15%;
+    		display: inline-block;
+		    vertical-align: middle;
+		    text-align: center;
+		    color: #666;
+    	}
+    	.mui-table-view-cell span.time{
+    		width: 23%;
+    		display: inline-block;
+		    vertical-align: middle;
+		    text-align: center;
+		    color: #666;
+    	}
+    	/*.mui-scroll-wrapper{
+			top: 5.15rem;
+		}*/

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/houses/housesLou.css" />
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/common.js"></script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+			<h1 class="mui-title mui-ellipsis">楼栋</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+					</ul>
+					<div style="text-align:center;font-size: 14px;margin:20px auto;color: #333;display: none;" class="nohouseLou">没有数据了...</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			
+			var louId = null;
+			
+			var ids = localStorage.getItem('userId');
+        	var SeeLevel = localStorage.getItem('SeeLevel');
+        	var depId = localStorage.getItem('depId');
+			var self;
+			var page = 1;
+			var size = 10;
+			
+			
+			mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			});
+			mui.init();
+			mui.plusReady(function(){
+				self = plus.webview.currentWebview();
+				louId = self.gardenSID;
+				$('.mui-title').text(self.name);
+				houseLou();
+				mui('body').on('tap', '#toRoom', function() {
+					var houses = mui.openWindow({
+						url: '_www/html/Housing/housesRoom.html',
+						id: '_www/html/Housing/housesRoom',
+						show: {
+							aniShow: 'pop-in', //页面显示动画，默认为”slide-in-right“；
+							duration: '300' //页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+						},
+						styles: {
+							popGesture: "close"
+						},
+						extras: {
+							name:self.name,
+							BuilderID : $(this).find('.name').attr('data-id'),
+							gardenSID: self.gardenSID,
+							houseNum:$(this).find('.name').text()
+						}
+					});
+				});
+			})
+			
+			
+			function houseLou(){
+				mui.ajax(baseUrl+'/API_Responsible/GetUnitData?userid='+ids+'&dataType='+SeeLevel+'&gardenSID='+louId+'&deptId='+depId+'&PageIndex='+page+'&PageSize='+size, {
+					dataType: 'json',
+					type: 'get',
+					//timeout: 10000,
+					success: function(data) {
+						var _html = '';
+						if(data.succ && data.results != null){
+							for(var i = 0; i < data.results.length; i++) {
+							_html +='<li class="mui-table-view-cell" id="toRoom">'+
+				                		'<a class="mui-navigate-right">'+
+				                			'<span class="name" data-id="'+data.results[i].BuilderID+'">'+data.results[i].BuilderName+'</span>'+
+				                			'<span class="mui-badge mui-badge-inverted num">总共<i>'+data.results[i].con+'</i>户</span>'+
+										'</a>'+
+				                	'</li>'
+							};
+							$('.nohouseLou').hide();
+							$('.mui-table-view').append(_html);	
+						}else{
+							$('.nohouseLou').show();
+						}
+					},
+					error:function(xhr,error,b){
+						console.log(error)
+					}
+				})
+			};
+			//列表上拉加载，下拉刷新
+			mui('.mui-scroll-wrapper').pullRefresh({
+				down: {
+					callback: function() {
+						setTimeout(function() {
+							mui('.mui-scroll-wrapper').pullRefresh().endPulldownToRefresh(true);
+							
+							$('.mui-table-view').empty();	
+							houseLou();
+							mui.toast("刷新成功");
+						}, 1500);
+					}
+				},
+				up: {
+					contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+					contentnomore: '没有更多数据了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+					callback: function() {
+						setTimeout(function() {
+							page++;
+							houseLou();
+							mui('.mui-scroll-wrapper').pullRefresh().endPullupToRefresh();
+//							mui.toast("加载成功");
+						}, 1500);
+					}
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>房源详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/imageviewer.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/hosing/hosingDetail.css"/>
+		<style>
+			/*.paddImg{
+				padding: 25px 0;
+			}*/
+			#slider{
+				       box-shadow: inset 0px 20px 103px -4px #999;
+			}
+			.mui-collapse-content{
+				    box-shadow: inset 0 -24px 15px -10px #ddd;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="vue-app">
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue" style="box-shadow: none;background: transparent;">
+			<button type="button" class="mui-text-left mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+				<span class="mui-icon mui-icon-left-nav"></span>查看房源
+			</button>
+			<a href="#popover"  id="openPopover" class="mui-icon mui-icon-bars mui-pull-right"></a>
+			<a class="mui-icon mui-icon-extra mui-icon-extra-arrowrightcricle mui-pull-right" id="nextPage"></a>
+			<a class="mui-icon mui-icon-extra mui-icon-extra-arrowleftcricle  mui-pull-right" id="upPage"></a>
+			<!--<a class="mui-icon mui-icon-extra mui-icon-extra-heart mui-pull-right"></a>-->
+			
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<div>
+				<button type="button" class="mui-btn mui-badge-light-blue" id="love">
+		           <!--<i class="mui-icon mui-icon-star" ></i>-->
+		           	收藏
+			    </button>
+				<button type="button" class="mui-btn mui-badge-light-blue mui-pull-right" id="toAddFollow"> 
+		            <!--<i class="mui-icon mui-icon-compose"></i>-->
+					写跟进
+			    </button>
+			</div>
+		</nav>
+		<div class="mui-content">
+			<div id="popover" class="mui-popover">
+			  <ul class="mui-table-view mui-text-center">
+			    <li class="mui-table-view-cell"><a href="javascript:;" id="toaddPic">上传图片</a></li>
+			    <li class="mui-table-view-cell"><a href="javascript:;" id="toaddKeyEntrust">上传钥匙委托</a></li>
+			    <li class="mui-table-view-cell" v-if="BuyOrRent == 1"><a href="javascript:;" id="toaddExclusiveEntrust" >买卖独家委托</a></li>
+			    <li class="mui-table-view-cell" v-if="BuyOrRent == 2"><a href="javascript:;" id="toaddRentEntrust">租赁独家委托</a></li>
+			    <li class="mui-table-view-cell"><a href="javascript:;" id="toapplyWritten">上传书面委托</a></li>
+			  </ul>
+			</div>
+			<div id="contDetail" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="mui-collapse-content">
+						<div id="slider" class="mui-slider">
+							<div class="mui-slider-group mui-slider-loop houseImg"> 
+								<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+								<div class="mui-slider-item mui-slider-item-duplicate">
+									<a href="#">
+										<img class="paddImg" v-bind:src="lastImg" onerror="this.onerror=null; this.src='../../img/hosing/home.png'" />
+									</a>
+								</div>
+								<!-- 第一张 -->
+								<div class="mui-slider-item" v-for="img in HousePicture">
+									<a href="#">
+										<img class="paddImg" v-bind:src="img.PicUrl"  onerror="this.onerror=null; this.src='../../img/hosing/home.png'"  data-content="" data-preview-src="" data-preview-group="4"/>
+									</a>
+								</div>
+								<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+								<div class="mui-slider-item mui-slider-item-duplicate">
+									<a href="#">
+										<img class="paddImg" v-bind:src="firstImg" onerror="this.onerror=null; this.src='../../img/hosing/home.png'" />
+									</a>
+								</div>
+							</div>
+							<div class="mui-slider-indicator" >
+								<div class="mui-indicator" style="display: none;" v-for="img in HousePicture" v-bind:index="img.PicUrl"></div>
+								<div class="djq"></div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="mui-row"  style="background: #fff;padding: 0 .3rem;">
+						<span class="entrust">
+							<span class="yao" v-if="detail.ycwt!=0">钥匙</span>
+			            	<span class="du" v-if="detail.zlwt!=0&&BuyOrRent==2">租赁</span>
+			            	<span class="kan" v-if="detail.tpcon!=0">实勘</span>
+			            	<span class="shu" v-if="detail.smwt!=0">书面</span>
+			            	<span class="du" v-if="detail.mmwt!=0&&BuyOrRent==1">独家</span>
+			            	<span class="qian" v-if="detail.FullYear>=2&&detail.FullYear<5">满二</span>
+			            	<span class="shu" v-if="detail.FullYear>=5">满五</span>
+						</span>
+					</div>
+					<div class="title">
+						<h3 v-text="detail.Housename+' '+detail.Builder+'#'+detail.Unit+'#'+detail.fang">贵园南里3#楼2单元201</h3>
+					</div>
+					<ul class="mui-clearfix home-detail mui-row">
+						<li  class="mui-col-xs-4">
+							<p v-if="BuyOrRent == 2">租金</p>
+							<p v-if="BuyOrRent == 1">售价</p>
+							<p class="active" v-text="detail.QuotePrice+'元/月'" v-if="BuyOrRent == 2"></p>
+							<p class="active" v-text="detail.QuotePrice+'万'" v-if="BuyOrRent == 1"></p>
+						</li>
+						<li class="mui-col-xs-4">
+							<p>房型</p>
+							<p class="active" v-text="detail.Shi+'室'+detail.Ting+'厅'+detail.Wei+'卫'+detail.Savings+'储'"></p>
+						</li>
+						<li class="mui-col-xs-4">
+							<p>面积</p>
+							<p class="active" v-text="detail.Area_of_Structure+'㎡'">90.00㎡</p>
+						</li>
+					</ul>
+					
+					<div class="ask-to-buy">
+						<div class="topMessage">
+							<div class="mui-row">
+								<div class="mui-col-xs-7" v-if="BuyOrRent == 1">
+									<label>单价：</label>
+									<!--<span v-text="jiequ(detail.oneprice)+'元/㎡'" v-if="BuyOrRent == 2"></span>-->	
+									<span v-text="jiequ(detail.oneprice)+'万/㎡'" v-if="BuyOrRent == 1"></span>	
+								</div>
+								<div class="mui-col-xs-7" v-if="BuyOrRent == 2">
+									<label>赠送面积：</label>
+									<!--<span v-text="jiequ(detail.oneprice)+'元/㎡'" v-if="BuyOrRent == 2"></span>-->	
+									<span v-text="detail.Given_Area+'㎡'"></span>	
+								</div>
+								<div class="mui-col-xs-5" >
+									<a href="javascript:;" id="jisuanqi" class="mui-pull-right" style="padding-right: 50px;">房贷计算器</a>
+								</div>
+							</div>
+							<!--<div class="mui-row">
+								<div class="mui-col-xs-6">
+									<label>居住状况：</label>
+									<span v-text="detail._residencestatus">未知</span>	
+								</div>
+								<div class="mui-col-xs-6">
+									<label>看房方式：</label>
+									<span v-text="detail.ShowingsWay">未知</span>	
+								</div>
+							</div>-->
+							<div class="mui-row">
+								<div class="mui-col-xs-6">
+									<label>建筑年代：</label>
+									<span v-text="detail.BuilderYear">暂无信息</span>	
+								</div>
+								<div class="mui-col-xs-6">
+									<label>装修状况：</label>
+									<span v-text="shaixuan(detail.DecorateType,'DegreeLevelType')">精装</span>	
+								</div>
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6">
+									<label>付款要求：</label>
+									<span></span>	
+								</div>
+								<div class="mui-col-xs-6">
+									<label>楼层：</label>
+									<span v-text="detail.Floor">精装</span>	
+								</div>
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6">
+									<label>房屋编号：</label>
+									<span v-text="detail.HouseNo">FY0009</span>	
+								</div>
+								<div class="mui-col-xs-6">
+									<label>朝向：</label>
+									<span v-text="shaixuan(detail.OrienTation,'HouseForwardType')">南</span>
+								</div>
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6">
+									<label>居住现状：</label>
+									<span v-text="shaixuan(detail.ResidenceStatus,'liveStatusType')">未知</span>
+								</div>
+								<div class="mui-col-xs-6">
+									<label>车位：</label>
+									<span v-text="detail.CarportNum">2</span>	
+								</div>
+								
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6">
+									<label>得房率：</label>
+									<span v-text="detail.Construction_Ratio">暂无统计</span>
+								</div>
+								<div class="mui-col-xs-6">
+									<label>家电：</label>
+									<span>暂无统计</span>	
+								</div>
+							</div>
+							<div class="mui-row advantages" v-if="BuyOrRent == 1">
+									<label class="mui-pull-left">买卖优势：</label>
+									<span v-text="detail.Sellattached.BuyBright">未知</span>
+							</div>
+							<div class="mui-row advantages" v-if="BuyOrRent == 2">
+									<label class="mui-pull-left">租赁优势：</label>
+									<span v-text="detail.Rentattached.RentBright">未知</span>
+							</div>
+						</div>
+						<div class="mui-row down mui-text-center">
+							<span class="mui-icon mui-icon-arrowdown"></span>
+						</div>
+						<h4 class="title">角色信息</h4>
+						<div class="role-message jueseMsg">
+							<div class="role-box mui-clearfix" v-for="info in HouseRolePer">
+								<div class="role-message-img mui-pull-left" style="margin-top: 2px;">
+									<img v-bind:src="info.HeaderImage" onerror="this.onerror=null; this.src='../../img/head.png'"/>
+								</div>
+								<div class="role-message-text mui-pull-left">
+									<p>
+										<span style="color:#333;" v-text="info.RoleName"></span>							
+									</p>
+									<p ><span v-text="info.DepShopsame"></span><span v-text="' - '+info.UserName"></span></p>
+									<p class="js_telNumber" v-text="info.MobilePhone"></p>
+								</div>
+								<a v-bind:href="'tel:'+info.MobilePhone" class="mui-icon mui-icon-phone"></a>
+							</div>
+							<div class="noinfo" style="display: block;"  v-if="HouseRolePer.length ==0">
+								暂无信息
+							</div>
+						</div>
+						<h4 class="title">电话信息</h4>
+						<div class="role-message">
+							<div class="role-box mui-clearfix" v-for="info in detail.HouseOwner">
+								<div class="role-phone-text mui-row">
+									 <p class="mui-col-xs-4" v-text="info.ContactUser">诸葛大官人</p>
+									 <p class="mui-col-xs-2" v-text="info.Sex">男</p>
+									 <p class="mui-col-xs-4" v-text="info.IsLookUser">产权人</p>
+								</div>
+								<a v-bind:href="'tel:'+info.Phone" class="mui-icon mui-icon-phone"></a>
+							</div>
+							<div class="noinfo"  style="display: block;" v-if="HouseOwner.length ==0">
+								暂无信息
+							</div>
+						</div>
+						<h4 class="title">跟进信息</h4>
+						<div class="follow-up-message">
+							<ul class="mui-table-view">
+								<li class="mui-table-view-cell mui-media"  v-for="info in detail.HouseFllow">
+									<a href="javascript:;">
+										<div class="role-message-img mui-pull-left" style="margin-top:3px;">
+											<img  v-bind:src="info.HeadeImage"  onerror="this.onerror=null; this.src='../../img/head.png'"/>
+										</div>
+										<div class="mui-media-body">
+											<div class="mui-row">
+												<div class="mui-col-xs-6">
+													<span class="name" v-text="info.UserName+' -'"></span>
+													<span class="name" v-text="shaixuan(info.AnswerStatus,'state')"></span>
+												</div>
+												<div class="mui-col-xs-6 mui-text-right">
+													<p class="time" v-text="info.Addtime">2017-7-20 08:52:11</p>
+												</div>
+											</div>
+											<p class='content' v-text="info.Remark"></p>
+										</div>
+									</a>
+								</li>
+							</ul>
+							<div class="noinfo" style="display: block;" v-if="HouseFllow.length == 0">
+								暂无信息
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.zoom.js"></script>
+		<script src="../../js/mui.previewimage.js"></script>
+		<script src="../../js/common.js"></script>
+		<script src="../../lib/vue.js"></script>
+		<script src="../../js/HousingResources/housingDetail.js" ></script>
+	</body>
+ 
+</html>

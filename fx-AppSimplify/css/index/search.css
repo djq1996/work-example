@@ -1,0 +1,21 @@
+.search_middle{
+				padding: .4rem;
+				position: relative;
+				z-index: 1;
+				background: #efeff4;
+			}
+			.search_middle input[type=search]{
+				width: 90%;
+				background: #fff;
+				font-size: .65rem;
+				border: 1px solid #ddd;
+				margin-bottom: 0;
+				/*height: 1.5rem;*/
+				border-radius: 0;
+			}
+			.search_middle .mui-icon{
+				line-height: 1.7rem;
+			}
+			.mui-scroll-wrapper {
+			    top: 5.75rem;
+			}

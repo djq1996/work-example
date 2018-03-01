@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>合同详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/imageviewer.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/hosing/hosing-detail.css"/>
+		<link rel="stylesheet" href="../../css/personalCenter/myContractDetails.css" />
+		<style type="text/css">
+			.mui-row{
+				line-height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="v-app">
+			
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<button type="button" class="mui-text-left mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+				<span class="mui-icon mui-icon-left-nav" style="color: #fff;"></span>
+			</button>
+			<div class="mui-title">合同详情</div>
+		</header>
+		<div class="mui-content" >
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div id="slider" class="mui-slider" >
+							<div class="mui-slider-group mui-slider-loop">
+								<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+								<div class="mui-slider-item mui-slider-item-duplicate">
+									<a href="#">
+										<img v-bind:src="lastImg" onerror="this.onerror=null; this.src='../../img/hosing/home.png'"/>
+									</a>
+								</div>
+								<div class="mui-slider-item" v-for="img in HousePicture">
+									<a href="#">
+										<img v-bind:src="img.PicUrl" onerror="this.onerror=null; this.src='../../img/hosing/home.png'" data-preview-src="" data-preview-group="9"/>
+									</a>
+								</div>
+								<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+								<div class="mui-slider-item mui-slider-item-duplicate">
+									<a href="#">
+										<img v-bind:src="firstImg" onerror="this.onerror=null; this.src='../../img/hosing/home.png'"/>
+									</a>
+								</div>
+							</div>
+							<div class="mui-slider-indicator" >
+								<div class="djq"></div>
+								<div class="mui-indicator" style="display: none;" v-for="img in HousePicture" v-bind:index="img.PicUrl"></div>
+							</div>
+						</div>
+					
+					<div class="ask-to-buy" style="">
+						<div class="topMessage">
+							<div class="mui-row">
+									<label>小区信息：</label><span v-text="contraDetails.propertyname">宣海家园/1号楼/1单元/102</span>
+							</div>
+							<div class="mui-row">
+									<label>合同编号：</label><span v-text="contraDetails.contractNo">FY00023</span>
+							</div>
+							<div class="mui-row">
+									<label>房产信息：</label><span v-text="contraDetails.shi+'室'+contraDetails.ting+'厅'+contraDetails.Chu+'厨'+contraDetails.Savings+'储 '+shaixuan(contraDetails.OrienTation,'HouseForwardType')+' '+shaixuan(contraDetails.DecorateType,'DegreeLevelType')">3室2厅2厨2储|西|精装</span>
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6"><label>客户姓名：</label><span v-text="contraDetails.CustomerName">董建强</span></div>
+								<div class="mui-col-xs-6"><label style="width: 2rem;">电话：</label><span v-text="contraDetails.CustomerTel">13200000001</span></div>
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6"><label>业主姓名：</label><span v-text="contraDetails.OwnerName">董小姐</span></div>
+								<div class="mui-col-xs-6"><label style="width: 2rem;">电话：</label><span v-text="contraDetails.OwnerTel">13200000002</span></div>
+							</div>
+							<div class="mui-row">
+								<label>成交价：</label><span v-text="contraDetails.SignPrice">2500000</span>元
+							</div>
+							<div class="mui-row">
+								<label>成交时间：</label><span v-text="times">2017.8.30</span>
+							</div>
+							<div class="mui-row">
+								<label>佣金：</label><span v-text="contraDetails.brokerageAll">20000</span>元
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.zoom.js"></script>
+		<script src="../../js/mui.previewimage.js"></script>
+		<script src="../../lib/vue.js"></script>
+		<script src="../../js/common.js"></script>
+		<script type="text/javascript">
+			var  vm = new Vue({
+					el: '#v-app',
+					data:{
+						contraDetails: {},
+						times:{},
+						HousePicture:[{PicUrl:'../../img/hosing/home.png'}],
+						firstImg:null,
+						lastImg:null
+					},
+					methods: {
+						getDetails() {
+							console.log(baseUrl+'API_PersonInfo/ContractInfo/'+obj.contraId+'?userId='+obj.userid+'&BuyOrRent='+obj.houseType);
+							mui.ajax(baseUrl+'API_PersonInfo/ContractInfo/'+obj.contraId+'?userId='+obj.userid+'&BuyOrRent='+obj.houseType,{
+								"dataType": "json",
+								"type": "post",
+								success:function(data){
+									if(data.succ&&data.results != null){
+										console.log('合同数据'+JSON.stringify(data))
+										vm.$data.contraDetails = data.results;
+										vm.$data.times = vm.$data.contraDetails.SignTime.substr(0,10);
+										if(JSON.stringify(data.results.HousePicture) !='[]'){
+											var imgArray = [];
+											for(var i=0;i<data.results.HousePicture.length;i++){
+												if(data.results.HousePicture[i].PicType == 1&&data.results.HousePicture[i].PrcStatus == 2){
+													imgArray.push(data.results.HousePicture[i])
+												}
+											};
+											if(imgArray.length  == 0){
+												imgArray.push({PicUrl:'../../img/hosing/home.png'})
+											};
+											vm.$data.HousePicture = imgArray;
+											vm.$data.firstImg = imgArray[0].PicUrl; 
+											vm.$data.lastImg = imgArray[imgArray.length-1].PicUrl; 
+										};
+										$(".djq").text((1)+'/'+vm.$data.HousePicture.length);
+										document.querySelector('.mui-slider').addEventListener('slide', function(event) {
+											var current_num = event.detail.slideNumber;
+											$('.djq').text((current_num+1)+'/'+$(".mui-slider-indicator .mui-indicator").length);
+										});
+									}else{
+										mui.toast(data.msg);
+									};
+								}
+							})
+						},
+						shaixuan(value,type){
+							return escape({
+								type:type,
+								value:value
+							});
+//							console.log(escape({
+//								type:type,
+//								value:value
+//							}));
+						}
+					}
+				})
+				
+			mui.init({
+				swipeBack:true
+			});
+//			$(function(){
+			mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			});
+//				//轮播图
+//				$(".djq").text(($('.mui-slider-item').index()+1)+'/'+$(".mui-slider-indicator .mui-indicator").length);
+//				document.querySelector('.mui-slider').addEventListener('slide', function(event) {
+//					var current_num = event.detail.slideNumber;
+//					$('.djq').text((current_num+1)+'/'+$(".mui-slider-indicator .mui-indicator").length);
+//				});
+//			});
+			var obj={};
+			mui.plusReady(function(){
+				//获取传值
+				var self = plus.webview.currentWebview();
+				//设置标题
+				$('.mui-title').text(self.text);
+				obj.contraId = self.contraId;
+				obj.houseType = self.houseType;
+				obj.userid = localStorage.getItem('userId');
+				
+				console.log('contraId---'+self.contraId+'houseType---'+self.houseType+'userid---'+localStorage.getItem('userId'))
+				vm.getDetails();
+			});
+			
+			mui.previewImage();
+		</script>
+	</body>
+</html>

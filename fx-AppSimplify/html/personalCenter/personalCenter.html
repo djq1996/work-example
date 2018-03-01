@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>个人中心</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css"/>
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../../css/personalCenter/personalCenter.css"/>
+		<style type="text/css">
+			.individual li a img{
+				/*width: 26px;
+			    height: 28px;*/
+			    margin-right: 3px;
+			    vertical-align: bottom;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">
+				个人中心
+			</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<button type="button" class="mui-btn mui-badge-light-blue mui-btn-block" id="logout">退出登录</button>
+		</nav>
+		<div class="mui-content">
+			<!---->
+			<ul class="mui-table-view individual">
+				<li class="mui-table-view-cell" id="toAddressBook">
+					<a class="mui-navigate-right">
+						<!--<i class="mui-icon-extra mui-icon-extra-peoples"></i>-->
+						<img src="../../img/personalCenter/tongxun2.png" alt="" />通讯录
+					</a>
+				</li>
+				<li class="mui-table-view-cell" id="toCounter">
+					<a class="mui-navigate-right">
+						<!--<i class="mui-icon-extra mui-icon-extra-calc"></i>-->
+						<img src="../../img/personalCenter/jisuan2.png" alt="" />计算器
+					</a>
+				</li>
+				<li class="mui-table-view-cell" id="toQuantization">
+					<a class="mui-navigate-right">
+						<!--<i class="mui-icon-extra mui-icon-extra-trend"></i>-->
+						<img src="../../img/personalCenter/baobiao2.png" alt="" />数据报表
+					</a>
+				</li>
+				<li class="mui-table-view-cell" id="toMyContract">
+					<a class="mui-navigate-right">
+						<i class="mui-icon-extra mui-icon-extra-trend"></i>我的合同
+					</a>
+				</li>
+				<li class="mui-table-view-cell" id="toAbout">
+					<a class="mui-navigate-right">
+						<!--<i class="mui-icon mui-icon-phone"></i>-->
+						<img src="../../img/personalCenter/women.png" alt="" />关于我们
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" id="service" href="tel:18513552894">
+						<!--<i class="mui-icon-extra mui-icon-extra-custom"></i>-->
+						<img src="../../img/personalCenter/kefu2.png" alt="" />客服电话
+					</a>
+				</li>
+				<li class="mui-table-view-cell" id="toAccountSettings">
+					<a class="mui-navigate-right">
+						<!--<i class="mui-icon mui-icon-gear"></i>-->
+						<img src="../../img/personalCenter/shezhi2.png" alt="" />账号设置
+					</a>
+				</li>
+				<li class="mui-table-view-cell" id="toFeedback">
+					<a class="mui-navigate-right">
+						<!--<i class="mui-icon-extra mui-icon-extra-at"></i>-->
+						<img src="../../img/personalCenter/fankui2.png" alt="" />问题反馈
+					</a>
+				</li>
+			</ul> 
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/common.js"></script>
+		
+		<script>
+//			mui.init({
+//				swipeBack: true, //启用右滑关闭功能
+//				//				statusBarBackground: '#f7f7f7'
+			//			});
+			document.getElementById("logout").addEventListener("tap", function() {
+		            var btnArray = ['是', '否'];
+		            mui.confirm('您确定退出?', '', btnArray, function(e) {
+		                if (e.index == 0) {
+//		                        if (mui.os.ios || mui.os.ipad || mui.os.iphone) {
+		                            // 获取所有Webview窗口
+		                            var curr = plus.webview.currentWebview();
+		                            var wvs = plus.webview.all();
+		                            for (var i = 0, len = wvs.length; i < len; i++) {
+		                                //关闭除setting页面外的其他页面
+		                                if (wvs[i].getURL() == curr.getURL())
+		                                    continue;
+		                                plus.webview.close(wvs[i]);
+		                            }
+		                            //打开login页面后再关闭setting页面
+		                            localStorage.removeItem('userId');
+									localStorage.removeItem('userName');
+									localStorage.removeItem('positionId');
+									localStorage.removeItem('HeadeImage');
+									localStorage.removeItem('depId');
+									localStorage.removeItem('loginName');
+									localStorage.removeItem('loginPsd');
+									localStorage.removeItem('shopName');
+		                            plus.webview.open('_www/login.html');
+		                            curr.close();
+//		                        } else{
+//		                        	plus.runtime.quit();
+//		                        }
+		                }
+		            })
+		        });
+			/*去通讯录*/
+			openNewPage({
+				btn: '#toAddressBook',
+				url: '_www/html/personalCenter/addressBook.html',
+				data:{}
+			});
+			/*去计算器*/
+			openNewPage({
+				btn: '#toCounter',
+				url: '_www/html/personalCenter/Mortgage/Dksl2.html',
+				data:{}
+			});
+			/*去数据报表*/
+			openNewPage({
+				btn: "#toQuantization",
+				url: '_www/html/personalCenter/dayQuantization.html',
+				data:{}
+			});
+			/*去我的合同*/
+			openNewPage({
+				btn: '#toMyContract',
+				url: '_www/html/personalCenter/myContract.html',
+				data:{}
+			});
+			/*去关于我们*/
+			openNewPage({
+				btn: '#toAbout',
+				url: '_www/html/personalCenter/about.html',
+				data:{}
+			});
+			/*去账号设置*/
+			openNewPage({
+				btn: '#toAccountSettings',
+				url: 'accountSettings.html',
+				data:{}
+			});
+			/*去问题反馈*/
+			openNewPage({
+				btn: '#toFeedback',
+				url: '_www/html/personalCenter/feedback.html',
+				data:{}
+			});
+			
+			mui.ajax(baseUrl+'API_Dictionary/SysConfig',{
+				dataType: 'json',
+				type: 'post',
+				success: function(data){
+					$('#service').attr('href','tel:'+data.results.CopyPhone+'');
+				}
+			})
+			
+			
+		</script>
+	</body>
+
+</html>

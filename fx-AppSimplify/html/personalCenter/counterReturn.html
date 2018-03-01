@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>计算结果</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.picker.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.poppicker.css"/>
+		<link rel="stylesheet" href="../../css/personalCenter/counterReturn.css" />
+		<!--App自定义的css-->
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue" id="header">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">计算结果</h1>
+		</header>
+		<div class="mui-content">
+			<div class="">
+				<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary">
+					<a class="mui-control-item mui-active" href="#item1">等额本金</a>
+					<a class="mui-control-item" href="#item2">等额本息</a>
+				</div>
+				<!--等额本金-->
+				<div id="item1" class="mui-control-content mui-active">
+					<div id="canvas" style="height: 5rem;"></div>
+					<div class="customers-message">
+						<div class="mui-row">
+							<div class="mui-col-xs-6">
+								<label>贷款总额：</label>
+								<span class="mui-text-right">2万</span>
+							</div>
+							<div class="mui-col-xs-6">
+								<label>还款总额：</label>
+								<span class="mui-text-right">3.5万</span>
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-6">
+								<label>支付利息：</label>
+								<span class="mui-text-right">1.5万</span>
+							</div>
+							<div class="mui-col-xs-6">
+								<label>贷款月数：</label>
+								<span class="mui-text-right" >360月</span>
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-12">
+								<label>月均还款：</label>
+								<span class="mui-text-right">137元</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--等额本息-->
+				<div id="item2" class="mui-control-content">
+					<div id="canvass" style="height: 5rem;"></div>
+					<div class="customers-message">
+						<div class="mui-row">
+							<div class="mui-col-xs-6">
+								<label>贷款总额：</label>
+								<span class="mui-text-right">2万</span>
+							</div>
+							<div class="mui-col-xs-6">
+								<label>还款总额：</label>
+								<span class="mui-text-right">3.5万</span>
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-6">
+								<label>支付利息：</label>
+								<span class="mui-text-right">1.5万</span>
+							</div>
+							<div class="mui-col-xs-6">
+								<label>贷款月数：</label>
+								<span class="mui-text-right" >360月</span>
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-12">
+								<label>月均还款：</label>
+								<span class="mui-text-right">137元</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/common.js"></script>
+		<script src="../../lib/echarts-all.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true, //启用右滑关闭功能
+				//				statusBarBackground: '#f7f7f7'
+			});
+			/*饼状图表*/
+			$(function(){
+				var option = {
+				    legend: {
+				        orient: 'vertical',
+				        x: '70%',
+				        y:'center',
+				        data:['直接访问','邮件营销']
+				    },
+				    series: [
+				        {
+				            name:'访问来源',
+				            type:'pie',
+				            center:['30%',50],
+				            radius: ['50%', '70%'],
+				            avoidLabelOverlap: false,
+				            label: {
+				                normal: {
+				                    show: false,
+				                    position: 'center'
+				                },
+				                emphasis: {
+				                    show: true,
+				                    textStyle: {
+				                        fontSize: '12',
+				                        fontWeight: 'normal'
+				                    }
+				                }
+				            },
+				            labelLine: {
+				                normal: {
+				                    show: false
+				                }
+				            },
+				            data:[
+				                {value:300, name:'直接访问'},
+				                {value:400, name:'邮件营销'}
+				            ]
+				        }
+				    ]
+				};
+				var pieChart = echarts.init(document.querySelector('#canvas'));
+				pieChart.setOption(option);
+				
+			})
+			
+		</script>
+		
+	</body>
+
+</html>

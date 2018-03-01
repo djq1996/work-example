@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="../../css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/icons-extra.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/houses/hoses.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/singleView.css"/>
+    <style>
+    </style>
+</head>
+<body class="mui-fullscreen">
+	<div id="app" class="mui-views">
+		<div class="mui-view">
+			<div class="mui-navbar">
+			</div>
+			<div class="mui-pages">
+			</div>
+		</div>
+	</div>
+	<div id="default" class="mui-page">
+		<div class="mui-navbar-inner mui-bar mui-bar-nav mui-badge-light-blue">
+			<h1 class="mui-title rent-purchase">
+	      		<a class="active transfer">楼盘列表</a>
+		    </h1>
+		</div>
+		<div class="mui-page-content contBox">
+			<div class="search_middle">
+				<a href="#search" class="mui-input-row searchI">
+					请输入分期名称
+	      		</a>
+	    		<a class="mui-icon mui-icon-search mui-pull-right"></a>
+	      	</div>
+	      	 <div class="mui-scroll-wrapper">
+            	<div class="mui-scroll"> 
+            		<ul class="mui-table-view" id="lou">
+					</ul> 
+					<div class="noinfo">没有更多数据了</div>
+					<div class="noinfoImg"></div>
+            	</div> 
+           </div>
+		</div> 
+	</div>
+	<div id="search" class="mui-page">
+		<div class="mui-navbar-inner mui-bar mui-bar-nav mui-badge-light-blue">
+			<button type="button" class="mui-left mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+				<span class="mui-icon mui-icon-left-nav"></span>
+			</button>
+			<h1 class="mui-title rent-purchase">
+	      		搜索
+		    </h1>
+		</div>
+		<div class="mui-page-content">
+			<div class="search_middle">
+	      		<div class="mui-input-row">
+				    <input id="searchInput" class="focusInput" type="search" placeholder="请输入分期名称" autofocus="autofocus">
+				    <a class="mui-icon mui-icon-search mui-pull-right"></a>
+				</div>
+	      	</div>
+	      	<div class="historyBox" >
+	      		<div class="historyTitle">
+		      		<h3>历史选择记录</h3>
+		      	</div> 
+		      	<div class="mui-scroll-wrapper" style="top: 3.5rem;">
+		      		<div class="mui-scroll">
+		      			<ul class="mui-table-view">
+		      			</ul>
+		      		</div>
+		      	</div>
+	      	</div>
+	      	<div class="resultBox" style="display: block;">
+	      		<div class="mui-scroll-wrapper" style="top: 1.9rem;">
+		      		<div class="mui-scroll">
+		      			<ul class="mui-table-view">
+		      			</ul>
+		      		</div>
+		      	</div>
+	      	</div>
+	    </div>
+	</div>
+	<script src="../../js/jquery-1.11.0.js"></script>
+    <script src="../../js/mui.min.js"></script>
+    <script src="../../js/mui.view.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/houses/houseList.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>客源列表</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../../css/customers/customersLists.css" />
+		<style>
+		</style>
+	</head>
+	<body>
+			<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+				<!--<a id="backBtn" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+				<h1 class="mui-title rent-purchase">
+		      		<a class="lease active" data-type='1'>求购</a>
+		      		<a class="transfer" data-type='2'>求租</a>
+		   		</h1>
+				<a class="mui-icon mui-icon-plusempty mui-pull-right toAddCus"id="inAddCus"></a>
+			</header>
+
+			<div class="mui-content">
+				
+				<!--筛选条件-->
+				<div class="cutomerFilter">
+					<ul>
+						<li>
+							<a href="javascript:;" class=""><span class="filterText sText1">我的客源</span><i class="mui-icon mui-icon-arrowdown"></i></a>
+							<div class="cutomerFilterName" style="display: none;">
+								<ol class="CustomerSourceType">
+									
+								</ol>
+							</div>
+						</li>
+						<li>
+							<a href="javascript:;"><span class="filterText sText2">价格</span><i class="mui-icon mui-icon-arrowdown"></i></a>
+							<div class="cutomerFilterName">
+								<ol class="RPrice">
+									<!--<li v-text="sleep.DisplayName"></li>-->
+								</ol>
+								<!--<div class="moneyZ">
+									自定义<input type="text" class="" placeholder="最低价(元)" />至<input type="text" placeholder="最高价(元)" />
+									<button type="button" class="mui-btn mui-btn-blue">确定</button>
+								</div>-->
+							</div>
+						</li>
+						<li>
+							<a href="javascript:;"><span class="filterText sText3">居室</span><i class="mui-icon mui-icon-arrowdown"></i></a>
+							<div class="cutomerFilterName">
+								<ol class="SleepRoom">
+									<!--<li v-text="sleep.DisplayName"></li>-->
+								</ol>
+							</div>
+						</li>
+						<li id="show-btn">
+							<a href="javascript:;"><span class="filterText">更多</span><i class="mui-icon mui-icon-arrowdown"></i></a>
+						</li>
+					</ul>
+				</div>
+				<!--serach input-->
+				<div class="mui-input-row mui-input-search customerSerach" >
+					<form action="" method="post"  onsubmit="return false;">
+						<input type="search" name="" class="mui-input-clear" id="" value="" placeholder="请输入您要搜索的客户名称" />
+					</form>
+				</div>
+				<div class="bg"></div>
+				<!--list info-->
+				<div class="mui-scroll-wrapper" style="top: 7.25rem;">
+					<div class="mui-scroll">
+						<ul class="mui-table-view" id="customerList">
+
+						</ul>
+						<div class="noinfoImg"></div>
+					</div>
+				</div>
+			</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/webviewoffcanvas.js"></script>
+		<script src="../../js/common.js"></script>
+		<script src="../../lib/vue.js"></script>
+		<script src="../../js/customers/customerList.js"></script>
+		 
+	</body>
+
+</html>

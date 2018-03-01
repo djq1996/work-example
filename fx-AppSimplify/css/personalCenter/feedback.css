@@ -1,0 +1,31 @@
+h4{
+	font-size: .7rem;
+	padding: .3rem 0;
+	font-weight: 500;
+}
+.mui-content button{
+	font-size: .65rem;
+}
+.mui-content input,.mui-content textarea{
+	font-size: .65rem;
+}
+.mui-content{
+	font-size: .65rem;
+	height: 100vh;
+	background: #fff;
+}
+.mui-bar-tab{
+	padding: 0 .4rem;
+}
+.issueImg{
+	width: 100%;
+	text-align: center;
+	color:#007AFF
+}
+#save{
+	width: 56%;
+	margin: 0 auto;
+}
+.selectBtn{
+	line-height: 40px;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../../css/mui.css" rel="stylesheet"/>
+    	<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css"/>
+    	<link rel="stylesheet" type="text/css" href="../../css/mui.picker.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.poppicker.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/houses/houseDeatils.css"/>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+        	<a class="mui-icon mui-action-back mui-icon-arrowleft mui-pull-left"></a>
+        	<h1 class="mui-title mui-ellipsis">贵园小区南里</h1>
+        	<a class="mui-icon mui-icon-extra mui-icon-extra-arrowrightcricle mui-pull-right" id="nextPage"></a>
+			<a class="mui-icon mui-icon-extra mui-icon-extra-arrowleftcricle  mui-pull-right" id="upPage"></a>
+       </header>
+       <div class="mui-content" id="v-app">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="banner"> 
+		       			<div class="title">
+		       				<h2><span class="name"></span></h2>
+		       				<p>-/-/-</p>
+		       			</div>
+						<div class="btngroup">
+							<button type="button" class="mui-btn" id="realEstate">
+								<span name="realEstate">转出</span> 
+							</button>
+						</div>
+		       		</div>
+		       		<div id="slider" class="mui-slider">
+						<div id="sliderSegmentedControl" class=" mui-segmented-control mui-segmented-control-inverted">
+							<a class="mui-control-item" href="#item1mobile" style="width:33%;">
+								基本信息
+							</a>
+							<a class="mui-control-item" href="#item3mobile" style="width:33%;">
+								电话信息
+							</a>
+							<a class="mui-control-item" href="#item4mobile" style="width:33%;">
+								跟进信息
+							</a>
+						</div>
+						<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
+						<div class="mui-slider-group">
+							<div id="item1mobile" class="mui-slider-item mui-control-content">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell">
+										<div class="mui-row"> 
+											<div class="mui-col-xs-6"><p>用途：<span v-text="yongtu(messages.UseChannel,'UseChannel')">住宅</span></p></div>
+											<div class="mui-col-xs-6"><p>所属区域：<span v-text="messages.AreaName">朝阳区</span></p></div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell">
+										<div class="mui-row">
+											<div class="mui-col-xs-6"><p>居住现状：<span v-text="yongtu(messages.ResidenceStatus,'liveStatusType')">闲置</span></p></div>
+											<div class="mui-col-xs-6"><p>得房率：<span v-text="messages.Construction_Ratio">0</span>%</p></div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell"><div class="mui-row">
+										<div class="mui-col-xs-6"><p>建筑面积：<span v-text="messages.Area_of_Structure">0</span>㎡</p></div>
+										<div class="mui-col-xs-6"><p>套内面积：<span v-text="messages.Indoor_Area">0</span>㎡</p></div></div>
+									</li>
+									<li class="mui-table-view-cell"><div class="mui-row">
+										<div class="mui-col-xs-6"><p>赠送面积：<span v-text="messages.Given_Area">0</span>㎡</p></div></div>
+									</li>
+								</ul>
+							</div>
+							<div id="item3mobile" class="mui-slider-item mui-control-content mui-active">
+								<ul class="mui-table-view">
+								</ul>
+								<!--<div class="noinfo">没有更多数据了</div>-->
+								<div class="noinfoImg"></div>
+							</div>
+							<div id="item4mobile" class="mui-slider-item mui-control-content">
+								<ul class="mui-table-view">
+								</ul>
+								<!--<div class="noinfo">没有更多数据了</div>-->
+								<div class="noinfoImg"></div>
+							</div>
+						</div>
+					</div>
+					
+			</div>
+				<div class="popup">
+					<h3>填写跟进信息</h3>
+					<textarea name="" rows="" cols="" placeholder="填写跟进内容"></textarea>
+					<button type="button" id="save">确定</button>
+					<button type="button" id="cancel">取消</button>
+				</div>
+				<div class="bg"></div>
+			</div>
+       </div>
+	</body>
+	<script src="../../js/jquery-1.11.0.js"></script>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/mui.picker.min.js"></script>
+	<script src="../../js/mui.poppicker.js"></script>
+	<script src="../../js/common.js" ></script>
+	<script type="text/javascript" src="../../lib/vue.js"></script>
+	<script type="text/javascript" src="../../js/houses/houseDetails.js"></script>
+</html>

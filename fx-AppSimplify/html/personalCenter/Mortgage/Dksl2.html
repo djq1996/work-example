@@ -1,0 +1,1156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>计算器</title>
+    <link rel="stylesheet" href="sm.css">
+    <script src="jquery.js"></script>
+    <script src="ShuiLv.js"></script>
+    <script src="smalert.js"></script>
+    <style>
+        #dai {
+            width: 100%;
+            color: #fff;
+            background: #591571;
+        }
+        header{
+    	    padding-top: 35px;
+    	    text-align: center;
+    	    position: relative;
+        }
+        header h1{
+        	font-size: 17px;
+    		font-weight: 500;
+        }
+        header a{
+        	position: absolute;
+        	left: 15px;
+        	top: 40px;
+        }
+        header a img{
+        	width: 23px;
+        	height: 20px;
+        }
+    </style>
+</head>
+<body>
+	<header>
+		<a class="mui-action-back back" href="javascript:;"><img src="arrow.png"/></a>
+		<h1>计算器 </h1>
+	</header>
+    <div class="container">
+        <nav>
+            <div>
+                <div class="gongjijin active DK" data-dk="gjjdk">公积金贷款</div>
+                <div class="shangye DK" data-dk="sydk">商业贷款</div>
+                <div class="combination DK" data-dk="zhdk">组合贷款</div>
+            </div>
+        </nav>
+        <div class="count">
+            <div class="jian w100">
+                还款方式
+                <div class="smco" style="padding-right: 0.6rem;">
+                    <div class="posi" id='fangshi' data-type="fangshi">等额本息</div>
+                </div>
+            </div>
+            <!--<div>
+                房价总额
+                <div class="smco">
+                    <input type="number" value="0" data-total="" class="fjze" onkeyup="this.value=this.value.replace('/^\d+(\.)?+/d/','')" onafterpaste="this.value=this.value.replace('/^\d+(\.)?+/d/','')" onfocus="javascript:if(this.value=='0'||this.value=='')this.value='';" onchange="DKResult()" />万
+                </div>
+            </div>
+            <div class="jian w100 r13">
+                首付比例
+                <div class="smco">
+                    <div class="sfbl" id='picker' onchange="DKResult()" data-type="Proportion">2</div>
+                    <small>成</small>
+                </div>
+            </div>-->
+            <div>
+                贷款总额
+                <div class="smco">
+                    <input type="number" class="dkze" value="0" data-loan="" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" onfocus="javascript:if(this.value=='0'||this.value=='')this.value='';" onblur="javascript:if(this.value=='')this.value='0'" />万
+
+                </div>
+            </div>
+            <div class="jian w100 r13">
+                贷款年限
+                <div class="smco">
+                    <div class=" dkyear" id='pickeryear' value="year">5</div>
+                    <small>年</small>
+                </div>
+            </div>
+            <div class="none">
+                公积金贷款
+                <div class="smco">
+                    <input type="number" class="gjjdk" value="0" data-loan="" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" onfocus="javascript:if(this.value=='0'||this.value=='')this.value='';" onblur="javascript:if(this.value=='')this.value='0'" onchange="DKResult22()" />万
+                </div>
+            </div>
+            <div class="jian w100 " id="dl1">
+                公积金贷款利率
+                <div class="smco" style="padding-right: 0.6rem;">
+                    <div class=" gdkll" id='gjjlilv'>3.25%</div>
+                    <!--<input type="text" name="name" value="3.25" class="gdkll"/>%-->
+                </div>
+            </div>
+            <div class="none">
+                商业贷款
+                <div class="smco">
+                    <input type="number" class="sydk" value="0" data-loan="" onkeyup="this.value=this.value.replace(/[^0-9]/g, '')" onafterpaste="this.value=this.value.replace(/[^0-9]/g, '')" onfocus="javascript:if(this.value == '0' || this.value == '')this.value = '';" onblur="javascript:if(this.value == '')this.value = '0'" onchange="DKResult33()" />万
+                </div>
+            </div>
+            <div class="jian w100 " id="dl2" style="display: none;">
+                商业贷款利率
+                <div class="smco" style="padding-right: 0.6rem;">
+                    <div class="sdkll" id='sylilv' data-type="lilv">最新基准利率(4.9%)</div>
+                </div>
+            </div>
+
+            <div class="begin">
+                <p>此计算仅供参考</p>
+                <div>开始计算</div>
+            </div>
+        </div>
+        <div class="Result">
+            <div class="total">
+                <span>还款总数</span>
+                <div><span class="total_sp">0</span>元</div>
+            </div>
+            <div class="months">
+                <span>贷款月数</span>
+                <div><span class="months_sp">0</span>月</div>
+            </div>
+            <div class="interest">
+                <span>支付利息</span>
+                <div><span class="interest_sp">0</span>元</div>
+            </div>
+            <div class="repayment">
+                <span>月均还款</span>
+                <div>
+                    <span class="repayment_sp">0</span>元
+                    (首月后每月递减<span class="n_sp">0</span>元
+                </div>
+                )
+            </div>
+        </div>
+    </div>
+    <div class="bg">
+        <ul data-type="Proportiongjj">
+            <div>首付比例</div>
+            <li data-val="2" class="active" onclick="DKResult111(2)">2成</li>
+            <li data-val="3" onclick="DKResult111(3)">3成</li>
+            <li data-val="4" onclick="DKResult111(4)">4成</li>
+            <li data-val="5" onclick="DKResult111(5)">5成</li>
+            <li data-val="6" onclick="DKResult111(6)">6成</li>
+            <li data-val="7" onclick="DKResult111(7)">7成</li>
+            <li data-val="8" onclick="DKResult111(8)">8成</li>
+        </ul>
+        <ul data-type="Proportionsydk">
+            <div>首付比例</div>
+            <li data-val="3" class="active" onclick="DKResult111(3)">3成</li>
+            <li data-val="3.5" onclick="DKResult111(3.5)">3.5成</li>
+            <li data-val="4" onclick="DKResult111(4)">4成</li>
+            <li data-val="4.5" onclick="DKResult111(4.5)">4.5成</li>
+            <li data-val="5" onclick="DKResult111(5)">5成</li>
+            <li data-val="6" onclick="DKResult111(6)">6成</li>
+            <li data-val="7" onclick="DKResult111(7)">7成</li>
+        </ul>
+        <ul data-type="Proportion">
+            <div>首付比例</div>
+            <li data-val="3" class="active" onclick="DKResult111(3)">3成</li>
+            <li data-val="3.5" onclick="DKResult111(3.5)">3.5成</li>
+            <li data-val="4" onclick="DKResult111(4)">4成</li>
+            <li data-val="4.5" onclick="DKResult111(4.5)">4.5成</li>
+            <li data-val="5" onclick="DKResult111(5)">5成</li>
+            <li data-val="6" onclick="DKResult111(6)">6成</li>
+            <li data-val="7" onclick="DKResult111(7)">7成</li>
+            <li data-val="8" onclick="DKResult111(8)">8成</li>
+        </ul>
+        <ul data-type="fangshi">
+            <div>还款方式</div>
+            <li data-val="等额本金" class="lxType" id="benjin" data-lxtype="1">等额本金</li>
+            <li data-val="等额本息" class="lxType active" id="benxi" data-lxtype="0">等额本息</li>
+        </ul>
+        <ul data-type="year" onchange="year()" id="Cyear">
+            <div>贷款年限</div>
+            <!--<li data-val="1" >1年</li>
+            <li data-val="2">2年</li>
+            <li data-val="3">3年</li>
+            <li data-val="4">4年</li>-->
+            <li data-val="5" class="active">5年</li>
+            <li data-val="6">6年</li>
+            <li data-val="7">7年</li>
+            <li data-val="8">8年</li>
+            <li data-val="9">9年</li>
+            <li data-val="10">10年</li>
+            <li data-val="11">11年</li>
+            <li data-val="12">12年</li>
+            <li data-val="13">13年</li>
+            <li data-val="14">14年</li>
+            <li data-val="15">15年</li>
+            <li data-val="16">16年</li>
+            <li data-val="17">17年</li>
+            <li data-val="18">18年</li>
+            <li data-val="19">19年</li>
+            <li data-val="20">20年</li>
+            <li data-val="21">21年</li>
+            <li data-val="22">22年</li>
+            <li data-val="23">23年</li>
+            <li data-val="24">24年</li>
+            <li data-val="25">25年</li>
+            <li data-val="26">26年</li>
+            <li data-val="27">27年</li>
+            <li data-val="28">28年</li>
+            <li data-val="29">29年</li>
+            <li data-val="30">30年</li>
+        </ul>
+        <!--公积贷款规则1-5年-->
+        <ul data-type="lilv2">
+            <div>公积金贷款利率</div>
+            <li class="Li_lilv2 active" data-val="最新基准利率(3.25%)">最新基准利率</li>
+            <li data-val="最新基准利率7折(2.28%)">最新基准利率7折</li>
+            <li data-val="最新基准利率8折(2.6%)">最新基准利率8折</li>
+            <li data-val="最新基准利率8.5折(2.76%)">最新基准利率8.5折</li>
+            <li data-val="最新基准利率9折(2.925%)">最新基准利率9折</li>
+            <li data-val="最新基准利率9.5折(3.08%)">最新基准利率9.5折</li>
+            <li data-val="最新基准利率1.05倍(3.41%)">最新基准利率1.05倍</li>
+            <li data-val="最新基准利率1.1倍(3.58%)">最新基准利率1.1倍</li>
+            <li data-val="最新基准利率1.15倍(3.73%)">最新基准利率1.15倍</li>
+            <li data-val="最新基准利率1.2倍(3.9%)">最新基准利率1.2倍</li>
+            <li data-val="最新基准利率1.3倍(4.23%)">最新基准利率1.3倍</li>
+            <li data-val="最新基准利率1.4倍(4.6%)">最新基准利率1.4倍</li>
+        </ul>
+        <!--公积贷款规则 5年以上-->
+        <ul data-type="lilvg5">
+            <div>公积金贷款利率</div>
+            <li class="Li_lilvg5 active" data-val="最新基准利率(3.25%)">最新基准利率</li>
+            <li data-val="最新基准利率7折(2.28%)">最新基准利率7折</li>
+            <li data-val="最新基准利率8折(2.6%)">最新基准利率8折</li>
+            <li data-val="最新基准利率8.5折(2.76%)">最新基准利率8.5折</li>
+            <li data-val="最新基准利率9折(2.925%)">最新基准利率9折</li>
+            <li data-val="最新基准利率1.1倍(3.58%)">最新基准利率1.1倍</li>
+            <li data-val="最新基准利率1.2倍(3.9%)">最新基准利率1.2倍</li>
+        </ul>
+        <!--商业贷款规则 1年-->
+        <ul data-type="lilvs1">
+            <div>商业贷款利率</div>
+            <li class="Li_lilv active" data-val="最新基准利率(4.9%)">最新基准利率</li>
+            <li data-val="最新基准利率7.0折(3.05%)">最新基准利率7.0折</li>
+            <li data-val="最新基准利率8.0折(3.48%)">最新基准利率8.0折</li>
+            <li data-val="最新基准利率8.5折(3.7%)">最新基准利率8.5折</li>
+            <li data-val="最新基准利率8.8折(3.83%)">最新基准利率8.8折</li>
+            <li data-val="最新基准利率9.0折(3.92%)">最新基准利率9.0折</li>
+            <li data-val="最新基准利率9.5折(4.13%)">最新基准利率9.5折</li>
+            <li data-val="最新基准利率1.05倍(4.57%)">最新基准利率1.05倍</li>
+            <li data-val="最新基准利率1.1倍(4.79%)">最新基准利率1.1倍</li>
+            <li data-val="最新基准利率1.2倍(5.22%)">最新基准利率1.2倍</li>
+            <li data-val="最新基准利率1.3倍(5.66%)">最新基准利率1.3倍</li>
+        </ul>
+        <!--商业贷款规则 1-5年-->
+        <ul data-type="lilv">
+            <div>商业贷款利率</div>
+            <li class="Li_lilv active" data-val="最新基准利率(4.9%)">最新基准利率</li>
+            <li data-val="最新基准利率7.0折(3.33%)">最新基准利率7.0折</li>
+            <li data-val="最新基准利率8.0折(3.8%)">最新基准利率8.0折</li>
+            <li data-val="最新基准利率8.5折(4.04%)">最新基准利率8.5折</li>
+            <li data-val="最新基准利率8.8折(4.18%)">最新基准利率8.8折</li>
+            <li data-val="最新基准利率9.0折(4.28%)">最新基准利率9.0折</li>
+            <li data-val="最新基准利率9.5折(4.51%)">最新基准利率9.5折</li>
+            <li data-val="最新基准利率1.05倍(4.99%)">最新基准利率1.05倍</li>
+            <li data-val="最新基准利率1.1倍(5.23%)">最新基准利率1.1倍</li>
+            <li data-val="最新基准利率1.2倍(5.70%)">最新基准利率1.2倍</li>
+            <li data-val="最新基准利率1.3倍(6.18%)">最新基准利率1.3倍</li>
+        </ul>
+        <!--商业贷款规则5年以上-->
+        <ul data-type="lilvs5">
+            <div>商业贷款利率</div>
+            <li class="Li_lilv active" data-val="最新基准利率(4.9%)">最新基准利率</li>
+            <li data-val="最新基准利率7.0折(3.43%)">最新基准利率7.0折</li>
+            <li data-val="最新基准利率8.0折(3.92%)">最新基准利率8.0折</li>
+            <li data-val="最新基准利率8.5折(4.1650%)">最新基准利率8.5折</li>
+            <li data-val="最新基准利率8.8折(4.31%)">最新基准利率8.8折</li>
+            <li data-val="最新基准利率9.0折(4.41%)">最新基准利率9.0折</li>
+            <li data-val="最新基准利率9.5折(4.66%)">最新基准利率9.5折</li>
+            <li data-val="最新基准利率1.05倍(5.15%)">最新基准利率1.05倍</li>
+            <li data-val="最新基准利率1.1倍(5.39%)">最新基准利率1.1倍</li>
+            <li data-val="最新基准利率1.2倍(5.88%)">最新基准利率1.2倍</li>
+            <li data-val="最新基准利率1.3倍(6.37%)">最新基准利率1.3倍</li>
+        </ul>
+        <div class="no"></div>
+    </div>
+</body>
+<script src="../../../js/jquery-1.11.0.js"></script>
+<script src="../../../js/mui.min.js"></script>
+<script type="text/javascript">
+	
+	
+	
+    var dkType = 1;         //贷款类型（公积金/商业）
+    var lxType = 0;         //利息类型（本息0/本金1）
+   // var fjze = 0;           //房价金额
+   // var sfbl = 0;           //首付比例
+    var dkze = 0;      //贷款总额
+
+    var gjjdk = 0;      //公积金贷款金额
+    var sydk = 0;       //商业贷款金额
+    //var sdkll = 0.0475;//0.0325;     //商业贷款利率
+    var gdkll = 0.0325;//公积金贷款利率
+    var sy_dkll = 0.049;     //商业贷款利率
+
+    var dkYear = 0;     //贷款几年
+    var isa = true;     //判断当前页面的利率为3.25%&4.9%
+    var is_ZongHe = false;//判断当前页面是否进入组合贷款。  如果是组合则为true
+
+    var Array1 = new Array();//公积金
+    var Array2 = new Array();//商业贷款
+    var Array3 = new Array();//组合贷款
+
+    //首付总成
+    function DKResult111(sfbl) {
+       // var sfbl = $(obj).data("val")
+        var fjze = parseInt($(".fjze").val());
+        var dkze = "";
+        dkze = fjze * (10 - parseInt(sfbl)) * 0.1;
+        $(".dkze").val(dkze.toFixed(1));
+        var gjjdk = parseInt($(".gjjdk").val());
+        var sydk = parseInt($(".sydk").val());
+        if (!isNaN(gjjdk) && gjjdk > 0) {
+            if ((dkze - gjjdk) >= 0) {
+                $(".sydk").val((dkze - gjjdk).toFixed(1));
+            }
+            else {
+                $(".sydk").val(0);
+                $(".gjjdk").val(0);
+            }
+
+        }
+        else {
+            $(".gjjdk").val(dkze.toFixed(1));
+            $(".sydk").val(0);
+        }
+    }
+    //房价总额
+    //function DKResult() {
+    //    var fjze = parseInt($(".fjze").val());
+    //    var sfbl = parseInt($(".sfbl").text());
+    //    var dkze = "";
+    //    dkze = fjze * (10 - sfbl) * 0.1;
+    //    $(".dkze").val(dkze.toFixed(1));
+    //    DKResult22();
+    //}
+    //公积金贷款
+    function DKResult22() {
+        var gjjdk =$(".gjjdk").val();
+        if (gjjdk.indexOf(".")) {
+            gjjdk = parseFloat(gjjdk);
+        } else {
+            gjjdk = parseInt(gjjdk);
+        }
+        var dkze = $(".dkze").val();
+        if (dkze.indexOf(".")) {
+            dkze = parseFloat(dkze);
+        } else {
+            dkze = parseInt(dkze);
+        }
+        var sydk = "";
+        sydk = dkze - gjjdk;
+        if (sydk<=0) {
+            //smalert('请录入正确公积金贷款总额', false);
+            $(".gjjdk").val(0)
+            $(".sydk").val(0);
+            gjjdk = 0;
+            sydk = 0;
+            return false;
+        }
+        else {
+            $(".sydk").val(sydk.toFixed(1));
+        }
+    }
+    //商业贷款
+    function DKResult33() {
+        var sydk = $(".sydk").val();
+        if (sydk.indexOf(".")) {
+            sydk = parseFloat(sydk);
+        } else {
+            sydk = parseInt(sydk);
+        }
+        var dkze = $(".dkze").val();
+        if (dkze.indexOf(".")) {
+            dkze = parseFloat(dkze);
+        } else {
+            dkze = parseInt(dkze);
+        }
+        var gjjdk = "";
+        gjjdk = dkze - sydk;
+        if (gjjdk <=0) {
+            smalert('请录入正确商业贷款总额', false);
+            $(".gjjdk").val(0)
+            $(".sydk").val(0);
+            gjjdk = 0;
+            sydk = 0;
+            return false;
+        } else {
+            $(".gjjdk").val(gjjdk.toFixed(1));
+        }
+    }
+
+    $(function () {
+
+        function guanbi() {
+            $(".container").removeClass("shadow");
+            $(".bg").slideUp(200);
+            setTimeout(function () {
+                $(".bg ul").removeClass("active");
+            }, 200)
+        }
+        //遮罩层关闭
+        $(".container").click(function (e) {
+            if ($(e.target).is(this)) {
+                guanbi();
+            }
+        })
+        $(".no").click(function () {
+            guanbi();
+        })
+
+        var shoufutype="Proportiongjj";
+        //标题点击切换
+        $("nav div div").click(function () {
+            $(this).addClass("active").siblings().removeClass("active");
+            if ($(this).is('.combination')) {
+                $("#gjjlilv").parents(".jian ").show();
+                $("#sylilv").parents(".jian ").show();
+                $(".none").addClass("active");
+
+                shoufutype="Proportion";
+                $(".sfbl").text("3");
+                $("ul[data-type='Proportion'] li:first").addClass("active")
+                $("ul[data-type='Proportion'] li").not(":first").removeClass("active")
+                DKResult111(3)
+            } else {
+                $(".none").removeClass("active");
+            }
+            if ($(this).is('.shangye')) {
+
+                shoufutype="Proportionsydk";
+                $(".sfbl").text("3");
+                $("ul[data-type='Proportionsydk'] li:first").addClass("active")
+                $("ul[data-type='Proportionsydk'] li").not(":first").removeClass("active")
+                $("#gjjlilv").parents(".jian ").hide();
+                $("#sylilv").parents(".jian ").show();
+                var y = $("#pickeryear").html();
+                //if (parseInt(y) <= 1) {
+                //    $("#sylilv").html("最新基准利率(4.35%)")
+                //}
+                //else if (parseInt(y) > 1 && parseInt(y) <= 5) {
+                //    $("#sylilv").html("最新基准利率(4.9%)")
+                //}
+                //else {
+                //    $("#sylilv").html("最新基准利率(4.9%)")
+                //}
+                DKResult111(3)
+            }
+            if ($(this).is('.gongjijin')) {
+
+                shoufutype="Proportiongjj";
+                $(".sfbl").text("2");
+                $("ul[data-type='Proportiongjj'] li:first").addClass("active")
+                $("ul[data-type='Proportiongjj'] li").not(":first").removeClass("active")
+                $("#gjjlilv").parents(".jian ").show();
+                $("#sylilv").parents(".jian ").hide();
+                var y = $("#pickeryear").html();
+                if (parseInt(y) <= 5) {
+                    $("#gjjlilv").html("最新基准利率(3.25%)")
+                } else {
+                    $("#gjjlilv").html("最新基准利率(3.25%)")
+                }
+                DKResult111(2)
+            }
+
+        })
+
+        //付款方式
+        $("#fangshi").click(function(){
+
+            $(".bg ul[data-type='fangshi']").addClass("active");
+            $(".bg").slideDown(200)
+            $(".container").addClass("shadow")
+
+        });
+        //本金 本息切换
+        $(".bg ul[data-type='fangshi'] li").click(function () {
+            $(this).addClass("active").siblings().removeClass("active");
+            if ($(this).html() == "等额本金") {
+                $(".repayment>span").html("首月还款")
+            } else {
+                $(".repayment>span").html("月均还款")
+            }
+            $("#fangshi").html($(this).html())
+            guanbi();
+        })
+
+        //首付比例
+        $("#picker").click(function(){
+            $(".bg ul[data-type='"+shoufutype+"']").addClass("active");
+            $(".bg").slideDown(200)
+            $(".container").addClass("shadow")
+
+        });
+        //选择首付比例
+        $(".bg ul[data-type='Proportiongjj'] li").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            $(".sfbl").text($(this).data("val"))
+            guanbi();
+        });
+        //选择首付比例
+        $(".bg ul[data-type='Proportionsydk'] li").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            $(".sfbl").text($(this).data("val"))
+            guanbi();
+        });
+        //选择首付比例
+        $(".bg ul[data-type='Proportion'] li").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            $(".sfbl").text($(this).data("val"))
+            guanbi();
+        });
+        //贷款年限
+        $("#pickeryear").click(function(){
+            //$(this).addClass("active").parent().siblings("div").find("div").removeClass("active")
+            $(".bg ul[data-type='year']").addClass("active");
+            $(".bg").slideDown(200)
+            $(".container").addClass("shadow")
+        });
+        var showgjjlilv="lilv2";
+        var showsdlilv="lilvs1";
+        //选择贷款年限
+        $(".bg ul[data-type='year'] li").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            $("#pickeryear").text($(this).data("val"))
+            dkYear=parseInt($(this).data("val"));
+
+            if (1<=dkYear <=5) {
+                $("#sylilv").html("最新基准利率(4.9%)")
+                $("#gjjlilv").html("最新基准利率(3.25%)")
+                $("ul[data-type='lilv2'] li:first").addClass("active")
+                $("ul[data-type='lilv2'] li").not(":first").removeClass("active")
+                $("ul[data-type='lilvs1'] li:first").addClass("active")
+                $("ul[data-type='lilvs1'] li").not(":first").removeClass("active");
+
+                showgjjlilv="lilv2";
+                showsdlilv="lilvs1";
+            }
+            if (dkYear > 1 && dkYear <= 5) {
+                $("#gjjlilv").html("最新基准利率(3.25%)")
+                $("#sylilv").html("最新基准利率(4.9%)")
+                $("ul[data-type='lilv2'] li:first").addClass("active")
+                $("ul[data-type='lilv2'] li").not(":first").removeClass("active")
+                $("ul[data-type='lilv'] li:first").addClass("active")
+                $("ul[data-type='lilv'] li").not(":first").removeClass("active")
+
+                showgjjlilv="lilv2";
+                showsdlilv="lilv";
+            }
+            if (dkYear>5) {
+                $("#gjjlilv").html("最新基准利率(3.25%)")
+                $("#sylilv").html("最新基准利率(4.9%)")
+
+                $("ul[data-type='lilvg5'] li:first").addClass("active")
+                $("ul[data-type='lilvg5'] li").not(":first").removeClass("active")
+                $("ul[data-type='lilvs5'] li:first").addClass("active")
+                $("ul[data-type='lilvs5'] li").not(":first").removeClass("active")
+                showgjjlilv="lilvg5";
+                showsdlilv="lilvs5";
+            }
+            //公积金
+            if (dkType==1) {
+
+                // lilv2 lilvg5
+
+            }
+            else if(dkType==2)//商业贷款
+            {
+
+            }
+            else if(dkType==3)//组合贷款
+            {
+
+            }
+            guanbi();
+
+        });
+        //公积金贷款利率
+        $("#gjjlilv").click(function(){
+            $(".bg ul[data-type='"+showgjjlilv+"']").addClass("active");
+            $(".bg").slideDown(200)
+            $(".container").addClass("shadow")
+
+        });
+        //公积金1-5年(含)
+        $(".bg ul[data-type='lilv2'] li").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            $("#gjjlilv").text($(this).data("val"))
+            guanbi();
+        });
+        //公积金5年以上
+        $(".bg ul[data-type='lilvg5'] li").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            $("#gjjlilv").text($(this).data("val"))
+            guanbi();
+        });
+        //商业贷款利率
+        $("#sylilv").click(function(){
+            $(".bg ul[data-type='"+showsdlilv+"']").addClass("active");
+            $(".bg").slideDown(200)
+            $(".container").addClass("shadow")
+
+        });
+        //lilvs1 lilv lilvs5
+        //商业贷款1年以内（含）
+        $(".bg ul[data-type='lilvs1'] li").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            $("#sylilv").text($(this).data("val"))
+            guanbi();
+        });
+        //商业贷款1-5年(含)
+        $(".bg ul[data-type='lilv'] li").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            $("#sylilv").text($(this).data("val"))
+            guanbi();
+        });
+        //商业贷款5年以上
+        $(".bg ul[data-type='lilvs5'] li").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            $("#sylilv").text($(this).data("val"))
+            guanbi();
+        });
+        //默认点击获取焦点
+        $(".count>div").click(function () {
+            $(this).find("input").focus();
+        })
+        //获取贷款类型
+        $('.DK').click(function () {
+            if ($(this).attr('data-DK') == 'gjjdk') {
+                dkType = 1;
+                is_ZongHe = false;
+                $("#fangshi").text(Array1["AlxTypeName"]);
+                //$(".fjze").val(Array1["Afjze"]);
+                $(".sfbl").text(Array1["Asfbl"]);
+                //$(".dkze").val(Array1["Adkze"]);
+                $(".dkyear").text(Array1["AdkYear"]);
+                $(".gdkll").text(Array1["Agdkll"]);
+                $(".total_sp").text(Array1["AHuanKuan"]);
+                $(".months_sp").text(Array1["Ayue"]);
+                $(".interest_sp").text(Array1["Alixi"]);
+                $(".repayment_sp").text(Array1["Ayuegong"]);
+
+                if (typeof (Array1["AdkYear"]) != "undefined") {
+                    $("ul[data-type='year'] li").removeClass("active")
+                    $("ul[data-type='year'] li[data-val='" + Array1["AdkYear"] + "']").addClass("active")
+                }
+                else {
+                    var y = $("#pickeryear").html();
+                    if (parseInt(y) <= 5) {
+                        $("#gjjlilv").html("最新基准利率(3.25%)")
+                    } else {
+                        $("#gjjlilv").html("最新基准利率(3.25%)")
+                    }
+                }
+
+            }
+            else if ($(this).attr('data-DK') == 'sydk') {
+                dkType = 2;
+                is_ZongHe = false;
+                $("#fangshi").text(Array2["AlxTypeName"])
+                //$(".fjze").val(Array2["Afjze"]);
+                $(".sfbl").text(Array2["Asfbl"]);
+                //$(".dkze").val(Array2["Adkze"]);
+                $(".dkyear").text(Array2["AdkYear"]);
+                $(".sdkll").text(Array2["Asdkll"]);
+                $(".total_sp").text(Array2["AHuanKuan"]);
+                $(".months_sp").text(Array2["Ayue"]);
+                $(".interest_sp").text(Array2["Alixi"]);
+                $(".repayment_sp").text(Array2["Ayuegong"]);
+
+                if (typeof (Array2["AdkYear"]) != "undefined") {
+                    $("ul[data-type='year'] li").removeClass("active")
+                    $("ul[data-type='year'] li[data-val='" + Array2["AdkYear"] + "']").addClass("active")
+                }
+                else {
+                    var y = $("#pickeryear").html();
+                    if (parseInt(y) <= 1) {
+                        $("#sylilv").html("最新基准利率(4.35%)")
+                    }
+                    else if (parseInt(y) > 1 && parseInt(y) <= 5) {
+                        $("#sylilv").html("最新基准利率(4.9%)")
+                    }
+                    else {
+                        $("#sylilv").html("最新基准利率(4.9%)")
+                    }
+                }
+
+            }
+            else if ($(this).attr('data-DK') == 'zhdk') {
+                dkType = 3;
+                is_ZongHe = true;
+                $("#fangshi").text(Array3["AlxTypeName"])
+                //$(".fjze").val(Array3["Afjze"]);
+                $(".sfbl").text(Array3["Asfbl"]);
+                //$(".dkze").val(Array3["Adkze"]);
+                $(".gjjdk").val(Array3["Agjjdk"]);
+                $(".sydk").val(Array3["Asydk"]);
+                $(".dkyear").text(Array3["AdkYear"]);
+                $(".gdkll").text(Array3["Agdkll"]);
+                $(".sdkll").text(Array3["Asdkll"]);
+
+
+                if (typeof (Array3["AdkYear"]) != "undefined") {
+                    $("ul[data-type='year'] li").removeClass("active")
+                    $("ul[data-type='year'] li[data-val='" + Array3["AdkYear"] + "']").addClass("active")
+                }
+                else {
+                    var y = $("#pickeryear").text();
+                    if (parseInt(y) <= 1) {
+                        $("#sylilv").html("最新基准利率(4.35%)")
+                    }
+                    else if (parseInt(y) > 1 && parseInt(y) <= 5) {
+                        $("#sylilv").html("最新基准利率(4.9%)")
+                    }
+                    else {
+                        $("#sylilv").html("最新基准利率(4.9%)")
+                    }
+
+                    if (parseInt(y) <= 5) {
+                        $("#gjjlilv").html("最新基准利率(3.25%)")
+                    } else {
+                        $("#gjjlilv").html("最新基准利率(3.25%)")
+                    }
+                }
+            }
+            $(".total_sp").text("0");
+            $(".months_sp").text("0");
+            $(".interest_sp").text("0");
+            $(".repayment_sp").text("0");
+            $(".n_sp").text("0");
+        })
+        //获取还款方式--本息/本金
+        $('.lxType').click(function () {
+            lxType = parseInt($(this).attr('data-lxType'));
+        })
+        // 提交按钮/获取input数值
+        $(".begin div").click(function () {
+            //fjze = parseInt($('.fjze').val()) * 10000;//房价总额
+            //sfbl = parseInt($('.sfbl').text());//首付比例
+
+            dkze = parseFloat($('.dkze').val()) * 10000;//贷款总额
+
+            gjjdk = parseFloat($('.gjjdk').val()) * 10000;//公积金贷款
+            sydk = parseFloat($('.sydk').val()) * 10000;//商业贷款
+            dkYear = parseInt($('.dkyear').text())//贷款年
+           //// var fjze1 = parseInt($(".fjze").val());
+           // var sfbl1 = parseInt($(".sfbl").text());
+            ////console.info("房价总额" + fjze);
+            ////console.info("首付比例" + sfbl);
+            ////console.info("贷款总额" + dkze);
+            ////console.info("公积金贷款" + gjjdk);
+            ////console.info("商业贷款" + sydk);
+            ////console.info("贷款年" + dkYear);
+            if (is_ZongHe) {
+                //综合页面
+                //if (isNaN(fjze) || fjze <= 0) {
+                //    smalert('请录入正确房价总额', false);
+                //    return false;
+                //}
+                if (isNaN(gjjdk) || gjjdk <= 0) {
+                    smalert('请录入正确公积金贷款', false);
+                    return false;
+                }
+                if (isNaN(sydk)) {
+                    smalert('请录入正确商业贷款', false);
+                    return false;
+                }
+                if (sydk < 0) {
+                    smalert('请正确输入贷款金额', false);
+                    return false;
+                }
+                if (isNaN(dkze) || isNaN(dkYear)  && dkze == "" && dkYear == "") {
+                    smalert('请录入正确信息', false);
+                    return false;
+                }
+            }
+            else {
+                //公积金，商业贷款页面
+                //if (!isNaN(fjze) && fjze <= 0) {
+                //    smalert('请录入正确房价总额', false);
+                //    return false;
+                //}
+                if (!isNaN(dkze) && dkze < 0) {
+                    smalert('贷款总额不能为零', false);
+                    return false;
+                }
+                if ( !isNaN(dkYear) && dkYear != "") {
+                }
+                else {
+                    smalert('请录入正确信息', false);
+                    return;
+                }
+            }
+            //判断当前利率为4.9%&3.25并作出相应折扣,公积金
+            if (dkType == 1) {
+                var zhekou = $('.gdkll').text()//基准利率
+                var lilv = 0;
+                if (dkYear <= 5) {
+                    zhekou = $('.gdkll').text();
+                    lilv = 0.0325;
+                    if (zhekou == "最新基准利率(3.25%)")
+                        gdkll = lilv * 1;
+                    else if (zhekou == "最新基准利率7折(1.93%)") {
+                        gdkll = (lilv * 0.7).toFixed(4);
+                    }
+                    else if (zhekou == "最新基准利率8折(2.6%)")
+                        gdkll = (lilv * 0.8).toFixed(4);
+                    else if (zhekou == "最新基准利率8.5折(2.34%)")
+                        gdkll = (lilv * 0.85).toFixed(4);
+                    else if (zhekou == "最新基准利率9折(2.925%)")
+                        gdkll = (lilv * 0.9).toFixed(4);
+                    else if (zhekou == "最新基准利率9.5折(3.08%)")
+                        gdkll = (lilv * 0.95).toFixed(4);
+                    else if (zhekou == "最新基准利率1.1倍(3.03%)")
+                        gdkll = (lilv * 1.1).toFixed(4);
+                    else if (zhekou == "最新基准利率1.15倍(3.73%)")
+                        gdkll = (lilv * 1.15).toFixed(4);
+                    else if (zhekou == "最新基准利率1.2倍(3.3%)")
+                        gdkll = (lilv * 1.2).toFixed(4);
+                    else if (zhekou == "最新基准利率1.3倍(4.23%)")
+                        gdkll = (lilv * 1.3).toFixed(4);
+                    else if (zhekou == "最新基准利率1.4倍(4.6%)")
+                        gdkll = (lilv * 1.4).toFixed(4);
+                } else {
+                    zhekou = $('.gdkll').text();
+                    lilv = 0.0325;
+                    if (zhekou == "最新基准利率(3.25%)")
+                        gdkll = lilv * 1;
+                    else if (zhekou == "最新基准利率7折(2.28%)")
+                        gdkll = (lilv * 0.7).toFixed(4);
+                    else if (zhekou == "最新基准利率8折(2.6%)")
+                        gdkll = (lilv * 0.8).toFixed(4)
+                    else if (zhekou == "最新基准利率8.5折(2.76%)")
+                        gdkll = (lilv * 0.85).toFixed(4);
+                    else if (zhekou == "最新基准利率9折(2.925%)")
+                        gdkll = (lilv * 0.9).toFixed(4);
+                    else if (zhekou == "最新基准利率1.1倍(3.58%)")
+                        gdkll = (lilv * 1.1).toFixed(4);
+                    else if (zhekou == "最新基准利率1.2倍(3.9%)")
+                        gdkll = (lilv * 1.2).toFixed(4);
+                }
+                //console.info(zhekou)
+                var res = ext_total(dkze, gdkll, gdkll, dkYear, dkType, lxType, N);
+
+            }//商业贷款
+            else if (dkType == 2) {
+                var zhekou = $('.sdkll').text()//基准利率
+                var slilv = 0;
+                if (dkYear <= 1) {
+                    zhekou == $('.sdkll').text();
+                    slilv = 0.0435;
+                    if (zhekou == "最新基准利率(4.35%)")
+                        sdkll = slilv * 1;
+                    else if (zhekou == "最新基准利率9.5折(4.13%)")
+                        sdkll = (slilv * 0.95).toFixed(4);
+                    else if (zhekou == "最新基准利率9.0折(3.92%)")
+                        sdkll = (slilv * 0.9).toFixed(4);
+                    else if (zhekou == "最新基准利率8.8折(3.83%)")
+                        sdkll = (slilv * 0.88).toFixed(4);
+                    else if (zhekou == "最新基准利率8.5折(3.7%)") {
+                        sdkll = (slilv * 0.85).toFixed(5);
+                       // console.info((slilv * 0.85) +"0.85");
+                    }
+                    else if (zhekou == "最新基准利率8.0折(3.48%)")
+                        sdkll = (slilv * 0.8).toFixed(4);
+                    else if (zhekou == "最新基准利率7.0折(3.05%)")
+                        sdkll = (slilv * 0.7).toFixed(4);
+                    else if (zhekou == "最新基准利率1.05倍(4.57%)")
+                        sdkll = (slilv * 1.05).toFixed(4);
+                    else if (zhekou == "最新基准利率1.1倍(4.79%)")
+                        sdkll = (slilv * 1.1).toFixed(4);
+                    else if (zhekou == "最新基准利率1.2倍(5.22%)")
+                        sdkll = (slilv * 1.2).toFixed(4);
+                    else if (zhekou == "最新基准利率1.3倍(5.66%)")
+                        sdkll = (slilv * 1.3).toFixed(4);
+                } else if (dkYear > 1 && dkYear <= 5) {
+                    var zhekou = $('.sdkll').text();
+                    slilv = 0.0475;
+                    if (zhekou == "最新基准利率(4.9%)")
+                        sdkll = slilv * 1;
+                    else if (zhekou == "最新基准利率9.5折(4.51%)")
+                        sdkll = (slilv * 0.95).toFixed(4);
+                    else if (zhekou == "最新基准利率9.0折(4.28%)")
+                        sdkll = (slilv * 0.9).toFixed(4);
+                    else if (zhekou == "最新基准利率8.8折(4.18%)")
+                        sdkll = (slilv * 0.88).toFixed(4);
+                    else if (zhekou == "最新基准利率8.5折(4.04%)")
+                    {
+                        sdkll = (slilv * 0.85).toFixed(5);
+                        //console.info((slilv * 0.85) + "0.85");
+                    }
+                    else if (zhekou == "最新基准利率8.0折(3.8%)")
+                        sdkll = (slilv * 0.8).toFixed(4);
+                    else if (zhekou == "最新基准利率7.0折(3.33%)")
+                        sdkll = (slilv * 0.7).toFixed(4);
+                    else if (zhekou == "最新基准利率1.05倍(4.99%)")
+                        sdkll = (slilv * 1.05).toFixed(4);
+                    else if (zhekou == "最新基准利率1.1倍(5.23%)")
+                        sdkll = (slilv * 1.1).toFixed(4);
+                    else if (zhekou == "最新基准利率1.2倍(5.70%)")
+                        sdkll = (slilv * 1.2).toFixed(4);
+                    else if (zhekou == "最新基准利率1.3倍(6.18%)")
+                        sdkll = (slilv * 1.3).toFixed(4);
+                } else {
+                    var zhekou = $('.sdkll').text();
+                    slilv = 0.049;
+                    if (zhekou == "最新基准利率(4.9%)")
+                        sdkll = slilv * 1;
+                    else if (zhekou == "最新基准利率9.5折(4.66%)")
+                        sdkll = (slilv * 0.95).toFixed(4);
+                    else if (zhekou == "最新基准利率9.0折(4.41%)")
+                        sdkll = (slilv * 0.9).toFixed(4);
+                    else if (zhekou == "最新基准利率8.8折(4.31%)")
+                        sdkll = (slilv * 0.88).toFixed(4);
+                    else if (zhekou == "最新基准利率8.5折(4.1650%)")
+                    {
+                        //sdkll = (slilv * 0.85).toFixed(5);
+                        sdkll = 0.0417;
+                        //console.info((slilv * 0.85) + "0.85");
+                    }
+                    else if (zhekou == "最新基准利率8.0折(3.92%)")
+                        sdkll = (slilv * 0.8).toFixed(4);
+                    else if (zhekou == "最新基准利率7.0折(3.43%)")
+                        sdkll = (slilv * 0.7).toFixed(4);
+                    else if (zhekou == "最新基准利率1.05倍(5.15%)")
+                        sdkll = (slilv * 1.05).toFixed(4);
+                    else if (zhekou == "最新基准利率1.1倍(5.39%)")
+                        sdkll = (slilv * 1.1).toFixed(4);
+                    else if (zhekou == "最新基准利率1.2倍(5.88%)")
+                        sdkll = (slilv * 1.2).toFixed(4);
+                    else if (zhekou == "最新基准利率1.3倍(6.37%)")
+                        sdkll = (slilv * 1.3).toFixed(4);
+                }
+
+                ////console.info("gjjdk-" + dkze);
+                ////console.info("sdkll-" + sdkll);
+                ////console.info("gdkll-" + sdkll);
+                ////console.info("dkYear-" + dkYear);
+                ////console.info("dkType-" + dkType);
+                ////console.info("lxType-" + lxType);
+                ////console.info("N-" + N);
+                var res = ext_total(dkze, sdkll, sdkll, dkYear, dkType, lxType, N);
+            }//组合贷款
+            else if (dkType == 3) {
+                //公积金
+                var zhekou = $('.gdkll').text()//基准利率
+                //console.info("公积金zhekou" + zhekou);
+                var lilv = 0;
+                if (dkYear <= 5) {
+                    zhekou = $('.gdkll').text();
+                    lilv = 0.0275;
+                    if (zhekou == "最新基准利率(3.25%)")
+                        gdkll = lilv * 1;
+                    else if (zhekou == "最新基准利率7折(1.93%)")
+                        gdkll = (lilv * 0.7).toFixed(4);
+                    else if (zhekou == "最新基准利率8.5折(2.34%)")
+                        gdkll = (lilv * 0.85).toFixed(4);
+                    else if (zhekou == "最新基准利率1.1倍(3.03%)")
+                        gdkll = (lilv * 1.1).toFixed(4);
+                    else if (zhekou == "最新基准利率1.2倍(3.3%)")
+                        gdkll = (lilv * 1.2).toFixed(4);
+                } else {
+                    zhekou = $('.gdkll').text();
+                    lilv = 0.0325;
+                    if (zhekou == "最新基准利率(3.25%)")
+                        gdkll = lilv * 1;
+                    else if (zhekou == "最新基准利率7折(2.28%)")
+                        gdkll = (lilv * 0.7).toFixed(4);
+                    else if (zhekou == "最新基准利率8.5折(2.76%)")
+                        gdkll = (lilv * 0.85).toFixed(4);
+                    else if (zhekou == "最新基准利率1.1倍(3.58%)")
+                        gdkll = (lilv * 1.1).toFixed(4);
+                    else if (zhekou == "最新基准利率1.2倍(3.9%)")
+                        gdkll = (lilv * 1.2).toFixed(4);
+                }
+                //console.info("公积金zhekou" + zhekou);
+                //console.info("gdkll" + gdkll)
+                //商业
+                var zhekou = $('.sdkll').text()//基准利率
+                var slilv = 0;
+                if (dkYear <= 1) {
+                    zhekou == $('.sdkll').text();
+                    slilv = 0.0435;
+                    if (zhekou == "最新基准利率(4.35%)")
+                        sdkll = slilv * 1;
+                    else if (zhekou == "最新基准利率9.5折(4.13%)")
+                        sdkll = (slilv * 0.95).toFixed(4);
+                    else if (zhekou == "最新基准利率9.0折(3.92%)")
+                        sdkll = (slilv * 0.9).toFixed(4);
+                    else if (zhekou == "最新基准利率8.8折(3.83%)")
+                        sdkll = (slilv * 0.88).toFixed(4);
+                    else if (zhekou == "最新基准利率8.5折(3.7%)")
+                        sdkll = (slilv * 0.85).toFixed(4);
+                    else if (zhekou == "最新基准利率8.0折(3.48%)")
+                        sdkll = (slilv * 0.8).toFixed(4);
+                    else if (zhekou == "最新基准利率7.0折(3.05%)")
+                        sdkll = (slilv * 0.7).toFixed(4);
+                    else if (zhekou == "最新基准利率1.05倍(4.57%)")
+                        sdkll = (slilv * 1.05).toFixed(4);
+                    else if (zhekou == "最新基准利率1.1倍(4.79%)")
+                        sdkll = (slilv * 1.1).toFixed(4);
+                    else if (zhekou == "最新基准利率1.2倍(5.22%)")
+                        sdkll = (slilv * 1.2).toFixed(4);
+                    else if (zhekou == "最新基准利率1.3倍(5.66%)")
+                        sdkll = (slilv * 1.3).toFixed(4);
+
+                } else if (dkYear > 1 && dkYear <= 5) {
+                    zhekou == "最新基准利率(4.9%)";
+                    slilv = 0.0475;
+                    if (zhekou == "最新基准利率(4.9%)")
+                        sdkll = slilv * 1;
+                    else if (zhekou == "最新基准利率9.5折(4.51%)")
+                        sdkll = (slilv * 0.95).toFixed(4);
+                    else if (zhekou == "最新基准利率9.0折(4.28%)")
+                        sdkll = (slilv * 0.9).toFixed(4);
+                    else if (zhekou == "最新基准利率8.8折(4.18%)")
+                        sdkll = (slilv * 0.88).toFixed(4);
+                    else if (zhekou == "最新基准利率8.5折(4.04%)")
+                        sdkll = (slilv * 0.85).toFixed(4);
+                    else if (zhekou == "最新基准利率8.0折(3.8%)")
+                        sdkll = (slilv * 0.8).toFixed(4);
+                    else if (zhekou == "最新基准利率7.0折(3.33%)")
+                        sdkll = (slilv * 0.7).toFixed(4);
+                    else if (zhekou == "最新基准利率1.05倍(4.99%)")
+                        sdkll = (slilv * 1.05).toFixed(4);
+                    else if (zhekou == "最新基准利率1.1倍(5.23%)")
+                        sdkll = (slilv * 1.1).toFixed(4);
+                    else if (zhekou == "最新基准利率1.2倍(5.70%)")
+                        sdkll = (slilv * 1.2).toFixed(4);
+                    else if (zhekou == "最新基准利率1.3倍(6.18%)")
+                        sdkll = (slilv * 1.3).toFixed(4);
+
+                } else {
+                    zhekou == "最新基准利率(4.9%)";
+                    slilv = 0.049;
+                    if (zhekou == "最新基准利率(4.9%)")
+                        sdkll = slilv * 1;
+                    else if (zhekou == "最新基准利率9.5折(4.66%)")
+                        sdkll = (slilv * 0.95).toFixed(4);
+                    else if (zhekou == "最新基准利率9.0折(4.41%)")
+                        sdkll = (slilv * 0.9).toFixed(4);
+                    else if (zhekou == "最新基准利率8.8折(4.31%)")
+                        sdkll = (slilv * 0.88).toFixed(4);
+                    else if (zhekou == "最新基准利率8.5折(4.17%)")
+                        sdkll = (slilv * 0.85).toFixed(4);
+                    else if (zhekou == "最新基准利率8.0折(3.92%)")
+                        sdkll = (slilv * 0.8).toFixed(4);
+                    else if (zhekou == "最新基准利率7.0折(3.43%)")
+                        sdkll = (slilv * 0.7).toFixed(4);
+                    else if (zhekou == "最新基准利率1.05倍(5.15%)")
+                        sdkll = (slilv * 1.05).toFixed(4);
+                    else if (zhekou == "最新基准利率1.1倍(5.39%)")
+                        sdkll = (slilv * 1.1).toFixed(4);
+                    else if (zhekou == "最新基准利率1.2倍(5.88%)")
+                        sdkll = (slilv * 1.2).toFixed(4);
+                    else if (zhekou == "最新基准利率1.3倍(6.37%)")
+                        sdkll = (slilv * 1.3).toFixed(4);
+                }
+                //console.info("商zhekou" + zhekou);
+                //console.info("商sdkll" + sdkll);
+                //console.info("gdkll" + gdkll)
+
+                if ((gjjdk + sydk) > fjze) {
+                    smalert('超出房价总额', false);
+                    return false;
+                }
+
+                if ((gjjdk + sydk) != dkze) {
+                    smalert('贷款总额不一致', false);
+                    return false;
+                }
+                //console.info("gjjdk-" + gjjdk);
+                //console.info("sdkll-" + sdkll);
+                //console.info("gdkll-" + gdkll);
+                //console.info("dkYear-" + dkYear);
+                //console.info("dkType-" + dkType);
+                //console.info("lxType-" + lxType);
+                //console.info("sydk-" + sydk);
+                //console.info("dkYear-" + dkYear);
+                //console.info("N-" + N);
+
+                var res = ext_total(gjjdk, sdkll, gdkll, dkYear, dkType, lxType, sydk, dkYear, N);
+            }
+            console.info("" + res)  // 490816.50802116614,240,190816.51,2045.0687834215255
+            var HuanKuan =  res[0];
+            var lixi = 0;
+            var yuegong = 0;
+            var N = 0;
+            lixi = res[2].toFixed(2);
+            yuegong = res[3].toFixed(2);
+            if (lxType == 1) {
+                //lxType = parseInt($(this).attr('data-lxType'));
+                N = res[4].toFixed(2);
+            }
+            if (dkType == 1) {
+                Array1["AlxTypeName"] = $("#fangshi").text();
+                Array1["AlxTypeId"] = lxType;
+                //Array1["Afjze"] = $(".fjze").val();
+                //Array1["Asfbl"] = sfbl;
+                Array1["Adkze"] = $(".dkze").val();
+                Array1["AdkYear"] = dkYear;
+                Array1["Adkll"] = $(".gdkll").text();
+                Array1["AHuanKuan"] = HuanKuan.toFixed(2);
+                Array1["Ayue"] = res[1];
+                Array1["Alixi"] = lixi;
+                Array1["Ayuegong"] = yuegong;
+            }
+            if (dkType == 2) {
+                Array2["AlxTypeName"] = $("#fangshi").text();
+                Array2["AlxTypeId"] = lxType;
+                //Array2["Afjze"] = $(".fjze").val();
+                //Array2["Asfbl"] = sfbl;
+                Array2["Adkze"] = $(".dkze").val();
+                Array2["AdkYear"] = dkYear;
+                Array2["Adkll"] = $(".dkll").text();
+                Array2["AHuanKuan"] = HuanKuan.toFixed(2);
+                Array2["Ayue"] = res[1];
+                Array2["Alixi"] = lixi;
+                Array2["Ayuegong"] = yuegong;
+            }
+            if (dkType == 3) {
+                Array3["AlxTypeName"] = $("#fangshi").text();
+                Array3["AlxTypeId"] = lxType;
+                Array3["Afjze"] = $(".fjze").val();
+                Array3["Agjjdk"] = $(".gjjdk").val();
+                Array3["Asydk"] = $(".sydk").val();
+                Array3["Asfbl"] = sfbl;
+                Array3["Adkze"] = $(".dkze").val();
+                Array3["AdkYear"] = dkYear;
+                Array3["Agdkll"] = $(".gdkll").text();
+                Array3["Asdkll"] = $(".sdkll").text();
+                Array3["AHuanKuan"] = HuanKuan.toFixed(2);
+                Array3["Ayue"] = res[1];
+                Array3["Alixi"] = lixi;
+                Array3["Ayuegong"] = yuegong;
+            }
+            $('.total_sp').html(" " + HuanKuan.toFixed(2) + " ");
+            $('.months_sp').html(" " + res[1] + " ");
+            $('.interest_sp').html(" " + lixi + " ");
+            $('.repayment_sp').html(" " + yuegong + " ");
+            if (lxType != 1) {
+                $('.n_sp').html(" " + 0 + " ");
+            } else {
+                $('.n_sp').html(" " + res[4].toFixed(2) + " ");
+            }
+
+        })
+
+    })
+</script>
+</html>

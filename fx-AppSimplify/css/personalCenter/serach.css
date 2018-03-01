@@ -1,0 +1,48 @@
+html{
+	background: #fff;
+}
+.mui-scroll-wrapper{
+	top: 5.7rem;
+}
+.search_middle{
+padding: .4rem .4rem;
+position: relative;
+background: #fff;
+border-bottom: 1px solid #efeff4;
+}
+.search_middle .mui-icon-serach{
+	position: absolute;
+	top: .65rem;
+	right: .6rem;
+}
+.search_middle input[type=search]{
+	width: 90%;
+	background: #fff;
+	font-size: 14px;
+	border: 1px solid #ddd;
+	margin-bottom: 0;
+	height: 32px;
+}
+.mui-icon-search{
+	position: absolute;
+    top: 12px;
+    left:91%
+}
+.mui-icon-phone{
+	font-size:34px;
+	margin-top: 3px;
+}
+.telHead{
+	width: 40px;
+    height: 40px;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.telHead img{
+	width: 100%;
+}
+.mui-media-body{
+	display: inline-block;
+}

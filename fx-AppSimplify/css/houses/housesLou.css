@@ -1,0 +1,27 @@
+.search_middle{
+	padding: .2rem .4rem;
+}
+.search_middle input[type=search]{
+	width: 90%;
+	background: #fff;
+	font-size: 14px;
+	border: 1px solid #ddd;
+	margin-bottom: 0;
+	height: 30px;
+}
+.mui-table-view-cell a span.name{
+	/*font-weight: bold;*/
+	color: #555;
+}
+.mui-table-view-cell a span.num i{
+	font-style: initial;
+	margin:0 .2rem;
+	font-weight: bold;
+	color:	#777;
+}
+.mui-scroll-wrapper{
+	top: 3.25rem;
+}
+.mui-bar-nav ~ .mui-content .mui-pull-top-pocket{
+	top: 0;
+}

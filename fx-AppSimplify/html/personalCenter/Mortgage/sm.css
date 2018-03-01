@@ -1,0 +1,144 @@
+html, body, ul, ol, li, p, h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
+html { font-family:"Microsoft Yahei"; font-size:20px; color:#666; }
+ul, ol { display:block; list-style:none;
+	-webkit-user-select:none; user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+a, a * { text-decoration:none; outline:none; color:#022857;
+	-webkit-transition:all .5s; transition:all .5s;
+	-webkit-user-select:none; user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+input, button, textarea, select { outline:0; margin:0; padding:0; border-radius:0; -webkit-appearance:none; }
+
+.container { width:100%; max-width:40rem;  margin:0 auto; overflow:hidden; background:#eee;}
+.container:after { content:""; width:100%; background:rgba(0,0,0,0.5); position:fixed; top:0; bottom:0; z-index:9; opacity:0; display:none;
+-webkit-transition: opacity 0.2s;
+		transition: opacity 0.2s;
+}
+
+
+nav{background:#35b5e9;overflow: hidden;padding:0.5rem 0.75rem;padding-top:0;}
+nav>div{overflow: hidden;border:1px solid #fff;border-radius:4px;height: 1.25rem;box-sizing: border-box;-webkit-box-sizing: border-box;}
+nav>div>div{margin-top:-1px; float: left;width:33.33%;height:1.25rem;background: #35b5e9;text-align: center;color: #fff;font-size: 0.7rem;line-height: 1.25rem;}
+nav div.active{background: #fff;color: #35b5e9;}
+
+.count{overflow: hidden;padding:0rem 0.75rem;background:#fff;margin-bottom: 0.5rem;}
+.count.smtop input{float:right;width:5.5rem !important;}
+.count.smtop span{float:right;float: right;font-size: 0.6rem;position: relative;top: -0.05rem;}
+.count>div{padding:0.6rem 0;border-bottom:1px solid #e5e5e5;font-size: .7rem; color: #444;overflow: hidden;}
+.count .benjin,.count .benxi{width: 4.25rem;line-height:1rem;background:#fff;color:#591571;text-align: center;border: 1px solid #591571}
+.count>div div.active{background:#591571;color:#fff;border:1px solid #fff;}
+.count>.fir>div{width: 33.33%; float: left;}
+.count .smco{width: 8rem;float: right;}
+.count .smco input{width:6.5rem;padding-right:0.2rem; text-align:right;border: 0;color: #666;}
+.count .smco input.posi{position:absolute;top:0.1rem;right: 0.25rem;}
+.count .jian{background:url(jian.png) no-repeat 100% center; background-size: 8px 14px;position:relative;height:1rem;}
+.count .jian.nobg{background:none;}
+
+.begin{position: relative;padding-top: 1.35rem !important;}
+.begin p{position: absolute;right: 0;color: #ccc;font-size: 0.6rem;top: 0.2rem;margin: 0;}
+.begin div{height:1.8rem;border-radius: 5px;  margin: 0 auto;color: #fff;background: #35b5e9;line-height: 1.8rem;font-size: 0.6rem;text-align: center;width: 80%;}
+.Result{overflow: hidden;padding:0rem 0.75rem;background:#fff;}
+
+.Result>div{    padding: 0.6rem 0;border-bottom: 1px solid #e5e5e5;font-size: .7rem;color: #444;position: relative;}
+.Result>div>span{position: absolute;}
+.Result>div>div{display: inline-block;margin-left: 4.75rem;}
+.Result>div>div>span{color:red;}
+.rate{width: 10.5rem !important;margin-right: 0.6rem}
+.rate input{margin-left: 0.5rem;width: 10rem !important;}
+
+.container:after {content: "";width: 100%;background: rgba(0,0,0,0.5);position: fixed;top: 0;bottom: 0;z-index: 9;opacity: 0;display: none;-webkit-transition: opacity 0.2s;transition: opacity 0.2s;}
+.container.shadow:after {display: block;opacity: 1;}
+
+.bg{position: fixed;bottom:0;left:0;width:100%;overflow: hidden;font-size: 0.7rem;color:#565656;z-index: 10; display: none;}
+.bg ul{max-height: 13rem;background: ;overflow: auto;padding:0 0.75rem; display: none;background:#fff;}
+.bg ul.active{display: block;}
+.bg ul li{padding:0.6rem 0;border-bottom: 1px solid #ccc;}
+.bg ul div{height: 2.2rem;line-height: 2.2rem;text-align: center; border-bottom: 1px solid #ccc;}
+.bg ul li.active{color:#35b5e9;}
+.bg ul li:first-child{text-align: center;}
+.bg .no{width:0.8rem;height:0.8rem;background: url(no.png) 100% center no-repeat; position: absolute;    background-size: cover;top: 0.7rem;right: 0.7rem;}
+.none{display: none;}
+.none.active{display: block;}
+.jian.w100 .smco{height:100%;width:100%;position:absolute;left:0;top:0rem;line-height:2.2rem; text-align: right;padding-right: 0.8rem;box-sizing: border-box;color:#666}
+.w100 .downalert.posi{width:100%;height:100%;}
+.smalert,.alertChoice{font-size: 0.7rem;position: fixed;top:37%;left:50%;transform: translate(-50%,0);-webkit-transform: translate(-50%,0);-o-transform: translate(-50%,0);text-align: center;color:#fff;}.alertChoice{padding:0 1rem; border-radius: 4px;z-index: 9999;background:rgba(0,0,0,0.4); line-height: 1.7rem;}.smalert{padding:3rem 0.7rem 0.7rem;border-radius: 10px;top:35%;background:rgba(0,0,0,0.7)}.smalert:before{width:1.65rem;height:1.175rem; content: "";background: red;position: absolute;top:1.2rem;left:39%;background:url(/imgs/yes.png) no-repeat; background-size: 100% 100%;}
+
+/*����ͷ*/
+header {
+    background: #35b5e9;
+    height: 2rem;
+    font-size: .8rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    /*z-index: 10;*/
+}
+header a {
+    color: #fff;
+}
+header .logo {
+    float: left;
+    height: .9rem;
+    width: 3.75rem;
+    background: url(/imgs/logo.png) no-repeat center center;
+    background-size: cover;
+    margin: .5rem .6rem;
+}
+header .city {
+    float: left;
+    height: .6rem;
+    line-height: .6rem;
+    font-size: .6rem;
+    margin-top: .8rem;
+}
+header .city:after {
+    content: "";
+    display: inline-block;
+    height: .25rem;
+    width: .45rem;
+    margin-left: .2rem;
+    background: url(/imgs/ico_drop.png) no-repeat center center;
+    background-size: cover;
+    vertical-align: middle;
+}
+header ul {
+    float: right;
+    padding: .3rem;
+}
+header ul li {
+    float: left;
+    font-size: .6rem;
+}
+header ul li a {
+    display: block;
+    width: 1.6667rem;
+    text-align: center;
+    margin-right: -.2rem;
+    margin-top: -.15rem;
+    -webkit-transform: scale(.75, .75);
+    transform: scale(.75, .75);
+    color: #fff !important;
+}
+header ul li.home a:before {
+    background-image: url(/imgs/ico_user_30.png);
+}
+header ul li a:before {
+    content: "";
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    margin: 0 auto;
+    background: url(/imgs/ico_user_30.png) no-repeat center center;
+    background-size: cover;
+}
+header ul li.app a:before {
+    background-image: url(/imgs/ico_download_30.png);
+}
+.smco small{
+    position: absolute;
+    right: 0.6rem;
+    top: 0;
+    color: #444;}
+.jian.w100.r13 .smco{padding-right:1.4rem !important;}

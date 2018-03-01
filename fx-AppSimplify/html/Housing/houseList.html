@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的房源列表</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css">
+		<link rel="stylesheet" type="text/css" href="../../css/housingResources/housingResources.css" />
+		<style>
+			 
+		</style>
+	</head>
+
+	<body>
+		<div class="bg"></div>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title rent-purchase">
+				<a class="transfer active"  data-type='1'>二手房</a>
+	      		<a class="lease" data-type='2'>租赁</a>
+	      	</h1>
+			<a class="mui-icon mui-icon-plusempty mui-pull-right" id="inAddHosing"></a>
+		</header>
+		<div class="mui-content">
+			
+			<!--筛选条件-->
+			<div class="cutomerFilter">
+				<ul>
+					<li>
+						<a href="javascript:;" class=""><span class="filterText sText1">我的房源</span><i class="mui-icon mui-icon-arrowdown"></i></a>
+						<div class="cutomerFilterName" style="display: none;">
+							<ol class="HouseSourceType">
+							</ol>
+						</div>
+					</li>
+					<li>
+						<a href="javascript:;"><span class="filterText sText2">价格</span><i class="mui-icon mui-icon-arrowdown"></i></a>
+						<div class="cutomerFilterName">
+							<ol class="Price">
+							</ol>
+							<!--<div class="moneyZ">
+								自定义<input type="text" class="" placeholder="最低价(元)" />至<input type="text" placeholder="最高价(元)" />
+								<button type="button" class="mui-btn">确定</button>
+							</div>-->
+						</div>
+					</li>
+					<li>
+						<a href="javascript:;"><span class="filterText sText3">居室</span><i class="mui-icon mui-icon-arrowdown"></i></a>
+						<div class="cutomerFilterName">
+							<ol class="SleepRoom">
+							</ol>
+						</div>
+					</li>
+					<li>
+						<a href="javascript:;"><span class="filterText sText4">面积</span><i class="mui-icon mui-icon-arrowdown"></i></a>
+						<div class="cutomerFilterName">
+							<ol class="Area">
+							</ol>
+							<!--<div class="moneyZ">
+								自定义<input type="text" class="" placeholder="最小面积" />至<input type="text" placeholder="最大面积" />
+								<button type="button" class="mui-btn">确定</button>
+							</div>-->
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!--serach input-->
+			<div class="mui-input-row mui-input-search customerSerach">
+				<form action="" method="post"  onsubmit="return false;">
+					<input type="search" name="" class="mui-input-clear" id="" value="" placeholder="请输入您要搜索的楼盘名称" />
+				</form>
+			</div>
+			<div class="cutomerFilter">
+				<ul>
+					<li>
+						<a href="javascript:;" class=""><span class="filterText sText5">委托</span><i class="mui-icon mui-icon-arrowdown"></i></a>
+						<div class="cutomerFilterName" style="display: none;">
+							<ol class="HouseDelegate">
+							</ol>
+						</div>
+					</li>
+					<li>
+						<a href="javascript:;"><span class="filterText sText6">图片</span><i class="mui-icon mui-icon-arrowdown"></i></a>
+						<div class="cutomerFilterName">
+							<ol class="HasPicture">
+							</ol>
+						</div>
+					</li>
+					<li>
+						<a href="javascript:;"><span class="filterText sText7">排序</span><i class="mui-icon mui-icon-arrowdown"></i></a>
+						<div class="cutomerFilterName">
+							<ol class="HouseOrder">
+							</ol>
+						</div>
+					</li>
+					<li id="show-btn">
+						<a href="javascript:;"><span class="filterText">更多</span><i class="mui-icon mui-icon-arrowdown"></i></a>
+					</li>
+				</ul>
+			</div>
+			<!--list info-->
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view" id="myHouseList">
+						<!--<li class="mui-table-view-cell mui-media" id="toHouseDetails">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="../../img/hosing/home.jpg">
+								<div class="mui-media-body">
+									<h3 class="mui-ellipsis">新建村高层</h3>
+									<div class="mui-row">
+										<div class="text1 mui-col-xs-6">
+											<p>1-1-1-1</p>/
+											<p>250m²</p>
+										</div>
+										<div class="mui-col-xs-6">
+											<p class="time">2017-08-21 08:30</p>
+										</div>
+									</div>
+									<div class="iconbox">
+										<span class="yao">钥匙</span>
+										<span class="du">独家</span>
+										<span class="kan">实勘</span>
+										<span class="shu">书面</span>
+										<span class="qian">车位</span>
+									</div>
+									<div class="mui-row">
+										<div class="mui-col-xs-6 text2">
+											<p class="money">330万</p>
+											<p class="pm">2300元/平</p>
+										</div>
+										<div class="mui-col-xs-6 mui-text-right lose">
+											2天后掉
+										</div>
+									</div>
+								</div>
+							</a>
+						</li>-->
+					</ul>
+					<div class="noinfoImg"></div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<script src="../../js/jquery-1.11.0.js"></script>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/webviewoffcanvas.js"></script>
+	<script src="../../js/HousingResources/housingList.js"></script>
+	<script>
+		 
+	</script>
+
+</html>

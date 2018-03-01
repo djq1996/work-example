@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>计算器</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.picker.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.poppicker.css"/>
+		<link rel="stylesheet" href="../../css/personalCenter/counter.css" />
+		<!--App自定义的css-->
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue" id="header">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">税费计算器 </h1>
+		</header>
+		<div class="mui-content">
+			<div class="">
+				<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary">
+					<a class="mui-control-item mui-active" href="#item1">个人住宅</a>
+					<a class="mui-control-item" href="#item2">个人商业</a>
+					<a class="mui-control-item" href="#item3">公司出售商业</a>
+				</div>
+				<!--商业贷款-->
+				<div id="item1" class="mui-control-content mui-active">
+					<div class="mui-input-group">
+						<div class="mui-input-row" id="calculation">
+							<label>计算方式</label>
+							<input type="text" name="calculation" value="按贷款总额" placeholder="按贷款总额" readonly="">
+						</div>
+						<div class="mui-input-row nobefore">
+							<label>贷款总额</label>
+							<input type="number" placeholder="0" style="float: left;width: 56%;padding-right: 3px;">
+							<span style="line-height: 41px;">万</span>
+						</div>
+						<div class="mui-input-row" id="theLoanYear">
+							<label>贷款年限</label>
+							<input type="text"  name="theLoanYear" value="30年" placeholder="" readonly="readonly">
+						</div>
+						<div class="mui-input-row" id="interestRate">
+							<label>贷款利率</label>
+							<input type="text" name="interestRate" value="最新基准利率(4.9%)" placeholder="" readonly="">
+						</div>
+						<div class="mui-input-row nobefore providentFund">
+							<label>自定义利率</label>
+							<input type="number" class="custom" placeholder="请输入自定义利率">
+							<span style="line-height: 2rem;">%</span>
+							<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined providentFundBtn">确定</button>
+						</div>
+					</div>
+					<div class="mui-content-padded">
+						<button id='' class="mui-btn mui-btn-block mui-badge-light-blue">开始计算</button>
+					</div>
+				</div>
+				<!--公积金贷款-->
+				<div id="item2" class="mui-control-content">
+					<div class="mui-input-group">
+						<div class="mui-input-row" id="calculationa">
+							<label>计算方式</label>
+							<input type="text" name="calculationa" value="按贷款总额" placeholder="按贷款总额" readonly="">
+						</div>
+						<div class="mui-input-row nobefore">
+							<label>贷款总额</label>
+							<input type="number" placeholder="0" style="float: left;width: 56%;padding-right: 3px;">
+							<span style="line-height: 41px;">万</span>
+						</div>
+						<div class="mui-input-row" id="theLoanYeara">
+							<label>贷款年限</label>
+							<input type="text"  name="theLoanYeara" value="30年" placeholder="" readonly="readonly">
+						</div>
+						<div class="mui-input-row" id="interestRatea">
+							<label>贷款利率</label>
+							<input type="text" name="interestRatea" value="最新基准利率(4.9%)" placeholder="" readonly="">
+						</div>
+						<div class="mui-input-row nobefore providentFunda">
+							<label>自定义利率</label>
+							<input type="number" class="customa" placeholder="请输入自定义利率">
+							<span style="line-height: 2rem;">%</span>
+							<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined providentFundBtna">确定</button>
+						</div>
+					</div>
+					<div class="mui-content-padded">
+						<button id='' class="mui-btn mui-btn-block mui-badge-light-blue">开始计算</button>
+					</div>
+				</div>
+				<!--组合贷款-->
+				<div id="item3" class="mui-control-content">
+					<div class="mui-input-group">
+						<div class="mui-input-row" id="calculationb">
+							<label>计算方式</label>
+							<input type="text" name="calculationb" value="按贷款总额" placeholder="按贷款总额" readonly="">
+						</div>
+						<div class="mui-input-row nobefore">
+							<label>贷款总额</label>
+							<input type="number" placeholder="0" style="float: left;width: 56%;padding-right: 3px;">
+							<span style="line-height: 41px;">万</span>
+						</div>
+						<div class="mui-input-row nobefore">
+							<label>公积金贷款</label>
+							<input type="number" placeholder="0" style="float: left;width: 56%;padding-right: 3px;">
+							<span style="line-height: 41px;">万</span>
+						</div>
+						<div class="mui-input-row" id="interestRateb">
+							<label>公积金利率</label>
+							<input type="text" name="interestRateb" value="最新基准利率(3.5%)" placeholder="" readonly="">
+						</div>
+						<div class="mui-input-row nobefore providentFundb">
+							<label>自定义利率</label>
+							<input type="number" class="customb" placeholder="请输入自定义利率">
+							<span style="line-height: 2rem;">%</span>
+							<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined providentFundBtnb">确定</button>
+						</div>
+						<div class="mui-input-row nobefore">
+							<label>商业贷款</label>
+							<input type="number" placeholder="0" style="float: left;width: 56%;padding-right: 3px;">
+							<span style="line-height: 41px;">万</span>
+						</div>
+						<div class="mui-input-row" id="interestRatec">
+							<label>商贷利率</label>
+							<input type="text" name="interestRatec" value="最新基准利率(4.9%)" placeholder="" readonly="">
+						</div>
+						<div class="mui-input-row nobefore providentFundc">
+							<label>自定义利率</label>
+							<input type="number" class="customc" placeholder="请输入自定义利率">
+							<span style="line-height: 2rem;">%</span>
+							<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined providentFundBtnc">确定</button>
+						</div>
+						<div class="mui-input-row" id="theLoanYearb">
+							<label>贷款年限</label>
+							<input type="text"  name="theLoanYearb" value="30年" placeholder="" readonly="readonly">
+						</div>
+					</div>
+					<div class="mui-content-padded">
+						<button id='' class="mui-btn mui-btn-block mui-badge-light-blue">开始计算</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/common.js"></script>
+		<script src="../../js/mui.picker.min.js"></script>
+		<script src="../../js/mui.poppicker.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true, //启用右滑关闭功能
+				//				statusBarBackground: '#f7f7f7'
+			});
+			$(".providentFundBtn").click(function(){
+				$("input[name=interestRate]").val("自定义利率("+$(".providentFund .custom").val()+"%)")
+				$(this).parent().hide()
+			});
+			$(".providentFundBtna").click(function(){
+				$("input[name=interestRatea]").val("自定义利率("+$(".providentFunda .customa").val()+"%)")
+				$(this).parent().hide()
+			});
+			$(".providentFundBtnb").click(function(){
+				$("input[name=interestRateb]").val("自定义利率("+$(".providentFundb .customb").val()+"%)")
+				$(this).parent().hide()
+			});
+			$(".providentFundBtnc").click(function(){
+				$("input[name=interestRatec]").val("自定义利率("+$(".providentFundc .customc").val()+"%)")
+				$(this).parent().hide()
+			});
+			/*商业贷款*/
+			(function($, doc) {
+				$.init();
+				$.ready(function() {
+					/*计算方式*/
+					var userPicker = new $.PopPicker();
+					userPicker.setData([{
+						value: '',
+						text: '按房价总额'
+					}, {
+						value: '',
+						text: '按贷款总额'
+					}]);
+					var showUserPickerButton = doc.getElementById('calculation');
+					var djq = doc.getElementsByName('calculation')[0]; 
+					showUserPickerButton.addEventListener('tap', function(event) {
+						userPicker.show(function(items) {
+							djq.value = items[0].text;
+						});
+					}, false);
+					/*贷款年限*/
+					var theLoanYear = new $.PopPicker();
+					theLoanYear.setData([{ value: '', text: '1年' }, { value: '', text: '2年' }, { value: '', text: '3年' }, { value: '', text: '4年' }, { value: '', text: '5年' }, { value: '', text: '6年' },{ value: '', text: '7年' },{ value: '', text: '8年' },{ value: '', text: '9年' },{ value: '', text: '10年' },{ value: '', text: '11年' },{ value: '', text: '12年' },{ value: '', text: '13年' },{ value: '', text: '14年' },{ value: '', text: '15年' },{ value: '', text: '16年' },{ value: '', text: '17年' },{ value: '', text: '18年' },{ value: '', text: '19年' },{ value: '', text: '20年' },{ value: '', text: '21年' },{ value: '', text: '22年' },{ value: '', text: '23年' },{ value: '', text: '24年' },{ value: '', text: '25年' },{ value: '', text: '26年' },{ value: '', text: '27年' },{ value: '', text: '28年' },{ value: '', text: '29年' },{ value: '', text: '30年' }]);
+					var theLoanYearButton = doc.getElementById('theLoanYear');
+					var theLoanYearName = doc.getElementsByName('theLoanYear')[0]; 
+					theLoanYearButton.addEventListener('tap', function(event) {
+						theLoanYear.show(function(items) {
+							theLoanYearName.value = items[0].text;
+						});
+					}, false);
+					/*贷款利率*/
+					var interestRate = new $.PopPicker();
+					interestRate.setData([{
+						value: '1',
+						text: '最新基准利率'
+					}, {
+						value: '',
+						text: '最新基准利率9.5折'
+					}, {
+						value: '',
+						text: '最新基准利率9折'
+					}, {
+						value: '',
+						text: '最新基准利率8.8折'
+					}, {
+						value: '0',
+						text: '自定义利率'
+					}]);
+					var interestRateButton = doc.getElementById('interestRate');
+					var interestRateName = doc.getElementsByName('interestRate')[0]; 
+					interestRateButton.addEventListener('tap', function(event) {
+						interestRate.show(function(items) {
+							if(items[0].value=='0'){
+								interestRateName.value = '';
+								document.querySelector('.providentFund').style.display ='block'
+							}
+							else if(items[0].value =='1'){
+								interestRateName.value = items[0].text+'(4.9%)';
+							}else{
+								document.querySelector('.providentFund').style.display ='none'
+								interestRateName.value = items[0].text;
+							};
+						});
+					}, false);
+				})
+			})(mui, document);
+			/*公积金贷款*/
+			(function($, doc) {
+				$.init();
+				$.ready(function() {
+					/*计算方式*/
+					var userPicker = new $.PopPicker();
+					userPicker.setData([{
+						value: '',
+						text: '按房价总额'
+					}, {
+						value: '',
+						text: '按贷款总额'
+					}]);
+					var showUserPickerButton = doc.getElementById('calculationa');
+					var djq = doc.getElementsByName('calculationa')[0]; 
+					showUserPickerButton.addEventListener('tap', function(event) {
+						userPicker.show(function(items) {
+							djq.value = items[0].text;
+						});
+					}, false);
+					/*贷款年限*/
+					var theLoanYear = new $.PopPicker();
+					theLoanYear.setData([{ value: '', text: '1年' }, { value: '', text: '2年' }, { value: '', text: '3年' }, { value: '', text: '4年' }, { value: '', text: '5年' }, { value: '', text: '6年' },{ value: '', text: '7年' },{ value: '', text: '8年' },{ value: '', text: '9年' },{ value: '', text: '10年' },{ value: '', text: '11年' },{ value: '', text: '12年' },{ value: '', text: '13年' },{ value: '', text: '14年' },{ value: '', text: '15年' },{ value: '', text: '16年' },{ value: '', text: '17年' },{ value: '', text: '18年' },{ value: '', text: '19年' },{ value: '', text: '20年' },{ value: '', text: '21年' },{ value: '', text: '22年' },{ value: '', text: '23年' },{ value: '', text: '24年' },{ value: '', text: '25年' },{ value: '', text: '26年' },{ value: '', text: '27年' },{ value: '', text: '28年' },{ value: '', text: '29年' },{ value: '', text: '30年' }]);
+					var theLoanYearButton = doc.getElementById('theLoanYeara');
+					var theLoanYearName = doc.getElementsByName('theLoanYeara')[0]; 
+					theLoanYearButton.addEventListener('tap', function(event) {
+						theLoanYear.show(function(items) {
+							theLoanYearName.value = items[0].text;
+						});
+					}, false);
+					/*贷款利率*/
+					var interestRate = new $.PopPicker();
+					interestRate.setData([{
+						value: '1',
+						text: '最新基准利率'
+					}, {
+						value: '',
+						text: '最新基准利率1.1倍'
+					}, {
+						value: '',
+						text: '最新基准利率1.2倍'
+					}, {
+						value: '0',
+						text: '自定义利率'
+					}]);
+					var interestRateButton = doc.getElementById('interestRatea');
+					var interestRateName = doc.getElementsByName('interestRatea')[0]; 
+					interestRateButton.addEventListener('tap', function(event) {
+						interestRate.show(function(items) {
+							if(items[0].value=='0'){
+								interestRateName.value = '';
+								document.querySelector('.providentFunda').style.display ='block'
+							}
+							else if(items[0].value =='1'){
+								interestRateName.value = items[0].text+'(3.5%)';
+							}else{
+								document.querySelector('.providentFunda').style.display ='none'
+								interestRateName.value = items[0].text;
+							};
+						});
+					}, false);
+				})
+			})(mui, document);
+			/*组合贷款*/
+			(function($, doc) {
+				$.init();
+				$.ready(function() {
+					/*计算方式*/
+					var userPicker = new $.PopPicker();
+					userPicker.setData([{
+						value: '',
+						text: '按房价总额'
+					}, {
+						value: '',
+						text: '按贷款总额'
+					}]);
+					var showUserPickerButton = doc.getElementById('calculationb');
+					var djq = doc.getElementsByName('calculationb')[0]; 
+					showUserPickerButton.addEventListener('tap', function(event) {
+						userPicker.show(function(items) {
+							djq.value = items[0].text;
+						});
+					}, false);
+					/*贷款年限*/
+					var theLoanYear = new $.PopPicker();
+					theLoanYear.setData([{ value: '', text: '1年' }, { value: '', text: '2年' }, { value: '', text: '3年' }, { value: '', text: '4年' }, { value: '', text: '5年' }, { value: '', text: '6年' },{ value: '', text: '7年' },{ value: '', text: '8年' },{ value: '', text: '9年' },{ value: '', text: '10年' },{ value: '', text: '11年' },{ value: '', text: '12年' },{ value: '', text: '13年' },{ value: '', text: '14年' },{ value: '', text: '15年' },{ value: '', text: '16年' },{ value: '', text: '17年' },{ value: '', text: '18年' },{ value: '', text: '19年' },{ value: '', text: '20年' },{ value: '', text: '21年' },{ value: '', text: '22年' },{ value: '', text: '23年' },{ value: '', text: '24年' },{ value: '', text: '25年' },{ value: '', text: '26年' },{ value: '', text: '27年' },{ value: '', text: '28年' },{ value: '', text: '29年' },{ value: '', text: '30年' }]);
+					var theLoanYearButton = doc.getElementById('theLoanYearb');
+					var theLoanYearName = doc.getElementsByName('theLoanYearb')[0]; 
+					theLoanYearButton.addEventListener('tap', function(event) {
+						theLoanYear.show(function(items) {
+							theLoanYearName.value = items[0].text;
+						});
+					}, false);
+					/*公积金利率*/
+					var interestRate = new $.PopPicker();
+					interestRate.setData([{
+						value: '1',
+						text: '最新基准利率'
+					}, {
+						value: '',
+						text: '最新基准利率1.1倍'
+					}, {
+						value: '',
+						text: '最新基准利率1.2倍'
+					}, {
+						value: '0',
+						text: '自定义利率'
+					}]);
+					var interestRateButton = doc.getElementById('interestRateb');
+					var interestRateName = doc.getElementsByName('interestRateb')[0]; 
+					interestRateButton.addEventListener('tap', function(event) {
+						interestRate.show(function(items) {
+							if(items[0].value=='0'){
+								interestRateName.value = '';
+								document.querySelector('.providentFundb').style.display ='block'
+							}
+							else if(items[0].value =='1'){
+								interestRateName.value = items[0].text+'(3.5%)';
+							}else{
+								document.querySelector('.providentFundb').style.display ='none'
+								interestRateName.value = items[0].text;
+							};
+						});
+					}, false);
+					/*商贷利率*/
+					var interestRatea = new $.PopPicker();
+					interestRatea.setData([{ 
+						value: '1',
+						text: '最新基准利率'
+					}, {
+						value: '',
+						text: '最新基准利率1.1倍'
+					}, {
+						value: '',
+						text: '最新基准利率1.2倍'
+					}, {
+						value: '0',
+						text: '自定义利率'
+					}]);
+					var interestRateButtona = doc.getElementById('interestRatec');
+					var interestRateNamea = doc.getElementsByName('interestRatec')[0]; 
+					interestRateButtona.addEventListener('tap', function(event) {
+						interestRatea.show(function(items) {
+							if(items[0].value=='0'){
+								interestRateNamea.value = '';
+								document.querySelector('.providentFundc').style.display ='block'
+							}
+							else if(items[0].value =='1'){
+								interestRateNamea.value = items[0].text+'(3.5%)';
+							}else{
+								document.querySelector('.providentFundc').style.display ='none'
+								interestRateNamea.value = items[0].text;
+							};
+						});
+					}, false);
+				})
+			})(mui, document)
+		</script>
+		
+	</body>
+
+</html>

@@ -1,0 +1,80 @@
+.search_middle{
+    		padding: .2rem .4rem;
+    		position: relative;
+    	}
+    	.search_middle input[type=search]{
+    		width: 90%;
+    		background: #fff;
+    		font-size: 14px;
+    		border: 1px solid #ddd;
+    		margin-bottom: 0;
+    		height: 30px;
+    	}
+    	.mui-table-view-cell a span.name{
+    		font-weight: normal;
+    		color: #555;
+    		font-size: .65rem;
+    	}
+    	.mui-table-view-cell a span.num i{
+    		font-style: initial;
+    		margin:0 .2rem;
+		    font-weight: bold;
+    		color:	#777;
+    	}
+		.lease,.transfer{
+			display: inline-block;
+			width: 3rem;
+			color: rgba(255,255,255,.6) !important;
+			font-size: .75rem;
+			
+		}
+		.rent-purchase .active{
+			color: #fff !important;
+		}
+		.mui-scroll-wrapper{
+			top: 38px;
+		}
+		.mui-bar .mui-btn-nav.mui-pull-left .mui-icon-left-nav{
+			color: #fff;
+		}
+		.historyTitle{
+			padding-top: .5rem;
+		}
+		.historyTitle h3{
+			margin: 0;
+			padding: 0 0.2rem;
+			font-size: .7rem;
+			font-weight: normal;
+			color: #555;
+		}
+		.historyBox .mui-table-view-cell a,.resultBox .mui-table-view-cell a{
+			font-size: .65rem;
+		}
+		#default .mui-icon-search{
+		    position: absolute;
+		    top: 30%;
+		    /*transform: translateY(-50%);*/
+		    right: .4rem;
+		}
+		#search .mui-icon-search{
+		    position: absolute;
+		    top: 20%;
+		    /*transform: translateY(-50%);*/
+		    right: 0rem;
+		}
+		.searchI{
+		    color: #888;
+		    width: 90%;
+		    background: #fff;
+		    font-size: 14px;
+		    border: 1px solid #ddd;
+		    margin-bottom: 0;
+		    height: 30px;
+		    display: block;
+		    border-radius: 6px;
+		    text-align: center;
+		    line-height: 30px;
+		}
+		.searchI:active{
+			color: #888;
+		}

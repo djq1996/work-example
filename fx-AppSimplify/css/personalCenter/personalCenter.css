@@ -1,0 +1,102 @@
+.mui-content{
+				color: #333;
+			}
+			.mui-content > .mui-table-view:first-child{
+				margin-top: 9px;
+			}
+			.mui-content .header img{
+			    display: block;
+			    width: 3.5rem;
+			    height:3.5rem;
+			    /*position: absolute;*/
+			    /*top: 50%;*/
+			    /*left: 50%;*/
+			    /*transform: translate(-50%,-50%);*/
+			}
+			.mui-content .performance,.mui-content .individual{
+				margin-top: .4rem;
+			}
+			.performance .gspm p{
+				color: #555;
+				font-size: .75rem;
+			}
+			.performance .gspm p span{
+				color: #dd524d;
+			}
+			.mui-content .performance{
+				margin-top:0;
+			}
+			.mui-content .performance .mui-table-view-cell:after{
+				left: 0;
+				height: 0;
+			}
+			.header p{
+				font-size: .55rem;
+			}
+			.header:after{
+				left: 15px;
+				right: 15px;
+				background: #ccc;
+			}
+			.header .mui-table-view-cell{
+				/*padding-bottom: 1rem;*/
+			}
+			.performance:before{
+				height: 0;
+			}
+			.mui-content .performanceRanking{
+				position: relative;
+				padding: 0;
+			    padding: .5rem 0rem;
+			}
+			.mui-content .performanceRanking .mui-col-xs-6:first-child:after{
+				content: " ";
+				width: 1px;
+				height: 2rem;
+				background: #c8c7cc;
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+			.mui-media-body{
+				width: 52%;
+				position: absolute;
+				padding-top: 15px;
+			}
+			.mui-media-body h4{margin: 0;padding-bottom: .3rem;}
+			.mui-media-body h4 span{
+				/*font-size: 16px;*/
+				color: #666;
+			}
+			.mui-media-body p span{
+				color: #dd524d;
+			}
+			.performance .liangnum{
+				font-weight: 500;
+				color: #555;
+				font-size: 0.9rem;
+			}
+			.performance .liangtext{
+				font-size: 0.55rem;
+			}
+			.mui-icon-extra,.mui-icon{
+				vertical-align: middle;
+				padding-right: .2rem;
+			}
+			.performanceRanking .mui-icon{
+				position: absolute;
+				top: -3px;
+			}
+			.picBox{
+				position: relative;
+				width: 3.5rem;
+				overflow: hidden;
+				border-radius: 50%;
+				height: 3.5rem;
+			}
+			
+.mui-bar .mui-btn-block {
+    border: none;
+    width: 56%;
+    margin: 0 auto;
+}

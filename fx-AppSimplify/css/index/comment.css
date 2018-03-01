@@ -1,0 +1,107 @@
+ul{margin:0;padding: 0;}
+			.mui-scroll-wrapper{
+				top:60px;
+			}
+			.header{
+			    margin: .4rem 0;
+			    background: #fff;
+			    padding-top: .4rem;
+			}
+			.header .imgbox {
+			    width: 3.875rem;
+			    margin: 0 auto;
+			    overflow: hidden;
+			    border-radius: 50%;
+			    height: 3.875rem;
+			}
+			.header img {
+			    width: 3.875rem;
+			    display: block;
+			}
+			.header p {
+			    text-align: center;
+			    line-height: 1.8rem;
+			    margin-bottom: 0;
+			}
+			.home-detail {
+			    margin: 0;
+			    padding: 0;
+			    background: #fff;
+			    padding-top: .2rem;
+			}
+			.home-detail li {
+			    list-style: none;
+			    text-align: center;
+			    padding: 0 .4rem;
+			    position: relative;
+		    }
+		    .home-detail p {
+			    margin-bottom: .2rem;
+			}
+			.home-detail li .active {
+			    color: #ffb359;
+			    font-weight: 600;
+			    font-family: "黑体";
+		    }
+		    .home-detail li:not(:last-child):after{
+	    	    content: "";
+			    height: 25px;
+			    width: 1px;
+			    right: 0;
+			    top: 50%;
+			    position: absolute;
+			    background-color: #c8c7cc;
+			    transform: translateY(-50%);
+		    }
+		    .referral{
+		    	padding: 0.3rem 0.3rem;
+		    	background: #fff;
+		    }
+		    .referral p{margin: 0;}
+		    .referral p span{
+		    	color: #555;
+		    }
+		    .zanlist{
+		    	padding: 0.5rem .5rem;
+		    	background:#fff;
+		    }
+		    .zanlist img.title{
+		    	width: 1.8rem;
+		    	display: inline-block;
+		    	vertical-align: bottom;
+		    }
+		    .zanlist .box{
+		    	display: inline-block;
+		    	vertical-align: bottom;
+		    	width: 80%;
+		    	overflow: hidden;
+		    }
+		    .zanlist .box ul li{
+		    	width: 1.8rem;
+		    	height: 1.8rem;
+		    	position: relative;
+		    	border-radius: 50%;
+		    	overflow: hidden;
+		    	display: inline-block;
+		    	vertical-align: middle;
+		    }
+		    .zanlist .box ul li img{
+		    	width: 1.8rem;
+		    	position: absolute;
+		    	top:50%;
+		    	left: 50%;
+		    	transform: translate(-50%,-50%);
+		    }
+		    .pinglunList{
+		    	background:#fff;
+		    	padding: .5rem;
+		    }
+		    .pinglunList li{
+		    	padding: 0.2rem 0;
+		    }
+		    .mui-bar-tab input{
+		    	margin: 0;
+		    }
+		    .mui-bar-tab{
+		    	height: 40px;
+		    }

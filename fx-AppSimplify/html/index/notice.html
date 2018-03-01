@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<style>
+			.mui-bar .mui-btn-link{
+				color: #fff;
+			}
+			.mui-bar-nav ~ .mui-content{
+				background: #fff;
+				padding: 65px 15px 0;
+				min-height: 670px;
+			}
+			/*.mui-content{
+				min-height: 570px;
+			}*/
+			.notice_tit h1{
+				font-size: 18px;
+			    line-height: 25px;
+			    color: #333;
+			}
+			.notice_tit{
+				text-indent: 25px;
+    			margin: 10px 0;
+			}
+			.notice_tit1{
+				text-indent: 20px;
+			}
+			.notice_content{
+				font-size: 14px;
+				text-indent: 25px;
+				color: #333;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<button type="button" class="mui-text-left mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+				<span class="mui-icon mui-icon-left-nav"></span>返回
+			</button>
+			<h1 class="mui-title mui-ellipsis">新闻公告</h1>
+			<!--<a href="#popover"  id="openPopover" class="mui-icon mui-icon-bars mui-pull-right"></a>-->
+		</header>
+		<div class="mui-content">
+			
+		</div>
+	</body>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/jquery-1.11.0.js"></script>
+	<script src="../../js/common.js"></script>
+	<script type="text/javascript">
+		mui.init();
+		mui.plusReady(function(){
+			var self = plus.webview.currentWebview();
+			ids = self.NoticeId;
+			mui.ajax(baseUrl+'API_Home/NewsInfo?id='+ids,{
+				"dataType": "json",
+				"type": "post",
+				success: function(data){
+					console.log(data.results.Show_img)
+					str =   '<div class="notice_tit">'+
+							 	'<h1>'+data.results.News_title+' </h1>'+
+							'</div>'+
+							'<div class="notice_content">'+
+//								'<div style="color:#000;">'+data.results.F_Countent_Sub+'</div>'+
+								'<img src="'+data.results.Show_img+'"/>'+
+								'<div>'+data.results.F_Content_info+'</div>'+
+							'</div>'
+					$('.mui-content').append(str);
+				},
+				error:function(xhr,error,b){
+					console.log(error);
+				}
+			})
+		})
+	</script>
+</html>

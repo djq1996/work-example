@@ -1,0 +1,319 @@
+h4.title {
+    height: 35px;
+    background: #efeff4;
+    margin: 0;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 35px;
+    padding: 0 .4rem;
+    color: #333;
+}
+
+.mui-badge-light-blue {
+	background: #35b5e9;
+}
+
+.mui-bar .mui-title,
+.mui-bar a,
+.mui-bar button,
+.mui-bar span, 
+.mui-bar .mui-btn-link{
+	color: #fff;
+}
+
+.mui-bar-tab button {
+	width: 56%;
+	margin: 0 auto;
+	border:0;
+}
+
+.mui-page-content {
+	padding: 0 .4rem;
+	font-size: 0.65rem;
+}
+
+.mui-page-content input,
+/*.mui-page-content a,*/
+.mui-page-content textarea,
+.mui-page-content button {
+	font-size: 0.65rem;
+}
+
+.customers-message {
+	background: #fff;
+}
+
+.customers-message h4 {
+	font-size: .65rem;
+	font-weight: 600;
+	line-height: 2rem;
+	margin: 0;
+	padding-left: .5rem;
+	color: #555;
+}
+
+.customers-message > div:not(:last-child) {
+	border-bottom: 1px solid #eaeaea;
+}
+.phonebox >div:not(:last-child),
+.linkmanBox .linkmanList .mui-input-row:not(:last-child),
+.linkmanBox .linkmanList:not(:last-child){
+	border-bottom: 1px solid #eaeaea;
+}
+.linkmanBox .linkmanList{
+	position: relative;
+}
+
+/*.linkmanList .mui-input-row{
+	padding-left: 20px;
+}*/
+.linkmanList .mui-icon {
+    position: absolute;
+    right: 0;
+    top: 9px;
+    color: #bbb;
+    z-index: 99;
+    color: red;
+}
+.linkmanBox{
+	display: none;
+}
+.customers-message .mui-input-row > input {
+	text-align: right;
+	padding-right: 1rem;
+}
+.mui-input-row label {
+	padding: .65rem .75rem;
+	color: #8f8f94;
+}
+.mui-input-row label.import {
+	background: url(../../img/btx.png) no-repeat left center;
+}
+.mui-input-row .mui-btn {
+	line-height: 1;
+	padding: .2rem .75rem;
+	margin: .5rem .5rem .5rem 0;
+}
+
+.mui-input-row .add-phone ,.mui-input-row .add-linkman{
+	padding: .7rem;
+	display: inline-block;
+	font-size: .65rem;
+}
+
+.customers-buy-message .mui-input-row label {
+	width: 32%;
+}
+
+.customers-buy-message .mui-input-row input {
+	width: 68%;
+	padding-right: 1rem;
+}
+
+.customers-buy-message .mui-input-row .mui-icon {
+	padding: .4rem .35rem 0 0;
+	color: #bbb;
+}
+
+
+html,
+body {
+	background-color: #efeff4;
+}
+.mui-scroll-wrapper,
+.mui-scroll {
+	background-color: #efeff4;
+}
+.mui-scroll {
+	/*padding: .4rem;*/
+}
+.mui-page.mui-transitioning {
+	-webkit-transition: -webkit-transform 300ms ease;
+	transition: transform 300ms ease;
+}
+.mui-page-left {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+.mui-ios .mui-page-left {
+	-webkit-transform: translate3d(-20%, 0, 0);
+	transform: translate3d(-20%, 0, 0);
+}
+.mui-navbar {
+	position: fixed;
+	right: 0;
+	left: 0;
+	z-index: 10;
+	height: 44px;
+	background-color: #f7f7f8;
+}
+.mui-navbar .mui-bar {
+	position: absolute;
+	/*background: transparent;*/
+	text-align: center;
+}
+
+.mui-table-view:after{
+	background-color: #eaeaea;
+}
+.mui-table-view-cell:after,.mui-table-view:before{
+	left: 0;
+    border-bottom: 1px solid #eaeaea;
+    height: 0px;
+}
+.mui-table-view span.mui-pull-right {
+	color: #999;
+}
+.mui-table-view-divider {
+	background-color: #efeff4;
+	font-size: 14px;
+}
+.mui-table-view-divider:before,
+.mui-table-view-divider:after {
+	height: 0;
+}
+.mui-table-view-cell{
+	padding: 0;
+}
+.mui-table-view-cell > a:not(.mui-btn){
+	margin:0;
+}
+.head {
+	height: 40px;
+}
+#head {
+	line-height: 40px;
+}
+.head-img {
+	width: 40px;
+	height: 40px;
+}
+#head-img1 {
+	position: absolute;
+	bottom: 10px;
+	right: 40px;
+	width: 40px;
+	height: 40px;
+}
+.update {
+	font-style: normal;
+	color: #999999;
+	margin-right: -25px;
+	font-size: 15px
+}
+.mui-fullscreen {
+	position: fixed;
+	z-index: 20;
+	background-color: #000;
+}
+.mui-ios .mui-navbar .mui-bar .mui-title {
+	position: static;
+}
+
+.phonebox .delphonegroup{
+	position: relative;
+}
+.phonebox .delphonegroup .mui-icon{
+    position: absolute;
+    right:3px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bbb;
+}
+.mui-navigate-right:after, .mui-push-right:after {
+    right: 5px;
+    content: '\e583';
+}
+
+.beizhu label{
+	float: left;
+	width: 25%;
+	padding: .65rem 0 .65rem .75rem;
+	color: #8f8f94;
+}
+.beizhu textarea{
+	float: left;
+	width: 75%;
+	border: none;
+	margin: 0;
+	padding: .65rem .75rem .65rem 0;
+	color: #333;
+    font-size: 14px;
+}
+
+.mui-scroll-wrapper {
+	padding: 65px 0 60px 0;
+}
+/*选择select option css*/
+.select-option{
+	position: relative;
+}
+.select-option:after{
+    content: '\e583';
+    font-family: Muiicons;
+    font-size: inherit;
+    line-height: 1;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    text-decoration: none;
+    color: #bbb;
+    -webkit-font-smoothing: antialiased;
+}
+/*sex option*/
+.sex-option  .mui-radio {
+    width: 20%;
+    display: inline-block;
+}
+.sex-option .mui-radio label {
+    padding-left: 26px;
+    padding-right: 0;
+    color:#333;
+}
+.sex-option .mui-radio input[type='radio']{
+    left: 0;
+    right: inherit;
+    top: 11px;
+}
+.sex-option> label{
+	float: left;
+	width: 22%;
+}
+.sex-radio{
+	margin-left: 80px;
+}
+.sex-radio .mui-radio input[type='radio']:checked:before {
+    color: #65b3ea;
+}
+.sex-radio .mui-radio input[type='radio']:before{
+	font-size: 20px;
+}
+/*noafter*/
+.noafter:after{
+	content: none;
+}
+.customers-buy-message .noafter input {
+	padding-right: 1rem;
+}
+/*rent and sell  price range*/
+.customers-buy-message .range-style label{
+	width: 20%;
+}
+.customers-buy-message .range-style input{
+	float: left;
+	width: 30%;
+	text-align: center;
+	height: 40px;
+	padding-right: 0;
+}
+.customers-buy-message .range-style span{
+	display: inline-block;
+	float: left;
+	width: 20px;
+	height: 40px;
+	line-height: 40px;
+	color: #666;
+}
+

@@ -1,0 +1,59 @@
+{
+  "code": 200,
+  "message": "",
+  "data": {
+    "customerList": [
+    	{
+	        "area": "120",
+	        "bedroomMax": 3,
+	        "bedroomMin": 1,
+	        "customerId": "1",
+	        "customerLevel": "半仙董",
+	        "customerName": "A",
+	        "developerTime": "2017-8-1",
+	        "lastMaintainTime": "2017-8-17",
+	        "price": "1000",
+	        "toward": "南北"
+      	},
+      	{
+	        "area": "60",
+	        "bedroomMax": 2,
+	        "bedroomMin": 1,
+	        "customerId": "2",
+	        "customerLevel": "隔壁老王",
+	        "customerName": "B",
+	        "developerTime": "2017-8-2",
+	        "lastMaintainTime": "2017-8-17",
+	        "price": "800",
+	        "toward": "西"
+      	},
+      	{
+	        "area": "120",
+	        "bedroomMax": 1,
+	        "bedroomMin": 1,
+	        "customerId": "3",
+	        "customerLevel": "诛仙",
+	        "customerName": "C",
+	        "developerTime": "2017-8-4",
+	        "lastMaintainTime": "2017-8-17",
+	        "price": "300",
+	        "toward": "东"
+      	},{
+	        "area": "20",
+	        "bedroomMax": 3,
+	        "bedroomMin": 3,
+	        "customerId": "4",
+	        "customerLevel": "董老先生",
+	        "customerName": "C",
+	        "developerTime": "2017-8-4",
+	        "lastMaintainTime": "2017-8-22",
+	        "price": "3000",
+	        "toward": "西"
+      	}],
+    "toalCount": 0,
+    "pageSize": 10,
+    "pageNo": 1
+  },
+  "toast": "OK",
+  "response": ""
+}

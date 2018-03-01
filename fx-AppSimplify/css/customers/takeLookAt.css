@@ -1,0 +1,408 @@
+html,
+body {
+	background-color: #efeff4;
+}
+
+#intention-list .mui-table-view-cell,
+#intention .mui-table-view-cell,
+#intention-lists .mui-table-view-cell,
+#habitableRoom .mui-table-view-cell,
+#area .mui-table-view-cell,
+#price .mui-table-view-cell,
+#floor .mui-table-view-cell,
+#orientation .mui-table-view-cell,
+#fitmentFinish .mui-table-view-cell,
+#paymentMethod .mui-table-view-cell {
+	padding: 11px 15px;
+}
+
+#intention-list .mui-table-view-cell>a:not(.mui-btn),
+#intention .mui-table-view-cell>a:not(.mui-btn),
+#intention-lists .mui-table-view-cell>a:not(.mui-btn),
+#habitableRoom .mui-table-view-cell>a:not(.mui-btn),
+#area .mui-table-view-cell>a:not(.mui-btn),
+#price .mui-table-view-cell>a:not(.mui-btn),
+#floor .mui-table-view-cell>a:not(.mui-btn),
+#orientation .mui-table-view-cell>a:not(.mui-btn),
+#fitmentFinish .mui-table-view-cell>a:not(.mui-btn),
+#paymentMethod .mui-table-view-cell>a:not(.mui-btn) {
+	margin: -11px -15px;
+}
+
+.mui-views,
+.mui-view,
+.mui-pages,
+.mui-page,
+.mui-page-content {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #efeff4;
+}
+
+.mui-pages {
+	top: 65px;
+	/*bottom: 50px;*/
+	height: auto;
+	/*margin-bottom: 50px;*/
+}
+
+.mui-scroll-wrapper,
+.mui-scroll {
+	background-color: #efeff4;
+}
+
+.mui-scroll {
+	/*padding: .4rem;*/
+}
+
+.mui-page.mui-transitioning {
+	-webkit-transition: -webkit-transform 300ms ease;
+	transition: transform 300ms ease;
+}
+
+.mui-page-left {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.mui-ios .mui-page-left {
+	-webkit-transform: translate3d(-20%, 0, 0);
+	transform: translate3d(-20%, 0, 0);
+}
+
+.mui-navbar {
+	position: fixed;
+	right: 0;
+	left: 0;
+	z-index: 10;
+	height: 44px;
+	background-color: #f7f7f8;
+}
+
+.mui-navbar .mui-bar {
+	position: absolute;
+	/*background: transparent;*/
+	text-align: center;
+}
+
+.mui-android .mui-navbar-inner.mui-navbar-left {
+	opacity: 0;
+}
+
+.mui-ios .mui-navbar-left .mui-left,
+.mui-ios .mui-navbar-left .mui-center,
+.mui-ios .mui-navbar-left .mui-right {
+	opacity: 0;
+}
+
+.mui-navbar .mui-btn-nav {
+	-webkit-transition: none;
+	transition: none;
+	-webkit-transition-duration: .0s;
+	transition-duration: .0s;
+}
+
+.mui-navbar .mui-bar .mui-title {
+	display: inline-block;
+	width: auto;
+}
+
+.mui-page-shadow {
+	position: absolute;
+	right: 100%;
+	top: 0;
+	width: 16px;
+	height: 100%;
+	z-index: -1;
+	content: '';
+}
+
+.mui-page-shadow {
+	background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+	background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .01) 50%, rgba(0, 0, 0, .2) 100%);
+}
+
+.mui-navbar-inner.mui-transitioning,
+.mui-navbar-inner .mui-transitioning {
+	-webkit-transition: opacity 300ms ease, -webkit-transform 300ms ease;
+	transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.mui-page {
+	display: none;
+}
+
+.mui-pages .mui-page {
+	display: block;
+}
+
+.mui-page .mui-table-view:first-child {
+	margin-top: 15px;
+}
+
+.mui-page .textbox {
+	margin: 0 .3rem;
+}
+
+.mui-page textarea {
+	margin-top: 15px;
+	height: 6rem;
+}
+
+.mui-table-view:after {
+	background-color: #eaeaea;
+}
+
+.mui-table-view-cell:after,
+.mui-table-view:before {
+	left: 0;
+	border-bottom: 1px solid #eaeaea;
+	height: 0px;
+}
+
+.mui-table-view span.mui-pull-right {
+	color: #999;
+}
+
+.mui-table-view-divider {
+	background-color: #efeff4;
+	font-size: 14px;
+}
+
+.mui-table-view-divider:before,
+.mui-table-view-divider:after {
+	height: 0;
+}
+
+.mui-table-view-cell {
+	padding: 0;
+}
+
+.mui-table-view-cell>a:not(.mui-btn) {
+	margin: 0;
+}
+
+.head {
+	height: 40px;
+}
+
+#head {
+	line-height: 40px;
+}
+
+.head-img {
+	width: 40px;
+	height: 40px;
+}
+
+#head-img1 {
+	position: absolute;
+	bottom: 10px;
+	right: 40px;
+	width: 40px;
+	height: 40px;
+}
+
+.update {
+	font-style: normal;
+	color: #999999;
+	margin-right: -25px;
+	font-size: 15px
+}
+
+.mui-fullscreen {
+	position: fixed;
+	z-index: 20;
+	background-color: #000;
+}
+
+.mui-ios .mui-navbar .mui-bar .mui-title {
+	position: static;
+}
+
+
+/*问题反馈在setting页面单独的css*/
+
+#feedback .mui-popover {
+	position: fixed;
+}
+
+#feedback .mui-table-view:last-child {
+	margin-bottom: 0px;
+}
+
+#feedback .mui-table-view:first-child {
+	margin-top: 0px;
+}
+
+
+/*问题反馈在setting页面单独的css==end*/
+
+.phonebox .delphonegroup {
+	padding-left: 1.2rem;
+	position: relative;
+}
+
+.phonebox .delphonegroup .mui-icon {
+	position: absolute;
+	left: .5rem;
+	top: 50%;
+	transform: translateY(-50%);
+	color: red;
+}
+
+.title {
+	margin: 8px 15px 7px;
+	color: #6d6d72;
+	font-size: .75rem;
+}
+
+.d-i-b {
+	display: inline-block !important;
+}
+
+.mui-content,
+.mui-content button {
+	font-size: .65rem;
+	/*background: #FFFFFF;*/
+}
+
+.mui-row .mui-btn {
+	padding: 3px 6px;
+}
+
+.mui-row {
+	line-height: 1.5rem;
+	padding: .3rem;
+}
+
+.mui-row:not(:last-child) {
+	border-bottom: 1px solid #eaeaea;
+	background: #fff;
+}
+
+.mui-row label {
+	color: #858585;
+	font-size: .65rem;
+}
+
+.mui-row span {
+	font-size: .65rem;
+}
+
+.mui-bar .mui-search:before,
+.mui-search:before {
+	margin-top: 0;
+}
+
+.mui-search.mui-active:before {
+	top: 50%;
+	transform: translateY(-50%);
+	color: #333;
+}
+
+input[type='search'] {
+	background-color: #fff;
+	color: #333;
+}
+
+.mui-row > input {
+	border: none;
+	margin: 0;
+	padding: 0;
+	height: 1.25rem;
+	font-size: .65rem;
+}
+
+.mui-bar .mui-btn-nav.mui-pull-left .mui-icon-left-nav {
+	color: #fff;
+}
+
+.mui-search .mui-placeholder {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.mui-input-row textarea {
+	height: 6rem;
+	font-size: .7rem;
+	margin: .4rem 0;
+	border: none;
+	color: #333;
+}
+
+#selHouse .mui-table-view-cell,
+#urgent .mui-table-view-cell {
+	padding: .5rem 0.8rem;
+}
+
+#selHouse .mui-table-view-cell h2.name,
+#urgent .mui-table-view-cell h2.name {
+	font-size: .75rem;
+	font-weight: normal;
+	display: inline-block
+}
+
+.urgent a {
+	color: #000;
+}
+
+#selHouse .mui-table-view-cell p {
+	display: inline-block;
+}
+
+.follow-up {
+	border-radius: .3rem;
+}
+
+.mui-bar .mui-btn-block {
+	border: none;
+	width: 56%;
+	margin: 0 auto;
+}
+
+/*紧迫程度*/
+
+.urgent {
+	display: none;
+}
+/*是否有意向*/
+.intention .mui-radio {
+    width: 20%;
+    display: inline-block;
+}
+.intention .mui-radio label {
+    padding-left: 25px;
+    padding-right: 0;
+    color:#333;
+}
+.intention .mui-radio input[type='radio']{
+    left: 0;
+    right: inherit;
+}
+.intention> label{
+	float: left;
+}
+.intention-radio{
+	margin-left: 75px;
+}
+.intention-radio .mui-radio input[type='radio']:checked:before {
+    color: #65b3ea;
+}
+.intention-radio .mui-radio input[type='radio']:before{
+	font-size: 20px;
+}
+
+.mui-row .select-home{
+    width: 70%;
+    margin-bottom: 0;
+    border: none;
+    height: 30px;
+    color: #333;
+    font-size: 14px;
+}

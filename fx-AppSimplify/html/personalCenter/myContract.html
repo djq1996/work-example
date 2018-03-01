@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>我的合同</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" href="../../css/personalCenter/myContract.css" />
+		<style type="text/css">
+			.mui-scroll-wrapper{
+				margin-top: 62px;
+			}
+			.mui-table-view:after,.mui-table-view:before{
+				height: 0;
+			}
+			.contImg{
+				width: 100px;
+			    height: 100px;
+			    border-radius: 50%;
+			    overflow: hidden;
+			    margin-right: 15px;
+			    display: inline-block;
+			}
+			.contImg img{
+				width: 100%;
+			}
+			.mui-media-body{
+				display: inline-block;
+			}
+		</style>
+	</head>
+
+	<body class="">
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">
+				我的合同
+			</h1>
+			<input type="hidden" value="" id= "houseType"/>
+		</header>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<!--<li class="mui-table-view-cell mui-media" id="toMyContractDetail">
+							<a class="mui-navigate-right">
+								<div class="contImg"><img class=" mui-pull-left " src="http://120.27.11.53:8091/File/HeadImg/2ae62bbe560c42e89186ff575c33bbe9.jpg"></div>
+								<div class="mui-media-body">
+									宣海家园/1号楼/1单元/102
+									<p class='mui-ellipsis mui-badge-primary mui-badge-inverted'>FY00023</p>
+									<p class='mui-ellipsis '>3室2厅2厨2储|西|精装</p>
+									<p class='mui-ellipsis'>客户名称：张三</p>
+									<p class='mui-ellipsis'>成交价：<b class="mui-badge mui-badge-danger mui-badge-inverted">2500000元</b></p>
+								</div>
+							</a>
+						</li>-->
+					</ul>
+					<div class="noinfo">暂无信息</div>
+					<div class="noinfoImg"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../../js/jquery-1.11.0.js"></script>
+	<script src="../../js/mui.min.js "></script>
+	<script src="../../js/common.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true
+		});
+		mui('.mui-scroll-wrapper').scroll({
+			deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+		});
+		var userId = localStorage.getItem('userId');
+		var page = 1;
+		var	size =10;
+		contract();
+		function contract(){
+			console.log(baseUrl+'API_PersonInfo/Mycontract?userId='+userId+'&pageIndex='+page+'&pageSize='+size)
+			mui.ajax(baseUrl+'API_PersonInfo/Mycontract?userId='+userId+'&pageIndex='+page+'&pageSize='+size,{
+				"dataType": "json",
+				"type": "post",
+				success:function(data){
+					console.log(JSON.stringify(data))
+					if(data.succ && data.results != null){
+						var _html = '';
+						for(var i=0; i<data.results.length; i++){
+							var DecorateType = escape({
+								type:'DegreeLevelType',
+								value:data.results[i].DecorateType
+							});
+							
+							var OrienTation = escape({
+								type:'HouseForwardType', 
+								value:data.results[i].OrienTation
+							});
+						    _html += '<li class="mui-table-view-cell mui-media" id="toMyContractDetail"  data-houseType= "'+data.results[i].HouseType+'" data-contraId= "'+data.results[i].id+'">'+
+											'<a class="mui-navigate-right">'+
+												'<div class="contImg"><img class="mui-pull-left" src="'+data.results[i].HeadeImage+'"  onerror = "src = \'../../img/head.png\' "></div>'+
+												'<div class="mui-media-body">'+
+													''+data.results[i].propertyname+''+
+													'<p class="mui-ellipsis mui-badge-primary mui-badge-inverted">'+data.results[i].HouseNo+'</p>'+
+													'<p class="mui-ellipsis">'+data.results[i].shi+'室'+data.results[i].ting+'厅'+data.results[i].Chu+'厨'+data.results[i].Savings+'储 '+OrienTation+' '+DecorateType+'</p>'+
+													'<p class="mui-ellipsis">客户名称：'+data.results[i].CustomerName+'</p>'+
+													'<p class="mui-ellipsis">成交价：<b class="mui-badge mui-badge-danger mui-badge-inverted">'+data.results[i].SignPrice+'元</b></p>'+
+												'</div>'+
+											'</a>'+
+										'</li>'	
+						}
+						$('.noinfo').hide();
+						$('.noinfoImg').hide();
+						$('.mui-table-view').append(_html);
+						upDown();
+						mui('body').on('tap','#toMyContractDetail',function(){
+							openNewPage({
+								url: '_www/html/personalCenter/myContractDetail.html',
+								data:{
+									contraId : $(this).attr('data-contraId'),
+									houseType: $(this).attr('data-houseType')
+								}
+							});
+						})	
+					}else{
+						if(data.count === 0){
+							$('.noinfo').hide();
+							$('.noinfoImg').show();
+						}else if(data.count != 0){
+							$('.noinfoImg').hide();
+							$('.noinfo').show();
+							setTimeout(function(){ $('.noinfo').fadeOut(); },1500)
+						}
+					}
+				}
+			})
+		}
+		//列表上拉加载，下拉刷新
+		function upDown(){
+			mui('.mui-scroll-wrapper').pullRefresh({
+				down: {
+					callback: function() {
+						setTimeout(function() {
+							mui('.mui-scroll-wrapper').pullRefresh().endPulldownToRefresh();
+							mui.toast("刷新成功");
+						}, 1500);
+					}
+				},
+				up: { 
+					contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+					contentnomore: '没有更多数据了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+					callback: function() { 
+						page++;
+						setTimeout(function() {
+							mui('.mui-scroll-wrapper').pullRefresh().endPullupToRefresh();
+							contract();
+						}, 1500);
+					} 
+				}
+			});
+		}
+	</script>
+</html>

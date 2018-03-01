@@ -1,0 +1,498 @@
+.area:after {
+	content: none;
+}
+
+.mui-table-view-cell>a>.mui-switch {
+	top: 37%;
+	margin-right: -.8rem;
+}
+
+.calculation:before {
+	content: '月';
+}
+
+.calculation.mui-active:before {
+	content: '日';
+}
+
+.whether:before {
+	content: '否';
+}
+
+.whether.mui-active:before {
+	content: '是';
+}
+
+.search_middle {
+	padding: .2rem .4rem;
+}
+
+.search_middle input[type=search] {
+	width: 90%;
+	background: #fff;
+	font-size: 14px;
+	border: 1px solid #ddd;
+	margin-bottom: 0;
+	height: 30px;
+}
+
+.mui-table-view-cell button {
+	background: #35b5e9;
+	color: #fff;
+	border: 0;
+}
+
+.mui-table-view-cell p {
+	width: 15%;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	color: #666;
+}
+
+.mui-table-view-cell span.time {
+	width: 23%;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	color: #666;
+}
+
+.title {
+	margin: 8px 15px 7px;
+	color: #6d6d72;
+	font-size: .75rem;
+}
+
+.mui-badge-light-blue {
+	background: #35b5e9;
+}
+
+.mui-bar .mui-title,
+.mui-bar a,
+.mui-bar button,
+.mui-bar span,
+.mui-bar .mui-btn-link {
+	color: #fff;
+}
+
+.mui-bar-tab button {
+	width: 56%;
+	margin: 0 auto;
+	border: 0;
+}
+
+.mui-page-content {
+	padding: 0 .4rem;
+	font-size: 0.65rem;
+}
+
+.mui-page-content input,
+
+/*.mui-page-content a,*/
+
+.mui-page-content textarea,
+.mui-page-content button {
+	font-size: 0.65rem;
+}
+
+.customers-message {
+	background: #fff;
+}
+
+.customers-message h4 {
+	font-size: .65rem;
+	font-weight: 600;
+	line-height: 2rem;
+	margin: 0;
+	padding-left: .5rem;
+	color: #555;
+}
+
+.customers-message div:not(:last-child) {
+	border-bottom: 1px solid #eaeaea;
+}
+
+.customers-message .mui-input-row input {
+	text-align: right;
+}
+
+.mui-input-row  label {
+	padding: .65rem .75rem;
+	color: #8f8f94;
+}
+
+.mui-input-row .mui-btn {
+	line-height: 1;
+	padding: .2rem .75rem;
+	margin: .5rem .5rem .5rem 0;
+}
+
+.mui-input-row .add-phone {
+	padding: .7rem;
+	display: inline-block;
+	font-size: .65rem;
+}
+
+.customers-buy-message .mui-input-row > label {
+	width: 27%;
+}
+
+.customers-buy-message .mui-input-row > label.import {
+    background: url(../../img/btx.png) no-repeat left;
+}
+
+.customers-buy-message .mui-input-row > input {
+	width: 65%;
+	padding-right: 1rem;
+}
+
+.customers-buy-message .mui-input-row .mui-icon {
+	padding: .4rem 0 0;
+	color: #bbb;
+}
+
+.mui-table-view:after {
+	background-color: #eaeaea;
+}
+
+.mui-table-view-cell:after,
+.mui-table-view:before {
+	left: 0;
+	border-bottom: 1px solid #eaeaea;
+	height: 0px;
+}
+
+.mui-table-view span.mui-pull-right {
+	color: #999;
+}
+
+.mui-table-view-divider {
+	background-color: #efeff4;
+	font-size: 14px;
+}
+
+.mui-table-view-divider:before,
+.mui-table-view-divider:after {
+	height: 0;
+}
+
+.mui-table-view-cell {
+	padding: 0;
+}
+
+.mui-table-view-cell>a:not(.mui-btn) {
+	margin: 0;
+}
+
+.head {
+	height: 40px;
+}
+
+#head {
+	line-height: 40px;
+}
+
+.head-img {
+	width: 40px;
+	height: 40px;
+}
+
+#head-img1 {
+	position: absolute;
+	bottom: 10px;
+	right: 40px;
+	width: 40px;
+	height: 40px;
+}
+
+.update {
+	font-style: normal;
+	color: #999999;
+	margin-right: -25px;
+	font-size: 15px
+}
+
+.mui-fullscreen {
+	position: fixed;
+	z-index: 20;
+	background-color: #000;
+}
+
+.mui-ios .mui-navbar .mui-bar .mui-title {
+	position: static;
+}
+
+.phonebox .delphonegroup {
+	padding-left: 1.2rem;
+	position: relative;
+}
+
+.phonebox .delphonegroup .mui-icon {
+	position: absolute;
+	left: .5rem;
+	top: 50%;
+	transform: translateY(-50%);
+	color: red;
+}
+
+.area:after {
+	content: none;
+}
+
+.mui-table-view-cell>a>.mui-switch {
+	top: 37%;
+	margin-right: -.8rem;
+}
+
+.calculation:before {
+	content: '月';
+}
+
+.calculation.mui-active:before {
+	content: '日';
+}
+
+.whether:before {
+	content: '否';
+}
+
+.whether.mui-active:before {
+	content: '是';
+}
+
+.search_middle {
+	padding: .2rem .4rem;
+}
+
+.search_middle input[type=search] {
+	width: 90%;
+	background: #fff;
+	font-size: 14px;
+	border: 1px solid #ddd;
+	margin-bottom: 0;
+	height: 30px;
+}
+
+.mui-table-view-cell button {
+	/*background: #35b5e9;*/
+	color: #35b5e9;
+	border: 0;
+}
+
+.mui-table-view-cell p {
+	width: 15%;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	color: #666;
+}
+
+.mui-table-view-cell span.time {
+	width: 23%;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	color: #666;
+}
+
+.typeBtn {
+	margin-left: 95px;
+	margin-top: 5px;
+}
+
+ul li {
+	position: relative;
+}
+
+li .pfm {
+	position: absolute;
+	top: 10px;
+	right: 5px;
+	color: #bbb;
+}
+
+form {
+	/*margin-bottom: 50px;*/
+	/*margin-top:25px;*/
+}
+
+#car span {
+	position: absolute;
+	top: 10px;
+	left: 50px;
+}
+
+#car span i {
+	font-style: normal;
+	color: #333;
+}
+
+#car .addcarBtn,
+#car .removecarBtn {
+	background: #fff;
+	float: right;
+	margin-right: 25px;
+	margin-top: 5px;
+}
+
+#car .addcarBtn {
+	margin-right: 0;
+}
+
+.jia {
+	position: absolute;
+	right: -2px;
+	
+}
+
+#quote-condition p,
+#lowPrice p {
+	margin-left: 30px;
+}
+
+#quote-condition input,
+#lowPrice input {
+	height: 30px;
+	margin-top: 4px;
+	margin-bottom: 2px;
+	border: 0;
+}
+
+#advantage input {
+	margin: 0;
+	padding: 0;
+	border: 1px solid #ccc;
+	height: 27px;
+	margin-top: 6px;
+	width: 63%;
+	margin-right: 10px;
+	text-align: left;
+}
+
+.customers-message {
+	border-radius: 0;
+	border: 0;
+	margin: 0;
+}
+
+.mui-page-content {
+	padding: 0;
+}
+
+
+/*.turnTit{
+    		background: #EEEEEE;
+    	}*/
+
+.rent_turnTit h4,
+.sell_turnTit h4,
+.turnTit h4 {
+	font-size: 14px;
+	font-weight: normal;
+	background: #efeff4;
+}
+
+#berthNum a .follow-up-type {
+	float: left;
+	width: 77%;
+}
+
+#berthNum a label {
+	padding-right: 0;
+	width: 23%;
+	float: left;
+}
+
+#berthNum a .follow-up-type label {
+	padding-right: 0;
+	width: 23%;
+	color: #333;
+	margin-left: 5px;
+	float: left;
+}
+
+.follow-up-type .mui-radio {
+	display: inline-block;
+	border: 0;
+	margin-bottom: -10px;
+	margin-left: 20px;
+}
+
+.customers-message div:not(:last-child) {
+	border: 0;
+}
+
+.mui-checkbox input[type='checkbox']:before,
+.mui-radio input[type='radio']:before {
+	font-size: 20px;
+}
+
+.follow-up-type .mui-radio input[type='checkbox'],
+.follow-up-type .mui-radio input[type='radio'],
+#houseType .mui-checkbox input[type='checkbox'] {
+	left: 0;
+	top: 10px;
+	right: inherit;
+}
+
+.follow-up-type .mui-radio input {
+	width: 0;
+}
+
+#houseType .houseTypeBtn .mui-checkbox {
+	display: inline-block;
+}
+
+#houseType .houseTypeBtn .mui-checkbox label {
+	margin-left: 20px;
+	padding-right: 0;
+}
+
+#houseType .houseTypeBtn {
+	/*float: right;*/
+	margin-right: 20px;
+}
+
+#advantage label {
+	padding-bottom: 0;
+}
+
+#advantage textarea {
+	float: left;
+	margin-top: 0;
+	width: 100%;
+	text-indent: 15px;
+	font-size: 14px;
+}
+.add-linkman label{
+	color: #81c3ef;
+}
+/*checbox bgcolor*/
+.mui-radio input[type='radio']:checked:before, .mui-checkbox input[type='checkbox']:checked:before {
+    color: #65b3ea;
+}
+.importLink a{
+	border-bottom: 1px solid #eaeaea;
+}
+
+/*选择的箭头*/
+.mui-navigate-right:after, .mui-push-right:after{
+	right:5px;
+}
+
+.mui-table-view-cell .range-style input {
+    float: left;
+    width: 20%;
+    text-align: center;
+    height: 40px;
+    padding-right: 0;
+}
+.mui-table-view-cell .range-style span {
+    display: inline-block;
+    float: left;
+    width: 20px;
+    height: 40px;
+    line-height: 40px;
+    color: #666;
+}

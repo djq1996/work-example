@@ -1,0 +1,61 @@
+.mui-content{
+	font-size: 12px;
+	color: #777;
+}
+.mui-content h4{
+	font-size: .7rem;
+	font-weight: 600;
+}
+.statement { 
+	background: #fff;
+	font-size: 12px;
+}
+.mui-scroll-wrapper{
+	top: 65px;
+	padding-bottom: 60px;
+}
+.rakingNumber,.rakingEdit{
+	line-height: 2rem;
+}
+.rakingName{
+	font-size: 14px;
+	color: #333;
+}
+.rakingNumber{
+	height: 2rem;
+	background-repeat: no-repeat;
+	background-position: 0 8px;
+	background-size: 80%;
+	padding-left: 6px;
+}
+ .first{
+	background-image: url(../../img/personalCenter/one.png);
+}
+ .second{
+	background-image: url(../../img/personalCenter/two.png);
+}
+ .third{
+	background-image: url(../../img/personalCenter/three.png);
+}
+.dan{
+	color:#333;
+}
+.mui-title a{
+	vertical-align: text-top;
+}
+.rakHead{
+	width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+}
+.rakHead img{
+	width: 100%;
+}
+.mui-table-view .mui-media-body{
+	width: 100%;
+	overflow: inherit;
+	display: inline-block;
+}

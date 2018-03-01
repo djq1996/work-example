@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+		<style>
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="logo">
+				<img src="img/company/logo.png"/>
+			</div>
+			<form id='login-form' class="" action="" onsubmit="return false">
+				<input type="hidden" name="macAddr" id="" value="1" />
+				<ul>
+					<li>
+						<i class="mui-icon mui-icon-person"></i>
+						<input type="text" class="mui-input-clear" value="" placeholder="请输入用户名" name="loginName" id="" />
+					</li>
+					<li>
+						<i class="mui-icon mui-icon-locked"></i>
+						<input type="password" class="mui-input-clear" value="" placeholder="密码" value="" name="password" id="" />
+					</li>
+				</ul>
+				<button  onclick="goLogin()" class="mui-btn mui-btn-block" id="login">登   陆</button>
+			</form>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+		<script type="text/javascript" src="js/mui.min.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+		<script>
+			var loginId = null;
+			mui.init({
+				keyEventBind: {
+					backbutton: true,  //Boolean(默认true)关闭back按键监听
+					menubutton: true   //Boolean(默认true)关闭menu按键监听
+				},
+			});
+			mui.plusReady(function(){
+				$('input[name=macAddr]').val(plus.device.uuid);
+				if(localStorage.getItem('userId')){
+					mui.openWindow({
+						url: '_www/nav.html',
+						id: '_www/nav',
+						show: {
+							aniShow: 'pop-in',
+							duration: '300',
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '飞速加载...', //等待对话框上显示的提示内容
+						}
+					});
+				}
+			});
+			/*
+			 * 进app首页
+			 */
+			function goLogin(){
+				$('input').blur();
+				mui.ajax(baseUrl+'API_Account/Login',{
+					type:'get',
+					data:$("#login-form").serialize(),
+					success:function(data,type,status){
+						if($("input[name=loginId]").val() !=''&&$("input[name=password]").val() !=''){
+							
+							if(data.succ){
+								localStorage.setItem('userId',data.results.UserID);
+								localStorage.setItem('userName',data.results.UserName);
+								localStorage.setItem('SeeLevel',data.results.SeeLevel);
+								localStorage.setItem('HeadeImage',data.results.HeadeImage);
+								localStorage.setItem('depId',data.results.DepID);
+								localStorage.setItem('loginName',$('input[name=loginName]').val());
+								localStorage.setItem('loginPsd',$('input[name=password]').val());
+								localStorage.setItem('shopName',data.results.DepShopName);
+								/*进入导航页*/
+								mui.openWindow({
+									url: '_www/nav.html',
+									id: '_www/nav',
+									show: {
+										aniShow: 'pop-in',
+										duration: '300',
+									},
+									waiting: {
+										autoShow: true, //自动显示等待框，默认为true
+										title: '飞速加载...', //等待对话框上显示的提示内容
+									}
+								});
+//								plus.webview.create('_www/nav.html','_www/nav').show();
+							}else{
+								mui.toast(data.msg)
+							}
+						}else{
+							mui.toast("请输入完整的用户名密码")
+						}
+					},error:function(xht,type,cont){
+						console.log('登陆'+type +'--'+ cont);
+						mui.toast(type +'--'+ cont);
+					}
+				})
+			};
+		</script>
+	</body>
+
+</html>

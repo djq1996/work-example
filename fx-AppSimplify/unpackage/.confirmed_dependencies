@@ -1,0 +1,694 @@
+{
+  "html/myCustomers/customers-lists.html": {
+    "resources": [
+      "css/customers/customers-lists.css",
+      "data/rentDicList.json",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "js/webviewoffcanvas.js",
+      "fonts/mui.ttf",
+      "js/customers/customerList.js",
+      "css/mui.css",
+      "css/icons-extra.css",
+      "img/hux.png",
+      "img/fx.png",
+      "img/mj.png",
+      "img/money.png"
+    ],
+    "refer": [
+      "html/myCustomers/offcanvasMore.html",
+      "html/myCustomers/customers-details.html",
+      "html/myCustomers/addCus.html"
+    ]
+  },
+  "login_3.html": {
+    "resources": [
+      "img/company/login.png",
+      "img/company/logo.png",
+      "js/jquery-1.11.0.js",
+      "css/login.css",
+      "fonts/mui.ttf",
+      "css/mui.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "nav.html"
+    ]
+  },
+  "index.html": {
+    "resources": [
+      "img/pinglun_top.png",
+      "img/icon-heart.png",
+      "img/icon-news.png",
+      "js/echarts.common.min.js",
+      "img/icon-bottom.jpg",
+      "img/index_search.png",
+      "img/honor_bg.png",
+      "img/honorUser.png",
+      "img/silver.png",
+      "css/index.css",
+      "img/gold.png",
+      "img/index_logo.png",
+      "img/index_banner.jpg",
+      "img/icon-talk.png",
+      "css/icons-extra.css",
+      "js/common.js",
+      "js/jquery-1.11.0.js",
+      "css/mui.css",
+      "js/mui.min.js",
+      "js/index/index.js",
+      "img/icon-news_new.png",
+      "img/head.png",
+      "img/index/honor_bg.png",
+      "img/index/icon-news.png",
+      "img/company/bannerBg.jpg",
+      "img/index/copperborder.png",
+      "img/index/goldborder.png",
+      "img/index/silverborder.png",
+      "fonts/mui-icons-extra.ttf",
+      "img/index/honorUser.png"
+    ],
+    "refer": [
+      "html/index/message.html",
+      "html/personalCenter/personalCenter.html",
+      "html/index/notice.html",
+      "html/personalCenter/raking.html"
+    ]
+  },
+  "html/myHousingResources/My_HouseResourcesList.html": {
+    "resources": [
+      "js/common.js",
+      "css/housingResources/housingResources.css",
+      "js/HousingResources/housingResources_list.js",
+      "img/1.jpg",
+      "js/webviewoffcanvas.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "fonts/mui.ttf",
+      "css/mui.css",
+      "css/icons-extra.css"
+    ],
+    "refer": [
+      "html/myHousingResources/offcanvasMore.html",
+      "html/myHousingResources/housing-detail.html",
+      "html/myHousingResources/addHosing.html"
+    ]
+  },
+  "html/personalCenter/personalCenter.html": {
+    "resources": [
+      "fonts/mui-icons-extra.ttf",
+      "img/agent.png",
+      "fonts/mui.ttf",
+      "css/personalCenter/personalCenter.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/mui.css",
+      "css/icons-extra.css",
+      "img/personalCenter/jisuan2.png",
+      "img/personalCenter/fankui2.png",
+      "img/personalCenter/tongxun2.png",
+      "img/personalCenter/women.png",
+      "img/personalCenter/kefu2.png",
+      "img/personalCenter/shezhi2.png",
+      "img/personalCenter/baobiao2.png"
+    ],
+    "refer": [
+      "html/personalCenter/accountSettings.html",
+      "html/personalCenter/myContract.html",
+      "html/personalCenter/dayQuantization.html",
+      "html/personalCenter/addressBook.html",
+      "html/personalCenter/about.html",
+      "login.html"
+    ]
+  },
+  "html/houses/houses.html": {
+    "resources": [
+      "css/singleView.css",
+      "css/icons-extra.css",
+      "js/mui.view.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "fonts/mui.ttf",
+      "css/mui.css",
+      "css/houses/hoses.css",
+      "js/houses/houseList.js",
+      "js/common.js",
+      "fonts/mui-icons-extra.ttf"
+    ],
+    "refer": [
+      "html/houses/housesLou.html"
+    ]
+  },
+  "nav.html": {
+    "resources": [
+      "index.html",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/mui.css",
+      "fonts/iconfont.woff"
+    ],
+    "refer": [
+      "index.html",
+      "html/myCustomers/customers-lists.html",
+      "html/myHousingResources/My_HouseResourcesList.html",
+      "html/personalCenter/personalCenter.html",
+      "html/houses/houses.html",
+      "html/myCustomers/customersLists.html",
+      "html/Housing/houseList.html"
+    ]
+  },
+  "html/myHousingResources/offcanvasMore.html": {
+    "resources": [
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/mui.css"
+    ],
+    "refer": []
+  },
+  "html/myHousingResources/housing-detail.html": {
+    "resources": [
+      "img/home.jpg",
+      "js/mui.zoom.js",
+      "img/banner.jpg",
+      "js/mui.previewimage.js",
+      "css/hosing/hosing-detail.css",
+      "css/imageviewer.css",
+      "js/HousingResources/housingResources_detail.js",
+      "fonts/mui-icons-extra.ttf",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "fonts/mui.ttf",
+      "css/mui.css",
+      "css/icons-extra.css",
+      "img/agent.png"
+    ],
+    "refer": [
+      "html/myHousingResources/writeFollow.html",
+      "html/myHousingResources/addPic.html",
+      "html/myHousingResources/applyWrittenEntrust.html",
+      "html/myHousingResources/addKeyEntrust.html",
+      "html/myHousingResources/addExclusiveEntrust.html"
+    ]
+  },
+  "html/myHousingResources/addHosing.html": {
+    "resources": [
+      "js/mui.picker.min.js",
+      "css/hosing/addHosing.css",
+      "js/mui.poppicker.js",
+      "css/mui.poppicker.css",
+      "css/mui.picker.css"
+    ],
+    "refer": []
+  },
+  "html/myHousingResources/addPic.html": {
+    "resources": [
+      "img/add.png",
+      "js/mui.zoom.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "img/1.jpg",
+      "fonts/mui.ttf",
+      "js/mui.previewimage.js",
+      "css/imageviewer.css",
+      "css/mui.css"
+    ],
+    "refer": []
+  },
+  "html/myHousingResources/applyWrittenEntrust.html": {
+    "resources": [
+      "js/mui.picker.min.js",
+      "img/1.jpg",
+      "css/mui.picker.min.css",
+      "img/add.png",
+      "js/mui.zoom.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "fonts/mui.ttf",
+      "js/mui.previewimage.js",
+      "css/imageviewer.css",
+      "css/mui.css"
+    ],
+    "refer": []
+  },
+  "html/myCustomers/customers-details.html": {
+    "resources": [
+      "css/customers/customers-detail.css",
+      "data/customerInfo.json",
+      "fonts/mui.ttf",
+      "css/mui.css",
+      "img/agent.png"
+    ],
+    "refer": []
+  },
+  "html/myHousingResources/addKeyEntrust.html": {
+    "resources": [
+      "img/add.png",
+      "js/mui.zoom.js",
+      "js/mui.picker.min.js",
+      "js/mui.min.js",
+      "img/1.jpg",
+      "fonts/mui.ttf",
+      "js/mui.previewimage.js",
+      "css/imageviewer.css",
+      "css/mui.picker.min.css",
+      "css/mui.css",
+      "js/jquery-1.11.0.js"
+    ],
+    "refer": []
+  },
+  "html/myHousingResources/addExclusiveEntrust.html": {
+    "resources": [
+      "img/add.png",
+      "js/mui.zoom.js",
+      "js/mui.picker.min.js",
+      "js/mui.min.js",
+      "img/1.jpg",
+      "fonts/mui.ttf",
+      "js/mui.previewimage.js",
+      "css/imageviewer.css",
+      "css/mui.picker.min.css",
+      "css/mui.css",
+      "js/jquery-1.11.0.js"
+    ],
+    "refer": []
+  },
+  "html/myCustomers/offcanvasMore.html": {
+    "resources": [
+      "js/jquery-1.11.0.js",
+      "js/mui.min.js",
+      "css/mui.css",
+      "lib/vue.js",
+      "js/common.js",
+      "css/customers/offcanvasMore.css"
+    ],
+    "refer": []
+  },
+  "html/personalCenter/accountSettings.html": {
+    "resources": [
+      "css/personalCenter/accountSettings.css",
+      "js/mui.view.js"
+    ],
+    "refer": []
+  },
+  "html/index/message.html": {
+    "resources": [
+      "img/u81.png",
+      "fonts/mui.ttf",
+      "img/u63.png",
+      "img/u233.png",
+      "css/mui.css",
+      "img/u27.png",
+      "img/u39.png",
+      "img/u153.png",
+      "css/icons-extra.css",
+      "img/home.jpg",
+      "img/u91.png",
+      "js/mui.min.js",
+      "img/u47.png",
+      "img/u151.png",
+      "img/u65.png",
+      "img/u219.png",
+      "img/u103.png",
+      "img/index/yishenpi.png",
+      "js/common.js",
+      "js/index/message.js",
+      "js/jquery-1.11.0.js",
+      "img/index/false.png",
+      "css/index/message.css"
+    ],
+    "refer": []
+  },
+  "html/personalCenter/dayQuantization.html": {
+    "resources": [
+      "css/personalCenter/daQuantization.css"
+    ],
+    "refer": []
+  },
+  "html/personalCenter/addressBook.html": {
+    "resources": [
+      "img/agent.png",
+      "img/tagactive.png",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/personalCenter/addressbook.css",
+      "css/mui.css"
+    ],
+    "refer": []
+  },
+  "html/myCustomers/addCus.html": {
+    "resources": [
+      "css/customers/add-customers.css",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "fonts/mui.ttf",
+      "css/mui.css",
+      "js/mui.view.js",
+      "js/mui.picker.min.js",
+      "js/mui.poppicker.js",
+      "js/customers/addCustomers.js",
+      "js/mobileSelect/mobileSelect.css",
+      "img/btx.png",
+      "css/customers/addCustomers.css",
+      "css/mui.poppicker.css",
+      "css/mui.picker.css",
+      "js/mobileSelect/mobileSelect.min.js",
+      "lib/vue.js",
+      "js/common.js"
+    ],
+    "refer": []
+  },
+  "html/myCustomers/customersLists.html": {
+    "refer": [
+      "html/myCustomers/offcanvasMore.html",
+      "html/myCustomers/customersDetails.html",
+      "html/myCustomers/addCus.html"
+    ],
+    "resources": [
+      "img/customers/fx.png",
+      "lib/vue.js",
+      "img/customers/mj.png",
+      "css/customers/customersLists.css",
+      "js/customers/customerList.js",
+      "img/customers/money.png",
+      "img/customers/hux.png",
+      "js/webviewoffcanvas.js",
+      "img/noinfo.png",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/mui.css"
+    ]
+  },
+  "html/Housing/houseList.html": {
+    "refer": [
+      "html/Housing/offcanvasMore.html",
+      "html/Housing/housingDetail.html",
+      "html/Housing/addHosing.html"
+    ],
+    "resources": [
+      "js/HousingResources/housingList.js",
+      "css/housingResources/housingResources.css",
+      "js/webviewoffcanvas.js",
+      "img/noinfo.png",
+      "img/hosing/imgHome.png",
+      "css/mui.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "fonts/mui-icons-extra.ttf"
+    ]
+  },
+  "login.html": {
+    "refer": [
+      "nav.html"
+    ],
+    "resources": [
+      "img/company/login.png",
+      "js/common.js",
+      "img/company/logo.png",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/login.css",
+      "fonts/mui.ttf",
+      "css/mui.css",
+      "img/IMG_3563.JPG"
+    ]
+  },
+  "html/houses/housesRoom.html": {
+    "refer": [
+      "html/houses/houseDetial.html"
+    ],
+    "resources": [
+      "css/singleView.css",
+      "js/houses/housesRoom.js",
+      "css/houses/housesRoom.css",
+      "js/mui.view.js",
+      "css/mui.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "img/houses/icon-bottom.jpg"
+    ]
+  },
+  "html/houses/housesLou.html": {
+    "refer": [
+      "html/houses/housesRoom.html"
+    ],
+    "resources": [
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/houses/housesLou.css",
+      "js/houses/housesLouList.js",
+      "css/mui.css"
+    ]
+  },
+  "html/Housing/houses.html": {
+    "refer": [
+      "html/Housing/housesLou.html"
+    ],
+    "resources": [
+      "css/singleView.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/houses/hoses.css",
+      "css/mui.css",
+      "js/mui.view.js"
+    ]
+  },
+  "html/Housing/addHosing.html": {
+    "refer": [
+      "html/Housing/houses.html",
+      "nav.html"
+    ],
+    "resources": [
+      "lib/vue.js",
+      "js/common.js",
+      "js/mui.picker.min.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/hosing/addHosing.css",
+      "js/mui.poppicker.js",
+      "js/mobileSelect/mobileSelect.css",
+      "img/btx.png",
+      "js/HousingResources/addhosing.js",
+      "css/mui.poppicker.css",
+      "css/mui.picker.css",
+      "css/mui.css",
+      "js/mobileSelect/mobileSelect.min.js"
+    ]
+  },
+  "html/Housing/offcanvasMore.html": {
+    "resources": [
+      "lib/vue.js",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/customers/offcanvasMore.css",
+      "css/mui.css"
+    ],
+    "refer": []
+  },
+  "html/myCustomers/customersDetails.html": {
+    "resources": [
+      "lib/vue.js",
+      "js/common.js",
+      "js/customers/customerDetail.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/customers/customersDetail.css",
+      "css/mui.css",
+      "fonts/mui-icons-extra.ttf"
+    ],
+    "refer": [
+      "html/myCustomers/takeLookAt.html",
+      "html/myCustomers/addFollowUp.html"
+    ]
+  },
+  "html/Housing/housingDetail.html": {
+    "resources": [
+      "css/hosing/hosingDetail.css",
+      "lib/vue.js",
+      "js/common.js",
+      "js/mui.zoom.js",
+      "js/HousingResources/housingDetail.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "img/hosing/home.png",
+      "js/mui.previewimage.js",
+      "css/imageviewer.css",
+      "css/mui.css",
+      "fonts/mui-icons-extra.ttf",
+      "img/head.png"
+    ],
+    "refer": [
+      "html/Housing/FollowUp.html",
+      "html/Housing/addPic.html",
+      "html/Housing/addKeyEntrust.html"
+    ]
+  },
+  "html/Housing/FollowUp.html": {
+    "resources": [
+      "lib/vue.js",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/mui.css",
+      "css/customers/addFollowUp.css"
+    ],
+    "refer": []
+  },
+  "html/houses/houseDetial.html": {
+    "resources": [
+      "lib/vue.js",
+      "js/mui.picker.min.js",
+      "js/mui.poppicker.js",
+      "img/houses/banner.jpg",
+      "js/houses/houseDetails.js",
+      "css/mui.poppicker.css",
+      "css/houses/houseDeatils.css",
+      "css/mui.picker.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/mui.css"
+    ],
+    "refer": [
+      "html/houses/addHouses.html"
+    ]
+  },
+  "html/houses/addHouses.html": {
+    "resources": [
+      "css/hosing/addHosing.css",
+      "js/mobileSelect/mobileSelect.css",
+      "img/btx.png",
+      "js/houses/addhosing.js",
+      "js/mobileSelect/mobileSelect.min.js",
+      "lib/vue.js",
+      "js/common.js",
+      "js/mui.picker.min.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "js/mui.poppicker.js",
+      "css/mui.poppicker.css",
+      "css/mui.picker.css",
+      "css/mui.css"
+    ],
+    "refer": [
+      "nav.html"
+    ]
+  },
+  "html/Housing/housesRoom.html": {
+    "resources": [
+      "css/singleView.css",
+      "css/houses/housesRoom.css",
+      "js/mui.view.js",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "css/mui.css"
+    ],
+    "refer": [
+      "html/Housing/addHosing.html"
+    ]
+  },
+  "html/Housing/housesLou.html": {
+    "resources": [
+      "css/houses/housesLou.css",
+      "css/mui.css"
+    ],
+    "refer": [
+      "html/Housing/housesRoom.html"
+    ]
+  },
+  "html/personalCenter/myContract.html": {
+    "resources": [
+      "css/personalCenter/myContract.css",
+      "css/mui.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js"
+    ],
+    "refer": [
+      "html/personalCenter/myContractDetail.html"
+    ]
+  },
+  "html/personalCenter/myContractDetail.html": {
+    "resources": [
+      "js/mui.zoom.js",
+      "img/hosing/home.png",
+      "js/mui.previewimage.js",
+      "css/imageviewer.css",
+      "css/personalCenter/myContractDetails.css",
+      "css/mui.css",
+      "lib/vue.js",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js"
+    ],
+    "refer": []
+  },
+  "html/personalCenter/raking.html": {
+    "resources": [
+      "img/personalCenter/two.png",
+      "img/personalCenter/three.png",
+      "css/personalCenter/raking.css",
+      "css/mui.css",
+      "img/personalCenter/one.png",
+      "js/common.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "img/head.png"
+    ],
+    "refer": []
+  },
+  "html/myCustomers/takeLookAt.html": {
+    "resources": [
+      "css/customers/takeLookAt.css",
+      "js/mui.view.js"
+    ],
+    "refer": []
+  },
+  "html/myCustomers/addFollowUp.html": {
+    "resources": [
+      "css/customers/addFollowUp.css"
+    ],
+    "refer": []
+  },
+  "html/Housing/addPic.html": {
+    "resources": [
+      "js/ajaxupload/jquery-form.js",
+      "js/HousingResources/addPic.js",
+      "css/hosing/addPic.css",
+      "css/imageviewer.css",
+      "img/hosing/add.png",
+      "css/mui.css",
+      "js/common.js",
+      "js/mui.zoom.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "js/mui.previewimage.js"
+    ],
+    "refer": []
+  },
+  "html/Housing/addKeyEntrust.html": {
+    "resources": [
+      "js/ajaxupload/jquery-form.js",
+      "js/common.js",
+      "js/mui.zoom.js",
+      "js/mui.picker.min.js",
+      "js/mui.min.js",
+      "js/jquery-1.11.0.js",
+      "js/mui.previewimage.js",
+      "css/mui.picker.min.css",
+      "css/mui.css",
+      "css/hosing/addKeyEntrust.css"
+    ],
+    "refer": []
+  }
+}

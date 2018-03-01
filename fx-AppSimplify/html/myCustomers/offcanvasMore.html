@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>客源搜索更多</title>
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" href="../../css/customers/offcanvasMore.css" />
+		<style>
+
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<nav class="mui-bar mui-bar-tab">
+				<button type="button" class="mui-btn reset">重置</button>
+				<button type="button" class="mui-btn yes" id="submit">确认</button>
+			</nav>
+			<div class="mui-content">
+				<div class="mui-scroll-wrapper" style="background: #fff;color: #000;top:40px;padding-bottom: 60px;">
+					<div class="mui-scroll">
+						<form id="moreData">
+							<div class="levBox">
+								<div class="title">级别</div>
+								<div class="box">
+									<button type="button" class="mui-btn mui-btn-outlined selectOption" id="" v-for="items in dic.CustomerLevel" v-bind:data-value="items.DisplayValue" v-text="items.DisplayName" @click="conso(items.DisplayValue,'LevelType')"></button>
+								</div>
+							</div>
+							<div class="title">面积</div>
+							<div class="mjBox box">
+								<button type="button" class="mui-btn mui-btn-outlined selectOption" id="" v-for="items in dic.RArea" v-bind:data-value="items.DisplayValue" v-text="items.DisplayName"  @click="conso(items.DisplayValue,'Area')"></button>
+							</div>
+							<div class="title">朝向</div>
+							<div class="cxBox box">
+								<button type="button" class="mui-btn mui-btn-outlined selectOption" id="" v-for="items in dic.HouseForwardType" v-bind:data-value="items.DisplayValue" v-text="items.DisplayName"  @click="conso(items.DisplayValue,'OrienTation')"></button>
+							</div>
+							<div class="title">装修</div>
+							<div class="zxBox box">
+								<button type="button" class="mui-btn mui-btn-outlined selectOption" id="" v-for="items in dic.DegreeLevelType" v-bind:data-value="items.DisplayValue" v-text="items.DisplayName"  @click="conso(items.DisplayValue,'fitmentType')"></button>
+							</div>
+							<!--<div class="title">楼层</div>
+							<div class="lcBox box">
+								<button type="button" class="mui-btn mui-btn-outlined" id="" v-for="items in dic.HouseLevel" v-text="items.DisplayName"></button>
+							</div>-->
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/common.js" ></script>
+		<script src="../../lib/vue.js"></script>
+		<script>
+			var obj = {};
+			var vm = new Vue({
+				el:'#app',
+				data:{
+					dic:{}
+				},
+				methods:{
+					getDic(num){
+						mui.ajax(baseUrl + 'API_Dictionary/AllDic', {
+							type: 'post',
+							success: function(data, type, status) {
+								/*去除不需要的等级c*/
+								document.querySelector('.levBox').style.display = 'block';
+								if(num == 1){
+									spliceArry(data.results.CustomerLevel,data.results.CustomerLevel[2]);
+								}else if(num == 3){
+									document.querySelector('.levBox').style.display = 'none';
+								}
+//								console.log(JSON.stringify(data.results));
+								vm.$data.dic = data.results;
+							},
+							error: function(xht, type, cont) {
+								mui.toast(console.log('更多数据字典' + type + '--' + cont))
+							}
+						});
+					},
+					conso(a,b){
+						if(b =='Area'){
+							obj[b] = a;
+						}else{
+							obj[b] = parseInt(a);
+						}
+						console.log(JSON.stringify(obj))
+					}
+				},
+				mounted:function(){
+					
+				}
+			});
+			$('body').on('tap','.selectOption',function(){
+				$(this).addClass('mui-btn-blue').siblings().removeClass('mui-btn-blue')
+			})
+			/*重置*/
+			$(".reset").on("tap", function() {
+				$(".mui-content button").removeClass('mui-btn-blue');
+				obj = {};
+				console.log(JSON.stringify(obj))
+			});
+		</script>
+		<script>
+			mui.init({
+				swipeBack: true,
+				keyEventBind: {
+					backbutton: false,
+					menubutton: false
+				}
+			});
+			mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			});
+
+			var main = null;
+			mui.plusReady(function() {
+				main = plus.webview.currentWebview().opener();
+				vm.getDic(1)
+			});
+
+			function closeMenu() {
+				mui.fire(main, "menu:swiperight");
+
+			};
+
+			/*获取字典值ajax*/
+
+			/*获取字典值ajax结束*/
+			mui('nav').on('tap', '.yes', function() {
+				//			console.log(plus.webview.currentWebview().opener().id);//获取打开此页面的id
+				closeMenu();
+				mui.fire(main, "shuaxin", {
+					moreDic: obj
+				});
+			});
+			//左滑显示出来的菜单，只需监听右滑，然后将菜单关闭即可；在该菜单上左滑，不做任何操作；
+			window.addEventListener("swiperight", closeMenu);
+			/*执行清除筛选条件和字典值刷新*/
+			window.addEventListener("clear", function(e){
+				$(".mui-content button").removeClass('mui-btn-blue');
+				obj = {};
+//				console.log('获取客户等级传值'+e.detail.customerLevelIndex);
+				vm.getDic(e.detail.customerLevelIndex)
+				
+			});
+		</script>
+	</body>
+
+</html>

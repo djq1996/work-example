@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>添加带看</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/customers/takeLookAt.css"/>
+		<!--App自定义的css-->
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body class="mui-fullscreen">
+		<!--页面主结构开始-->
+		<div id="app" class="mui-views">
+			<div class="mui-view">
+				<div class="mui-navbar">
+				</div>
+				<div class="mui-pages">
+				</div>
+			</div>
+		</div>
+		<!--页面主结构结束-->
+		<div id="setting" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav mui-badge-light-blue">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+				<h1 class="mui-center mui-title">带看</h1>
+			</div>
+			<nav class="mui-bar mui-bar-tab">
+				<button type="button" class="mui-btn mui-badge-light-blue mui-btn-block" id="save">提交保存</button>
+			</nav>
+			<div class="mui-page-content">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="follow-up">
+							<form id="saveData">
+								<div class="mui-row">
+									<label>客户姓名：</label>
+									<span id="customerName">董建强</span>
+								</div>
+								<div class="mui-row">
+									<label>客户级别：</label>
+									<span id="customerLevel">A</span>
+								</div>
+								<div class="mui-row">
+									<a href="#selHouse">
+										<label>带看房源：</label>
+										<input readonly type="text" class="select-home" name="houseName" placeholder="选择房源">
+									</a>
+								</div>
+								<div class="mui-row urgent" >
+									<a href="#urgent">
+										<label>紧迫程度：</label>
+										<input readonly type="text" class="mui-input-clear" name="urgent" placeholder="">
+									</a>
+								</div>
+								<div class="mui-input-row">
+									<textarea name="remark" id="remark" rows="" cols="" placeholder="请填写带看详情"></textarea>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="selHouse" class="mui-page">
+			<div class="mui-navbar-inner mui-bar mui-bar-nav mui-badge-light-blue">
+				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</button>
+				<h1 class="mui-center mui-title">
+					<div class="mui-input-row mui-search">
+					    <input type="search" placeholder="请输入房源">
+					</div>
+				</h1>
+			</div>
+			<div class="mui-page-content">
+				<ul class="mui-table-view" id="companyHouse">
+				    <!--<li class="mui-table-view-cell">
+				    	<h2 class="name">锋尚名居</h2>
+				    	<p>1栋/2单元/302</p>
+				    </li>-->
+				</ul>
+			</div>
+		</div>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.view.js "></script>
+		<script src="../../js/common.js"></script>
+		<script>
+			/*将提交的数据参数*/
+			var AddCustomerFollw = {
+					PromotionType:1, 
+					AddPerID:localStorage.getItem('userId'),
+					Operator:localStorage.getItem('userName')
+				},
+				self=null;
+			var CompanySource = {
+				  "HasPicture": 0,
+				  "UseChannel": 0,
+				  "OrienTation": 0,
+				  "fitmentType": 0,
+				  "StageName": "",
+				  "HouseNo": "",
+				  "Perid": 38,
+				  "Order": 0,
+				  "Other": 0,
+				  "deptid": 0,
+				  "PageIndex": 1,
+				  "PageSize":100 ,
+//				  "SearchValue":
+			};
+			mui.init({
+				swipeBack: true, //启用右滑关闭功能
+				//				statusBarBackground: '#f7f7f7'
+			});
+			mui.plusReady(function () {
+			   self = plus.webview.currentWebview();
+			   AddCustomerFollw.BuyOrRent = self.BuyOrRent;
+			   AddCustomerFollw.CustomerId = self.CustomerId;
+			   $("#customerName").text(self.CustomerName);
+			   $("#customerLevel").text(self.Customerlevel); 
+			   console.log('传值'+self.CustomerId+self.CustomerName+self.Customerlevel)
+			});
+			$('#selHouse').on("tap",'.mui-table-view-cell',function(){
+				var _name=$(this).children('.name').text();
+				var _other=$(this).children('p').text();
+				var _other=$(this).children('p').text();
+				$("input[name=houseName]").val(_name+' '+_other);
+				AddCustomerFollw.HouseID = parseInt($(this).attr('data-id'));
+				setTimeout(function(){
+					viewApi.back();
+				},250);
+			});
+			mui.ajax(baseUrl + 'API_House/CompanySource', {
+				type:'post',
+				data:CompanySource,
+				success:function(data){
+					console.log(JSON.stringify(data.results));
+					if(data.succ){
+//						mui.toast(data.msg);
+						var _html = ''
+							i = 0;
+						for(i;i<data.results.length;i++){
+							_html += '<li class="mui-table-view-cell" data-id='+data.results[i].HouseId+'>'+
+								    	'<h2 class="name">'+data.results[i].Housename+'</h2>'+
+								    	'&nbsp;&nbsp;<p class="mui-pull-right">'+data.results[i].Builder+''+data.results[i].Unit+'/'+data.results[i].fang+'</p>'+
+								    '</li>'		
+						}
+						$("#companyHouse").html(_html);
+						/*提交*/
+						$('.mui-bar').on('tap','#save',function(){
+							$(this).attr({"disabled":"disabled"});
+							AddCustomerFollw.Remark = $("#remark").val();
+							console.log('带看字段'+JSON.stringify(AddCustomerFollw));
+							mui.ajax(baseUrl + 'API_Customer/AddCustomerFollw', {
+								type:'post',
+								data:AddCustomerFollw,
+								success:function(data){
+									$('#save').removeAttr("disabled");
+									if(data.succ){
+										mui.toast(data.msg);
+										
+										mui.fire(self.opener(),'shuaxin')
+										mui.back();
+									}else{
+										mui.toast(data.msg);
+									}
+								},error:function(type,a,b){
+									mui.toast('跟进'+type+b)
+								}
+							});
+						});
+						
+					}else{
+//						mui.toast(data.msg);
+					}
+				},error:function(){
+					mui.toast('公司房源列表')
+				}
+			});
+			
+		</script>
+		<script>
+			//初始化单页view
+			var viewApi = mui('#app').view({
+				defaultPage: '#setting'	
+			});
+		 
+			var view = viewApi.view;
+			(function($) {
+				//处理view的后退与webview后退
+				var oldBack = $.back;
+				$.back = function() {
+					if (viewApi.canBack()) { //如果view可以后退，则执行view的后退
+						viewApi.back();
+					} else { //执行webview后退
+						oldBack();
+					}
+				};
+				//监听页面切换事件方案1,通过view元素监听所有页面切换事件，目前提供pageBeforeShow|pageShow|pageBeforeBack|pageBack四种事件(before事件为动画开始前触发)
+				//第一个参数为事件名称，第二个参数为事件回调，其中e.detail.page为当前页面的html对象
+				view.addEventListener('pageBeforeShow', function(e) {
+					//				console.log(e.detail.page.id + ' beforeShow');
+				});
+				view.addEventListener('pageShow', function(e) {
+					//				console.log(e.detail.page.id + ' show');
+				});
+				view.addEventListener('pageBeforeBack', function(e) {
+					//				console.log(e.detail.page.id + ' beforeBack');
+				});
+				view.addEventListener('pageBack', function(e) {
+					//				console.log(e.detail.page.id + ' back');
+				});
+			})(mui);
+
+			
+		</script>
+	</body>
+
+</html>

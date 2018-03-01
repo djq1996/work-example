@@ -1,0 +1,82 @@
+.mui-content{
+	font-size: .65rem;
+	color: #777;
+}
+.mui-content h4{
+	font-size: .7rem;
+	font-weight: 600;
+}
+.statement { 
+	background: #fff;
+	font-size: .65rem;
+}
+.mui-scroll-wrapper{
+	top: 5.6rem;
+	padding-bottom: 60px;
+}
+.search_middle{
+padding: .3rem .4rem;
+position: relative;
+}
+.search_middle .mui-icon-search{
+	position: absolute;
+	top: .5rem;
+	right: .6rem;
+}
+.search_middle input[type=search]{
+	width: 90%;
+	background: #fff;
+	font-size: 14px;
+	border: 1px solid #ddd;
+	margin-bottom: 0;
+	height: 33px;
+}
+.page-tab{
+	display: none;
+}
+.page-tab-active{
+	display: block;
+}
+.menu{
+	position: relative;
+	width: 14%;
+}
+.menu a{
+	display: block;
+	position: relative;
+	width:100%;
+	min-height: 4rem;
+	color: #fff;
+	text-align: center;
+	padding: 1.2rem .2rem .5rem;
+	
+}
+.menu a:first-child{
+	padding-top: .6rem;
+}
+.menu a:not(:first-child){
+	margin-top: -.8rem;
+}
+.menu .mui-tag{
+	background: url(../../img/personalCenter/tag.png)g) no-repeat;
+	background-size: 100% 100%;
+}
+.menu .mui-tag-active{
+	background: url(../../img/personalCenter/tagactive.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.telHead{
+	width: 40px;
+    height: 40px;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.telHead img{
+	width: 100%;
+}
+.mui-media-body{
+	display: inline-block;
+}

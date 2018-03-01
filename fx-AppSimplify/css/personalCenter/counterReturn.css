@@ -1,0 +1,32 @@
+.mui-content {
+				font-size: .65rem;
+				color: #777;
+				background: #fff;
+			}
+			.mui-row{
+				line-height: 35px;
+				padding: 0 .4rem;
+				border-top: 1px solid;
+				border-color: rgba(200,200,200,.4);
+			}
+			.mui-row:last-child{
+				border-bottom: 1px solid ;
+				border-color: rgba(200,200,200,.4);
+			}
+			/*.mui-row{
+				position: absolute;
+			    right: 0;
+			    bottom: 0;
+			    left: 15px;
+			    height: 1px;
+			    content: '';
+			    -webkit-transform: scaleY(.5);
+			    transform: scaleY(.5);
+			    background-color: #c8c7cc;
+			}*/
+			.mui-row label{
+				color: #777;
+			}
+			.mui-row span{
+				color: #333;
+			}

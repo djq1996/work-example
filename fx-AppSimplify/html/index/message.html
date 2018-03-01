@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery-1.11.0.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/index/message.css"/>
+		<title>消息提醒</title>
+		<style>
+			.tabHead ul li{
+				position: relative;
+			}
+			.tabHead ul li i.redActive{
+				display: inline-block;
+				width: 5px;
+				height: 5px;
+				background: red;
+				position: absolute;
+				top: 15px;
+				border-radius: 50%;
+			}
+			#gj i.redActive{
+				right: 25px;
+			}
+			#jdzy i.redActive{
+				right:10px;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-badge-light-blue">
+			<span class="mui-icon mui-icon-left-nav mui-action-back" style="color:#fff;"></span>
+			<h1 class="mui-title rent-purchase"> 
+	      		消息提醒
+		   </h1>
+			<span class="mui-pull-right allRead">全部已读</span>
+		</header>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="tabHead">
+						<ul>
+							<li class="tabHead-active" id="dsp">待审批</li>
+							<li id="ysp">已审批</li>
+							<li id="gj">跟进<i></i></li>
+							<li id="jdzy">将掉资源<i></i></li>
+						</ul>
+					</div>
+					<div class="tabContent">
+						<ul class="mui-table-view">
+							
+						</ul>
+					</div>
+					<div class="noinfo">没有更多数据了</div>
+					<div class="noinfoImg"></div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
+<script src="../../js/common.js"></script>
+<script src="../../js/index/message.js"></script>
+<script>
+
+</script>

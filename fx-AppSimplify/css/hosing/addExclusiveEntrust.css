@@ -1,0 +1,77 @@
+header .mui-title{
+				color: #fff;
+			}
+			header .mui-icon{
+				color: #fff;
+			}
+			header #delete{
+				line-height: 44px;
+				color: #fff;
+			}
+			.mui-bar .mui-btn-block{
+				width:56%;
+				margin:0 auto;
+				border: none;
+			}
+			.upBox{
+			    background: #fff;
+			    padding: 0.5rem;
+			    font-size: 0;
+			    margin-bottom: 0.25rem;
+				border-radius: .3rem;
+			}
+			.upBtn{	
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 0.25rem;
+
+			}
+			.upBox h1{
+				margin:0;
+				display: inline-block;
+				font-size: .65rem;
+				font-weight: normal;
+				margin-right: .25rem;
+				vertical-align: middle;
+			}
+			.upBox .upBtn .add{
+				display: block;
+				width: 2.75rem;
+				height: 2.75rem;
+				background: url(../../img/hosing/add.png) no-repeat;
+				background-size: 100% 100%;
+			}
+			.upBox .imgBox{
+				display: inline-block;
+				vertical-align: middle;
+				font-size: 0;
+			}
+			.upBox .imgBox img{
+				width: 2.75rem;
+				height: 2.75rem;
+				display: inline-block;
+				vertical-align: bottom;
+				margin-right: 0.25rem;
+			}
+			.mui-table-view{
+    			border-radius: .3rem;
+			}
+			.mui-table-view:before,.mui-table-view:after{
+				background-color: transparent;
+			}
+			.mui-bar-nav ~ .mui-content{
+				padding-top: 65px;
+			}
+			.mui-table-view p{
+				display: inline-block;
+				font-size: .75rem;
+			}
+			.sub{
+				color: #fff;
+			}
+			#startTime input,#endTime input{
+			    display: inline-block;
+			    vertical-align: middle;
+			    border: 0;
+			    background: transparent;
+			}
